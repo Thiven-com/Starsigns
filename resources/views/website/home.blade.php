@@ -4,8 +4,8 @@
 
 
     <!--==============================
-                                                                                                                                    HERO SLIDER
-                                                                                                                            ================================-->
+                                                                                                                                                    HERO SLIDER
+                                                                                                                                            ================================-->
 
     <section class="hero-slider">
 
@@ -30,8 +30,8 @@
 
                 <!-- Banner 4 -->
                 <!-- <div class="swiper-slide">
-                        <img src="{{ asset('website/images/banner6.png') }}" alt="Banner 4">
-                    </div> -->
+                                        <img src="{{ asset('website/images/banner6.png') }}" alt="Banner 4">
+                                    </div> -->
 
             </div>
 
@@ -120,8 +120,8 @@
 
 
         <!--=========================================
-                                                                                                                    SHOP CATEGORY SECTION
-                                                                                                            ==========================================-->
+                            SHOP CATEGORY SECTION
+                    ==========================================-->
 
         <section class="ssc-category-section">
 
@@ -304,13 +304,13 @@
 
                     <!-- Navigation -->
 
-                    <div class="ssc-next">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
+                    <!-- <div class="pc-prev">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
 
-                    <div class="ssc-prev">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </div>
+                        <div class="pc-next">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div> -->
 
                 </div>
 
@@ -323,361 +323,495 @@
 
 
         <!--=========================================
-                                                                                            FEATURED PRODUCTS
-                                                                                    ==========================================-->
+                        FEATURED PRODUCTS
+           ==========================================-->
 
-        <section class="fp-section">
+        <!-- <section class="fp-section">
+
+                            <div class="container">
+
+                                <div class="fp-header">
+
+                                    <div class="fp-title">
+
+                                        <span class="fp-subtitle">Premium Collection</span>
+
+                                        <h2>Featured Products</h2>
+
+                                    </div>
+
+                                    <a href="#" class="fp-view-btn">
+                                        View All
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+
+                                </div>
+
+                                <div class="fp-grid"> -->
+
+        <!-- PRODUCT 1 -->
+
+        <!-- <div class="fp-card" data-aos="fade-up">
+
+                                        <span class="fp-badge sale">Sale</span>
+
+                                        <button class="fp-heart">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="fp-image">
+
+                                            <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
+
+                                        </div>
+
+                                        <div class="fp-content">
+
+                                            <div class="fp-rating">
+
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star-half-stroke"></i>
+
+                                                <span>(124)</span>
+
+                                            </div>
+
+                                            <h3>
+                                                7 Mukhi Rudraksha
+                                            </h3>
+
+                                            <div class="fp-price">
+
+                                                <span class="new">₹1,499</span>
+
+                                                <span class="old">₹1,999</span>
+
+                                            </div>
+
+                                            <a href="#" class="fp-cart-btn">
+
+                                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                                Add to Cart
+
+                                            </a>
+
+                                        </div>
+
+                                    </div> -->
+
+        <!-- PRODUCT 2 -->
+
+        <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="100">
+
+                                        <span class="fp-badge best">
+                                            Best Seller
+                                        </span>
+
+                                        <button class="fp-heart">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="fp-image">
+
+                                            <img src="{{ asset('website') }}/images/bracelet.png" alt="">
+
+                                        </div>
+
+                                        <div class="fp-content">
+
+                                            <div class="fp-rating">
+
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+
+                                                <span>(95)</span>
+
+                                            </div>
+
+                                            <h3>
+
+                                                Natural Pyrite Tree
+
+                                            </h3>
+
+                                            <div class="fp-price">
+
+                                                <span class="new">₹2,299</span>
+
+                                                <span class="old">₹2,899</span>
+
+                                            </div>
+
+                                            <a href="#" class="fp-cart-btn">
+
+                                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                                Add to Cart
+
+                                            </a>
+
+                                        </div>
+
+                                    </div> -->
+
+        <!-- PRODUCT 3 -->
+
+        <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="200">
+
+                                        <span class="fp-badge sale">
+                                            Sale
+                                        </span>
+
+                                        <button class="fp-heart">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="fp-image">
+
+                                            <img src="{{ asset('website') }}/images/bracevio.png" alt="">
+
+                                        </div>
+
+                                        <div class="fp-content">
+
+                                            <div class="fp-rating">
+
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+
+                                                <span>(64)</span>
+
+                                            </div>
+
+                                            <h3>
+
+                                                Crystal Healing Bracelet
+
+                                            </h3>
+
+                                            <div class="fp-price">
+
+                                                <span class="new">₹899</span>
+
+                                                <span class="old">₹1,299</span>
+
+                                            </div>
+
+                                            <a href="#" class="fp-cart-btn">
+
+                                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                                Add to Cart
+
+                                            </a>
+
+                                        </div>
+
+                                    </div> -->
+
+
+        <!-- PRODUCT 4 -->
+
+        <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="300">
+
+                                        <span class="fp-badge best">Best Seller</span>
+
+                                        <button class="fp-heart">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="fp-image">
+
+                                            <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="Karungali Bracelet">
+
+                                        </div>
+
+                                        <div class="fp-content">
+
+                                            <div class="fp-rating">
+
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+
+                                                <span>(152)</span>
+
+                                            </div>
+
+                                            <h3>Karungali Bracelet</h3>
+
+                                            <div class="fp-price">
+
+                                                <span class="new">₹799</span>
+
+                                                <span class="old">₹999</span>
+
+                                            </div>
+
+                                            <a href="#" class="fp-cart-btn">
+
+                                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                                Add to Cart
+
+                                            </a>
+
+                                        </div>
+
+                                    </div> -->
+
+        <!-- PRODUCT 5 -->
+
+        <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="400">
+
+                                        <span class="fp-badge sale">20% OFF</span>
+
+                                        <button class="fp-heart">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="fp-image">
+
+                                            <img src="{{ asset('website/img/product5.png') }}" alt="Shree Yantra">
+
+                                        </div>
+
+                                        <div class="fp-content">
+
+                                            <div class="fp-rating">
+
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star-half-stroke"></i>
+
+                                                <span>(86)</span>
+
+                                            </div>
+
+                                            <h3>Shree Yantra</h3>
+
+                                            <div class="fp-price">
+
+                                                <span class="new">₹1,599</span>
+
+                                                <span class="old">₹1,999</span>
+
+                                            </div>
+
+                                            <a href="#" class="fp-cart-btn">
+
+                                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                                Add to Cart
+
+                                            </a>
+
+                                        </div>
+
+                                    </div> -->
+
+        <!-- PRODUCT 6 -->
+
+        <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="500">
+
+                                        <span class="fp-badge sale">New</span>
+
+                                        <button class="fp-heart">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </button>
+
+                                        <div class="fp-image">
+
+                                            <img src="{{ asset('website/img/product6.png') }}" alt="Natural Gemstone">
+
+                                        </div>
+
+                                        <div class="fp-content">
+
+                                            <div class="fp-rating">
+
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+
+                                                <span>(48)</span>
+
+                                            </div>
+
+                                            <h3>Natural Gemstone</h3>
+
+                                            <div class="fp-price">
+
+                                                <span class="new">₹2,499</span>
+
+                                                <span class="old">₹2,999</span>
+
+                                            </div>
+
+                                            <a href="#" class="fp-cart-btn">
+
+                                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                                Add to Cart
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+                        </section> -->
+
+
+
+        <!--==========================================
+                        FEATURED PRODUCTS SECTION
+                    ===========================================-->
+
+        <section class="featured-products-section">
 
             <div class="container">
 
-                <div class="fp-header">
+                <!--=========================
+                                TITLE ROW
+                            ==========================-->
 
-                    <div class="fp-title">
+                <div class="featured-products-title-row">
 
-                        <span class="fp-subtitle">Premium Collection</span>
+                    <div class="featured-products-title-wrap">
+
+                        <span class="featured-products-title-arrow">
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </span>
 
                         <h2>Featured Products</h2>
 
+                        <span class="featured-products-title-arrow featured-products-title-arrow-left">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                        </span>
+
                     </div>
 
-                    <a href="#" class="fp-view-btn">
-                        View All
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <a href="/shop" class="featured-products-viewall-btn">View All</a>
 
                 </div>
 
-                <div class="fp-grid">
+                <!--=========================
+                                PRODUCTS GRID
+                            ==========================-->
 
-                    <!-- PRODUCT 1 -->
+                <div class="featured-products-grid" id="featuredProductsGrid">
 
-                    <div class="fp-card" data-aos="fade-up">
+                    @php
+                        $featuredProducts = [
+                            ['id' => 1, 'name' => '7 Mukhi Rudraksha Mala', 'rating' => 4.5, 'reviews' => 103, 'price' => 1999, 'old' => 2499, 'off' => '20% OFF', 'badge' => 'Best Seller', 'badge_type' => 'best', 'img' => '7rudramala.png'],
+                            ['id' => 2, 'name' => 'Citrine Bracelet', 'rating' => 4.5, 'reviews' => 87, 'price' => 2499, 'old' => 3199, 'off' => '21% OFF', 'badge' => 'Sale', 'badge_type' => 'sale', 'img' => 'bracelet.png'],
+                            ['id' => 3, 'name' => 'Amethyst Bracelet', 'rating' => 4.5, 'reviews' => 64, 'price' => 1499, 'old' => 1999, 'off' => '25% OFF', 'badge' => 'Sale', 'badge_type' => 'sale', 'img' => 'bracevio.png'],
+                            ['id' => 4, 'name' => 'Laxmi Yantra', 'rating' => 4.5, 'reviews' => 45, 'price' => 999, 'old' => 1199, 'off' => '17% OFF', 'badge' => null, 'badge_type' => null, 'img' => 'laxmiyantra.png'],
+                            ['id' => 5, 'name' => 'Tiger Eye Pendant', 'rating' => 4.5, 'reviews' => 46, 'price' => 1299, 'old' => 1699, 'off' => '24% OFF', 'badge' => null, 'badge_type' => null, 'img' => 'zodiac.png'],
+                            ['id' => 6, 'name' => 'Rose Quartz Bracelet', 'rating' => 4.5, 'reviews' => 50, 'price' => 1299, 'old' => 1799, 'off' => '28% OFF', 'badge' => null, 'badge_type' => null, 'img' => 'pink.png'],
+                        ];
+                    @endphp
 
-                        <span class="fp-badge sale">Sale</span>
+                    @foreach($featuredProducts as $product)
+                        <div class="featured-products-card" data-id="{{ $product['id'] }}">
 
-                        <button class="fp-heart">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
+                            <div class="featured-products-card-img">
 
-                        <div class="fp-image">
+                                @if($product['badge'])
+                                    <span
+                                        class="featured-products-badge featured-products-badge-{{ $product['badge_type'] }}">{{ $product['badge'] }}</span>
+                                @endif
 
-                            <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
+                                <button type="button" class="featured-products-wish-btn" title="Add to wishlist"
+                                    data-id="{{ $product['id'] }}">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
 
-                        </div>
-
-                        <div class="fp-content">
-
-                            <div class="fp-rating">
-
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-
-                                <span>(124)</span>
-
-                            </div>
-
-                            <h3>
-                                7 Mukhi Rudraksha
-                            </h3>
-
-                            <div class="fp-price">
-
-                                <span class="new">₹1,499</span>
-
-                                <span class="old">₹1,999</span>
+                                <a href="/product/{{ $product['id'] }}" class="featured-products-img-link">
+                                    <img src="{{ asset('website/images/' . $product['img']) }}" alt="{{ $product['name'] }}">
+                                </a>
 
                             </div>
 
-                            <a href="#" class="fp-cart-btn">
+                            <div class="featured-products-card-body">
 
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <a href="/product/{{ $product['id'] }}"
+                                    class="featured-products-name">{{ $product['name'] }}</a>
 
-                                Add to Cart
+                                <div class="featured-products-rating">
 
-                            </a>
+                                    <span class="featured-products-stars">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <= floor($product['rating']))
+                                                <i class="fa-solid fa-star"></i>
+                                            @elseif($i - $product['rating'] < 1)
+                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                            @else
+                                                <i class="fa-regular fa-star"></i>
+                                            @endif
+                                        @endfor
+                                    </span>
 
-                        </div>
+                                    <span class="featured-products-review-count">({{ $product['reviews'] }})</span>
 
-                    </div>
+                                </div>
 
-                    <!-- PRODUCT 2 -->
+                                <div class="featured-products-price">
 
-                    <div class="fp-card" data-aos="fade-up" data-aos-delay="100">
+                                    <span class="now">₹{{ number_format($product['price']) }}</span>
+                                    <span class="old">₹{{ number_format($product['old']) }}</span>
+                                    <span class="off">({{ $product['off'] }})</span>
 
-                        <span class="fp-badge best">
-                            Best Seller
-                        </span>
+                                </div>
 
-                        <button class="fp-heart">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
+                                <div class="featured-products-actions">
 
-                        <div class="fp-image">
+                                    <button type="button" class="featured-products-cart-btn" data-id="{{ $product['id'] }}"
+                                        data-name="{{ $product['name'] }}" data-price="{{ $product['price'] }}">
+                                        Add to Cart
+                                    </button>
 
-                            <img src="{{ asset('website') }}/images/bracelet.png" alt="">
+                                    <button type="button" class="featured-products-cart-icon-btn" title="Quick add"
+                                        data-id="{{ $product['id'] }}">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </button>
 
-                        </div>
-
-                        <div class="fp-content">
-
-                            <div class="fp-rating">
-
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-
-                                <span>(95)</span>
-
-                            </div>
-
-                            <h3>
-
-                                Natural Pyrite Tree
-
-                            </h3>
-
-                            <div class="fp-price">
-
-                                <span class="new">₹2,299</span>
-
-                                <span class="old">₹2,899</span>
+                                </div>
 
                             </div>
 
-                            <a href="#" class="fp-cart-btn">
-
-                                <i class="fa-solid fa-cart-shopping"></i>
-
-                                Add to Cart
-
-                            </a>
-
                         </div>
+                    @endforeach
 
-                    </div>
+                </div>
 
-                    <!-- PRODUCT 3 -->
-
-                    <div class="fp-card" data-aos="fade-up" data-aos-delay="200">
-
-                        <span class="fp-badge sale">
-                            Sale
-                        </span>
-
-                        <button class="fp-heart">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-
-                        <div class="fp-image">
-
-                            <img src="{{ asset('website') }}/images/bracevio.png" alt="">
-
-                        </div>
-
-                        <div class="fp-content">
-
-                            <div class="fp-rating">
-
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-
-                                <span>(64)</span>
-
-                            </div>
-
-                            <h3>
-
-                                Crystal Healing Bracelet
-
-                            </h3>
-
-                            <div class="fp-price">
-
-                                <span class="new">₹899</span>
-
-                                <span class="old">₹1,299</span>
-
-                            </div>
-
-                            <a href="#" class="fp-cart-btn">
-
-                                <i class="fa-solid fa-cart-shopping"></i>
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- PRODUCT 4 -->
-
-                    <div class="fp-card" data-aos="fade-up" data-aos-delay="300">
-
-                        <span class="fp-badge best">Best Seller</span>
-
-                        <button class="fp-heart">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-
-                        <div class="fp-image">
-
-                            <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="Karungali Bracelet">
-
-                        </div>
-
-                        <div class="fp-content">
-
-                            <div class="fp-rating">
-
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-
-                                <span>(152)</span>
-
-                            </div>
-
-                            <h3>Karungali Bracelet</h3>
-
-                            <div class="fp-price">
-
-                                <span class="new">₹799</span>
-
-                                <span class="old">₹999</span>
-
-                            </div>
-
-                            <a href="#" class="fp-cart-btn">
-
-                                <i class="fa-solid fa-cart-shopping"></i>
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <!-- PRODUCT 5 -->
-
-                    <div class="fp-card" data-aos="fade-up" data-aos-delay="400">
-
-                        <span class="fp-badge sale">20% OFF</span>
-
-                        <button class="fp-heart">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-
-                        <div class="fp-image">
-
-                            <img src="{{ asset('website/img/product5.png') }}" alt="Shree Yantra">
-
-                        </div>
-
-                        <div class="fp-content">
-
-                            <div class="fp-rating">
-
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-
-                                <span>(86)</span>
-
-                            </div>
-
-                            <h3>Shree Yantra</h3>
-
-                            <div class="fp-price">
-
-                                <span class="new">₹1,599</span>
-
-                                <span class="old">₹1,999</span>
-
-                            </div>
-
-                            <a href="#" class="fp-cart-btn">
-
-                                <i class="fa-solid fa-cart-shopping"></i>
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <!-- PRODUCT 6 -->
-
-                    <div class="fp-card" data-aos="fade-up" data-aos-delay="500">
-
-                        <span class="fp-badge sale">New</span>
-
-                        <button class="fp-heart">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-
-                        <div class="fp-image">
-
-                            <img src="{{ asset('website/img/product6.png') }}" alt="Natural Gemstone">
-
-                        </div>
-
-                        <div class="fp-content">
-
-                            <div class="fp-rating">
-
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-
-                                <span>(48)</span>
-
-                            </div>
-
-                            <h3>Natural Gemstone</h3>
-
-                            <div class="fp-price">
-
-                                <span class="new">₹2,499</span>
-
-                                <span class="old">₹2,999</span>
-
-                            </div>
-
-                            <a href="#" class="fp-cart-btn">
-
-                                <i class="fa-solid fa-cart-shopping"></i>
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
+                <!-- Toast notification -->
+                <div class="featured-products-toast" id="featuredProductsToast">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span id="featuredProductsToastText">Added to cart!</span>
                 </div>
 
             </div>
@@ -702,7 +836,7 @@
 
                 <!-- Card 3 -->
                 <a href="#" class="promo-card">
-                    <img src="{{ asset('website/images/card3.png') }}" alt="Yantra Collection">
+                    <img src="{{ asset('website/images/card1.png') }}" alt="Yantra Collection">
                 </a>
 
             </div>
@@ -712,8 +846,8 @@
 
 
         <!--=========================
-                                                                WHY CHOOSE SECTION
-                                                                ==========================-->
+                                                                                WHY CHOOSE SECTION
+                                                                                ==========================-->
 
         <section class="ss-why-section">
 
@@ -817,10 +951,10 @@
         </section>
 
         <!--=========================
-                                    POPULAR CATEGORIES
-                                    ==========================-->
+            POPULAR CATEGORIES
+        ==========================-->
 
-        <section class="popular-category-section">
+        <!-- <section class="popular-category-section">
 
             <div class="container">
 
@@ -925,11 +1059,11 @@
             </div>
 
         </section>
-
+ -->
 
         <!--=========================
-                LATEST BLOG SECTION
-                ==========================-->
+                                LATEST BLOG SECTION
+                                ==========================-->
 
         <section class="blog-section">
 
@@ -961,7 +1095,7 @@
 
                         <div class="blog-image">
 
-                            <img src="{{ asset('website/images/blog1.jpg') }}" alt="">
+                            <img src="{{ asset('website') }}/images/gemstone.png" alt="">
 
                         </div>
 
@@ -992,7 +1126,7 @@
 
                         <div class="blog-image">
 
-                            <img src="{{ asset('website/images/blog2.jpg') }}" alt="">
+                            <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
 
                         </div>
 
@@ -1023,7 +1157,7 @@
 
                         <div class="blog-image">
 
-                            <img src="{{ asset('website/images/blog3.jpg') }}" alt="">
+                            <img src="{{ asset('website') }}/images/bracelet.png" alt="">
 
                         </div>
 
@@ -1054,7 +1188,7 @@
 
                         <div class="blog-image">
 
-                            <img src="{{ asset('website/images/blog4.jpg') }}" alt="">
+                            <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="">
 
                         </div>
 
@@ -1087,8 +1221,8 @@
 
 
         <!--==========================================
-                    TESTIMONIAL SECTION
-            ===========================================-->
+                                    TESTIMONIAL SECTION
+                            ===========================================-->
 
         <section class="testimonial-section">
 
@@ -1329,7 +1463,7 @@
 
                 loop: true,
 
-                speed: 900,
+                speed: 3000,
 
                 spaceBetween: 0,
 
@@ -1370,92 +1504,92 @@
 
         <!-- <script>
 
-                                                                                                        document.addEventListener("DOMContentLoaded", function () {
+                                                                                                                        document.addEventListener("DOMContentLoaded", function () {
 
-                                                                                                            const categorySlider = new Swiper(".sscCategorySlider", {
+                                                                                                                            const categorySlider = new Swiper(".sscCategorySlider", {
 
-                                                                                                                slidesPerView: 8,
-                                                                                                                spaceBetween: 20,
-                                                                                                                loop: true,
-                                                                                                                speed: 800,
+                                                                                                                                slidesPerView: 8,
+                                                                                                                                spaceBetween: 20,
+                                                                                                                                loop: true,
+                                                                                                                                speed: 800,
 
-                                                                                                                autoplay: {
-                                                                                                                    delay: 2500,
-                                                                                                                    disableOnInteraction: false,
-                                                                                                                    pauseOnMouseEnter: true,
-                                                                                                                },
+                                                                                                                                autoplay: {
+                                                                                                                                    delay: 2500,
+                                                                                                                                    disableOnInteraction: false,
+                                                                                                                                    pauseOnMouseEnter: true,
+                                                                                                                                },
 
-                                                                                                                navigation: {
-                                                                                                                    nextEl: ".ssc-next",
-                                                                                                                    prevEl: ".ssc-prev",
-                                                                                                                },
+                                                                                                                                navigation: {
+                                                                                                                                    nextEl: ".ssc-next",
+                                                                                                                                    prevEl: ".ssc-prev",
+                                                                                                                                },
 
-                                                                                                                breakpoints: {
+                                                                                                                                breakpoints: {
 
-                                                                                                                    320: {
-                                                                                                                        slidesPerView: 2,
-                                                                                                                        spaceBetween: 10,
-                                                                                                                    },
+                                                                                                                                    320: {
+                                                                                                                                        slidesPerView: 2,
+                                                                                                                                        spaceBetween: 10,
+                                                                                                                                    },
 
-                                                                                                                    576: {
-                                                                                                                        slidesPerView: 3,
-                                                                                                                        spaceBetween: 15,
-                                                                                                                    },
+                                                                                                                                    576: {
+                                                                                                                                        slidesPerView: 3,
+                                                                                                                                        spaceBetween: 15,
+                                                                                                                                    },
 
-                                                                                                                    768: {
-                                                                                                                        slidesPerView: 4,
-                                                                                                                        spaceBetween: 15,
-                                                                                                                    },
+                                                                                                                                    768: {
+                                                                                                                                        slidesPerView: 4,
+                                                                                                                                        spaceBetween: 15,
+                                                                                                                                    },
 
-                                                                                                                    992: {
-                                                                                                                        slidesPerView: 6,
-                                                                                                                        spaceBetween: 18,
-                                                                                                                    },
+                                                                                                                                    992: {
+                                                                                                                                        slidesPerView: 6,
+                                                                                                                                        spaceBetween: 18,
+                                                                                                                                    },
 
-                                                                                                                    1200: {
-                                                                                                                        slidesPerView: 8,
-                                                                                                                        spaceBetween: 20,
-                                                                                                                    }
+                                                                                                                                    1200: {
+                                                                                                                                        slidesPerView: 8,
+                                                                                                                                        spaceBetween: 20,
+                                                                                                                                    }
 
-                                                                                                                }
+                                                                                                                                }
 
-                                                                                                            });
+                                                                                                                            });
 
-                                                                                                        });
+                                                                                                                        });
 
-                                                                                                    </script> -->
+                                                                                                                    </script> -->
 
 
         <!-- 
-                                                                                                <script>
-                                                                                                    document.addEventListener("DOMContentLoaded", function () {
+                                                                                                                <script>
+                                                                                                                    document.addEventListener("DOMContentLoaded", function () {
 
-                                                                                                        new Swiper(".sscCategorySlider", {
+                                                                                                                        new Swiper(".sscCategorySlider", {
 
-                                                                                                            slidesPerView: "auto",
-                                                                                                            spaceBetween: 20,
+                                                                                                                            slidesPerView: "auto",
+                                                                                                                            spaceBetween: 20,
 
-                                                                                                            loop: true,
-                                                                                                            speed: 1000,
+                                                                                                                            loop: true,
+                                                                                                                            speed: 1000,
 
-                                                                                                            freeMode: true,
-                                                                                                            freeModeMomentum: false,
+                                                                                                                            freeMode: true,
+                                                                                                                            freeModeMomentum: false,
 
-                                                                                                            autoplay: {
-                                                                                                                delay: 0,
-                                                                                                                disableOnInteraction: false,
-                                                                                                                pauseOnMouseEnter: true,
-                                                                                                            },
+                                                                                                                            autoplay: {
+                                                                                                                                delay: 0,
+                                                                                                                                disableOnInteraction: false,
+                                                                                                                                pauseOnMouseEnter: true,
+                                                                                                                            },
 
-                                                                                                            navigation: {
-                                                                                                                nextEl: ".ssc-next",
-                                                                                                                prevEl: ".ssc-prev",
-                                                                                                            },
+                                                                                                                            navigation: {
+                                                                                                                                nextEl: ".ssc-next",
+                                                                                                                                prevEl: ".ssc-prev",
+                                                                                                                            },
 
-                                                                                                        });
+                                                                                                                        });
 
-                                                                                                    });
-                                                                                                </script> -->
+                                                                                                                    });
+                                                                                                                </script> -->
 
 
         <script>
@@ -1466,7 +1600,7 @@
                 spaceBetween: 20,
 
                 loop: true,
-                speed: 5000,
+                speed: 6000,
 
                 allowTouchMove: true,
 
@@ -1620,6 +1754,134 @@
 
             });
         </script>
+
+
+
+        <script>
+            (function () {
+
+                const grid = document.getElementById("featuredProductsGrid");
+                const toast = document.getElementById("featuredProductsToast");
+                const toastText = document.getElementById("featuredProductsToastText");
+
+                let toastTimer = null;
+
+                function showToast(message) {
+                    toastText.textContent = message;
+                    toast.classList.add("show");
+
+                    clearTimeout(toastTimer);
+                    toastTimer = setTimeout(() => {
+                        toast.classList.remove("show");
+                    }, 2000);
+                }
+
+                function updateHeaderCartCount(delta) {
+                    const cartCountEl = document.querySelector("#headerCartCount, .cart-count, [data-cart-count]");
+                    if (!cartCountEl) return;
+                    const current = parseInt(cartCountEl.textContent.replace(/\D/g, "")) || 0;
+                    cartCountEl.textContent = current + delta;
+                }
+
+                function updateHeaderWishlistCount(delta) {
+                    const wishCountEl = document.querySelector("#headerWishlistCount, .wishlist-count, [data-wishlist-count]");
+                    if (!wishCountEl) return;
+                    const current = parseInt(wishCountEl.textContent.replace(/\D/g, "")) || 0;
+                    wishCountEl.textContent = Math.max(0, current + delta);
+                }
+
+                grid.addEventListener("click", function (e) {
+
+                    const card = e.target.closest(".featured-products-card");
+                    if (!card) return;
+
+                    /* -----------------------------------
+                       Wishlist heart toggle
+                    ----------------------------------- */
+                    const wishBtn = e.target.closest(".featured-products-wish-btn");
+                    if (wishBtn) {
+
+                        const icon = wishBtn.querySelector("i");
+                        const isActive = wishBtn.classList.toggle("active");
+
+                        icon.classList.toggle("fa-regular", !isActive);
+                        icon.classList.toggle("fa-solid", isActive);
+
+                        const productName = card.querySelector(".featured-products-name").textContent.trim();
+
+                        if (isActive) {
+                            showToast(productName + " added to wishlist!");
+                            updateHeaderWishlistCount(1);
+                        } else {
+                            showToast(productName + " removed from wishlist.");
+                            updateHeaderWishlistCount(-1);
+                        }
+
+                        // TODO: replace with real AJAX call to your wishlist endpoint
+                        // fetch('/wishlist/toggle', { method: 'POST', body: JSON.stringify({ id: wishBtn.dataset.id }) })
+
+                        return;
+                    }
+
+                    /* -----------------------------------
+                       Add to Cart (text button)
+                    ----------------------------------- */
+                    const cartBtn = e.target.closest(".featured-products-cart-btn");
+                    if (cartBtn) {
+
+                        const originalText = cartBtn.textContent;
+                        const productName = cartBtn.dataset.name;
+
+                        cartBtn.disabled = true;
+                        cartBtn.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+                        cartBtn.classList.add("added");
+
+                        showToast(productName + " added to cart!");
+                        updateHeaderCartCount(1);
+
+                        // TODO: replace with real AJAX call to your cart endpoint
+                        // fetch('/cart/add', { method: 'POST', body: JSON.stringify({ id: cartBtn.dataset.id, price: cartBtn.dataset.price }) })
+
+                        setTimeout(() => {
+                            cartBtn.disabled = false;
+                            cartBtn.textContent = originalText;
+                            cartBtn.classList.remove("added");
+                        }, 1400);
+
+                        return;
+                    }
+
+                    /* -----------------------------------
+                       Add to Cart (icon-only button)
+                    ----------------------------------- */
+                    const cartIconBtn = e.target.closest(".featured-products-cart-icon-btn");
+                    if (cartIconBtn) {
+
+                        const icon = cartIconBtn.querySelector("i");
+                        const productName = card.querySelector(".featured-products-name").textContent.trim();
+
+                        icon.classList.remove("fa-cart-shopping");
+                        icon.classList.add("fa-check");
+                        cartIconBtn.classList.add("added");
+
+                        showToast(productName + " added to cart!");
+                        updateHeaderCartCount(1);
+
+                        setTimeout(() => {
+                            icon.classList.remove("fa-check");
+                            icon.classList.add("fa-cart-shopping");
+                            cartIconBtn.classList.remove("added");
+                        }, 1400);
+
+                        return;
+                    }
+
+                });
+
+            })();
+        </script>
+
+
 
     </section>
 @endsection

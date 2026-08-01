@@ -22,20 +22,75 @@ class PageController extends Controller
     }
 
 
-       public function consultation()
-    {
-        return view('website.consultation');
-    }
-
-
-    
+     
        public function blog()
     {
         return view('website.blog');
     }
 
-        public function offers()
+
+
+     
+       public function product()
     {
-        return view('website.offers');
+        return view('website.product');
     }
+
+       public function cart()
+    {
+        return view('website.cart');
+    }
+
+        public function checkout()
+    {
+        return view('website.checkout');
+    }
+
+    
+        public function wishlist()
+    {
+        return view('website.wishlist');
+    }
+
+
+         public function orders()
+    {
+        return view('website.orders');
+    }
+
+       public function contact()
+    {
+        return view('website.contact');
+    }
+
+
+
+      public function myaccount()
+    {
+        return view('website.myaccount');
+    }
+
+
+       public function login()
+    {
+        return view('website.login');
+    }
+
+
+
+       public function register()
+    {
+        return view('website.register');
+    }
+    //    public function consultation()
+    // {
+    //     return view('website.consultation');
+    // }
+
+
+   
+    //     public function offers()
+    // {
+    //     return view('website.offers');
+    // }
 }

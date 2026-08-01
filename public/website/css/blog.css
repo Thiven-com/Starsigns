@@ -164,13 +164,7 @@ BLOG PAGE
 
 .blogs-wrapper {
 
-    display: grid;
-
-    grid-template-columns: 2fr 1fr;
-
-    gap: 45px;
-
-    align-items: start;
+    width: 100%;
 
 }
 
@@ -198,9 +192,10 @@ BLOG PAGE
 
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
-    gap: 32px;
+    gap: 30px;
+    margin: 30px;
 
 }
 
@@ -296,37 +291,31 @@ Animations
 
 }
 
-/*==========================
+/*==========================================
 Responsive
-==========================*/
+==========================================*/
 
 @media(max-width:1200px) {
 
-    .blogs-wrapper {
+    .blogs-grid {
 
-        grid-template-columns: 1.8fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 24px;
 
     }
 
 }
 
-@media(max-width:991px) {
+@media(max-width:992px) {
 
-    .blogs-wrapper {
+    .blogs-grid {
 
-        grid-template-columns: 1fr;
-
-    }
-
-    .blogs-sidebar {
-
-        position: relative;
-
-        top: 0;
-
-        margin-top: 50px;
+        grid-template-columns: repeat(2, 1fr);
 
     }
+
+    
 
     .blogs-grid {
 
@@ -341,8 +330,6 @@ Responsive
     .blogs-grid {
 
         grid-template-columns: 1fr;
-
-        gap: 24px;
 
     }
 
@@ -421,7 +408,7 @@ BLOG CARD
 
     overflow: hidden;
 
-    height: 230px;
+    /* height: 200px; */
 
 }
 
@@ -473,9 +460,9 @@ BLOG CARD
 
 .blogs-card h3 {
 
-    font-size: 30px;
+    font-size: 22px;
 
-    line-height: 1.4;
+    line-height: 1.5;
 
     margin-bottom: 18px;
 

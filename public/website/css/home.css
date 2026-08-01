@@ -635,7 +635,7 @@ RESPONSIVE
         FEATURED PRODUCTS SECTION
 ==========================================*/
 
-.fp-section {
+/* .fp-section {
     padding: 90px 0;
     background: #f8f9fc;
     position: relative;
@@ -669,13 +669,13 @@ RESPONSIVE
     margin: auto;
     position: relative;
     z-index: 2;
-}
+} */
 
 /*==========================================
         HEADER
 ==========================================*/
 
-.fp-header {
+/* .fp-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -727,23 +727,23 @@ RESPONSIVE
 
 .fp-view-btn:hover i {
     transform: translateX(5px);
-}
+} */
 
 /*==========================================
         PRODUCT GRID
 ==========================================*/
 
-.fp-grid {
+/* .fp-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 18px;
-}
+} */
 
 /*==========================================
         PRODUCT CARD
 ==========================================*/
 
-.fp-card {
+/* .fp-card {
     background: #fff;
     border: 1px solid #ececec;
     border-radius: 14px;
@@ -760,13 +760,13 @@ RESPONSIVE
 .fp-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 45px rgba(0, 0, 0, .15);
-}
+} */
 
 /*==========================================
         BADGES
 ==========================================*/
 
-.fp-badge {
+/* .fp-badge {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -784,13 +784,13 @@ RESPONSIVE
 .fp-badge.best {
     background: #f7b500;
     color: #222;
-}
+} */
 
 /*==========================================
         WISHLIST BUTTON
 ==========================================*/
 
-.fp-heart {
+/* .fp-heart {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -815,7 +815,7 @@ RESPONSIVE
 
 .fp-heart:hover i {
     color: #fff;
-}
+} */
 
 /*==========================================
         PRODUCT IMAGE
@@ -845,7 +845,7 @@ RESPONSIVE
         PRODUCT IMAGE
 ==========================================*/
 
-.fp-image {
+/* .fp-image {
     position: relative;
     height: 190px;
     display: flex;
@@ -868,12 +868,12 @@ RESPONSIVE
 
 .fp-card:hover .fp-image img {
     transform: scale(1.08);
-}
+} */
 
 /*==========================================
         CONTENT
 ==========================================*/
-.fp-content {
+/* .fp-content {
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -893,7 +893,7 @@ RESPONSIVE
 
 .fp-card:hover h3 {
     color: #c7961b;
-}
+} */
 
 
 
@@ -901,7 +901,7 @@ RESPONSIVE
         STAR RATING
 ==========================================*/
 
-.fp-rating {
+/* .fp-rating {
     display: flex;
     align-items: center;
     gap: 3px;
@@ -917,13 +917,13 @@ RESPONSIVE
 .fp-rating span {
     color: #777;
     margin-left: 5px;
-}
+} */
 
 /*==========================================
         PRICE
 ==========================================*/
 
-.fp-price {
+/* .fp-price {
     margin: 12px 0 18px;
 }
 
@@ -945,13 +945,13 @@ RESPONSIVE
     font-size: 14px;
     font-weight: 600;
     margin-left: 6px;
-}
+} */
 
 /*==========================================
         ADD TO CART BUTTON
 ==========================================*/
 
-.fp-cart-btn {
+/* .fp-cart-btn {
     margin-top: auto;
     display: flex;
     align-items: center;
@@ -984,13 +984,13 @@ RESPONSIVE
 
     transform: translateX(3px);
 
-}
+} */
 
 /*==========================================
         SHINE EFFECT
 ==========================================*/
 
-.fp-card::before {
+/* .fp-card::before {
 
     content: "";
 
@@ -1017,13 +1017,13 @@ RESPONSIVE
 
     left: 130%;
 
-}
+} */
 
 /*==========================================
         GOLD BORDER
 ==========================================*/
 
-.fp-card::after {
+/* .fp-card::after {
 
     content: "";
 
@@ -1043,7 +1043,7 @@ RESPONSIVE
 
     border-color: #c7961b;
 
-}
+} */
 
 /*==========================================
         IMAGE GLOW
@@ -1076,7 +1076,7 @@ RESPONSIVE
 ==========================================*/
 
 
-.fp-heart:hover {
+/* .fp-heart:hover {
 
     animation: heartBeat .6s;
 
@@ -1112,13 +1112,13 @@ RESPONSIVE
         transform: scale(1);
     }
 
-}
+} */
 
 /*==========================================
         RESPONSIVE
 ==========================================*/
 
-@media(max-width:1200px) {
+/* @media(max-width:1200px) {
 
     .fp-grid {
 
@@ -1225,7 +1225,645 @@ RESPONSIVE
 
     }
 
+} */
+
+
+/*==========================================
+FEATURED PRODUCTS SECTION
+(all classes prefixed "featured-products-" so
+nothing here collides with shop.css, wishlist.css,
+cart.css, checkout.css, contact.css or account.css)
+==========================================*/
+
+.featured-products-section {
+
+    padding: 70px;
+
+    background: #faf9fc;
+
 }
+
+/*==========================================
+TITLE ROW
+==========================================*/
+
+.featured-products-title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    margin-bottom: 40px;
+
+}
+
+.featured-products-title-wrap {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+.featured-products-title-wrap h2 {
+
+    margin: 0;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    font-family: "Cinzel", serif;
+
+    color: #241b3f;
+
+}
+
+.featured-products-title-arrow {
+
+    color: #d8a128;
+
+    font-size: 16px;
+
+}
+
+.featured-products-viewall-btn {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    padding: 10px 22px;
+
+    border-radius: 50px;
+
+    background: #f0eef8;
+
+    color: #241b3f;
+
+    font-size: 13.5px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+.featured-products-viewall-btn:hover {
+
+    background: #241b3f;
+
+    color: #fff;
+
+}
+
+/*==========================================
+PRODUCTS GRID
+==========================================*/
+
+.featured-products-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 22px;
+
+}
+
+.featured-products-card {
+
+    background: #fff;
+
+    border: 1px solid #eee;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition: transform .3s ease, box-shadow .3s ease;
+
+}
+
+.featured-products-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, .07);
+
+}
+
+/*============================*/
+
+.featured-products-card-img {
+
+    position: relative;
+
+    background: #faf8f5;
+
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+.featured-products-img-link {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+.featured-products-card-img img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .5s;
+
+}
+
+.featured-products-card:hover .featured-products-card-img img {
+
+    transform: scale(1.06);
+
+}
+
+.featured-products-badge {
+
+    position: absolute;
+
+    top: 12px;
+
+    left: 12px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #fff;
+
+    padding: 5px 12px;
+
+    border-radius: 50px;
+
+    z-index: 3;
+
+}
+
+.featured-products-badge-best {
+
+    background: #d8a128;
+
+}
+
+.featured-products-badge-sale {
+
+    background: #e0435a;
+
+}
+
+.featured-products-wish-btn {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #fff;
+
+    color: #888;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+
+    transition: .3s;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+}
+
+.featured-products-wish-btn:hover {
+
+    color: #e0435a;
+
+    transform: scale(1.08);
+
+}
+
+.featured-products-wish-btn.active {
+
+    color: #e0435a;
+
+    background: #fdecef;
+
+}
+
+/*============================*/
+
+.featured-products-card-body {
+
+    padding: 16px;
+
+}
+
+.featured-products-name {
+
+    display: block;
+
+    margin: 0 0 8px;
+
+    font-size: 14.5px;
+
+    font-weight: 700;
+
+    color: #222;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    transition: .3s;
+
+}
+
+.featured-products-name:hover {
+
+    color: #d8a128;
+
+}
+
+.featured-products-rating {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 10px;
+
+}
+
+.featured-products-stars i {
+
+    color: #f7b500;
+
+    font-size: 12px;
+
+}
+
+.featured-products-review-count {
+
+    font-size: 12.5px;
+
+    color: #888;
+
+}
+
+/*============================*/
+
+.featured-products-price {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 16px;
+
+}
+
+.featured-products-price .now {
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #222;
+
+}
+
+.featured-products-price .old {
+
+    font-size: 13px;
+
+    color: #aaa;
+
+    text-decoration: line-through;
+
+}
+
+.featured-products-price .off {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #1f9d55;
+
+}
+
+/*============================*/
+
+.featured-products-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+.featured-products-cart-btn {
+
+    flex: 1;
+
+    height: 44px;
+
+    border: 1px solid #241b3f;
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    color: #241b3f;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.featured-products-cart-btn:hover {
+
+    background: #241b3f;
+
+    color: #fff;
+
+}
+
+.featured-products-cart-btn.added {
+
+    background: #1f9d55;
+
+    border-color: #1f9d55;
+
+    color: #fff;
+
+}
+
+.featured-products-cart-btn:disabled {
+
+    cursor: not-allowed;
+
+}
+
+.featured-products-cart-icon-btn {
+
+    width: 44px;
+
+    height: 44px;
+
+    flex: none;
+
+    border: 1px solid #eee;
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    color: #555;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+}
+
+.featured-products-cart-icon-btn:hover {
+
+    background: #241b3f;
+
+    border-color: #241b3f;
+
+    color: #fff;
+
+}
+
+.featured-products-cart-icon-btn.added {
+
+    background: #1f9d55;
+
+    border-color: #1f9d55;
+
+    color: #fff;
+
+}
+
+/*==========================================
+TOAST NOTIFICATION
+==========================================*/
+
+.featured-products-toast {
+
+    position: fixed;
+
+    bottom: 30px;
+
+    right: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #241b3f;
+
+    color: #fff;
+
+    padding: 14px 22px;
+
+    border-radius: 12px;
+
+    font-size: 13.5px;
+
+    font-weight: 600;
+
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .2);
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition: .35s ease;
+
+}
+
+.featured-products-toast.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+.featured-products-toast i {
+
+    color: #1f9d55;
+
+    font-size: 16px;
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media(max-width: 1400px) {
+
+    .featured-products-grid {
+
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+
+}
+
+@media(max-width: 992px) {
+
+    .featured-products-section {
+
+        padding: 50px 30px;
+
+    }
+
+    .featured-products-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .featured-products-viewall-btn {
+
+        position: static;
+
+        transform: none;
+
+        margin-top: 16px;
+
+    }
+
+    .featured-products-title-row {
+
+        flex-direction: column;
+
+    }
+
+}
+
+@media(max-width: 768px) {
+
+    .featured-products-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .featured-products-title-wrap h2 {
+
+        font-size: 24px;
+
+    }
+
+}
+
+@media(max-width: 480px) {
+
+    .featured-products-section {
+
+        padding: 40px 16px;
+
+    }
+
+    .featured-products-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+}
+
+
+
+
+
 
 
 

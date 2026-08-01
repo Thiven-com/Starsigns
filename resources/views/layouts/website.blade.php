@@ -20,10 +20,20 @@
     <link rel="stylesheet" href="{{ asset('website/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/shop.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/about.css') }}">
-    <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/product.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/checkout.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/wishlist.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/orders.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/contact.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/myaccount.css') }}">
+        <link rel="stylesheet" href="{{ asset('website/css/login.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('website/css/offers.css') }}">
+
+    <!-- <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}"> -->
+
+    <!-- <link rel="stylesheet" href="{{ asset('website/css/offers.css') }}"> -->
 
 
 
@@ -100,7 +110,7 @@
                 <div class="header-logo">
 
                     <a href="#">
-                        <img src="{{ asset('website/images/logo.png') }}" alt="Logo">
+                        <img src="{{ asset('website') }}/images/logistar1.png" alt="Logo">
                     </a>
 
                 </div>
@@ -136,11 +146,11 @@
 
                         <div class="account-info">
 
-                            <a href="#" class="login-link">
-                                Login / Register
+                            <a href="{{ route('login') }}" class="login-link">
+                                Login 
                             </a>
 
-                            <a href="#" class="account-link">
+                            <a href="{{ route('myaccount') }}" class="account-link">
                                 My Account
                                 <i class="fa-solid fa-angle-down"></i>
                             </a>
@@ -149,11 +159,11 @@
 
                     </div>
 
-                    <a href="#" class="wishlist">
+                    <a href="{{ route('wishlist') }}" class="wishlist">
                         <i class="fa-regular fa-heart"></i>
                     </a>
 
-                    <a href="#" class="cart">
+                    <a href="{{ route('cart') }}" class="cart">
 
                         <div class="cart-icon">
 
@@ -223,12 +233,16 @@
 
                     <li><a href="{{ route('shop') }}">Shop</a></li>
                     <li><a href="{{ route('about') }}">About Us</a></li>
-                    <li><a href="{{ route('consultation') }}">Consultation</a></li>
-
-                    <li><a href="{{ route('offers') }}">Offers</a></li>
-
                     <li><a href="{{ route('blog') }}">Blogs</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <!-- <li><a href="#">Consultation</a></li> -->
+
+                    <!-- <li><a href="#">Offers</a></li> -->
+                    <li><a href="{{ route('product') }}">Product Details</a></li>
+                    <li><a href="{{ route('checkout') }}">Checkout</a></li>
+                    <li><a href="{{ route('orders') }}">My Orders</a></li>
+
+
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
 
                     <!-- <li><a href="#">Rudraksha</a></li>
 
@@ -321,7 +335,7 @@
 
                 <div class="footer-about">
 
-                    <img src="{{ asset('website/images/logo.png') }}" alt="Logo" class="footer-logo">
+                    <img src="{{ asset('website') }}/images/logistar1.png" alt="Logo" class="footer-logo">
 
                     <p>
                         Premium spiritual products to attract wealth,
@@ -460,7 +474,7 @@
                 </div>
 
                 <!-- Payment Methods -->
-
+<!-- 
                 <div class="payment-methods">
 
                     <img src="{{ asset('website/images/visa.png') }}" alt="Visa">
@@ -473,7 +487,7 @@
 
                     <img src="{{ asset('website/images/phonepe.png') }}" alt="PhonePe">
 
-                </div>
+                </div> -->
 
                 <!-- Back To Top -->
 

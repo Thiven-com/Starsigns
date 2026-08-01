@@ -30,8 +30,8 @@
 
 
     <!--==========================================
-                                                    BLOG CONTENT
-                                                    ===========================================-->
+                                                                BLOG CONTENT
+                                                                ===========================================-->
     <section class="blogs-section">
 
         <div class="container">
@@ -42,9 +42,18 @@
 
                     <!-- Blog Cards -->
                     <!--==========================================
-                                 BLOG GRID
-                           ===========================================-->
-
+                                             BLOG GRID
+                                       ===========================================-->
+                    @php
+                        $images = [
+                            '7rudramala.png',
+                            'bracelet.png',
+                            'bracevio.png',
+                            'gemstone.png',
+                            'karungali.png',
+                            'laxmiyantra.png'
+                        ];
+                    @endphp
                     <div class="blogs-grid">
 
                         @for($i = 1; $i <= 6; $i++)
@@ -53,7 +62,7 @@
 
                                                 <div class="blogs-image">
 
-                                                    <img src="{{ asset('website/images/blog/blog' . $i . '.jpg') }}" alt="Blog">
+                                                    <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
 
                                                 </div>
 
@@ -120,8 +129,8 @@
                     <!-- Pagination -->
 
                     <!--==========================================
-                                       PAGINATION
-                                   ===========================================-->
+                                                   PAGINATION
+                                               ===========================================-->
 
                     <div class="blogs-pagination">
 
@@ -183,204 +192,7 @@
 
                 </div>
 
-                <!--==========================
-                            SIDEBAR
-                       ===========================-->
 
-
-                <aside class="blogs-sidebar">
-                    <!-- Search -->
-
-                    <!--==========================
-                                    SEARCH WIDGET
-                                    ===========================-->
-
-                    <div class="sidebar-widget">
-
-                        <div class="blogs-search">
-
-                            <input type="text" placeholder="Search blogs...">
-
-                            <button>
-
-                                <i class="fa-solid fa-magnifying-glass"></i>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Categories -->
-                    <!--==========================================
-                                CATEGORIES WIDGET
-                                ===========================================-->
-
-                    <div class="sidebar-widget">
-
-                        <div class="widget-title">
-
-                            <h4>Categories</h4>
-
-                        </div>
-
-                        <ul class="category-list">
-
-                            @php
-                                $categories = [
-                                    ['Astrology', 12],
-                                    ['Tarot Reading', 8],
-                                    ['Numerology', 15],
-                                    ['Crystal Healing', 6],
-                                    ['Vastu Tips', 10],
-                                    ['Spirituality', 18],
-                                ];
-                            @endphp
-
-                            @foreach($categories as $category)
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <span>
-
-                                            <i class="fa-solid fa-angle-right"></i>
-
-                                            {{ $category[0] }}
-
-                                        </span>
-
-                                        <strong>{{ $category[1] }}</strong>
-
-                                    </a>
-
-                                </li>
-
-                            @endforeach
-
-                        </ul>
-
-                    </div>
-
-                    <!-- Popular Posts -->
-
-                    <!--==========================================
-                            POPULAR POSTS WIDGET
-                            ===========================================-->
-
-                    <div class="sidebar-widget">
-
-                        <div class="widget-title">
-
-                            <h4>Popular Posts</h4>
-
-                        </div>
-
-                        @php
-                            $popularPosts = [
-                                [
-                                    'image' => 'blog1.jpg',
-                                    'title' => 'How Astrology Can Guide Your Daily Life',
-                                    'date' => 'May 08, 2024'
-                                ],
-                                [
-                                    'image' => 'blog2.jpg',
-                                    'title' => 'Top 5 Tarot Spreads for Beginners',
-                                    'date' => 'May 06, 2024'
-                                ],
-                                [
-                                    'image' => 'blog3.jpg',
-                                    'title' => 'Benefits of Crystal Healing',
-                                    'date' => 'May 03, 2024'
-                                ],
-                            ];
-                        @endphp
-
-                        <div class="popular-posts">
-
-                            @foreach($popularPosts as $post)
-
-                                <div class="popular-post">
-
-                                    <div class="popular-post-image">
-
-                                        <a href="#">
-
-                                            <img src="{{ asset('website/images/blog/' . $post['image']) }}" alt="Blog">
-
-                                        </a>
-
-                                    </div>
-
-                                    <div class="popular-post-content">
-
-                                        <span>
-
-                                            <i class="fa-regular fa-calendar"></i>
-
-                                            {{ $post['date'] }}
-
-                                        </span>
-
-                                        <h5>
-
-                                            <a href="#">
-
-                                                {{ $post['title'] }}
-
-                                            </a>
-
-                                        </h5>
-
-                                    </div>
-
-                                </div>
-
-                            @endforeach
-
-                        </div>
-
-                    </div>
-
-                    <!-- CTA -->
-
-                    <!--==========================================
-                                          CONSULTATION CTA
-                                        ===========================================-->
-
-                    <div class="sidebar-widget consultation-widget">
-
-                        <div class="consultation-icon">
-
-                            <i class="fa-solid fa-star-and-crescent"></i>
-
-                        </div>
-
-                        <h3>
-
-                            Need Personal Guidance?
-
-                        </h3>
-
-                        <p>
-
-                            Connect with our experienced astrologers for personalized
-                            horoscope reading, tarot consultation and spiritual guidance.
-
-                        </p>
-
-                        <a href="{{ route('consultation') }}" class="consultation-btn">
-
-                            Book Consultation
-
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </aside>
 
             </div>
 
