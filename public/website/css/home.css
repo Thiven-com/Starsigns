@@ -448,7 +448,7 @@ IMAGE
 }
 
 .ssc-image img {
-    max-width: 100%;
+    max-width: 150%;
     max-height: 100%;
     transition: .45s;
 }
@@ -748,17 +748,18 @@ RESPONSIVE
     border: 1px solid #ececec;
     border-radius: 14px;
     overflow: hidden;
-    min-height: 380px;
+    height: 100%;
+    min-height: 430px;
     display: flex;
     flex-direction: column;
-    transition: .35s ease;
+    transition: .35s ease, box-shadow .35s ease;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
 }
 
 .fp-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .15);
 }
 
 /*==========================================
@@ -819,7 +820,7 @@ RESPONSIVE
 /*==========================================
         PRODUCT IMAGE
 ==========================================*/
-.fp-image {
+/* .fp-image {
     height: 190px;
     display: flex;
     justify-content: center;
@@ -831,6 +832,36 @@ RESPONSIVE
 .fp-image img {
     width: 140px;
     height: 140px;
+    object-fit: contain;
+    transition: .4s;
+}
+
+.fp-card:hover .fp-image img {
+    transform: scale(1.08);
+} */
+
+
+/*==========================================
+        PRODUCT IMAGE
+==========================================*/
+
+.fp-image {
+    position: relative;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    border-bottom: 1px solid #f3f3f3;
+    overflow: hidden;
+}
+
+.fp-image img {
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
     object-fit: contain;
     transition: .4s;
 }
@@ -853,7 +884,9 @@ RESPONSIVE
     font-size: 16px;
     font-weight: 600;
     line-height: 1.4;
-    height: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
     margin: 8px 0;
     overflow: hidden;
 }
@@ -928,6 +961,7 @@ RESPONSIVE
     border-radius: 8px;
     background: #f7f7f7;
     color: #222;
+    border: 2px solid #111;
     font-weight: 600;
     text-decoration: none;
     transition: .35s;
@@ -942,13 +976,13 @@ RESPONSIVE
 
 .fp-cart-btn i {
 
-    transition: .4s;
-
+    margin-right: 8px;
+    transition: .3s;
 }
 
 .fp-cart-btn:hover i {
 
-    transform: translateX(4px);
+    transform: translateX(3px);
 
 }
 
@@ -999,7 +1033,7 @@ RESPONSIVE
 
     border: 2px solid transparent;
 
-    border-radius: 22px;
+    border-radius: 14px;
 
     transition: .4s;
 
@@ -1014,7 +1048,7 @@ RESPONSIVE
 /*==========================================
         IMAGE GLOW
 ==========================================*/
-
+/* 
 .fp-image {
 
     position: relative;
@@ -1035,7 +1069,7 @@ RESPONSIVE
     width: 130px;
     height: 130px;
     object-fit: contain;
-}
+} */
 
 /*==========================================
         HEART ANIMATION
@@ -1088,7 +1122,10 @@ RESPONSIVE
 
     .fp-grid {
 
-        grid-template-columns: repeat(3, 1fr);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
+
 
     }
 
@@ -1098,7 +1135,10 @@ RESPONSIVE
 
     .fp-grid {
 
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
+
 
     }
 
@@ -1128,9 +1168,10 @@ RESPONSIVE
 
     .fp-grid {
 
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
 
-        gap: 25px;
 
     }
 
@@ -1178,7 +1219,7 @@ RESPONSIVE
 
     .fp-cart-btn {
 
-        padding: 12px;
+        padding: -5px;
 
         font-size: 15px;
 

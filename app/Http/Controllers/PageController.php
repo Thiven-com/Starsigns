@@ -33,4 +33,9 @@ class PageController extends Controller
     {
         return view('website.blog');
     }
+
+        public function offers()
+    {
+        return view('website.offers');
+    }
 }

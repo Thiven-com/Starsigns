@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/blog.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('website/css/offers.css') }}">
 
 
 
@@ -224,7 +225,7 @@
                     <li><a href="{{ route('about') }}">About Us</a></li>
                     <li><a href="{{ route('consultation') }}">Consultation</a></li>
 
-                    <li><a href="#">Offers</a></li>
+                    <li><a href="{{ route('offers') }}">Offers</a></li>
 
                     <li><a href="{{ route('blog') }}">Blogs</a></li>
                     <li><a href="#">Contact</a></li>

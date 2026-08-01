@@ -4,8 +4,8 @@
 
 
     <!--==============================
-                                                                                                                                HERO SLIDER
-                                                                                                                        ================================-->
+                                                                                                                                    HERO SLIDER
+                                                                                                                            ================================-->
 
     <section class="hero-slider">
 
@@ -30,8 +30,8 @@
 
                 <!-- Banner 4 -->
                 <!-- <div class="swiper-slide">
-                    <img src="{{ asset('website/images/banner6.png') }}" alt="Banner 4">
-                </div> -->
+                        <img src="{{ asset('website/images/banner6.png') }}" alt="Banner 4">
+                    </div> -->
 
             </div>
 
@@ -120,8 +120,8 @@
 
 
         <!--=========================================
-                                                                                                                SHOP CATEGORY SECTION
-                                                                                                        ==========================================-->
+                                                                                                                    SHOP CATEGORY SECTION
+                                                                                                            ==========================================-->
 
         <section class="ssc-category-section">
 
@@ -148,7 +148,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/rudraksha.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/rudra2.png" alt="">
 
                                 </div>
 
@@ -168,7 +168,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/bracelet.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/bracelet.png" alt="">
 
                                 </div>
 
@@ -188,7 +188,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/pyramid.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/pyrite.png" alt="">
 
                                 </div>
 
@@ -208,7 +208,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/karungali.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/karungali.png" alt="">
 
                                 </div>
 
@@ -228,7 +228,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/yantra.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/yantra.png" alt="">
 
                                 </div>
 
@@ -248,7 +248,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/gemstones.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/gemstone.png" alt="">
 
                                 </div>
 
@@ -268,7 +268,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/zodiac.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/zodiac.png" alt="">
 
                                 </div>
 
@@ -288,7 +288,7 @@
 
                                 <div class="ssc-image">
 
-                                    <img src="{{ asset('website/img/consultation.png') }}" alt="">
+                                    <img src="{{ asset('website') }}/images/cons.png" alt="">
 
                                 </div>
 
@@ -323,8 +323,8 @@
 
 
         <!--=========================================
-                                                                                        FEATURED PRODUCTS
-                                                                                ==========================================-->
+                                                                                            FEATURED PRODUCTS
+                                                                                    ==========================================-->
 
         <section class="fp-section">
 
@@ -361,7 +361,7 @@
 
                         <div class="fp-image">
 
-                            <img src="{{ asset('website/img/product1.png') }}" alt="">
+                            <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
 
                         </div>
 
@@ -417,7 +417,7 @@
 
                         <div class="fp-image">
 
-                            <img src="{{ asset('website/img/product2.png') }}" alt="">
+                            <img src="{{ asset('website') }}/images/bracelet.png" alt="">
 
                         </div>
 
@@ -475,7 +475,7 @@
 
                         <div class="fp-image">
 
-                            <img src="{{ asset('website/img/product3.png') }}" alt="">
+                            <img src="{{ asset('website') }}/images/bracevio.png" alt="">
 
                         </div>
 
@@ -532,7 +532,7 @@
 
                         <div class="fp-image">
 
-                            <img src="{{ asset('website/img/product4.png') }}" alt="Karungali Bracelet">
+                            <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="Karungali Bracelet">
 
                         </div>
 
@@ -712,8 +712,8 @@
 
 
         <!--=========================
-                                                            WHY CHOOSE SECTION
-                                                            ==========================-->
+                                                                WHY CHOOSE SECTION
+                                                                ==========================-->
 
         <section class="ss-why-section">
 
@@ -817,8 +817,8 @@
         </section>
 
         <!--=========================
-                                POPULAR CATEGORIES
-                                ==========================-->
+                                    POPULAR CATEGORIES
+                                    ==========================-->
 
         <section class="popular-category-section">
 
@@ -928,8 +928,8 @@
 
 
         <!--=========================
-            LATEST BLOG SECTION
-            ==========================-->
+                LATEST BLOG SECTION
+                ==========================-->
 
         <section class="blog-section">
 
@@ -1087,8 +1087,8 @@
 
 
         <!--==========================================
-                TESTIMONIAL SECTION
-        ===========================================-->
+                    TESTIMONIAL SECTION
+            ===========================================-->
 
         <section class="testimonial-section">
 
@@ -1313,7 +1313,8 @@
 
 
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <!-- GSAP for premium animations -->
@@ -1369,17 +1370,79 @@
 
         <!-- <script>
 
+                                                                                                        document.addEventListener("DOMContentLoaded", function () {
+
+                                                                                                            const categorySlider = new Swiper(".sscCategorySlider", {
+
+                                                                                                                slidesPerView: 8,
+                                                                                                                spaceBetween: 20,
+                                                                                                                loop: true,
+                                                                                                                speed: 800,
+
+                                                                                                                autoplay: {
+                                                                                                                    delay: 2500,
+                                                                                                                    disableOnInteraction: false,
+                                                                                                                    pauseOnMouseEnter: true,
+                                                                                                                },
+
+                                                                                                                navigation: {
+                                                                                                                    nextEl: ".ssc-next",
+                                                                                                                    prevEl: ".ssc-prev",
+                                                                                                                },
+
+                                                                                                                breakpoints: {
+
+                                                                                                                    320: {
+                                                                                                                        slidesPerView: 2,
+                                                                                                                        spaceBetween: 10,
+                                                                                                                    },
+
+                                                                                                                    576: {
+                                                                                                                        slidesPerView: 3,
+                                                                                                                        spaceBetween: 15,
+                                                                                                                    },
+
+                                                                                                                    768: {
+                                                                                                                        slidesPerView: 4,
+                                                                                                                        spaceBetween: 15,
+                                                                                                                    },
+
+                                                                                                                    992: {
+                                                                                                                        slidesPerView: 6,
+                                                                                                                        spaceBetween: 18,
+                                                                                                                    },
+
+                                                                                                                    1200: {
+                                                                                                                        slidesPerView: 8,
+                                                                                                                        spaceBetween: 20,
+                                                                                                                    }
+
+                                                                                                                }
+
+                                                                                                            });
+
+                                                                                                        });
+
+                                                                                                    </script> -->
+
+
+        <!-- 
+                                                                                                <script>
                                                                                                     document.addEventListener("DOMContentLoaded", function () {
 
-                                                                                                        const categorySlider = new Swiper(".sscCategorySlider", {
+                                                                                                        new Swiper(".sscCategorySlider", {
 
-                                                                                                            slidesPerView: 8,
+                                                                                                            slidesPerView: "auto",
                                                                                                             spaceBetween: 20,
+
                                                                                                             loop: true,
-                                                                                                            speed: 800,
+                                                                                                            speed: 1000,
+
+                                                                                                            freeMode: true,
+                                                                                                            freeModeMomentum: false,
 
                                                                                                             autoplay: {
-                                                                                                                delay: 2500,
+                                                                                                                delay: 0,
                                                                                                                 disableOnInteraction: false,
                                                                                                                 pauseOnMouseEnter: true,
                                                                                                             },
@@ -1389,72 +1452,10 @@
                                                                                                                 prevEl: ".ssc-prev",
                                                                                                             },
 
-                                                                                                            breakpoints: {
-
-                                                                                                                320: {
-                                                                                                                    slidesPerView: 2,
-                                                                                                                    spaceBetween: 10,
-                                                                                                                },
-
-                                                                                                                576: {
-                                                                                                                    slidesPerView: 3,
-                                                                                                                    spaceBetween: 15,
-                                                                                                                },
-
-                                                                                                                768: {
-                                                                                                                    slidesPerView: 4,
-                                                                                                                    spaceBetween: 15,
-                                                                                                                },
-
-                                                                                                                992: {
-                                                                                                                    slidesPerView: 6,
-                                                                                                                    spaceBetween: 18,
-                                                                                                                },
-
-                                                                                                                1200: {
-                                                                                                                    slidesPerView: 8,
-                                                                                                                    spaceBetween: 20,
-                                                                                                                }
-
-                                                                                                            }
-
                                                                                                         });
 
                                                                                                     });
-
                                                                                                 </script> -->
-
-
-        <!-- 
-                                                                                            <script>
-                                                                                                document.addEventListener("DOMContentLoaded", function () {
-
-                                                                                                    new Swiper(".sscCategorySlider", {
-
-                                                                                                        slidesPerView: "auto",
-                                                                                                        spaceBetween: 20,
-
-                                                                                                        loop: true,
-                                                                                                        speed: 1000,
-
-                                                                                                        freeMode: true,
-                                                                                                        freeModeMomentum: false,
-
-                                                                                                        autoplay: {
-                                                                                                            delay: 0,
-                                                                                                            disableOnInteraction: false,
-                                                                                                            pauseOnMouseEnter: true,
-                                                                                                        },
-
-                                                                                                        navigation: {
-                                                                                                            nextEl: ".ssc-next",
-                                                                                                            prevEl: ".ssc-prev",
-                                                                                                        },
-
-                                                                                                    });
-
-                                                                                                });
-                                                                                            </script> -->
 
 
         <script>

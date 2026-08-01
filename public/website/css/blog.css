@@ -150,7 +150,7 @@ Responsive
 BLOG PAGE
 ==========================================*/
 
-.blog-section {
+.blogs-section {
 
     padding: 90px 0;
 
@@ -162,7 +162,7 @@ BLOG PAGE
 
 /*==========================*/
 
-.blog-wrapper {
+.blogs-wrapper {
 
     display: grid;
 
@@ -176,7 +176,7 @@ BLOG PAGE
 
 /*==========================*/
 
-.blog-content {
+.blogs-content {
 
     width: 100%;
 
@@ -184,7 +184,7 @@ BLOG PAGE
 
 /*==========================*/
 
-.blog-sidebar {
+.blogs-sidebar {
 
     position: sticky;
 
@@ -194,7 +194,7 @@ BLOG PAGE
 
 /*==========================*/
 
-.blog-grid {
+.blogs-grid {
 
     display: grid;
 
@@ -234,7 +234,7 @@ BLOG PAGE
 
 /*==========================*/
 
-.blog-pagination {
+.blogs-pagination {
 
     margin-top: 60px;
 
@@ -244,13 +244,13 @@ BLOG PAGE
 Animations
 ==================================*/
 
-.blog-content {
+.blogs-content {
 
     animation: fadeLeft .9s ease;
 
 }
 
-.blog-sidebar {
+.blogs-sidebar {
 
     animation: fadeRight .9s ease;
 
@@ -302,7 +302,7 @@ Responsive
 
 @media(max-width:1200px) {
 
-    .blog-wrapper {
+    .blogs-wrapper {
 
         grid-template-columns: 1.8fr 1fr;
 
@@ -312,13 +312,13 @@ Responsive
 
 @media(max-width:991px) {
 
-    .blog-wrapper {
+    .blogs-wrapper {
 
         grid-template-columns: 1fr;
 
     }
 
-    .blog-sidebar {
+    .blogs-sidebar {
 
         position: relative;
 
@@ -328,7 +328,7 @@ Responsive
 
     }
 
-    .blog-grid {
+    .blogs-grid {
 
         grid-template-columns: repeat(2, 1fr);
 
@@ -338,7 +338,7 @@ Responsive
 
 @media(max-width:768px) {
 
-    .blog-grid {
+    .blogs-grid {
 
         grid-template-columns: 1fr;
 
@@ -346,7 +346,7 @@ Responsive
 
     }
 
-    .blog-section {
+    .blogs-section {
 
         padding: 70px 0;
 
@@ -365,7 +365,7 @@ Responsive
 BLOG CARD
 ==========================================*/
 
-.blog-card {
+.blogs-card {
 
     background: #fff;
 
@@ -383,31 +383,31 @@ BLOG CARD
 
 }
 
-.blog-card:nth-child(1) {
+.blogs-card:nth-child(1) {
     animation-delay: .1s;
 }
 
-.blog-card:nth-child(2) {
+.blogs-card:nth-child(2) {
     animation-delay: .2s;
 }
 
-.blog-card:nth-child(3) {
+.blogs-card:nth-child(3) {
     animation-delay: .3s;
 }
 
-.blog-card:nth-child(4) {
+.blogs-card:nth-child(4) {
     animation-delay: .4s;
 }
 
-.blog-card:nth-child(5) {
+.blogs-card:nth-child(5) {
     animation-delay: .5s;
 }
 
-.blog-card:nth-child(6) {
+.blogs-card:nth-child(6) {
     animation-delay: .6s;
 }
 
-.blog-card:hover {
+.blogs-card:hover {
 
     transform: translateY(-10px);
 
@@ -417,7 +417,7 @@ BLOG CARD
 
 /*==========================*/
 
-.blog-image {
+.blogs-image {
 
     overflow: hidden;
 
@@ -425,7 +425,7 @@ BLOG CARD
 
 }
 
-.blog-image img {
+.blogs-image img {
 
     width: 100%;
 
@@ -437,7 +437,7 @@ BLOG CARD
 
 }
 
-.blog-card:hover .blog-image img {
+.blogs-card:hover .blogs-image img {
 
     transform: scale(1.08);
 
@@ -445,7 +445,7 @@ BLOG CARD
 
 /*==========================*/
 
-.blog-card-content {
+.blogs-card-content {
 
     padding: 28px;
 
@@ -453,7 +453,7 @@ BLOG CARD
 
 /*==========================*/
 
-.blog-category {
+.blogs-category {
 
     display: inline-block;
 
@@ -471,7 +471,7 @@ BLOG CARD
 
 /*==========================*/
 
-.blog-card h3 {
+.blogs-card h3 {
 
     font-size: 30px;
 
@@ -481,7 +481,7 @@ BLOG CARD
 
 }
 
-.blog-card h3 a {
+.blogs-card h3 a {
 
     text-decoration: none;
 
@@ -491,7 +491,7 @@ BLOG CARD
 
 }
 
-.blog-card:hover h3 a {
+.blogs-card:hover h3 a {
 
     color: #d8a128;
 
@@ -499,7 +499,7 @@ BLOG CARD
 
 /*==========================*/
 
-.blog-card p {
+.blogs-card p {
 
     color: #777;
 
@@ -511,7 +511,7 @@ BLOG CARD
 
 /*==========================*/
 
-.blog-meta {
+.blogs-meta {
 
     display: flex;
 
@@ -525,7 +525,7 @@ BLOG CARD
 
 }
 
-.blog-meta span {
+.blogs-meta span {
 
     color: #666;
 
@@ -533,7 +533,7 @@ BLOG CARD
 
 }
 
-.blog-meta i {
+.blogs-meta i {
 
     color: #d8a128;
 
@@ -568,13 +568,13 @@ BLOG CARD
 BLOG SEARCH
 ==========================================*/
 
-.blog-search {
+.blogs-search {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-.blog-search input {
+.blogs-search input {
     box-sizing: border-box;
 
     width: 100%;
@@ -599,13 +599,13 @@ BLOG SEARCH
 
 }
 
-.blog-search input::placeholder {
+.blogs-search input::placeholder {
 
     color: #999;
 
 }
 
-.blog-search input:focus {
+.blogs-search input:focus {
 
     border-color: #d8a128;
 
@@ -613,7 +613,7 @@ BLOG SEARCH
 
 }
 
-.blog-search button {
+.blogs-search button {
 
     position: absolute;
 
@@ -639,7 +639,7 @@ BLOG SEARCH
 
 }
 
-.blog-search button:hover {
+.blogs-search button:hover {
 
     background: #222;
 
@@ -647,7 +647,7 @@ BLOG SEARCH
 
 }
 
-.blog-search button i {
+.blogs-search button i {
 
     font-size: 16px;
 
@@ -655,7 +655,7 @@ BLOG SEARCH
 
 
 
-.blog-search {
+.blogs-search {
 
     animation: fadeSearch .8s ease;
 
@@ -1135,7 +1135,7 @@ CONSULTATION WIDGET
 BLOG PAGINATION
 ==========================================*/
 
-.blog-pagination {
+.blogs-pagination {
 
     margin-top: 70px;
 
@@ -1145,7 +1145,7 @@ BLOG PAGINATION
 
 }
 
-.blog-pagination ul {
+.blogs-pagination ul {
 
     display: flex;
 
@@ -1161,14 +1161,14 @@ BLOG PAGINATION
 
 }
 
-.blog-pagination ul li {
+.blogs-pagination ul li {
 
     list-style: none;
 
 }
 
-.blog-pagination ul li a,
-.blog-pagination ul li span {
+.blogs-pagination ul li a,
+.blogs-pagination ul li span {
 
     width: 48px;
 
@@ -1198,7 +1198,7 @@ BLOG PAGINATION
 
 }
 
-.blog-pagination ul li a:hover {
+.blogs-pagination ul li a:hover {
 
     background: #d8a128;
 
@@ -1210,7 +1210,7 @@ BLOG PAGINATION
 
 }
 
-.blog-pagination ul li a.active {
+.blogs-pagination ul li a.active {
 
     background: #d8a128;
 
@@ -1220,7 +1220,7 @@ BLOG PAGINATION
 
 }
 
-.blog-pagination ul li span {
+.blogs-pagination ul li span {
 
     background: transparent;
 

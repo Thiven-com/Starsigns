@@ -30,47 +30,42 @@
 
 
     <!--==========================================
-                                    BLOG CONTENT
-                                    ===========================================-->
-
-    <section class="blog-section">
+                                                    BLOG CONTENT
+                                                    ===========================================-->
+    <section class="blogs-section">
 
         <div class="container">
 
-            <div class="blog-wrapper">
+            <div class="blogs-wrapper">
 
-                <!--==========================
-                                                        LEFT CONTENT
-                                                ===========================-->
-
-                <div class="blog-content">
+                <div class="blogs-content">
 
                     <!-- Blog Cards -->
                     <!--==========================================
-                                                     BLOG GRID
-                                                       ===========================================-->
+                                 BLOG GRID
+                           ===========================================-->
 
-                    <div class="blog-grid">
+                    <div class="blogs-grid">
 
                         @for($i = 1; $i <= 6; $i++)
 
-                                            <article class="blog-card">
+                                            <article class="blogs-card">
 
-                                                <div class="blog-image">
+                                                <div class="blogs-image">
 
                                                     <img src="{{ asset('website/images/blog/blog' . $i . '.jpg') }}" alt="Blog">
 
                                                 </div>
 
-                                                <div class="blog-card-content">
+                                                <div class="blogs-card-content">
 
-                                                    <span class="blog-category">
+                                                    <span class="blogs-category">
 
                                                         {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
 
                                                     </span>
 
-                                                    <h3>
+                                                    <h3 class="blogs-title">
 
                                                         <a href="#">
 
@@ -87,16 +82,16 @@
 
                                                     </h3>
 
-                                                    <p>
+                                                    <p class="blogs-description">
 
-                                                        Discover practical spiritual insights, ancient wisdom and
-                                                        modern guidance to help improve your everyday life.
+                                                        Discover practical spiritual insights, ancient wisdom and modern guidance to help
+                                                        improve your everyday life.
 
                                                     </p>
 
-                                                    <div class="blog-meta">
+                                                    <div class="blogs-meta">
 
-                                                        <span>
+                                                        <span class="blogs-date">
 
                                                             <i class="fa-regular fa-calendar"></i>
 
@@ -104,7 +99,7 @@
 
                                                         </span>
 
-                                                        <span>
+                                                        <span class="blogs-author">
 
                                                             <i class="fa-regular fa-user"></i>
 
@@ -125,10 +120,10 @@
                     <!-- Pagination -->
 
                     <!--==========================================
-                       PAGINATION
-                   ===========================================-->
+                                       PAGINATION
+                                   ===========================================-->
 
-                    <div class="blog-pagination">
+                    <div class="blogs-pagination">
 
                         <ul>
 
@@ -189,20 +184,20 @@
                 </div>
 
                 <!--==========================
-                                                        SIDEBAR
-                                                ===========================-->
+                            SIDEBAR
+                       ===========================-->
 
-                <aside class="blog-sidebar">
 
+                <aside class="blogs-sidebar">
                     <!-- Search -->
 
                     <!--==========================
-                    SEARCH WIDGET
-                    ===========================-->
+                                    SEARCH WIDGET
+                                    ===========================-->
 
                     <div class="sidebar-widget">
 
-                        <div class="blog-search">
+                        <div class="blogs-search">
 
                             <input type="text" placeholder="Search blogs...">
 
@@ -218,8 +213,8 @@
 
                     <!-- Categories -->
                     <!--==========================================
-                CATEGORIES WIDGET
-                ===========================================-->
+                                CATEGORIES WIDGET
+                                ===========================================-->
 
                     <div class="sidebar-widget">
 
@@ -271,8 +266,8 @@
                     <!-- Popular Posts -->
 
                     <!--==========================================
-            POPULAR POSTS WIDGET
-            ===========================================-->
+                            POPULAR POSTS WIDGET
+                            ===========================================-->
 
                     <div class="sidebar-widget">
 
@@ -351,8 +346,8 @@
                     <!-- CTA -->
 
                     <!--==========================================
-                          CONSULTATION CTA
-                        ===========================================-->
+                                          CONSULTATION CTA
+                                        ===========================================-->
 
                     <div class="sidebar-widget consultation-widget">
 
