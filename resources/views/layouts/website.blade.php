@@ -49,6 +49,7 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 
 
@@ -288,7 +289,7 @@
                 <div class="newsletter-content">
 
                     <div class="newsletter-icon">
-                        <i class="fa-regular fa-envelope"></i>
+                        <i class="fa-regular fa-envelope" style="color: #fff;"></i>
                     </div>
 
                     <div class="newsletter-text">
@@ -365,13 +366,13 @@
 
                     <ul>
 
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="{{ route('about') }}">About Us</a></li>
 
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
 
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="{{ route('blog') }}">Blog</a></li>
 
-                        <li><a href="#">Track Order</a></li>
+                        <li><a href="{{ route('orders') }}">Track Order</a></li>
 
                         <li><a href="#">FAQ</a></li>
 
@@ -409,15 +410,15 @@
 
                     <ul>
 
-                        <li><a href="#">My Orders</a></li>
+                        <li><a href="{{ route('orders') }}">My Orders</a></li>
 
-                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
 
-                        <li><a href="#">My Address</a></li>
+                        <li><a href="{{ route('contact') }}">My Address</a></li>
 
-                        <li><a href="#">My Profile</a></li>
+                        <li><a href="{{ route('myaccount') }}">My Profile</a></li>
 
-                        <li><a href="#">Consultations</a></li>
+                        <!-- <li><a href="#">Consultations</a></li> -->
 
                     </ul>
 

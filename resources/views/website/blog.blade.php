@@ -30,174 +30,181 @@
 
 
     <!--==========================================
-                                                                BLOG CONTENT
-                                                                ===========================================-->
+                                                                            BLOG CONTENT
+                                                                            ===========================================-->
     <section class="blogs-section">
 
         <div class="container">
 
-            <div class="blogs-wrapper">
 
-                <div class="blogs-content">
 
-                    <!-- Blog Cards -->
-                    <!--==========================================
-                                             BLOG GRID
-                                       ===========================================-->
-                    @php
-                        $images = [
-                            '7rudramala.png',
-                            'bracelet.png',
-                            'bracevio.png',
-                            'gemstone.png',
-                            'karungali.png',
-                            'laxmiyantra.png'
-                        ];
-                    @endphp
-                    <div class="blogs-grid">
+            <!-- Blog Cards -->
+            <!--==========================================
+                                                         BLOG GRID
+                                                   ===========================================-->
+            @php
+                $images = [
+                    '7rudramala.png',
+                    'bracelet.png',
+                    'bracevio.png',
+                    'gemstone.png',
+                    'karungali.png',
+                    'laxmiyantra.png'
+                ];
+            @endphp
+            <div class="blogs-grid">
 
-                        @for($i = 1; $i <= 6; $i++)
+                @for($i = 1; $i <= 6; $i++)
 
-                                            <article class="blogs-card">
+                            <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
+                                <div class="blogs-image">
 
-                                                <div class="blogs-image">
+                                    <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
 
-                                                    <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
+                                </div>
 
-                                                </div>
+                                <div class="blogs-card-content">
 
-                                                <div class="blogs-card-content">
+                                    <span class="blogs-category">
 
-                                                    <span class="blogs-category">
+                                        {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
 
-                                                        {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
+                                    </span>
 
-                                                    </span>
+                                    <h3 class="blogs-title">
 
-                                                    <h3 class="blogs-title">
+                                        <a href="#">
 
-                                                        <a href="#">
+                                            {{ [
+                        'How Astrology Can Help You Find Clarity In Life',
+                        '5 Powerful Tarot Spread For Daily Guidance',
+                        'Morning Rituals For a Positive And Peaceful Day',
+                        'Crystal Healing 101: Benefits And How To Use Them',
+                        'Understanding Your Zodiac Sign Better',
+                        'The Power of Meditation and Mindfulness'
+                    ][($i - 1) % 6] }}
 
-                                                            {{ [
-                                'How Astrology Can Help You Find Clarity In Life',
-                                '5 Powerful Tarot Spread For Daily Guidance',
-                                'Morning Rituals For a Positive And Peaceful Day',
-                                'Crystal Healing 101: Benefits And How To Use Them',
-                                'Understanding Your Zodiac Sign Better',
-                                'The Power of Meditation and Mindfulness'
-                            ][($i - 1) % 6] }}
+                                        </a>
 
-                                                        </a>
+                                    </h3>
 
-                                                    </h3>
+                                    <p class="blogs-description">
 
-                                                    <p class="blogs-description">
+                                        Discover practical spiritual insights, ancient wisdom and modern guidance to help
+                                        improve your everyday life.
 
-                                                        Discover practical spiritual insights, ancient wisdom and modern guidance to help
-                                                        improve your everyday life.
+                                    </p>
 
-                                                    </p>
+                                    <div class="blogs-meta">
 
-                                                    <div class="blogs-meta">
+                                        <span class="blogs-date">
 
-                                                        <span class="blogs-date">
+                                            <i class="fa-regular fa-calendar"></i>
 
-                                                            <i class="fa-regular fa-calendar"></i>
+                                            May {{ 10 - $i }}, 2024
 
-                                                            May {{ 10 - $i }}, 2024
+                                        </span>
 
-                                                        </span>
+                                        <span class="blogs-author">
 
-                                                        <span class="blogs-author">
+                                            <i class="fa-regular fa-user"></i>
 
-                                                            <i class="fa-regular fa-user"></i>
+                                            By Admin
 
-                                                            By Admin
+                                        </span>
 
-                                                        </span>
+                                    </div>
 
-                                                    </div>
+                                </div>
 
-                                                </div>
+                            </article>
 
-                                            </article>
+                @endfor
 
-                        @endfor
+            </div>
 
-                    </div>
+            <!-- Pagination -->
 
-                    <!-- Pagination -->
+            <!--==========================================
+                                                               PAGINATION
+                                                           ===========================================-->
 
-                    <!--==========================================
-                                                   PAGINATION
-                                               ===========================================-->
+            <div class="blogs-pagination">
 
-                    <div class="blogs-pagination">
+                <ul>
 
-                        <ul>
+                    <li>
 
-                            <li>
+                        <a href="#">
 
-                                <a href="#">
+                            <i class="fa-solid fa-chevron-left"></i>
 
-                                    <i class="fa-solid fa-chevron-left"></i>
+                        </a>
 
-                                </a>
+                    </li>
 
-                            </li>
+                    <li>
 
-                            <li>
+                        <a href="#" class="active">1</a>
 
-                                <a href="#" class="active">1</a>
+                    </li>
 
-                            </li>
+                    <li>
 
-                            <li>
+                        <a href="#">2</a>
 
-                                <a href="#">2</a>
+                    </li>
 
-                            </li>
+                    <li>
 
-                            <li>
+                        <a href="#">3</a>
 
-                                <a href="#">3</a>
+                    </li>
 
-                            </li>
+                    <li>
 
-                            <li>
+                        <span>...</span>
 
-                                <span>...</span>
+                    </li>
 
-                            </li>
+                    <li>
 
-                            <li>
+                        <a href="#">10</a>
 
-                                <a href="#">10</a>
+                    </li>
 
-                            </li>
+                    <li>
 
-                            <li>
+                        <a href="#">
 
-                                <a href="#">
+                            <i class="fa-solid fa-chevron-right"></i>
 
-                                    <i class="fa-solid fa-chevron-right"></i>
+                        </a>
 
-                                </a>
+                    </li>
 
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
+                </ul>
 
             </div>
 
         </div>
 
+
+
+
+
     </section>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 120,
+        });
+    </script>
 
 @endsection

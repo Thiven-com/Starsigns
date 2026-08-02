@@ -2,18 +2,18 @@
 @section('content')
 
     <!--==========================
-                PAGE BANNER (shared layout component - reused as-is)
-            ===========================-->
+                            PAGE BANNER (shared layout component - reused as-is)
+                        ===========================-->
 
-    <section class="page-banner">
+    <section class="contact-banner-section">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="contact-banner-content">
 
                 <h1>Contact Us</h1>
 
-                <div class="breadcrumb">
+                <div class="contact-breadcrumb">
 
                     <a href="/">Home</a>
 
@@ -21,7 +21,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="active">Contact Us</span>
+                    <span class="contact-active">Contact Us</span>
 
                 </div>
 
@@ -33,8 +33,8 @@
 
 
     <!--==========================================
-                CONTACT PAGE CONTENT
-            ===========================================-->
+                            CONTACT PAGE CONTENT
+                        ===========================================-->
 
     <section class="contact-page-section">
 
@@ -50,8 +50,8 @@
             </div>
 
             <!--=========================
-                        HERO ROW
-                    ==========================-->
+                                    HERO ROW
+                                ==========================-->
 
             <div class="contact-page-hero">
 
@@ -77,8 +77,8 @@
             </div>
 
             <!--=========================
-                        MAIN GRID
-                    ==========================-->
+                                    MAIN GRID
+                                ==========================-->
 
             <div class="contact-page-grid">
 
@@ -145,7 +145,7 @@
                                     <select id="contactSubject" name="subject">
                                         <option value="" selected disabled>Select a subject</option>
                                         <option value="general">General Inquiry</option>
-                                        <option value="consultation">Consultation Booking</option>
+                                        <!-- <option value="consultation">Consultation Booking</option> -->
                                         <option value="order">Order Support</option>
                                         <option value="feedback">Feedback</option>
                                         <option value="other">Other</option>
@@ -221,7 +221,7 @@
 
                             <div class="contact-page-info-text">
                                 <h4>Email</h4>
-                                <p><a href="mailto:support@astrovani.com">support@astrovani.com</a></p>
+                                <p><a href="mailto:support@astrovani.com">support@starsigns.com</a></p>
                                 <span>We reply within 24 hours</span>
                             </div>
 
@@ -235,9 +235,12 @@
 
                             <div class="contact-page-info-text">
                                 <h4>Address</h4>
-                                <p>123, Spiritual Street, Peaceful City,<br>Mumbai, Maharashtra - 400001, India</p>
+                                <p>
+                                    Starsigns,<br>
+                                    Bengaluru, Karnataka,<br>
+                                    India
+                                </p>
                             </div>
-
                         </div>
 
                         <div class="contact-page-info-item">
@@ -262,8 +265,8 @@
                         </button>
 
                         <iframe id="contactPageMap"
-                            src="https://www.google.com/maps?q=Mumbai,Maharashtra,India&output=embed" allowfullscreen=""
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            src="https://www.google.com/maps?q=Marathahalli,Bengaluru,Karnataka,India&output=embed"
+                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
 
                     </div>
@@ -273,8 +276,8 @@
             </div>
 
             <!--=========================
-                        FEATURES STRIP
-                    ==========================-->
+                                    FEATURES STRIP
+                                ==========================-->
 
             <div class="contact-page-features">
 

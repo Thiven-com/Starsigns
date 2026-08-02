@@ -2,18 +2,17 @@
 @section('content')
 
     <!--==========================
-        PAGE BANNER
-    ===========================-->
-
-    <section class="page-banner">
+                        PAGE BANNER
+                    ===========================-->
+    <section class="product-details-banner-section">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="product-details-banner-content" data-aos="fade-up">
 
                 <h1>Product Details</h1>
 
-                <div class="breadcrumb">
+                <div class="product-details-breadcrumb" data-aos="fade-left">
 
                     <a href="/">Home</a>
 
@@ -27,7 +26,9 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="active">product details</span>
+                    <span class="product-details-active">
+                        Product Details
+                    </span>
 
                 </div>
 
@@ -39,8 +40,8 @@
 
 
     <!--==========================================
-        PRODUCT DETAILS CONTENT
-    ===========================================-->
+                        PRODUCT DETAILS CONTENT
+                    ===========================================-->
 
     <section class="pdp-section">
 
@@ -60,8 +61,8 @@
             </div>
 
             <!--=========================
-                GALLERY + INFO
-            ==========================-->
+                                GALLERY + INFO
+                            ==========================-->
 
             <div class="pdp-main">
 
@@ -69,7 +70,8 @@
                 <div class="pdp-thumbs">
 
                     @for($i = 1; $i <= 4; $i++)
-                        <button type="button" class="pdp-thumb {{ $i == 1 ? 'active' : '' }}" data-image="{{ asset('website') }}/images/product-{{ $i }}.png">
+                        <button type="button" class="pdp-thumb {{ $i == 1 ? 'active' : '' }}"
+                            data-image="{{ asset('website') }}/images/product-{{ $i }}.png">
                             <img src="{{ asset('website') }}/images/product-{{ $i }}.png" alt="Thumbnail {{ $i }}">
                         </button>
                     @endfor
@@ -81,7 +83,7 @@
                 </div>
 
                 <!-- Main gallery -->
-                <div class="pdp-gallery">
+                <div class="pdp-gallery" data-aos="zoom-in">
 
                     <span class="pdp-badge-sale">Sale</span>
 
@@ -94,7 +96,7 @@
                 </div>
 
                 <!-- Info -->
-                <div class="pdp-info">
+                <div class="pdp-info" data-aos="fade-left">
 
                     <div class="pdp-info-head">
 
@@ -134,7 +136,8 @@
                     </div>
 
                     <p class="pdp-desc">
-                        This beautiful Crystal Healing Bracelet is handmade with natural amethyst stones, known for their calming energy and spiritual healing properties.
+                        This beautiful Crystal Healing Bracelet is handmade with natural amethyst stones, known for their
+                        calming energy and spiritual healing properties.
                     </p>
 
                     <div class="pdp-features">
@@ -228,10 +231,10 @@
             </div>
 
             <!--=========================
-                TABS
-            ==========================-->
+                                TABS
+                            ==========================-->
 
-            <div class="pdp-tabs">
+            <div class="pdp-tabs" data-aos="fade-up">
 
                 <div class="pdp-tabs-nav">
 
@@ -255,10 +258,14 @@
                         </p>
 
                         <ul class="pdp-check-list">
-                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Made with 8mm natural Amethyst beads</li>
-                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Stretchable elastic cord – fits most wrist sizes</li>
-                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Helps in stress relief, focus & spiritual growth</li>
-                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Perfect for daily wear & meditation</li>
+                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Made with 8mm natural
+                                Amethyst beads</li>
+                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Stretchable elastic cord –
+                                fits most wrist sizes</li>
+                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Helps in stress relief,
+                                focus & spiritual growth</li>
+                            <li><span class="pdp-check"><i class="fa-solid fa-check"></i></span> Perfect for daily wear &
+                                meditation</li>
                         </ul>
 
                     </div>
@@ -346,8 +353,8 @@
             </div>
 
             <!--=========================
-                RELATED PRODUCTS
-            ==========================-->
+                                RELATED PRODUCTS
+                            ==========================-->
 
             <h2 class="pdp-related-title">
                 <i class="fa-solid fa-sparkles"></i>
@@ -355,7 +362,7 @@
                 <i class="fa-solid fa-sparkles"></i>
             </h2>
 
-            <div class="pdp-related-grid">
+            <div class="pdp-related-grid" data-aos="fade-up">
 
                 @php
                     $related = [
@@ -405,6 +412,19 @@
         </div>
 
     </section>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: "ease-in-out",
+        });
+    </script>
 
     <script>
         // Thumbnail gallery swap

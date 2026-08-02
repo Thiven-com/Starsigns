@@ -25,12 +25,12 @@
                         Sign in to your account and continue<br>
                         your spiritual journey with AstroVani.
                     </p>
-
+<!-- 
                     <div class="login-page-welcome-img">
 
-                        <img src="{{ asset('website') }}/images/login-hero.png" alt="Spiritual crystals and bracelet">
+                        <img src="{{ asset('website') }}/images/login.png" alt="Spiritual crystals and bracelet">
 
-                    </div>
+                    </div> -->
 
                     <div class="login-page-privacy-note">
 
@@ -38,7 +38,7 @@
                             <i class="fa-solid fa-shield-halved"></i>
                         </span>
 
-                        <p>Your privacy &amp; security are our top priority.</p>
+                        <p>Your privacy & security are our top priority.</p>
 
                     </div>
 

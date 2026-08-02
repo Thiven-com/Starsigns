@@ -1,4 +1,171 @@
 /*==========================================
+MY ORDERS BANNER
+==========================================*/
+
+.my-orders-banner-section {
+
+    height: 300px;
+
+    background: url("../images/shopbann.png") center center/cover no-repeat;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+.my-orders-banner-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(18, 10, 35, .38);
+
+}
+
+.my-orders-banner-section .container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+}
+
+.my-orders-banner-content {
+
+    text-align: center;
+
+}
+
+.my-orders-banner-content h1 {
+
+    margin: 0;
+
+    color: #fff;
+
+    font-size: 64px;
+
+    font-weight: 700;
+
+    font-family: "Cinzel", serif;
+
+    text-shadow: 0 4px 12px rgba(0, 0, 0, .35);
+
+}
+
+.my-orders-breadcrumb {
+
+    margin-top: 14px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.my-orders-breadcrumb a {
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: .3s;
+
+}
+
+.my-orders-breadcrumb a:hover {
+
+    color: #d8a128;
+
+}
+
+.my-orders-breadcrumb i {
+
+    color: #d8a128;
+
+    font-size: 12px;
+
+}
+
+.my-orders-active {
+
+    color: #d8a128;
+
+    font-weight: 600;
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media (max-width: 992px) {
+
+    .my-orders-banner-section {
+
+        height: 150px;
+
+    }
+
+    .my-orders-banner-content h1 {
+
+        font-size: 48px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .my-orders-banner-section {
+
+        height: 130px;
+
+    }
+
+    .my-orders-banner-content h1 {
+
+        font-size: 36px;
+
+    }
+
+    .my-orders-breadcrumb {
+
+        gap: 8px;
+
+    }
+
+    .my-orders-breadcrumb a,
+    .my-orders-active {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+
+
+
+/*==========================================
 ORDERS PAGE
 (all classes prefixed "orders-page-" so nothing
 here collides with wishlist.css, shop.css,

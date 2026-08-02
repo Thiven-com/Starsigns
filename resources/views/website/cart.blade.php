@@ -2,18 +2,18 @@
 @section('content')
 
     <!--==========================
-            PAGE BANNER (shared layout component - reused as-is)
-        ===========================-->
+                PAGE BANNER (shared layout component - reused as-is)
+            ===========================-->
 
-    <section class="page-banner">
+    <section class="cart-banner-section">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="cart-banner-content">
 
                 <h1>Cart</h1>
 
-                <div class="breadcrumb">
+                <div class="cart-breadcrumb">
 
                     <a href="/">Home</a>
 
@@ -21,7 +21,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="active">Cart</span>
+                    <span class="cart-active">Cart</span>
 
                 </div>
 
@@ -30,11 +30,9 @@
         </div>
 
     </section>
-
-
     <!--==========================================
-            CART PAGE CONTENT
-        ===========================================-->
+                CART PAGE CONTENT
+            ===========================================-->
 
     <section class="cart-page-section">
 
@@ -63,8 +61,8 @@
             <div class="cart-page-layout">
 
                 <!--=========================
-                        CART TABLE
-                    ==========================-->
+                            CART TABLE
+                        ==========================-->
 
                 <div class="cart-page-table-wrap">
 
@@ -218,8 +216,8 @@
                 </div>
 
                 <!--=========================
-                        ORDER SUMMARY
-                    ==========================-->
+                            ORDER SUMMARY
+                        ==========================-->
 
                 <aside class="cart-page-summary">
 
@@ -317,8 +315,8 @@
             </div>
 
             <!--=========================
-                    RELATED PRODUCTS CAROUSEL
-                ==========================-->
+                        RELATED PRODUCTS CAROUSEL
+                    ==========================-->
 
             <div class="cart-page-related-title-wrap">
 

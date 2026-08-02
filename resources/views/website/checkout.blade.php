@@ -2,18 +2,18 @@
 @section('content')
 
     <!--==========================
-            PAGE BANNER (shared layout component - reused as-is)
-        ===========================-->
+                PAGE BANNER (shared layout component - reused as-is)
+            ===========================-->
 
-    <section class="page-banner">
+    <section class="checkout-banner-section">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="checkout-banner-content">
 
                 <h1>Checkout</h1>
 
-                <div class="breadcrumb">
+                <div class="checkout-breadcrumb">
 
                     <a href="/">Home</a>
 
@@ -27,7 +27,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="active">Checkout</span>
+                    <span class="checkout-active">Checkout</span>
 
                 </div>
 
@@ -39,8 +39,8 @@
 
 
     <!--==========================================
-            CHECKOUT PAGE CONTENT
-        ===========================================-->
+                CHECKOUT PAGE CONTENT
+            ===========================================-->
 
     <section class="checkout-page-section">
 
@@ -58,8 +58,8 @@
             </div>
 
             <!--=========================
-                    STEP INDICATOR
-                ==========================-->
+                        STEP INDICATOR
+                    ==========================-->
 
             <div class="checkout-page-steps" id="checkoutPageSteps">
 
@@ -94,8 +94,8 @@
             <div class="checkout-page-layout">
 
                 <!--=========================
-                        LEFT: BILLING FORM
-                    ==========================-->
+                            LEFT: BILLING FORM
+                        ==========================-->
 
                 <div class="checkout-page-form-wrap">
 
@@ -281,8 +281,8 @@
                 </div>
 
                 <!--=========================
-                        RIGHT: ORDER SUMMARY + PAYMENT
-                    ==========================-->
+                            RIGHT: ORDER SUMMARY + PAYMENT
+                        ==========================-->
 
                 <aside class="checkout-page-side">
 

@@ -2,18 +2,18 @@
 @section('content')
 
     <!--==========================
-                PAGE BANNER (shared layout component - reused as-is)
-            ===========================-->
+                    PAGE BANNER (shared layout component - reused as-is)
+                ===========================-->
 
-    <section class="page-banner">
+    <section class="my-orders-banner-section">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="my-orders-banner-content">
 
                 <h1>My Orders</h1>
 
-                <div class="breadcrumb">
+                <div class="my-orders-breadcrumb">
 
                     <a href="/">Home</a>
 
@@ -27,7 +27,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="active">My Orders</span>
+                    <span class="my-orders-active">My Orders</span>
 
                 </div>
 
@@ -37,10 +37,9 @@
 
     </section>
 
-
     <!--==========================================
-                ORDERS PAGE CONTENT
-            ===========================================-->
+                    ORDERS PAGE CONTENT
+                ===========================================-->
 
     <section class="orders-page-section">
 
@@ -60,96 +59,96 @@
             <div class="orders-page-layout">
 
                 <!--=========================
-                            ACCOUNT SIDEBAR
-                        ==========================-->
+                                ACCOUNT SIDEBAR
+                            ==========================-->
 
                 <!-- <aside class="orders-page-sidebar">
 
-                    <div class="orders-page-profile-card">
+                        <div class="orders-page-profile-card">
 
-                        <div class="orders-page-avatar">
-                            <img src="{{ asset('website') }}/images/user-avatar.png" alt="Priya Sharma">
+                            <div class="orders-page-avatar">
+                                <img src="{{ asset('website') }}/images/user-avatar.png" alt="Priya Sharma">
+                            </div>
+
+                            <div class="orders-page-profile-info">
+                                <h4>Hello, Priya Sharma</h4>
+                                <p>priya.sharma@email.com</p>
+                            </div>
+
+                            <button type="button" class="orders-page-edit-btn" id="ordersPageEditProfileBtn"
+                                title="Edit profile">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
                         </div>
 
-                        <div class="orders-page-profile-info">
-                            <h4>Hello, Priya Sharma</h4>
-                            <p>priya.sharma@email.com</p>
+                        <nav class="orders-page-account-nav">
+
+                            <a href="/account/dashboard" class="orders-page-nav-item">
+                                <i class="fa-solid fa-table-cells-large"></i> Dashboard
+                            </a>
+
+                            <a href="/account/profile" class="orders-page-nav-item">
+                                <i class="fa-solid fa-user"></i> Profile Information
+                            </a>
+
+                            <a href="/account/address" class="orders-page-nav-item">
+                                <i class="fa-solid fa-location-dot"></i> Address Book
+                            </a>
+
+                            <a href="/account/orders" class="orders-page-nav-item active">
+                                <i class="fa-solid fa-bag-shopping"></i> My Orders
+                            </a>
+
+                            <a href="/wishlist" class="orders-page-nav-item">
+                                <i class="fa-solid fa-heart"></i> Wishlist
+                            </a> -->
+
+                <!-- <a href="/account/consultations" class="orders-page-nav-item">
+                                <i class="fa-solid fa-calendar-days"></i> My Consultations
+                            </a>
+
+                            <a href="/account/coupons" class="orders-page-nav-item">
+                                <i class="fa-solid fa-ticket"></i> Coupons
+                            </a>
+
+                            <a href="/account/payment-methods" class="orders-page-nav-item">
+                                <i class="fa-solid fa-credit-card"></i> Payment Methods
+                            </a>
+
+                            <a href="/account/notifications" class="orders-page-nav-item">
+                                <i class="fa-solid fa-bell"></i> Notifications
+                            </a> -->
+                <!-- 
+                            <a href="/logout" class="orders-page-nav-item" id="ordersPageLogoutLink">
+                                <i class="fa-solid fa-right-from-bracket"></i> Logout
+                            </a>
+
+                        </nav>
+
+                        <div class="orders-page-refer-card">
+
+                            <div class="orders-page-refer-icon">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+
+                            <div class="orders-page-refer-text">
+                                <h5>Refer & Earn</h5>
+                                <p>Refer your friends and get <strong>₹200 StarSings Credits</strong></p>
+                            </div>
+
+                            <button type="button" class="orders-page-refer-arrow" id="ordersPageReferBtn"
+                                title="Refer and earn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
                         </div>
 
-                        <button type="button" class="orders-page-edit-btn" id="ordersPageEditProfileBtn"
-                            title="Edit profile">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-
-                    </div>
-
-                    <nav class="orders-page-account-nav">
-
-                        <a href="/account/dashboard" class="orders-page-nav-item">
-                            <i class="fa-solid fa-table-cells-large"></i> Dashboard
-                        </a>
-
-                        <a href="/account/profile" class="orders-page-nav-item">
-                            <i class="fa-solid fa-user"></i> Profile Information
-                        </a>
-
-                        <a href="/account/address" class="orders-page-nav-item">
-                            <i class="fa-solid fa-location-dot"></i> Address Book
-                        </a>
-
-                        <a href="/account/orders" class="orders-page-nav-item active">
-                            <i class="fa-solid fa-bag-shopping"></i> My Orders
-                        </a>
-
-                        <a href="/wishlist" class="orders-page-nav-item">
-                            <i class="fa-solid fa-heart"></i> Wishlist
-                        </a> -->
-
-                        <!-- <a href="/account/consultations" class="orders-page-nav-item">
-                            <i class="fa-solid fa-calendar-days"></i> My Consultations
-                        </a>
-
-                        <a href="/account/coupons" class="orders-page-nav-item">
-                            <i class="fa-solid fa-ticket"></i> Coupons
-                        </a>
-
-                        <a href="/account/payment-methods" class="orders-page-nav-item">
-                            <i class="fa-solid fa-credit-card"></i> Payment Methods
-                        </a>
-
-                        <a href="/account/notifications" class="orders-page-nav-item">
-                            <i class="fa-solid fa-bell"></i> Notifications
-                        </a> -->
-<!-- 
-                        <a href="/logout" class="orders-page-nav-item" id="ordersPageLogoutLink">
-                            <i class="fa-solid fa-right-from-bracket"></i> Logout
-                        </a>
-
-                    </nav>
-
-                    <div class="orders-page-refer-card">
-
-                        <div class="orders-page-refer-icon">
-                            <i class="fa-solid fa-gift"></i>
-                        </div>
-
-                        <div class="orders-page-refer-text">
-                            <h5>Refer & Earn</h5>
-                            <p>Refer your friends and get <strong>₹200 StarSings Credits</strong></p>
-                        </div>
-
-                        <button type="button" class="orders-page-refer-arrow" id="ordersPageReferBtn"
-                            title="Refer and earn">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-
-                    </div>
-
-                </aside> -->
+                    </aside> -->
 
                 <!--=========================
-                            ORDERS MAIN CONTENT
-                        ==========================-->
+                                ORDERS MAIN CONTENT
+                            ==========================-->
 
                 <div class="orders-page-main">
 
@@ -261,8 +260,8 @@
                     @endphp
 
                     <!--=========================
-                                STATUS TABS
-                            ==========================-->
+                                    STATUS TABS
+                                ==========================-->
 
                     <div class="orders-page-tabs" id="ordersPageTabs">
 
@@ -293,8 +292,8 @@
                     </div>
 
                     <!--=========================
-                                TOOLBAR: SEARCH + FILTER
-                            ==========================-->
+                                    TOOLBAR: SEARCH + FILTER
+                                ==========================-->
 
                     <div class="orders-page-toolbar">
 
@@ -346,8 +345,8 @@
                     </div>
 
                     <!--=========================
-                                ORDERS LIST
-                            ==========================-->
+                                    ORDERS LIST
+                                ==========================-->
 
                     <div class="orders-page-list" id="ordersPageList">
 
@@ -432,8 +431,8 @@
                     </div>
 
                     <!--=========================
-                                PAGINATION
-                            ==========================-->
+                                    PAGINATION
+                                ==========================-->
 
                     <div class="orders-page-pagination" id="ordersPagePagination">
 
@@ -464,8 +463,8 @@
     </section>
 
     <!--=========================
-                ORDER DETAILS MODAL
-            ==========================-->
+                    ORDER DETAILS MODAL
+                ==========================-->
 
     <div class="orders-page-modal-overlay" id="ordersPageModalOverlay">
 
@@ -723,15 +722,15 @@
                 const badge = card.querySelector(".orders-page-status-badge").outerHTML;
 
                 modalBody.innerHTML = `
-                        <h3>Order #${d.id}</h3>
-                        <p class="orders-page-modal-sub">${d.products}</p>
-                        <div class="orders-page-modal-row"><span>Status</span>${badge}</div>
-                        <div class="orders-page-modal-row"><span>Order Date</span><span>${d.date}, ${d.time}</span></div>
-                        <div class="orders-page-modal-row"><span>Items</span><span>${d.items}</span></div>
-                        <div class="orders-page-modal-row"><span>Total Amount</span><span>₹${Number(d.price).toLocaleString('en-IN')}</span></div>
-                        <div class="orders-page-modal-row"><span>Payment Method</span><span>${d.method}</span></div>
-                        <div class="orders-page-modal-row"><span>${d.statusLabel}</span><span>${d.statusDate}</span></div>
-                    `;
+                            <h3>Order #${d.id}</h3>
+                            <p class="orders-page-modal-sub">${d.products}</p>
+                            <div class="orders-page-modal-row"><span>Status</span>${badge}</div>
+                            <div class="orders-page-modal-row"><span>Order Date</span><span>${d.date}, ${d.time}</span></div>
+                            <div class="orders-page-modal-row"><span>Items</span><span>${d.items}</span></div>
+                            <div class="orders-page-modal-row"><span>Total Amount</span><span>₹${Number(d.price).toLocaleString('en-IN')}</span></div>
+                            <div class="orders-page-modal-row"><span>Payment Method</span><span>${d.method}</span></div>
+                            <div class="orders-page-modal-row"><span>${d.statusLabel}</span><span>${d.statusDate}</span></div>
+                        `;
                 modalOverlay.classList.add("open");
             }
 

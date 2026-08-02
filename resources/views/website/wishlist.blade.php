@@ -2,18 +2,18 @@
 @section('content')
 
     <!--==========================
-            PAGE BANNER (shared layout component - reused as-is)
-        ===========================-->
+                PAGE BANNER (shared layout component - reused as-is)
+            ===========================-->
 
-    <section class="page-banner">
+    <section class="wishlist-banner-section">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="wishlist-banner-content">
 
                 <h1>Wishlist</h1>
 
-                <div class="breadcrumb">
+                <div class="wishlist-breadcrumb">
 
                     <a href="/">Home</a>
 
@@ -21,7 +21,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="active">Wishlist</span>
+                    <span class="wishlist-active">Wishlist</span>
 
                 </div>
 
@@ -33,8 +33,8 @@
 
 
     <!--==========================================
-            WISHLIST PAGE CONTENT
-        ===========================================-->
+                WISHLIST PAGE CONTENT
+            ===========================================-->
 
     <section class="wishlist-page-section">
 
@@ -50,8 +50,8 @@
             </div>
 
             <!--=========================
-                    HEADER ROW
-                ==========================-->
+                        HEADER ROW
+                    ==========================-->
 
             <div class="wishlist-page-header">
 
@@ -84,8 +84,8 @@
             </div>
 
             <!--=========================
-                    WISHLIST GRID
-                ==========================-->
+                        WISHLIST GRID
+                    ==========================-->
 
             <div class="wishlist-page-grid" id="wishlistPageGrid">
 
@@ -171,8 +171,8 @@
             </div>
 
             <!--=========================
-                    RELATED PRODUCTS CAROUSEL
-                ==========================-->
+                        RELATED PRODUCTS CAROUSEL
+                    ==========================-->
 
             <div class="wishlist-page-related-title-wrap">
 

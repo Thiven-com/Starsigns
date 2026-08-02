@@ -1252,7 +1252,7 @@
 
                             <div class="testimonial-card">
 
-                                <div class="testimonial-stars">
+                                  <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1283,7 +1283,7 @@
 
                             <div class="testimonial-card">
 
-                                <div class="testimonial-stars">
+                                  <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1314,7 +1314,7 @@
 
                             <div class="testimonial-card">
 
-                                <div class="testimonial-stars">
+                                  <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1345,7 +1345,7 @@
 
                             <div class="testimonial-card">
 
-                                <div class="testimonial-stars">
+                                  <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1376,7 +1376,7 @@
 
                             <div class="testimonial-card">
 
-                                <div class="testimonial-stars">
+                                  <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1407,7 +1407,7 @@
 
                             <div class="testimonial-card">
 
-                                <div class="testimonial-stars">
+                                <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>

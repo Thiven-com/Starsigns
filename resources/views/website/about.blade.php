@@ -5,7 +5,7 @@
 
         <div class="container">
 
-            <div class="about-banner-content">
+            <div class="about-banner-content" data-aos="zoom-in">
 
                 <h1>About Us</h1>
 
@@ -33,7 +33,7 @@
         <div class="container">
 
             <!-- Left Image -->
-            <div class="about-image">
+            <div class="about-image" data-aos="fade-right">
                 <img src="{{ asset('website') }}/images/aboutimg.png" alt="About Us">
 
                 <div class="experience-card">
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Right Content -->
-            <div class="about-content">
+            <div class="about-content" data-aos="fade-left">
 
                 <div class="section-title">
                     <span class="subtitle">OUR STORY</span>
@@ -69,7 +69,7 @@
                 <div class="features">
 
                     <!-- Feature 1 -->
-                    <div class="feature">
+                    <div class="feature" data-aos="flip-up" data-aos-delay="100">
                         <div class="icon">
                             <i class="fa-solid fa-shield-heart"></i>
                         </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <!-- Feature 2 -->
-                    <div class="feature">
+                    <div class="feature" data-aos="flip-up" data-aos-delay="200">
                         <div class="icon">
                             <i class="fa-solid fa-hands-praying"></i>
                         </div>
@@ -93,7 +93,7 @@
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="feature">
+                    <div class="feature" data-aos="flip-up" data-aos-delay="300">
                         <div class="icon">
                             <i class="fa-regular fa-gem"></i>
                         </div>
@@ -113,14 +113,14 @@
 
 
     <!--==========================================
-                WHY CHOOSE US
-                ===========================================-->
+                                    WHY CHOOSE US
+                                    ===========================================-->
 
     <section class="why-choose-section">
 
         <div class="container">
 
-            <div class="section-heading">
+            <div class="section-heading" data-aos="fade-up">
 
                 <span class="sub-title">WHY CHOOSE US</span>
 
@@ -130,8 +130,7 @@
 
             <div class="why-grid">
 
-                <div class="why-card">
-
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon">
 
                         <i class="fa-solid fa-award"></i>
@@ -146,8 +145,7 @@
 
                 </div>
 
-                <div class="why-card">
-
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon">
 
                         <i class="fa-regular fa-thumbs-up"></i>
@@ -162,8 +160,7 @@
 
                 </div>
 
-                <div class="why-card">
-
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="icon">
 
                         <i class="fa-solid fa-truck-fast"></i>
@@ -178,8 +175,7 @@
 
                 </div>
 
-                <div class="why-card">
-
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="400">
                     <div class="icon">
 
                         <i class="fa-solid fa-headset"></i>
@@ -204,8 +200,7 @@
 
         <div class="container">
 
-            <div class="banner-card">
-
+            <div class="banner-card" data-aos="zoom-in-up">
                 <img src="{{ asset('website') }}/images/aboutdown.png" alt="Banner">
 
             </div>
@@ -216,8 +211,8 @@
 
 
     <!--==========================
-        FEATURE STRIP
-        ===========================-->
+                            FEATURE STRIP
+                            ===========================-->
 
     <section class="feature-strip">
 
@@ -225,8 +220,7 @@
 
             <div class="feature-wrapper">
 
-                <div class="feature-box">
-
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-icon">
                         <i class="fa-solid fa-truck-fast"></i>
                     </div>
@@ -241,8 +235,7 @@
 
                 </div>
 
-                <div class="feature-box">
-
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-icon">
                         <i class="fa-regular fa-credit-card"></i>
                     </div>
@@ -257,8 +250,7 @@
 
                 </div>
 
-                <div class="feature-box">
-
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-icon">
                         <i class="fa-solid fa-rotate"></i>
                     </div>
@@ -273,8 +265,7 @@
 
                 </div>
 
-                <div class="feature-box">
-
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-icon">
                         <i class="fa-solid fa-headset"></i>
                     </div>
@@ -294,5 +285,17 @@
         </div>
 
     </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: "ease-in-out",
+        });
+    </script>
 
 @endsection

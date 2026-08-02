@@ -19,6 +19,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
+    position: relative;
 }
 
 .heroSwiper .swiper-slide img {
@@ -29,7 +32,45 @@
 
     object-fit: cover;
 
-    display: block;
+    /* display: block; */
+
+    transform: scale(1);
+    transition: transform 8s ease;
+
+}
+
+.heroSwiper .swiper-slide-active img {
+    animation: heroZoom 8s linear forwards;
+}
+
+
+@keyframes heroZoom {
+
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+.heroSwiper .swiper-slide::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, .35),
+            rgba(0, 0, 0, .12),
+            rgba(0, 0, 0, 0));
+
+    z-index: 1;
 
 }
 
@@ -68,34 +109,37 @@
 /*=====================
 ARROWS
 =====================*/
-
 .swiper-button-next,
 .swiper-button-prev {
 
-    width: 55px;
+    width: 58px;
 
-    height: 55px;
+    height: 58px;
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, .18);
 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, .25);
 
     color: #fff;
 
     transition: .35s;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .18);
 
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
 
-    background: #f5b53a;
+    background: #d8a128;
 
-    color: #111;
+    color: #fff;
 
-    transform: scale(1.1);
+    transform: scale(1.12);
 
 }
 
@@ -108,9 +152,41 @@ ARROWS
 
 }
 
+
+.swiper-button-prev,
+.swiper-button-next {
+
+    animation: floatArrow 2s ease-in-out infinite;
+
+}
+
+
+@keyframes floatArrow {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+
+    }
+
+}
+
 /*=====================
 DOTS
 =====================*/
+
+.swiper-pagination {
+
+    bottom: 25px !important;
+
+}
 
 .swiper-pagination-bullet {
 
@@ -118,23 +194,23 @@ DOTS
 
     height: 12px;
 
-    background: #ffffff;
+    background: #fff;
 
-    opacity: .6;
+    opacity: .45;
+
+    transition: .4s;
 
 }
 
 .swiper-pagination-bullet-active {
 
-    width: 34px;
+    width: 36px;
 
-    border-radius: 30px;
+    border-radius: 50px;
 
-    background: #f5b53a;
+    background: #d8a128;
 
     opacity: 1;
-
-    transition: .35s;
 
 }
 

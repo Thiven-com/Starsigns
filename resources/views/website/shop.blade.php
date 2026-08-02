@@ -1,14 +1,14 @@
 @extends('layouts.website')
 @section('content')
     <!--==========================
-                                                                                                PAGE BANNER
-                                                                                                ===========================-->
+                                                                                                    PAGE BANNER
+                                                                                                    ===========================-->
 
     <section class="page-banner">
 
         <div class="container">
 
-            <div class="page-banner-content">
+            <div class="page-banner-content"  data-aos="zoom-in">
 
                 <h1>Shop</h1>
 
@@ -32,8 +32,8 @@
 
 
     <!--==========================================
-                                                                                            SHOP CONTENT
-                                                                                            ===========================================-->
+                                                                                                SHOP CONTENT
+                                                                                                ===========================================-->
 
     <section class="shop-section">
 
@@ -42,8 +42,8 @@
             <div class="shop-wrapper">
 
                 <!--=========================
-                                                                                                                LEFT SIDEBAR
-                                                                                                        ==========================-->
+                                                                                                                    LEFT SIDEBAR
+                                                                                                            ==========================-->
 
                 <aside class="shop-sidebar">
 
@@ -52,10 +52,10 @@
 
 
                         <!--==========================================
-                                                                                        CATEGORIES WIDGET
-                                                                                        ===========================================-->
+                                                                                            CATEGORIES WIDGET
+                                                                                            ===========================================-->
 
-                        <div class="shop-widget">
+                        <div class="shop-widget"  data-aos="fade-right">
 
                             <div class="widget-title">
 
@@ -187,8 +187,8 @@
                     <div class="shop-widget price-widget">
 
                         <!--==========================================
-                                    PRICE FILTER
-                  ===========================================-->
+                                        PRICE FILTER
+                      ===========================================-->
 
                         <div class="shop-widget">
 
@@ -241,8 +241,8 @@
                     <div class="shop-widget sort-widget">
 
                         <!--==========================================
-                               SORT BY
-                          ===========================================-->
+                                   SORT BY
+                              ===========================================-->
 
                         <div class="shop-widget">
 
@@ -318,8 +318,8 @@
                 </aside>
 
                 <!--=========================
-                                RIGHT CONTENT
-                         ==========================-->
+                                    RIGHT CONTENT
+                             ==========================-->
 
                 <div class="shop-content">
 
@@ -358,15 +358,15 @@
 
                             <!-- <button class="grid-btn active">
 
-                                <i class="fa-solid fa-grip"></i>
+                                    <i class="fa-solid fa-grip"></i>
 
-                            </button>
+                                </button>
 
-                            <button class="list-btn">
+                                <button class="list-btn">
 
-                                <i class="fa-solid fa-list"></i>
+                                    <i class="fa-solid fa-list"></i>
 
-                            </button> -->
+                                </button> -->
 
                         </div>
 
@@ -375,15 +375,15 @@
                     <!-- Product Grid -->
 
                     <!--==========================================
-                                                        PRODUCT GRID
-                                                    ===========================================-->
+                                                            PRODUCT GRID
+                                                        ===========================================-->
                     <!-- Product cards will be added in Part 7 -->
 
                     <div class="products-grid">
 
                         @for($i = 1; $i <= 16; $i++)
 
-                            <div class="product-card">
+                            <div class="product-card" data-aos="fade-up" >
 
                                 <div class="product-image">
 
@@ -395,18 +395,18 @@
                                         <i class="fa-regular fa-heart"></i>
 
                                     </button>
-                                   
+
                                     <!-- <div class="product-overlay">
 
-                                        <a href="#" class="quick-view">
+                                                <a href="#" class="quick-view">
 
-                                            <i class="fa-regular fa-eye"></i>
+                                                    <i class="fa-regular fa-eye"></i>
 
-                                            Quick View
+                                                    Quick View
 
-                                        </a>
+                                                </a>
 
-                                    </div> -->
+                                            </div> -->
 
                                     <img src="{{ asset('website') }}/images/card2.png" alt="Product">
 
@@ -528,7 +528,15 @@
 
 
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 
 
 
