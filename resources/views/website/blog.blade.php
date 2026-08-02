@@ -30,8 +30,8 @@
 
 
     <!--==========================================
-                                                                            BLOG CONTENT
-                                                                            ===========================================-->
+                                                                                            BLOG CONTENT
+                                                                                            ===========================================-->
     <section class="blogs-section">
 
         <div class="container">
@@ -40,8 +40,96 @@
 
             <!-- Blog Cards -->
             <!--==========================================
-                                                         BLOG GRID
-                                                   ===========================================-->
+                                                                         BLOG GRID
+                                                                   ===========================================-->
+            <!-- @php
+                    $images = [
+                        '7rudramala.png',
+                        'bracelet.png',
+                        'bracevio.png',
+                        'gemstone.png',
+                        'karungali.png',
+                        'laxmiyantra.png'
+                    ];
+                @endphp
+                <div class="blogs-grid">
+
+                    @for($i = 1; $i <= 6; $i++)
+
+
+
+                                <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
+                                    <div class="blogs-image">
+
+                                        <a href="{{ route('blog-details') }}">
+                                            <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
+                                        </a>
+
+
+                                    </div>
+
+                                    <div class="blogs-card-content">
+
+                                        <span class="blogs-category">
+
+                                            {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
+
+                                        </span>
+
+                                        <h3 class="blogs-title">
+
+                                            <a href="{{ route('blog-details') }}">
+
+                                                {{ [
+                            'How Astrology Can Help You Find Clarity In Life',
+                            '5 Powerful Tarot Spread For Daily Guidance',
+                            'Morning Rituals For a Positive And Peaceful Day',
+                            'Crystal Healing 101: Benefits And How To Use Them',
+                            'Understanding Your Zodiac Sign Better',
+                            'The Power of Meditation and Mindfulness'
+                        ][($i - 1) % 6] }}
+
+                                            </a>
+
+                                        </h3>
+
+                                        <p class="blogs-description">
+
+                                            Discover practical spiritual insights, ancient wisdom and modern guidance to help
+                                            improve your everyday life.
+
+                                        </p>
+
+                                        <div class="blogs-meta">
+
+                                            <span class="blogs-date">
+
+                                                <i class="fa-regular fa-calendar"></i>
+
+                                                May {{ 10 - $i }}, 2024
+
+                                            </span>
+
+                                            <span class="blogs-author">
+
+                                                <i class="fa-regular fa-user"></i>
+
+                                                By Admin
+
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+
+                    @endfor
+
+                </div> -->
+
+
             @php
                 $images = [
                     '7rudramala.png',
@@ -52,29 +140,28 @@
                     'laxmiyantra.png'
                 ];
             @endphp
+
             <div class="blogs-grid">
 
                 @for($i = 1; $i <= 6; $i++)
 
-                            <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
-                                <div class="blogs-image">
+                            <a href="{{ route('blog-details') }}" class="blogs-card-link">
 
-                                    <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
+                                <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
 
-                                </div>
+                                    <div class="blogs-image">
 
-                                <div class="blogs-card-content">
+                                        <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
 
-                                    <span class="blogs-category">
+                                    </div>
 
-                                        {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
+                                    <div class="blogs-card-content">
 
-                                    </span>
+                                        <span class="blogs-category">
+                                            {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
+                                        </span>
 
-                                    <h3 class="blogs-title">
-
-                                        <a href="#">
-
+                                        <h3 class="blogs-title">
                                             {{ [
                         'How Astrology Can Help You Find Clarity In Life',
                         '5 Powerful Tarot Spread For Daily Guidance',
@@ -83,41 +170,32 @@
                         'Understanding Your Zodiac Sign Better',
                         'The Power of Meditation and Mindfulness'
                     ][($i - 1) % 6] }}
+                                        </h3>
 
-                                        </a>
+                                        <p class="blogs-description">
+                                            Discover practical spiritual insights, ancient wisdom and modern guidance to help
+                                            improve your everyday life.
+                                        </p>
 
-                                    </h3>
+                                        <div class="blogs-meta">
 
-                                    <p class="blogs-description">
+                                            <span class="blogs-date">
+                                                <i class="fa-regular fa-calendar"></i>
+                                                May {{ 10 - $i }}, 2024
+                                            </span>
 
-                                        Discover practical spiritual insights, ancient wisdom and modern guidance to help
-                                        improve your everyday life.
+                                            <span class="blogs-author">
+                                                <i class="fa-regular fa-user"></i>
+                                                By Admin
+                                            </span>
 
-                                    </p>
-
-                                    <div class="blogs-meta">
-
-                                        <span class="blogs-date">
-
-                                            <i class="fa-regular fa-calendar"></i>
-
-                                            May {{ 10 - $i }}, 2024
-
-                                        </span>
-
-                                        <span class="blogs-author">
-
-                                            <i class="fa-regular fa-user"></i>
-
-                                            By Admin
-
-                                        </span>
+                                        </div>
 
                                     </div>
 
-                                </div>
+                                </article>
 
-                            </article>
+                            </a>
 
                 @endfor
 
@@ -126,8 +204,8 @@
             <!-- Pagination -->
 
             <!--==========================================
-                                                               PAGINATION
-                                                           ===========================================-->
+                                                                               PAGINATION
+                                                                           ===========================================-->
 
             <div class="blogs-pagination">
 
@@ -206,5 +284,14 @@
             offset: 120,
         });
     </script>
+
+
+    <style>
+        .blogs-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+    </style>
 
 @endsection

@@ -20,6 +20,8 @@ Route::get('contact', [PageController::class, 'contact'])->name('contact');
 Route::get('myaccount', [PageController::class, 'myaccount'])->name('myaccount');
 Route::get('login', [PageController::class, 'login'])->name('login');
 Route::get('register', [PageController::class, 'register'])->name('register');
+Route::get('blog-details', [PageController::class, 'blog_details'])->name('blog-details');
+
 
 
 

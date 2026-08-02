@@ -82,6 +82,13 @@ class PageController extends Controller
     {
         return view('website.register');
     }
+
+
+    
+       public function blog_details()
+    {
+        return view('website.blog-details');
+    }
     //    public function consultation()
     // {
     //     return view('website.consultation');

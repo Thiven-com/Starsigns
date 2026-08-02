@@ -1555,3 +1555,136 @@ RESPONSIVE
 
     }
 }
+
+
+/*==========================================
+PREMIUM CART ANIMATIONS
+==========================================*/
+
+/* Cards */
+.cart-page-table-wrap,
+.cart-page-summary,
+.cart-page-rcard{
+    transition:.45s cubic-bezier(.22,.61,.36,1);
+    position:relative;
+    overflow:hidden;
+}
+
+.cart-page-table-wrap:hover,
+.cart-page-summary:hover,
+.cart-page-rcard:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+
+/* Shine Effect */
+.cart-page-table-wrap::before,
+.cart-page-summary::before,
+.cart-page-rcard::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:50%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    transform:skewX(-25deg);
+    transition:.8s;
+    z-index:2;
+}
+
+.cart-page-table-wrap:hover::before,
+.cart-page-summary:hover::before,
+.cart-page-rcard:hover::before{
+    left:130%;
+}
+
+/* Image Zoom */
+.cart-page-thumb img,
+.cart-page-rimg img{
+    transition:.6s;
+}
+
+.cart-page-row:hover .cart-page-thumb img,
+.cart-page-rcard:hover .cart-page-rimg img{
+    transform:scale(1.08);
+}
+
+/* Quantity Buttons */
+.cart-page-qty-box button{
+    transition:.35s;
+}
+
+.cart-page-qty-box button:hover{
+    transform:scale(1.1);
+}
+
+/* Checkout Button */
+.cart-page-checkout-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.cart-page-checkout-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.7s;
+}
+
+.cart-page-checkout-btn:hover::before{
+    left:130%;
+}
+
+.cart-page-checkout-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(216,161,40,.35);
+}
+
+/* Related Product Animation */
+.cart-page-rcard{
+    animation:cardFade .7s forwards;
+    opacity:0;
+}
+
+.cart-page-rcard:nth-child(1){animation-delay:.1s;}
+.cart-page-rcard:nth-child(2){animation-delay:.2s;}
+.cart-page-rcard:nth-child(3){animation-delay:.3s;}
+.cart-page-rcard:nth-child(4){animation-delay:.4s;}
+.cart-page-rcard:nth-child(5){animation-delay:.5s;}
+
+@keyframes cardFade{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Floating Summary */
+@keyframes floatBox{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+}
+
+.cart-page-summary{
+    animation:floatBox 6s ease-in-out infinite;
+}

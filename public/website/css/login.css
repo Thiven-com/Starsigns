@@ -10,7 +10,9 @@ or featured-products.css)
 
     padding: 60px 70px 90px;
 
-    background: url("../images/login.png") no-repeat center center;
+    background: url("../images/login.png") no-repeat;
+
+    background-size: 100% 100%;
 
 }
 
@@ -837,5 +839,215 @@ RESPONSIVE
 
         grid-template-columns: 1fr;
 
+    }
+}
+
+
+
+
+/*==========================================
+PREMIUM LOGIN PAGE ANIMATIONS
+==========================================*/
+
+/* Floating Background */
+
+.login-page-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.login-page-section::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    top: -150px;
+    left: -150px;
+    border-radius: 50%;
+    background: rgba(216, 161, 40, .08);
+    animation: loginFloat 8s ease-in-out infinite;
+}
+
+.login-page-section::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -100px;
+    bottom: -100px;
+    border-radius: 50%;
+    background: rgba(36, 27, 63, .05);
+    animation: loginFloat 10s ease-in-out infinite reverse;
+}
+
+@keyframes loginFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+/* Welcome Image */
+
+.login-page-welcome-img {
+    transition: .7s;
+    overflow: hidden;
+}
+
+.login-page-welcome-img img {
+    transition: .8s;
+}
+
+.login-page-welcome-img:hover img {
+    transform: scale(1.08);
+}
+
+/* Form Card */
+
+.login-page-form-wrap {
+    position: relative;
+    overflow: hidden;
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+}
+
+.login-page-form-wrap:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .12);
+}
+
+/* Shine */
+
+.login-page-form-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .5),
+            transparent);
+    transform: skewX(-25deg);
+    transition: .9s;
+}
+
+.login-page-form-wrap:hover::before {
+    left: 130%;
+}
+
+/* Inputs */
+
+.login-page-input-wrap {
+    transition: .35s;
+}
+
+.login-page-input-wrap:hover {
+    border-color: #d8a128;
+    transform: translateY(-2px);
+}
+
+/* Login Button */
+
+.login-page-submit-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.login-page-submit-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .45),
+            transparent);
+    transform: skewX(-20deg);
+    transition: .8s;
+}
+
+.login-page-submit-btn:hover::before {
+    left: 130%;
+}
+
+.login-page-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(216, 161, 40, .35);
+}
+
+/* Social Buttons */
+
+.login-page-social-btn {
+    transition: .35s;
+}
+
+.login-page-social-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+}
+
+/* Privacy Card */
+
+.login-page-privacy-note {
+    transition: .35s;
+}
+
+.login-page-privacy-note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, .08);
+}
+
+/* Features */
+
+.login-page-feature-item {
+    transition: .35s;
+}
+
+.login-page-feature-item:hover {
+    transform: translateY(-8px);
+}
+
+.login-page-feature-icon {
+    transition: .45s;
+}
+
+.login-page-feature-item:hover .login-page-feature-icon {
+    transform: rotateY(360deg);
+    background: #d8a128;
+    color: #fff;
+}
+
+/* Page Load */
+
+.login-page-welcome,
+.login-page-form-wrap {
+    opacity: 0;
+    animation: loginFade .8s forwards;
+}
+
+.login-page-welcome {
+    animation-delay: .2s;
+}
+
+.login-page-form-wrap {
+    animation-delay: .5s;
+}
+
+@keyframes loginFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

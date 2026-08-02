@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('website/css/contact.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/myaccount.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/login.css') }}">
+        <link rel="stylesheet" href="{{ asset('website/css/blog-details.css') }}">
+
 
 
     <!-- <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}"> -->
@@ -190,7 +192,7 @@
         NAVIGATION BAR
 ===================================-->
 
-    <nav class="navbar" >
+    <nav class="navbar">
         <div class="container" data-aos="fade-right" data-aos-delay="50">
 
             <div class="nav-wrapper">
@@ -228,37 +230,56 @@
 
                 <ul class="nav-menu" id="navMenu">
 
-                    <li><a href="{{ route('home') }}" class="active">Home</a></li>
+                    <li>
+                        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                            Home
+                        </a>
+                    </li>
 
-                    <li><a href="{{ route('shop') }}">Shop</a></li>
-                    <li><a href="{{ route('about') }}">About Us</a></li>
-                    <li><a href="{{ route('blog') }}">Blogs</a></li>
-                    <!-- <li><a href="#">Consultation</a></li> -->
+                    <li>
+                        <a href="{{ route('shop') }}"
+                            class="{{ request()->routeIs('shop') || request()->routeIs('product') ? 'active' : '' }}">
+                            Shop
+                        </a>
+                    </li>
 
-                    <!-- <li><a href="#">Offers</a></li> -->
-                    <li><a href="{{ route('product') }}">Product Details</a></li>
-                    <li><a href="{{ route('checkout') }}">Checkout</a></li>
-                    <li><a href="{{ route('orders') }}">My Orders</a></li>
+                    <li>
+                        <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                            About Us
+                        </a>
+                    </li>
 
+                    <li>
+                        <a href="{{ route('blog') }}" class="{{ request()->routeIs('blog') ? 'active' : '' }}">
+                            Blogs
+                        </a>
+                    </li>
 
-                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <li>
+                        <a href="{{ route('product') }}" class="{{ request()->routeIs('product') ? 'active' : '' }}">
+                            Product Details
+                        </a>
+                    </li>
 
-                    <!-- <li><a href="#">Rudraksha</a></li>
+                    <li>
+                        <a href="{{ route('checkout') }}" class="{{ request()->routeIs('checkout') ? 'active' : '' }}">
+                            Checkout
+                        </a>
+                    </li>
 
-                    <li><a href="#">Bracelets</a></li>
+                    <li>
+                        <a href="{{ route('orders') }}" class="{{ request()->routeIs('orders') ? 'active' : '' }}">
+                            My Orders
+                        </a>
+                    </li>
 
-                    <li><a href="#">Gemstones</a></li>
-
-                    <li><a href="#">Yantras</a></li>
-
-                    <li><a href="#">Astrology</a></li>
-
-                    <li><a href="#">Numerology</a></li> -->
-
-
+                    <li>
+                        <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                            Contact
+                        </a>
+                    </li>
 
                 </ul>
-
             </div>
 
         </div>
@@ -276,7 +297,7 @@
         FOOTER NEWSLETTER
 ===================================-->
 
-    <section class="footer-newsletter" >
+    <section class="footer-newsletter">
         <div class="container">
 
             <div class="newsletter-wrapper">
@@ -323,7 +344,7 @@
             MAIN FOOTER
 ===================================-->
 
-    <section class="main-footer" >
+    <section class="main-footer">
 
         <div class="container">
 
@@ -454,7 +475,7 @@
         FOOTER BOTTOM
 ===================================-->
 
-    <section class="footer-bottom" >
+    <section class="footer-bottom">
 
         <div class="container">
 
@@ -465,26 +486,26 @@
                 <div class="copyright">
 
                     <p>
-                        © 2025 StarSigns. All Rights Reserved.
+                        © 2025 StarSigns. All Rights Reserved. Developed by <a href="https://www.thiven.com/" target="_blank" style="text-decoration: none;color:white;">ThiVen</a>
                     </p>
 
                 </div>
 
                 <!-- Payment Methods -->
-                
-                <div class="payment-methods"  >
 
-                   <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
+                <!-- <div class="payment-methods">
+
+                    <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
 
                     <a href="#"> <img src="{{ asset('website') }}/images/mastercard.png" alt="Mastercard"></a>
 
                     <a href="#"> <img src="{{ asset('website') }}/images/upi.png" alt="UPI"></a>
 
-                   <a href="##">  <img src="{{ asset('website') }}/images/paytm.png" alt="Paytm"></a>
+                    <a href="##"> <img src="{{ asset('website') }}/images/paytm.png" alt="Paytm"></a>
 
-                   <a href="#">  <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
+                    <a href="#"> <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
 
-                </div>
+                </div> -->
 
                 <!-- Back To Top -->
 
@@ -567,5 +588,14 @@
     </script>
 
 </body>
+
+
+
+
+<style>
+
+
+    
+</style>
 
 </html>

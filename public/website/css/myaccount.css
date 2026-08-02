@@ -1392,3 +1392,284 @@ RESPONSIVE
 
     }
 }
+
+
+
+
+/*==========================================
+PREMIUM ACCOUNT ANIMATIONS
+==========================================*/
+
+/* Cards */
+
+.account-page-card,
+.account-page-stat-card,
+.account-page-quick-card,
+.account-page-sidebar,
+.account-page-feature-item{
+
+    position:relative;
+    overflow:hidden;
+    transition:.45s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.account-page-card:hover,
+.account-page-stat-card:hover,
+.account-page-quick-card:hover,
+.account-page-sidebar:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+
+}
+
+/* Premium Shine */
+
+.account-page-card::before,
+.account-page-stat-card::before,
+.account-page-quick-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:55%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.8s;
+
+}
+
+.account-page-card:hover::before,
+.account-page-stat-card:hover::before,
+.account-page-quick-card:hover::before{
+
+    left:130%;
+
+}
+
+/* Gold Border */
+
+.account-page-card::after,
+.account-page-stat-card::after{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border:2px solid transparent;
+    border-radius:18px;
+
+    transition:.35s;
+
+    pointer-events:none;
+
+}
+
+.account-page-card:hover::after,
+.account-page-stat-card:hover::after{
+
+    border-color:#d8a128;
+
+}
+
+/* Sidebar Animation */
+
+.account-page-nav-link{
+
+    transition:.35s;
+
+}
+
+.account-page-nav-link:hover{
+
+    transform:translateX(8px);
+
+}
+
+/* Avatar */
+
+.account-page-user-avatar{
+
+    transition:.45s;
+
+}
+
+.account-page-sidebar:hover .account-page-user-avatar{
+
+    transform:rotate(8deg) scale(1.08);
+
+}
+
+/* Icons */
+
+.account-page-stat-icon,
+.account-page-feature-icon,
+.account-page-quick-icon{
+
+    transition:.35s;
+
+}
+
+.account-page-stat-card:hover .account-page-stat-icon,
+.account-page-feature-item:hover .account-page-feature-icon,
+.account-page-quick-card:hover .account-page-quick-icon{
+
+    transform:rotate(360deg) scale(1.15);
+
+}
+
+/* Orders */
+
+.account-page-order-item{
+
+    transition:.35s;
+
+}
+
+.account-page-order-item:hover{
+
+    transform:translateX(8px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/* Order Image */
+
+.account-page-order-img img{
+
+    transition:.6s;
+
+}
+
+.account-page-order-item:hover img{
+
+    transform:scale(1.12);
+
+}
+
+/* Buttons */
+
+.account-page-view-all-btn,
+.account-page-modal-confirm,
+.account-page-modal-cancel{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.account-page-view-all-btn::before,
+.account-page-modal-confirm::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:40%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    transition:.8s;
+
+}
+
+.account-page-view-all-btn:hover::before,
+.account-page-modal-confirm:hover::before{
+
+    left:130%;
+
+}
+
+/* Floating Dashboard */
+
+@keyframes accountFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+}
+
+.account-page-sidebar{
+
+    animation:accountFloat 6s ease-in-out infinite;
+
+}
+
+/* Page Load */
+
+.account-page-stat-card,
+.account-page-card,
+.account-page-quick-card{
+
+    opacity:0;
+
+    animation:accountFade .7s forwards;
+
+}
+
+.account-page-stat-card:nth-child(1){animation-delay:.1s;}
+.account-page-stat-card:nth-child(2){animation-delay:.2s;}
+.account-page-stat-card:nth-child(3){animation-delay:.3s;}
+.account-page-stat-card:nth-child(4){animation-delay:.4s;}
+
+.account-page-card:nth-child(1){animation-delay:.5s;}
+.account-page-card:nth-child(2){animation-delay:.6s;}
+
+.account-page-quick-card:nth-child(1){animation-delay:.7s;}
+.account-page-quick-card:nth-child(2){animation-delay:.8s;}
+.account-page-quick-card:nth-child(3){animation-delay:.9s;}
+.account-page-quick-card:nth-child(4){animation-delay:1s;}
+
+@keyframes accountFade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
