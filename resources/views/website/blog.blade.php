@@ -2,11 +2,11 @@
 @section('content')
 
 
-    <section class="blogs-banner-section">
+    <section class="blogs-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 
-            <div class="blogs-banner-content">
+            <div class="blogs-banner-content" data-aos="fade-up" data-aos-delay="200">
 
                 <h1>Blogs</h1>
 

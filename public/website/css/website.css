@@ -1350,7 +1350,7 @@
 
     height: 20px;
 
-    object-fit: contain;
+    object-fit: cover;
 
     background: #17143d;
 
@@ -1477,5 +1477,632 @@
         font-size: 15px;
 
     }
+
+}
+
+
+/* Premium Logo */
+
+.header-logo img {
+
+    transition: .5s ease;
+
+}
+
+.header-logo:hover img {
+
+    transform: scale(1.08) rotate(-2deg);
+
+}
+
+
+.header-search .search-box {
+
+    transition: .4s;
+
+}
+
+.header-search .search-box:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
+
+}
+
+.header-search input {
+
+    transition: .35s;
+
+}
+
+.header-search input:focus {
+
+    transform: scale(1.01);
+
+}
+
+
+.search-box button {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.search-box button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 0;
+
+    height: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .3);
+
+    transform: translate(-50%, -50%);
+
+    transition: .6s;
+
+}
+
+.search-box button:hover::before {
+
+    width: 300px;
+
+    height: 300px;
+
+}
+
+
+.header-item i,
+.wishlist,
+.cart {
+
+    transition: .35s;
+
+}
+
+.header-item:hover i {
+
+    color: #d8a128;
+
+    transform: translateY(-4px);
+
+}
+
+.wishlist:hover {
+
+    transform: scale(1.15);
+
+}
+
+.cart:hover {
+
+    transform: translateY(-4px);
+
+}
+
+
+.wishlist:hover i {
+
+    animation: heartBeat .6s;
+
+}
+
+@keyframes heartBeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.25);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+.cart-icon span {
+
+    animation: pulseCart 2s infinite;
+
+}
+
+@keyframes pulseCart {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+
+.nav-menu li {
+
+    position: relative;
+
+}
+
+.nav-menu li a {
+
+    transition: .35s;
+
+}
+
+.nav-menu li a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #d8a128;
+
+    transform: translateX(-50%);
+
+    transition: .35s;
+
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+
+    width: 100%;
+
+}
+
+.nav-menu li a:hover {
+
+    color: #d8a128;
+
+}
+
+
+.nav-menu li {
+
+    overflow: hidden;
+
+}
+
+.nav-menu li::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -120%;
+
+    top: 0;
+
+    width: 50%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .45),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    transition: .8s;
+
+}
+
+.nav-menu li:hover::before {
+
+    left: 130%;
+
+}
+
+
+.main-header {
+
+    transition: .35s;
+
+}
+
+.main-header.sticky {
+
+    animation: slideHeader .5s ease;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .08);
+
+}
+
+@keyframes slideHeader {
+
+    from {
+
+        transform: translateY(-100%);
+
+    }
+
+    to {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.nav-menu {
+
+    transition: .45s ease;
+
+}
+
+.nav-menu.show {
+
+    animation: menuDrop .45s ease;
+
+}
+
+@keyframes menuDrop {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/*==========================================
+PREMIUM FOOTER ANIMATIONS
+==========================================*/
+
+/* Newsletter */
+
+.newsletter-wrapper {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .45s;
+
+}
+
+.newsletter-wrapper:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+
+}
+
+/* Shine */
+
+.newsletter-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .35),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: .9s;
+
+}
+
+.newsletter-wrapper:hover::before {
+
+    left: 130%;
+
+}
+
+/* Newsletter Icon */
+
+.newsletter-icon {
+
+    transition: .45s;
+
+}
+
+.newsletter-wrapper:hover .newsletter-icon {
+
+    transform: rotateY(360deg) scale(1.15);
+
+}
+
+/* Subscribe Button */
+
+.newsletter-form button {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .35s;
+
+}
+
+.newsletter-form button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 0;
+
+    height: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .25);
+
+    transform: translate(-50%, -50%);
+
+    transition: .6s;
+
+}
+
+.newsletter-form button:hover::before {
+
+    width: 350px;
+
+    height: 350px;
+
+}
+
+.newsletter-form button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+/* Footer Logo */
+
+.footer-logo {
+
+    transition: .5s;
+
+}
+
+.footer-logo:hover {
+
+    transform: scale(1.08) rotate(-2deg);
+
+}
+
+/* Footer Links */
+
+.footer-links ul li {
+
+    transition: .35s;
+
+}
+
+.footer-links ul li:hover {
+
+    transform: translateX(10px);
+
+}
+
+.footer-links ul li a {
+
+    position: relative;
+
+    transition: .35s;
+
+}
+
+.footer-links ul li a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -3px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #d8a128;
+
+    transition: .35s;
+
+}
+
+.footer-links ul li:hover a {
+
+    color: #d8a128;
+
+}
+
+.footer-links ul li:hover a::after {
+
+    width: 100%;
+
+}
+
+/* Social Icons */
+
+.social-icons a {
+
+    transition: .4s;
+
+}
+
+.social-icons a:hover {
+
+    transform: translateY(-8px) rotate(360deg);
+
+    background: #d8a128;
+
+    color: #fff;
+
+}
+
+/* Footer Headings */
+
+.footer-links h3 {
+
+    position: relative;
+
+}
+
+.footer-links h3::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 3px;
+
+    background: #d8a128;
+
+    transition: .5s;
+
+}
+
+.footer-links:hover h3::after {
+
+    width: 70px;
+
+}
+
+/* Copyright */
+
+.copyright {
+
+    transition: .35s;
+
+}
+
+.copyright:hover {
+
+    color: #d8a128;
+
+}
+
+/* Scroll Button */
+
+.scroll-top {
+
+    transition: .4s;
+
+    animation: scrollFloat 3s ease-in-out infinite;
+
+}
+
+.scroll-top:hover {
+
+    transform: translateY(-8px) scale(1.15);
+
+    background: #d8a128;
+
+    color: #fff;
+
+}
+
+/* Floating */
+
+@keyframes scrollFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+
+/* Footer Fade */
+
+.footer-about,
+.footer-links {
+
+    transition: .45s;
+
+}
+
+.footer-about:hover,
+.footer-links:hover {
+
+    transform: translateY(-5px);
 
 }

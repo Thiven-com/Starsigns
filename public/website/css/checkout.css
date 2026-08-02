@@ -1313,3 +1313,287 @@ RESPONSIVE
 
     }
 }
+
+
+
+/*==========================================
+PREMIUM CHECKOUT ANIMATIONS
+==========================================*/
+
+/* Billing Form */
+
+.checkout-page-form-wrap,
+.checkout-page-summary,
+.checkout-page-payment {
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.checkout-page-form-wrap:hover,
+.checkout-page-summary:hover,
+.checkout-page-payment:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+}
+
+/* Shine Effect */
+
+.checkout-page-form-wrap::before,
+.checkout-page-summary::before,
+.checkout-page-payment::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+    transform: skewX(-25deg);
+    transition: .9s;
+    z-index: 2;
+
+}
+
+.checkout-page-form-wrap:hover::before,
+.checkout-page-summary:hover::before,
+.checkout-page-payment:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.checkout-page-form-wrap::after,
+.checkout-page-summary::after,
+.checkout-page-payment::after {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    transition: .35s;
+    pointer-events: none;
+
+}
+
+.checkout-page-form-wrap:hover::after,
+.checkout-page-summary:hover::after,
+.checkout-page-payment:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Input Animation */
+
+.checkout-page-field input,
+.checkout-page-field select {
+
+    transition: .35s;
+
+}
+
+.checkout-page-field input:hover,
+.checkout-page-field select:hover {
+
+    border-color: #d8a128;
+
+}
+
+.checkout-page-field input:focus,
+.checkout-page-field select:focus {
+
+    transform: translateY(-2px);
+
+}
+
+/* Order Item */
+
+.checkout-page-item {
+
+    transition: .35s;
+
+}
+
+.checkout-page-item:hover {
+
+    transform: translateX(6px);
+
+}
+
+/* Product Image */
+
+.checkout-page-item-thumb img {
+
+    transition: .6s;
+
+}
+
+.checkout-page-item:hover img {
+
+    transform: scale(1.12);
+
+}
+
+/* Coupon Button */
+
+.checkout-page-coupon-row button {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.checkout-page-coupon-row button::before {
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .25);
+    transform: translate(-50%, -50%);
+    transition: .6s;
+
+}
+
+.checkout-page-coupon-row button:hover::before {
+
+    width: 300px;
+    height: 300px;
+
+}
+
+/* Payment */
+
+.checkout-page-pay-option {
+
+    transition: .35s;
+
+}
+
+.checkout-page-pay-option:hover {
+
+    transform: translateX(6px);
+
+}
+
+/* Place Order Button */
+
+.checkout-page-place-btn {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.checkout-page-place-btn::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .4),
+            transparent);
+    transform: skewX(-25deg);
+    transition: .8s;
+
+}
+
+.checkout-page-place-btn:hover::before {
+
+    left: 130%;
+
+}
+
+.checkout-page-place-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+/* Perks */
+
+.checkout-page-perk {
+
+    transition: .35s;
+
+}
+
+.checkout-page-perk:hover {
+
+    transform: translateY(-6px);
+
+}
+
+.checkout-page-perk:hover span {
+
+    background: #d8a128;
+    color: #fff;
+}
+
+/* Step Animation */
+
+.checkout-page-step {
+
+    transition: .35s;
+
+}
+
+.checkout-page-step:hover {
+
+    transform: translateY(-4px);
+
+}
+
+.checkout-page-step-circle {
+
+    transition: .35s;
+
+}
+
+.checkout-page-step:hover .checkout-page-step-circle {
+
+    transform: scale(1.1);
+
+}
+
+/* Floating Cards */
+
+@keyframes checkoutFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+.checkout-page-summary {
+
+    animation: checkoutFloat 5s ease-in-out infinite;
+
+}
+
+.checkout-page-payment {
+
+    animation: checkoutFloat 5s ease-in-out infinite 2s;
+
+}

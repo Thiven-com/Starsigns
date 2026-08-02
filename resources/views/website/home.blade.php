@@ -4,8 +4,8 @@
 
 
     <!--==============================
-                                                                                                                                                    HERO SLIDER
-                                                                                                                                            ================================-->
+                                                                                                                                                                                                                                    HERO SLIDER
+                                                                                                                                                                                                                            ================================-->
 
     <section class="hero-slider">
 
@@ -30,8 +30,8 @@
 
                 <!-- Banner 4 -->
                 <!-- <div class="swiper-slide">
-                                        <img src="{{ asset('website/images/banner6.png') }}" alt="Banner 4">
-                                    </div> -->
+                                                                                                                        <img src="{{ asset('website/images/banner6.png') }}" alt="Banner 4">
+                                                                                                                    </div> -->
 
             </div>
 
@@ -48,9 +48,10 @@
 
 
         <section class="features-strip">
+
             <div class="container">
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="icon">
                         <i class="fa-solid fa-truck-fast"></i>
@@ -63,7 +64,7 @@
 
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
 
                     <div class="icon">
                         <i class="fa-solid fa-shield-halved"></i>
@@ -76,7 +77,7 @@
 
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
 
                     <div class="icon">
                         <i class="fa-solid fa-arrow-rotate-left"></i>
@@ -89,7 +90,7 @@
 
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
 
                     <div class="icon">
                         <i class="fa-solid fa-headset"></i>
@@ -102,7 +103,7 @@
 
                 </div>
 
-                <div class="feature-card no-border">
+                <div class="feature-card no-border" data-aos="fade-up" data-aos-delay="500">
 
                     <div class="icon">
                         <i class="fa-solid fa-award"></i>
@@ -116,18 +117,30 @@
                 </div>
 
             </div>
+
         </section>
 
 
-        <!--=========================================
-                            SHOP CATEGORY SECTION
-                    ==========================================-->
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-        <section class="ssc-category-section">
+        <script>
+            AOS.init({
+                duration: 900,
+                easing: "ease-out-cubic",
+                once: true,
+                offset: 100
+            });
+        </script>
+
+
+        <!--=========================================
+                                                                                                            SHOP CATEGORY SECTION
+                                                                                                    ==========================================-->
+        <section class="ssc-category-section" data-aos="fade-up">
 
             <div class="container">
 
-                <div class="ssc-heading">
+                <div class="ssc-heading" data-aos="fade-down" data-aos-duration="1000">
 
                     <span></span>
 
@@ -142,175 +155,94 @@
                     <div class="swiper-wrapper">
 
                         <!-- Card 1 -->
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/rudra2.png" alt="">
-
                                 </div>
-
                                 <h4>Rudraksha</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 2 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="150">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/bracelet.png" alt="">
-
                                 </div>
-
                                 <h4>Bracelets</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 3 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="200">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/pyrite.png" alt="">
-
                                 </div>
-
                                 <h4>Pyrite</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 4 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="250">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/karungali.png" alt="">
-
                                 </div>
-
                                 <h4>Karungali</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 5 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="300">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/yantra.png" alt="">
-
                                 </div>
-
                                 <h4>Yantras</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 6 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="350">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/gemstone.png" alt="">
-
                                 </div>
-
                                 <h4>Gemstones</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 7 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="400">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/zodiac.png" alt="">
-
                                 </div>
-
                                 <h4>Zodiac</h4>
-
                                 <p>Collection</p>
-
                             </a>
-
                         </div>
 
                         <!-- Card 8 -->
-
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="450">
                             <a href="#" class="ssc-card">
-
                                 <div class="ssc-image">
-
                                     <img src="{{ asset('website') }}/images/cons.png" alt="">
-
                                 </div>
-
                                 <h4>Consultation</h4>
-
                                 <p>Services</p>
-
                             </a>
-
                         </div>
 
                     </div>
-
-                    <!-- Navigation -->
-
-                    <!-- <div class="pc-prev">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </div>
-
-                        <div class="pc-next">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div> -->
 
                 </div>
 
@@ -323,384 +255,384 @@
 
 
         <!--=========================================
-                        FEATURED PRODUCTS
-           ==========================================-->
+                                                                                                        FEATURED PRODUCTS
+                                                                                           ==========================================-->
 
         <!-- <section class="fp-section">
 
-                            <div class="container">
+                                                                                                            <div class="container">
 
-                                <div class="fp-header">
+                                                                                                                <div class="fp-header">
 
-                                    <div class="fp-title">
+                                                                                                                    <div class="fp-title">
 
-                                        <span class="fp-subtitle">Premium Collection</span>
+                                                                                                                        <span class="fp-subtitle">Premium Collection</span>
 
-                                        <h2>Featured Products</h2>
+                                                                                                                        <h2>Featured Products</h2>
 
-                                    </div>
+                                                                                                                    </div>
 
-                                    <a href="#" class="fp-view-btn">
-                                        View All
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
+                                                                                                                    <a href="#" class="fp-view-btn">
+                                                                                                                        View All
+                                                                                                                        <i class="fa-solid fa-arrow-right"></i>
+                                                                                                                    </a>
 
-                                </div>
+                                                                                                                </div>
 
-                                <div class="fp-grid"> -->
+                                                                                                                <div class="fp-grid"> -->
 
         <!-- PRODUCT 1 -->
 
         <!-- <div class="fp-card" data-aos="fade-up">
 
-                                        <span class="fp-badge sale">Sale</span>
+                                                                                                                        <span class="fp-badge sale">Sale</span>
 
-                                        <button class="fp-heart">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                                                                                                        <button class="fp-heart">
+                                                                                                                            <i class="fa-regular fa-heart"></i>
+                                                                                                                        </button>
 
-                                        <div class="fp-image">
+                                                                                                                        <div class="fp-image">
 
-                                            <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
+                                                                                                                            <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
 
-                                        </div>
+                                                                                                                        </div>
 
-                                        <div class="fp-content">
+                                                                                                                        <div class="fp-content">
 
-                                            <div class="fp-rating">
+                                                                                                                            <div class="fp-rating">
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star-half-stroke"></i>
 
-                                                <span>(124)</span>
+                                                                                                                                <span>(124)</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <h3>
-                                                7 Mukhi Rudraksha
-                                            </h3>
+                                                                                                                            <h3>
+                                                                                                                                7 Mukhi Rudraksha
+                                                                                                                            </h3>
 
-                                            <div class="fp-price">
+                                                                                                                            <div class="fp-price">
 
-                                                <span class="new">₹1,499</span>
+                                                                                                                                <span class="new">₹1,499</span>
 
-                                                <span class="old">₹1,999</span>
+                                                                                                                                <span class="old">₹1,999</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <a href="#" class="fp-cart-btn">
+                                                                                                                            <a href="#" class="fp-cart-btn">
 
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                                                                                                <i class="fa-solid fa-cart-shopping"></i>
 
-                                                Add to Cart
+                                                                                                                                Add to Cart
 
-                                            </a>
+                                                                                                                            </a>
 
-                                        </div>
+                                                                                                                        </div>
 
-                                    </div> -->
+                                                                                                                    </div> -->
 
         <!-- PRODUCT 2 -->
 
         <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="100">
 
-                                        <span class="fp-badge best">
-                                            Best Seller
-                                        </span>
+                                                                                                                        <span class="fp-badge best">
+                                                                                                                            Best Seller
+                                                                                                                        </span>
 
-                                        <button class="fp-heart">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                                                                                                        <button class="fp-heart">
+                                                                                                                            <i class="fa-regular fa-heart"></i>
+                                                                                                                        </button>
 
-                                        <div class="fp-image">
+                                                                                                                        <div class="fp-image">
 
-                                            <img src="{{ asset('website') }}/images/bracelet.png" alt="">
+                                                                                                                            <img src="{{ asset('website') }}/images/bracelet.png" alt="">
 
-                                        </div>
+                                                                                                                        </div>
 
-                                        <div class="fp-content">
+                                                                                                                        <div class="fp-content">
 
-                                            <div class="fp-rating">
+                                                                                                                            <div class="fp-rating">
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
 
-                                                <span>(95)</span>
+                                                                                                                                <span>(95)</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <h3>
+                                                                                                                            <h3>
 
-                                                Natural Pyrite Tree
+                                                                                                                                Natural Pyrite Tree
 
-                                            </h3>
+                                                                                                                            </h3>
 
-                                            <div class="fp-price">
+                                                                                                                            <div class="fp-price">
 
-                                                <span class="new">₹2,299</span>
+                                                                                                                                <span class="new">₹2,299</span>
 
-                                                <span class="old">₹2,899</span>
+                                                                                                                                <span class="old">₹2,899</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <a href="#" class="fp-cart-btn">
+                                                                                                                            <a href="#" class="fp-cart-btn">
 
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                                                                                                <i class="fa-solid fa-cart-shopping"></i>
 
-                                                Add to Cart
+                                                                                                                                Add to Cart
 
-                                            </a>
+                                                                                                                            </a>
 
-                                        </div>
+                                                                                                                        </div>
 
-                                    </div> -->
+                                                                                                                    </div> -->
 
         <!-- PRODUCT 3 -->
 
         <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="200">
 
-                                        <span class="fp-badge sale">
-                                            Sale
-                                        </span>
+                                                                                                                        <span class="fp-badge sale">
+                                                                                                                            Sale
+                                                                                                                        </span>
 
-                                        <button class="fp-heart">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                                                                                                        <button class="fp-heart">
+                                                                                                                            <i class="fa-regular fa-heart"></i>
+                                                                                                                        </button>
 
-                                        <div class="fp-image">
+                                                                                                                        <div class="fp-image">
 
-                                            <img src="{{ asset('website') }}/images/bracevio.png" alt="">
+                                                                                                                            <img src="{{ asset('website') }}/images/bracevio.png" alt="">
 
-                                        </div>
+                                                                                                                        </div>
 
-                                        <div class="fp-content">
+                                                                                                                        <div class="fp-content">
 
-                                            <div class="fp-rating">
+                                                                                                                            <div class="fp-rating">
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-regular fa-star"></i>
 
-                                                <span>(64)</span>
+                                                                                                                                <span>(64)</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <h3>
+                                                                                                                            <h3>
 
-                                                Crystal Healing Bracelet
+                                                                                                                                Crystal Healing Bracelet
 
-                                            </h3>
+                                                                                                                            </h3>
 
-                                            <div class="fp-price">
+                                                                                                                            <div class="fp-price">
 
-                                                <span class="new">₹899</span>
+                                                                                                                                <span class="new">₹899</span>
 
-                                                <span class="old">₹1,299</span>
+                                                                                                                                <span class="old">₹1,299</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <a href="#" class="fp-cart-btn">
+                                                                                                                            <a href="#" class="fp-cart-btn">
 
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                                                                                                <i class="fa-solid fa-cart-shopping"></i>
 
-                                                Add to Cart
+                                                                                                                                Add to Cart
 
-                                            </a>
+                                                                                                                            </a>
 
-                                        </div>
+                                                                                                                        </div>
 
-                                    </div> -->
+                                                                                                                    </div> -->
 
 
         <!-- PRODUCT 4 -->
 
         <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="300">
 
-                                        <span class="fp-badge best">Best Seller</span>
+                                                                                                                        <span class="fp-badge best">Best Seller</span>
 
-                                        <button class="fp-heart">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                                                                                                        <button class="fp-heart">
+                                                                                                                            <i class="fa-regular fa-heart"></i>
+                                                                                                                        </button>
 
-                                        <div class="fp-image">
+                                                                                                                        <div class="fp-image">
 
-                                            <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="Karungali Bracelet">
+                                                                                                                            <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="Karungali Bracelet">
 
-                                        </div>
+                                                                                                                        </div>
 
-                                        <div class="fp-content">
+                                                                                                                        <div class="fp-content">
 
-                                            <div class="fp-rating">
+                                                                                                                            <div class="fp-rating">
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
 
-                                                <span>(152)</span>
+                                                                                                                                <span>(152)</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <h3>Karungali Bracelet</h3>
+                                                                                                                            <h3>Karungali Bracelet</h3>
 
-                                            <div class="fp-price">
+                                                                                                                            <div class="fp-price">
 
-                                                <span class="new">₹799</span>
+                                                                                                                                <span class="new">₹799</span>
 
-                                                <span class="old">₹999</span>
+                                                                                                                                <span class="old">₹999</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <a href="#" class="fp-cart-btn">
+                                                                                                                            <a href="#" class="fp-cart-btn">
 
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                                                                                                <i class="fa-solid fa-cart-shopping"></i>
 
-                                                Add to Cart
+                                                                                                                                Add to Cart
 
-                                            </a>
+                                                                                                                            </a>
 
-                                        </div>
+                                                                                                                        </div>
 
-                                    </div> -->
+                                                                                                                    </div> -->
 
         <!-- PRODUCT 5 -->
 
         <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="400">
 
-                                        <span class="fp-badge sale">20% OFF</span>
+                                                                                                                        <span class="fp-badge sale">20% OFF</span>
 
-                                        <button class="fp-heart">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                                                                                                        <button class="fp-heart">
+                                                                                                                            <i class="fa-regular fa-heart"></i>
+                                                                                                                        </button>
 
-                                        <div class="fp-image">
+                                                                                                                        <div class="fp-image">
 
-                                            <img src="{{ asset('website/img/product5.png') }}" alt="Shree Yantra">
+                                                                                                                            <img src="{{ asset('website/img/product5.png') }}" alt="Shree Yantra">
 
-                                        </div>
+                                                                                                                        </div>
 
-                                        <div class="fp-content">
+                                                                                                                        <div class="fp-content">
 
-                                            <div class="fp-rating">
+                                                                                                                            <div class="fp-rating">
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star-half-stroke"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star-half-stroke"></i>
 
-                                                <span>(86)</span>
+                                                                                                                                <span>(86)</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <h3>Shree Yantra</h3>
+                                                                                                                            <h3>Shree Yantra</h3>
 
-                                            <div class="fp-price">
+                                                                                                                            <div class="fp-price">
 
-                                                <span class="new">₹1,599</span>
+                                                                                                                                <span class="new">₹1,599</span>
 
-                                                <span class="old">₹1,999</span>
+                                                                                                                                <span class="old">₹1,999</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <a href="#" class="fp-cart-btn">
+                                                                                                                            <a href="#" class="fp-cart-btn">
 
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                                                                                                <i class="fa-solid fa-cart-shopping"></i>
 
-                                                Add to Cart
+                                                                                                                                Add to Cart
 
-                                            </a>
+                                                                                                                            </a>
 
-                                        </div>
+                                                                                                                        </div>
 
-                                    </div> -->
+                                                                                                                    </div> -->
 
         <!-- PRODUCT 6 -->
 
         <!-- <div class="fp-card" data-aos="fade-up" data-aos-delay="500">
 
-                                        <span class="fp-badge sale">New</span>
+                                                                                                                        <span class="fp-badge sale">New</span>
 
-                                        <button class="fp-heart">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
+                                                                                                                        <button class="fp-heart">
+                                                                                                                            <i class="fa-regular fa-heart"></i>
+                                                                                                                        </button>
 
-                                        <div class="fp-image">
+                                                                                                                        <div class="fp-image">
 
-                                            <img src="{{ asset('website/img/product6.png') }}" alt="Natural Gemstone">
+                                                                                                                            <img src="{{ asset('website/img/product6.png') }}" alt="Natural Gemstone">
 
-                                        </div>
+                                                                                                                        </div>
 
-                                        <div class="fp-content">
+                                                                                                                        <div class="fp-content">
 
-                                            <div class="fp-rating">
+                                                                                                                            <div class="fp-rating">
 
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-solid fa-star"></i>
+                                                                                                                                <i class="fa-regular fa-star"></i>
 
-                                                <span>(48)</span>
+                                                                                                                                <span>(48)</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <h3>Natural Gemstone</h3>
+                                                                                                                            <h3>Natural Gemstone</h3>
 
-                                            <div class="fp-price">
+                                                                                                                            <div class="fp-price">
 
-                                                <span class="new">₹2,499</span>
+                                                                                                                                <span class="new">₹2,499</span>
 
-                                                <span class="old">₹2,999</span>
+                                                                                                                                <span class="old">₹2,999</span>
 
-                                            </div>
+                                                                                                                            </div>
 
-                                            <a href="#" class="fp-cart-btn">
+                                                                                                                            <a href="#" class="fp-cart-btn">
 
-                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                                                                                                <i class="fa-solid fa-cart-shopping"></i>
 
-                                                Add to Cart
+                                                                                                                                Add to Cart
 
-                                            </a>
+                                                                                                                            </a>
 
-                                        </div>
+                                                                                                                        </div>
 
-                                    </div>
+                                                                                                                    </div>
 
 
 
-                                </div>
+                                                                                                                </div>
 
-                            </div>
+                                                                                                            </div>
 
-                        </section> -->
+                                                                                                        </section> -->
 
 
 
         <!--==========================================
-                        FEATURED PRODUCTS SECTION
-                    ===========================================-->
+                                                                                                        FEATURED PRODUCTS SECTION
+                                                                                                    ===========================================-->
 
-        <section class="featured-products-section">
+        <section class="featured-products-section" data-aos="fade-up">
 
             <div class="container">
 
                 <!--=========================
-                                TITLE ROW
-                            ==========================-->
+                                                                                                                TITLE ROW
+                                                                                                            ==========================-->
 
                 <div class="featured-products-title-row">
 
-                    <div class="featured-products-title-wrap">
+                    <div class="featured-products-title-wrap" data-aos="fade-right" data-aos-duration="1000">
 
                         <span class="featured-products-title-arrow">
                             <i class="fa-solid fa-arrow-right-long"></i>
@@ -714,13 +646,14 @@
 
                     </div>
 
-                    <a href="/shop" class="featured-products-viewall-btn">View All</a>
+                    <a href="{{ route('shop') }}" class="featured-products-viewall-btn" data-aos="fade-left"
+                        data-aos-duration="1000">View All</a>
 
                 </div>
 
                 <!--=========================
-                                PRODUCTS GRID
-                            ==========================-->
+                                                                                                                PRODUCTS GRID
+                                                                                                            ==========================-->
 
                 <div class="featured-products-grid" id="featuredProductsGrid">
 
@@ -736,7 +669,8 @@
                     @endphp
 
                     @foreach($featuredProducts as $product)
-                        <div class="featured-products-card" data-id="{{ $product['id'] }}">
+                        <div class="featured-products-card" data-id="{{ $product['id'] }}" data-aos="zoom-in-up"
+                            data-aos-delay="{{ ($loop->index + 1) * 100 }}">
 
                             <div class="featured-products-card-img">
 
@@ -818,25 +752,40 @@
 
         </section>
 
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+        <script>
+            AOS.init({
+                duration: 1000,
+                easing: "ease-in-out",
+                once: true,
+                offset: 80
+            });
+        </script>
 
-        <section class="promo-section">
+        <section class="promo-section" data-aos="fade-up">
 
             <div class="promo-grid">
 
                 <!-- Card 1 -->
-                <a href="#" class="promo-card">
+                <a href="#" class="promo-card" data-aos="zoom-in" data-aos-delay="100">
+
                     <img src="{{ asset('website/images/card1.png') }}" alt="Rudraksha Collection">
+
                 </a>
 
                 <!-- Card 2 -->
-                <a href="#" class="promo-card">
+                <a href="#" class="promo-card" data-aos="zoom-in" data-aos-delay="250">
+
                     <img src="{{ asset('website/images/card2.png') }}" alt="Gemstone Collection">
+
                 </a>
 
                 <!-- Card 3 -->
-                <a href="#" class="promo-card">
+                <a href="#" class="promo-card" data-aos="zoom-in" data-aos-delay="400">
+
                     <img src="{{ asset('website/images/card1.png') }}" alt="Yantra Collection">
+
                 </a>
 
             </div>
@@ -844,18 +793,28 @@
         </section>
 
 
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <script>
+            AOS.init({
+                duration: 1000,
+                easing: "ease-in-out",
+                once: true,
+                offset: 80
+            });
+        </script>
 
         <!--=========================
-                                                                                WHY CHOOSE SECTION
-                                                                                ==========================-->
+                                                                                                                                                                WHY CHOOSE SECTION
+                                                                                                                                                                ==========================-->
 
-        <section class="ss-why-section">
+        <section class="ss-why-section" data-aos="fade-up">
 
             <div class="container">
 
                 <div class="ss-why-box">
 
-                    <div class="ss-title">
+                    <div class="ss-title" data-aos="fade-down" data-aos-duration="1000">
 
                         <span></span>
 
@@ -868,8 +827,7 @@
                     <div class="ss-features">
 
                         <!-- Item -->
-
-                        <div class="ss-item">
+                        <div class="ss-item" data-aos="fade-up" data-aos-delay="100">
 
                             <div class="ss-icon">
                                 <i class="fa-regular fa-lightbulb"></i>
@@ -883,8 +841,7 @@
                         </div>
 
                         <!-- Item -->
-
-                        <div class="ss-item">
+                        <div class="ss-item" data-aos="fade-up" data-aos-delay="200">
 
                             <div class="ss-icon">
                                 <i class="fa-solid fa-flask"></i>
@@ -898,8 +855,7 @@
                         </div>
 
                         <!-- Item -->
-
-                        <div class="ss-item">
+                        <div class="ss-item" data-aos="fade-up" data-aos-delay="300">
 
                             <div class="ss-icon">
                                 <i class="fa-solid fa-truck-fast"></i>
@@ -913,8 +869,7 @@
                         </div>
 
                         <!-- Item -->
-
-                        <div class="ss-item">
+                        <div class="ss-item" data-aos="fade-up" data-aos-delay="400">
 
                             <div class="ss-icon">
                                 <i class="fa-solid fa-wallet"></i>
@@ -928,8 +883,7 @@
                         </div>
 
                         <!-- Item -->
-
-                        <div class="ss-item">
+                        <div class="ss-item" data-aos="fade-up" data-aos-delay="500">
 
                             <div class="ss-icon">
                                 <i class="fa-solid fa-rotate"></i>
@@ -950,128 +904,150 @@
 
         </section>
 
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <script>
+            AOS.init({
+                duration: 1000,
+                easing: "ease-in-out",
+                once: true,
+                offset: 100
+            });
+        </script>
         <!--=========================
-            POPULAR CATEGORIES
-        ==========================-->
+                                                                                            POPULAR CATEGORIES
+                                                                                        ==========================-->
 
-        <!-- <section class="popular-category-section">
+        <!-- <section class="popular-category-section" data-aos="fade-up">
 
-            <div class="container">
+                                            <div class="container">
 
-                <div class="pc-title">
+                                                <div class="pc-title" data-aos="fade-down" data-aos-duration="1000">
 
-                    <span></span>
+                                                    <span></span>
 
-                    <h2>Popular Categories</h2>
+                                                    <h2>Popular Categories</h2>
 
-                    <span></span>
+                                                    <span></span>
 
-                </div>
+                                                </div>
 
-                <div class="swiper popularCategorySlider">
+                                                <div class="swiper popularCategorySlider">
 
-                    <div class="swiper-wrapper">
+                                                    <div class="swiper-wrapper">
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/pyramid.png') }}">
-                                </div>
-                                <h4>Pyramids</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="100">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Pyramids</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/crystal.png') }}">
-                                </div>
-                                <h4>Crystals</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="150">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Crystals</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/zodiac.png') }}">
-                                </div>
-                                <h4>Zodiac</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="200">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Zodiac</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/pendant.png') }}">
-                                </div>
-                                <h4>Pendants</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="250">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Pendants</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/idols.png') }}">
-                                </div>
-                                <h4>Idols</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="300">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Idols</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/vastu.png') }}">
-                                </div>
-                                <h4>Vastu</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="350">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Vastu</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/book.png') }}">
-                                </div>
-                                <h4>Astrology Books</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="400">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>Astrology Books</h4>
+                                                            </div>
+                                                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="pc-card">
-                                <div class="pc-circle">
-                                    <img src="{{ asset('website/img/more.png') }}">
-                                </div>
-                                <h4>More</h4>
-                            </div>
-                        </div>
+                                                        <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="450">
+                                                            <div class="pc-card">
+                                                                <div class="pc-circle">
+                                                                    <img src="{{ asset('website') }}/images/product-1.png">
+                                                                </div>
+                                                                <h4>More</h4>
+                                                            </div>
+                                                        </div>
 
-                    </div>
+                                                    </div>
 
-                    <div class="pc-prev">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </div>
+                                                    <div class="pc-prev">
+                                                        <i class="fa-solid fa-chevron-left"></i>
+                                                    </div>
 
-                    <div class="pc-next">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
+                                                    <div class="pc-next">
+                                                        <i class="fa-solid fa-chevron-right"></i>
+                                                    </div>
 
-                </div>
+                                                </div>
 
-            </div>
+                                            </div>
 
-        </section>
- -->
+                                        </section>
+
+
+                                        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+                                        <script>
+                                            AOS.init({
+                                                duration: 1000,
+                                                easing: "ease-in-out-cubic",
+                                                once: true,
+                                                offset: 80
+                                            });
+                                        </script> -->
 
         <!--=========================
-                                LATEST BLOG SECTION
-                                ==========================-->
+                                                                                                                LATEST BLOG SECTION
+                                                                                                                ==========================-->
 
-        <section class="blog-section">
+        <section class="blog-section" data-aos="fade-up">
 
             <div class="container">
 
                 <div class="blog-header">
 
-                    <div class="blog-title">
+                    <div class="blog-title" data-aos="fade-right" data-aos-duration="1000">
 
                         <span></span>
 
@@ -1081,7 +1057,7 @@
 
                     </div>
 
-                    <a href="#" class="blog-view-all">
+                    <a href="#" class="blog-view-all" data-aos="fade-left" data-aos-duration="1000">
                         View All
                     </a>
 
@@ -1090,20 +1066,15 @@
                 <div class="blog-grid">
 
                     <!-- CARD 1 -->
-
-                    <div class="blog-card">
+                    <div class="blog-card" data-aos="zoom-in-up" data-aos-delay="100">
 
                         <div class="blog-image">
-
                             <img src="{{ asset('website') }}/images/gemstone.png" alt="">
-
                         </div>
 
                         <div class="blog-content">
 
-                            <span class="blog-date">
-                                12 May 2025
-                            </span>
+                            <span class="blog-date">12 May 2025</span>
 
                             <h3>
                                 Power of Birthstones:
@@ -1121,20 +1092,15 @@
                     </div>
 
                     <!-- CARD 2 -->
-
-                    <div class="blog-card">
+                    <div class="blog-card" data-aos="zoom-in-up" data-aos-delay="200">
 
                         <div class="blog-image">
-
                             <img src="{{ asset('website') }}/images/7rudramala.png" alt="">
-
                         </div>
 
                         <div class="blog-content">
 
-                            <span class="blog-date">
-                                08 May 2025
-                            </span>
+                            <span class="blog-date">08 May 2025</span>
 
                             <h3>
                                 Benefits of Wearing
@@ -1152,20 +1118,15 @@
                     </div>
 
                     <!-- CARD 3 -->
-
-                    <div class="blog-card">
+                    <div class="blog-card" data-aos="zoom-in-up" data-aos-delay="300">
 
                         <div class="blog-image">
-
                             <img src="{{ asset('website') }}/images/bracelet.png" alt="">
-
                         </div>
 
                         <div class="blog-content">
 
-                            <span class="blog-date">
-                                05 May 2025
-                            </span>
+                            <span class="blog-date">05 May 2025</span>
 
                             <h3>
                                 Crystals for Positive
@@ -1183,20 +1144,15 @@
                     </div>
 
                     <!-- CARD 4 -->
-
-                    <div class="blog-card">
+                    <div class="blog-card" data-aos="zoom-in-up" data-aos-delay="400">
 
                         <div class="blog-image">
-
                             <img src="{{ asset('website') }}/images/laxmiyantra.png" alt="">
-
                         </div>
 
                         <div class="blog-content">
 
-                            <span class="blog-date">
-                                01 May 2025
-                            </span>
+                            <span class="blog-date">01 May 2025</span>
 
                             <h3>
                                 How Yantras Work:
@@ -1220,18 +1176,29 @@
         </section>
 
 
-        <!--==========================================
-                                    TESTIMONIAL SECTION
-                            ===========================================-->
 
-        <section class="testimonial-section">
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <script>
+            AOS.init({
+                duration: 1000,
+                easing: "ease-in-out-cubic",
+                once: true,
+                offset: 100
+            });
+        </script>
+
+        <!--==========================================
+                                                                                                                    TESTIMONIAL SECTION
+                                                                                                            ===========================================-->
+
+        <section class="testimonial-section" data-aos="fade-up">
 
             <div class="container">
 
                 <!-- Heading -->
 
-                <div class="testimonial-heading">
-
+                <div class="testimonial-heading" data-aos="fade-down" data-aos-duration="1000">
                     <span></span>
 
                     <h2>What Our Customers Say</h2>
@@ -1242,17 +1209,15 @@
 
                 <!-- Slider -->
 
-                <div class="swiper testimonialSlider">
-
+                <div class="swiper testimonialSlider" data-aos="zoom-in" data-aos-duration="1200">
                     <div class="swiper-wrapper">
 
                         <!-- Testimonial 1 -->
 
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="100">
                             <div class="testimonial-card">
 
-                                  <div class="testimonial-stars" style="color: #fff">
+                                <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1279,11 +1244,10 @@
 
                         <!-- Testimonial 2 -->
 
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="200">
                             <div class="testimonial-card">
 
-                                  <div class="testimonial-stars" style="color: #fff">
+                                <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1310,11 +1274,10 @@
 
                         <!-- Testimonial 3 -->
 
-                        <div class="swiper-slide">
-
+                        <div class="swiper-slide" data-aos="fade-up" data-aos-delay="300">
                             <div class="testimonial-card">
 
-                                  <div class="testimonial-stars" style="color: #fff">
+                                <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1345,7 +1308,7 @@
 
                             <div class="testimonial-card">
 
-                                  <div class="testimonial-stars" style="color: #fff">
+                                <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1376,7 +1339,7 @@
 
                             <div class="testimonial-card">
 
-                                  <div class="testimonial-stars" style="color: #fff">
+                                <div class="testimonial-stars" style="color: #fff">
 
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -1445,6 +1408,23 @@
         </section>
 
 
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <script>
+            AOS.init({
+
+                duration: 1000,
+
+                easing: "ease-in-out-cubic",
+
+                once: true,
+
+                offset: 100
+
+            });
+        </script>
+
+
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -1457,6 +1437,17 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <script>
+            AOS.init({
+                duration: 900,
+                easing: "ease-out-cubic",
+                once: true,
+                offset: 80
+            });
+        </script>
 
         <script>
             const heroSwiper = new Swiper(".heroSwiper", {
@@ -1504,92 +1495,92 @@
 
         <!-- <script>
 
-                                                                                                                        document.addEventListener("DOMContentLoaded", function () {
+                                                                                                                                                                                                        document.addEventListener("DOMContentLoaded", function () {
 
-                                                                                                                            const categorySlider = new Swiper(".sscCategorySlider", {
+                                                                                                                                                                                                            const categorySlider = new Swiper(".sscCategorySlider", {
 
-                                                                                                                                slidesPerView: 8,
-                                                                                                                                spaceBetween: 20,
-                                                                                                                                loop: true,
-                                                                                                                                speed: 800,
+                                                                                                                                                                                                                slidesPerView: 8,
+                                                                                                                                                                                                                spaceBetween: 20,
+                                                                                                                                                                                                                loop: true,
+                                                                                                                                                                                                                speed: 800,
 
-                                                                                                                                autoplay: {
-                                                                                                                                    delay: 2500,
-                                                                                                                                    disableOnInteraction: false,
-                                                                                                                                    pauseOnMouseEnter: true,
-                                                                                                                                },
+                                                                                                                                                                                                                autoplay: {
+                                                                                                                                                                                                                    delay: 2500,
+                                                                                                                                                                                                                    disableOnInteraction: false,
+                                                                                                                                                                                                                    pauseOnMouseEnter: true,
+                                                                                                                                                                                                                },
 
-                                                                                                                                navigation: {
-                                                                                                                                    nextEl: ".ssc-next",
-                                                                                                                                    prevEl: ".ssc-prev",
-                                                                                                                                },
+                                                                                                                                                                                                                navigation: {
+                                                                                                                                                                                                                    nextEl: ".ssc-next",
+                                                                                                                                                                                                                    prevEl: ".ssc-prev",
+                                                                                                                                                                                                                },
 
-                                                                                                                                breakpoints: {
+                                                                                                                                                                                                                breakpoints: {
 
-                                                                                                                                    320: {
-                                                                                                                                        slidesPerView: 2,
-                                                                                                                                        spaceBetween: 10,
-                                                                                                                                    },
+                                                                                                                                                                                                                    320: {
+                                                                                                                                                                                                                        slidesPerView: 2,
+                                                                                                                                                                                                                        spaceBetween: 10,
+                                                                                                                                                                                                                    },
 
-                                                                                                                                    576: {
-                                                                                                                                        slidesPerView: 3,
-                                                                                                                                        spaceBetween: 15,
-                                                                                                                                    },
+                                                                                                                                                                                                                    576: {
+                                                                                                                                                                                                                        slidesPerView: 3,
+                                                                                                                                                                                                                        spaceBetween: 15,
+                                                                                                                                                                                                                    },
 
-                                                                                                                                    768: {
-                                                                                                                                        slidesPerView: 4,
-                                                                                                                                        spaceBetween: 15,
-                                                                                                                                    },
+                                                                                                                                                                                                                    768: {
+                                                                                                                                                                                                                        slidesPerView: 4,
+                                                                                                                                                                                                                        spaceBetween: 15,
+                                                                                                                                                                                                                    },
 
-                                                                                                                                    992: {
-                                                                                                                                        slidesPerView: 6,
-                                                                                                                                        spaceBetween: 18,
-                                                                                                                                    },
+                                                                                                                                                                                                                    992: {
+                                                                                                                                                                                                                        slidesPerView: 6,
+                                                                                                                                                                                                                        spaceBetween: 18,
+                                                                                                                                                                                                                    },
 
-                                                                                                                                    1200: {
-                                                                                                                                        slidesPerView: 8,
-                                                                                                                                        spaceBetween: 20,
-                                                                                                                                    }
+                                                                                                                                                                                                                    1200: {
+                                                                                                                                                                                                                        slidesPerView: 8,
+                                                                                                                                                                                                                        spaceBetween: 20,
+                                                                                                                                                                                                                    }
 
-                                                                                                                                }
+                                                                                                                                                                                                                }
 
-                                                                                                                            });
+                                                                                                                                                                                                            });
 
-                                                                                                                        });
+                                                                                                                                                                                                        });
 
-                                                                                                                    </script> -->
+                                                                                                                                                                                                    </script> -->
 
 
         <!-- 
-                                                                                                                <script>
-                                                                                                                    document.addEventListener("DOMContentLoaded", function () {
+                                                                                                                                                                                                <script>
+                                                                                                                                                                                                    document.addEventListener("DOMContentLoaded", function () {
 
-                                                                                                                        new Swiper(".sscCategorySlider", {
+                                                                                                                                                                                                        new Swiper(".sscCategorySlider", {
 
-                                                                                                                            slidesPerView: "auto",
-                                                                                                                            spaceBetween: 20,
+                                                                                                                                                                                                            slidesPerView: "auto",
+                                                                                                                                                                                                            spaceBetween: 20,
 
-                                                                                                                            loop: true,
-                                                                                                                            speed: 1000,
+                                                                                                                                                                                                            loop: true,
+                                                                                                                                                                                                            speed: 1000,
 
-                                                                                                                            freeMode: true,
-                                                                                                                            freeModeMomentum: false,
+                                                                                                                                                                                                            freeMode: true,
+                                                                                                                                                                                                            freeModeMomentum: false,
 
-                                                                                                                            autoplay: {
-                                                                                                                                delay: 0,
-                                                                                                                                disableOnInteraction: false,
-                                                                                                                                pauseOnMouseEnter: true,
-                                                                                                                            },
+                                                                                                                                                                                                            autoplay: {
+                                                                                                                                                                                                                delay: 0,
+                                                                                                                                                                                                                disableOnInteraction: false,
+                                                                                                                                                                                                                pauseOnMouseEnter: true,
+                                                                                                                                                                                                            },
 
-                                                                                                                            navigation: {
-                                                                                                                                nextEl: ".ssc-next",
-                                                                                                                                prevEl: ".ssc-prev",
-                                                                                                                            },
+                                                                                                                                                                                                            navigation: {
+                                                                                                                                                                                                                nextEl: ".ssc-next",
+                                                                                                                                                                                                                prevEl: ".ssc-prev",
+                                                                                                                                                                                                            },
 
-                                                                                                                        });
+                                                                                                                                                                                                        });
 
-                                                                                                                    });
-                                                                                                                </script> -->
+                                                                                                                                                                                                    });
+                                                                                                                                                                                                </script> -->
 
 
         <script>

@@ -2,18 +2,20 @@
 @section('content')
 
     <!--==========================
-                PAGE BANNER (shared layout component - reused as-is)
-            ===========================-->
+                        PAGE BANNER (shared layout component - reused as-is)
+                    ===========================-->
 
-    <section class="checkout-banner-section">
+    <section class="checkout-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 
             <div class="checkout-banner-content">
 
-                <h1>Checkout</h1>
+                <h1 data-aos="fade-up" data-aos-delay="200">
+                    Checkout
+                </h1>
 
-                <div class="checkout-breadcrumb">
+                <div class="checkout-breadcrumb" data-aos="fade-up" data-aos-delay="400">
 
                     <a href="/">Home</a>
 
@@ -36,11 +38,20 @@
         </div>
 
     </section>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: "ease-in-out-cubic",
+            once: true,
+            offset: 80
+        });
+    </script>
 
     <!--==========================================
-                CHECKOUT PAGE CONTENT
-            ===========================================-->
+                        CHECKOUT PAGE CONTENT
+                    ===========================================-->
 
     <section class="checkout-page-section">
 
@@ -58,8 +69,8 @@
             </div>
 
             <!--=========================
-                        STEP INDICATOR
-                    ==========================-->
+                                STEP INDICATOR
+                            ==========================-->
 
             <div class="checkout-page-steps" id="checkoutPageSteps">
 
@@ -94,8 +105,8 @@
             <div class="checkout-page-layout">
 
                 <!--=========================
-                            LEFT: BILLING FORM
-                        ==========================-->
+                                    LEFT: BILLING FORM
+                                ==========================-->
 
                 <div class="checkout-page-form-wrap">
 
@@ -281,8 +292,8 @@
                 </div>
 
                 <!--=========================
-                            RIGHT: ORDER SUMMARY + PAYMENT
-                        ==========================-->
+                                    RIGHT: ORDER SUMMARY + PAYMENT
+                                ==========================-->
 
                 <aside class="checkout-page-side">
 

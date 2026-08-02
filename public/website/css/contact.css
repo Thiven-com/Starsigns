@@ -1090,3 +1090,274 @@ RESPONSIVE
 
     }
 }
+
+
+/*==========================================
+PREMIUM CONTACT PAGE ANIMATIONS
+==========================================*/
+
+/* Hero */
+
+.contact-page-hero {
+    animation: contactHero .8s ease;
+}
+
+@keyframes contactHero {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Card */
+
+.contact-page-form-wrap,
+.contact-page-info-card,
+.contact-page-map-wrap {
+
+    position: relative;
+    overflow: hidden;
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.contact-page-form-wrap:hover,
+.contact-page-info-card:hover,
+.contact-page-map-wrap:hover {
+
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+
+}
+
+/* Shine */
+
+.contact-page-form-wrap::before,
+.contact-page-info-card::before,
+.contact-page-map-wrap::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+    transform: skewX(-25deg);
+    transition: .9s;
+    z-index: 2;
+
+}
+
+.contact-page-form-wrap:hover::before,
+.contact-page-info-card:hover::before,
+.contact-page-map-wrap:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.contact-page-form-wrap::after,
+.contact-page-info-card::after,
+.contact-page-map-wrap::after {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    transition: .35s;
+    pointer-events: none;
+
+}
+
+.contact-page-form-wrap:hover::after,
+.contact-page-info-card:hover::after,
+.contact-page-map-wrap:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Inputs */
+
+.contact-page-input-wrap {
+
+    transition: .35s;
+
+}
+
+.contact-page-input-wrap:hover {
+
+    border-color: #d8a128;
+
+}
+
+.contact-page-input-wrap:focus-within {
+
+    transform: translateY(-2px);
+
+}
+
+/* Info Cards */
+
+.contact-page-info-item {
+
+    transition: .35s;
+
+}
+
+.contact-page-info-item:hover {
+
+    transform: translateX(8px);
+
+    border-color: #d8a128;
+
+}
+
+.contact-page-info-icon {
+
+    transition: .45s;
+
+}
+
+.contact-page-info-item:hover .contact-page-info-icon {
+
+    transform: rotateY(360deg) scale(1.15);
+
+    background: #d8a128;
+    color: #fff;
+
+}
+
+/* Map */
+
+.contact-page-map-wrap iframe {
+
+    transition: 1s;
+
+}
+
+.contact-page-map-wrap:hover iframe {
+
+    transform: scale(1.05);
+
+}
+
+/* Location Button */
+
+.contact-page-location-btn {
+
+    transition: .35s;
+
+}
+
+.contact-page-location-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+/* Features */
+
+.contact-page-feature-item {
+
+    transition: .4s;
+
+}
+
+.contact-page-feature-item:hover {
+
+    transform: translateY(-8px);
+
+}
+
+.contact-page-feature-icon {
+
+    transition: .45s;
+
+}
+
+.contact-page-feature-item:hover .contact-page-feature-icon {
+
+    transform: rotateY(360deg);
+
+    background: #d8a128;
+    color: #fff;
+
+}
+
+/* Submit Button */
+
+.contact-page-submit-btn {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.contact-page-submit-btn::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .45),
+            transparent);
+    transform: skewX(-20deg);
+    transition: .8s;
+
+}
+
+.contact-page-submit-btn:hover::before {
+
+    left: 130%;
+
+}
+
+.contact-page-submit-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+/* Floating */
+
+@keyframes contactFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+.contact-page-info-card {
+
+    animation: contactFloat 6s ease-in-out infinite;
+
+}
+
+.contact-page-map-wrap {
+
+    animation: contactFloat 6s ease-in-out infinite 2s;
+
+}

@@ -3270,3 +3270,1406 @@ Pagination Animation
     transform: scale(1.15);
 
 }
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+* {
+    transition:
+        background-color .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+
+.hover-lift {
+    transition: .4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.fade-up {
+    animation: fadeUp .8s ease forwards;
+}
+
+
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(216, 161, 40, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 35px rgba(216, 161, 40, .45);
+    }
+
+}
+
+.glow-hover:hover {
+    animation: glow 2s infinite;
+}
+
+
+
+.btn-premium {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.btn-premium::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 0;
+    height: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .25);
+
+    transform: translate(-50%, -50%);
+
+    transition: .6s;
+
+}
+
+.btn-premium:hover::before {
+
+    width: 450px;
+    height: 450px;
+
+}
+
+
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+.float-image {
+
+    animation: float 5s ease-in-out infinite;
+
+}
+
+
+
+.border-hover {
+
+    position: relative;
+
+}
+
+.border-hover::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid transparent;
+
+    transition: .35s;
+
+}
+
+.border-hover:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+
+
+.shine {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.shine::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -130%;
+    top: 0;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: .9s;
+
+}
+
+.shine:hover::before {
+
+    left: 140%;
+
+}
+
+
+/*==========================================
+FEATURE PREMIUM ANIMATIONS
+==========================================*/
+
+.feature-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .45s ease;
+
+}
+
+.feature-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .12);
+
+}
+
+.feature-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: .8s;
+
+}
+
+.feature-card:hover::before {
+
+    left: 130%;
+
+}
+
+.feature-card .icon {
+
+    transition: .4s;
+
+}
+
+.feature-card:hover .icon {
+
+    transform: rotateY(360deg) scale(1.15);
+
+    color: #d8a128;
+
+}
+
+.feature-card .content h4 {
+
+    transition: .35s;
+
+}
+
+.feature-card:hover .content h4 {
+
+    color: #d8a128;
+
+}
+
+.feature-card:hover .content p {
+
+    color: #444;
+
+}
+
+
+
+/*==========================================
+PREMIUM FEATURED PRODUCTS ANIMATION
+==========================================*/
+
+/* Card */
+
+.featured-products-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.featured-products-card:hover {
+
+    transform: translateY(-14px);
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .16);
+
+}
+
+/* Shine */
+
+.featured-products-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: 1s;
+
+    z-index: 5;
+
+}
+
+.featured-products-card:hover::before {
+
+    left: 130%;
+
+}
+
+/* Product Image */
+
+.featured-products-card-img {
+
+    overflow: hidden;
+
+}
+
+.featured-products-card-img img {
+
+    transition: 1s ease;
+
+}
+
+.featured-products-card:hover img {
+
+    transform: scale(1.12) rotate(-3deg);
+
+}
+
+/* Badge */
+
+.featured-products-badge {
+
+    transition: .35s;
+
+}
+
+.featured-products-card:hover .featured-products-badge {
+
+    transform: translateY(-3px);
+
+}
+
+/* Wishlist */
+
+.featured-products-wish-btn {
+
+    transition: .35s;
+
+}
+
+.featured-products-wish-btn:hover {
+
+    transform: rotate(360deg) scale(1.15);
+
+    background: #d8a128;
+
+    color: #fff;
+
+}
+
+/* Product Name */
+
+.featured-products-name {
+
+    transition: .35s;
+
+}
+
+.featured-products-card:hover .featured-products-name {
+
+    color: #d8a128;
+
+}
+
+/* Stars */
+
+.featured-products-stars i {
+
+    transition: .35s;
+
+}
+
+.featured-products-card:hover .featured-products-stars i {
+
+    transform: scale(1.2);
+
+}
+
+/* Price */
+
+.featured-products-price .now {
+
+    transition: .35s;
+
+}
+
+.featured-products-card:hover .now {
+
+    color: #d8a128;
+
+}
+
+/* Buttons */
+
+.featured-products-cart-btn,
+.featured-products-cart-icon-btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .35s;
+
+}
+
+.featured-products-cart-btn::before,
+.featured-products-cart-icon-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(255, 255, 255, .2);
+
+    transform: skewX(-25deg);
+
+    transition: .6s;
+
+}
+
+.featured-products-cart-btn:hover::before,
+.featured-products-cart-icon-btn:hover::before {
+
+    left: 120%;
+
+}
+
+.featured-products-cart-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.featured-products-cart-icon-btn:hover {
+
+    transform: rotate(15deg);
+
+}
+
+
+
+
+/*==========================================
+PROMO SECTION
+==========================================*/
+
+.promo-section {
+
+    padding: 90px 0;
+
+    background: #faf8f5;
+
+}
+
+.promo-grid {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+/*==========================================
+CARD
+==========================================*/
+
+.promo-card {
+
+    position: relative;
+
+    display: block;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+    transition: .5s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.promo-card img {
+
+    width: 100%;
+
+    display: block;
+
+    transition: 1s ease;
+
+}
+
+/* Hover */
+
+.promo-card:hover {
+
+    transform: translateY(-12px);
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .18);
+
+}
+
+.promo-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+/* Shine */
+
+.promo-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: 1s;
+
+    z-index: 2;
+
+}
+
+.promo-card:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.promo-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 22px;
+
+    transition: .4s;
+
+}
+
+.promo-card:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Dark Overlay */
+
+.promo-card img {
+
+    position: relative;
+
+}
+
+.promo-card::selection {
+
+    background: transparent;
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media(max-width:992px) {
+
+    .promo-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .promo-section {
+
+        padding: 70px 20px;
+
+    }
+
+    .promo-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+}
+
+
+
+
+
+/*==========================================
+PREMIUM WHY CHOOSE US ANIMATIONS
+==========================================*/
+
+/* Card Hover */
+
+.ss-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.ss-item:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .12);
+
+}
+
+/* Shine Effect */
+
+.ss-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .6),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: .8s;
+
+}
+
+.ss-item:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.ss-item::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 18px;
+
+    transition: .35s;
+
+}
+
+.ss-item:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Icon Animation */
+
+.ss-icon {
+
+    transition: .45s;
+
+}
+
+.ss-item:hover .ss-icon {
+
+    transform: rotateY(360deg) scale(1.15);
+
+    background: #d8a128;
+
+    color: #fff;
+
+}
+
+/* Heading Animation */
+
+.ss-content h4 {
+
+    transition: .35s;
+
+}
+
+.ss-item:hover h4 {
+
+    color: #d8a128;
+
+}
+
+/* Text Animation */
+
+.ss-content p {
+
+    transition: .35s;
+
+}
+
+.ss-item:hover p {
+
+    color: #444;
+
+}
+
+/* Floating Effect */
+
+.ss-item:nth-child(odd) {
+
+    animation: floatCard 5s ease-in-out infinite;
+
+}
+
+.ss-item:nth-child(even) {
+
+    animation: floatCard 5s ease-in-out infinite 1.5s;
+
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+
+/* Title Animation */
+
+.ss-title h2 {
+
+    position: relative;
+
+}
+
+.ss-title h2::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -10px;
+
+    width: 0;
+
+    height: 3px;
+
+    background: #d8a128;
+
+    transform: translateX(-50%);
+
+    transition: .6s;
+
+}
+
+.ss-title:hover h2::after {
+
+    width: 120px;
+
+}
+
+
+
+
+/*==========================================
+POPULAR CATEGORY PREMIUM ANIMATIONS
+==========================================*/
+
+/* .pc-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.45s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.pc-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+} */
+
+/* Shine Effect */
+
+/* .pc-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.9s;
+
+    z-index:2;
+
+}
+
+.pc-card:hover::before{
+
+    left:130%;
+
+} */
+
+/* Golden Border */
+
+/* .pc-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border:2px solid transparent;
+
+    border-radius:18px;
+
+    transition:.35s;
+
+}
+
+.pc-card:hover::after{
+
+    border-color:#d8a128;
+
+} */
+
+/* Circle Animation */
+
+/* .pc-circle{
+
+    transition:.45s;
+
+}
+
+.pc-circle img{
+
+    transition:.8s;
+
+}
+
+.pc-card:hover .pc-circle{
+
+    transform:rotateY(360deg);
+
+}
+
+.pc-card:hover .pc-circle img{
+
+    transform:scale(1.15);
+
+} */
+
+/* Title */
+
+/* .pc-card h4{
+
+    transition:.35s;
+
+}
+
+.pc-card:hover h4{
+
+    color:#d8a128;
+
+} */
+
+/* Slider Arrows */
+
+/* .pc-prev,
+.pc-next{
+
+    transition:.35s;
+
+}
+
+.pc-prev:hover,
+.pc-next:hover{
+
+    transform:scale(1.15);
+
+    background:#d8a128;
+
+    color:#fff;
+
+} */
+
+/* Floating Animation */
+
+/* .pc-card{
+
+    animation:pcFloat 5s ease-in-out infinite;
+
+}
+
+.pc-card:nth-child(even){
+
+    animation-delay:1.5s;
+
+}
+
+@keyframes pcFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+} */
+
+
+/*==========================================
+PREMIUM BLOG ANIMATIONS
+==========================================*/
+
+.blog-card {
+
+    position: relative;
+    overflow: hidden;
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.blog-card:hover {
+
+    transform: translateY(-12px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .15);
+
+}
+
+/* Shine */
+
+.blog-card::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+    transform: skewX(-25deg);
+    transition: .9s;
+    z-index: 2;
+
+}
+
+.blog-card:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.blog-card::after {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: .35s;
+
+}
+
+.blog-card:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Image */
+
+.blog-image {
+
+    overflow: hidden;
+
+}
+
+.blog-image img {
+
+    transition: 1s ease;
+
+}
+
+.blog-card:hover .blog-image img {
+
+    transform: scale(1.12) rotate(-2deg);
+
+}
+
+/* Date */
+
+.blog-date {
+
+    transition: .35s;
+
+}
+
+.blog-card:hover .blog-date {
+
+    color: #d8a128;
+
+}
+
+/* Heading */
+
+.blog-content h3 {
+
+    transition: .35s;
+
+}
+
+.blog-card:hover h3 {
+
+    color: #d8a128;
+
+}
+
+/* Read More */
+
+.blog-content a {
+
+    transition: .35s;
+
+}
+
+.blog-content a i {
+
+    transition: .35s;
+
+}
+
+.blog-card:hover a {
+
+    color: #d8a128;
+
+}
+
+.blog-card:hover a i {
+
+    transform: translateX(8px);
+
+}
+
+/* Floating */
+
+.blog-card {
+
+    animation: blogFloat 5s ease-in-out infinite;
+
+}
+
+.blog-card:nth-child(even) {
+
+    animation-delay: 1.5s;
+
+}
+
+@keyframes blogFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+
+
+/*==========================================
+PREMIUM TESTIMONIAL ANIMATION
+==========================================*/
+
+/* Card */
+
+.testimonial-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.testimonial-card:hover {
+
+    transform: translateY(-12px);
+
+    box-shadow: 0 35px 70px rgba(0, 0, 0, .18);
+
+}
+
+/* Shine */
+
+.testimonial-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: .9s;
+
+}
+
+.testimonial-card:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.testimonial-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 20px;
+
+    transition: .35s;
+
+}
+
+.testimonial-card:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Stars */
+
+.testimonial-stars i {
+
+    transition: .35s;
+
+}
+
+.testimonial-card:hover .testimonial-stars i {
+
+    transform: scale(1.25);
+
+    color: #ffd54a;
+
+}
+
+/* Name */
+
+.testimonial-card h4 {
+
+    transition: .35s;
+
+}
+
+.testimonial-card:hover h4 {
+
+    color: #ffd54a;
+
+}
+
+/* Location */
+
+.testimonial-card span {
+
+    transition: .35s;
+
+}
+
+.testimonial-card:hover span {
+
+    color: #fff;
+
+}
+
+/* Quote */
+
+.testimonial-text {
+
+    transition: .35s;
+
+}
+
+.testimonial-card:hover .testimonial-text {
+
+    transform: translateY(-3px);
+
+}
+
+/* Floating */
+
+.testimonial-card {
+
+    animation: testimonialFloat 5s ease-in-out infinite;
+
+}
+
+.testimonial-card:nth-child(even) {
+
+    animation-delay: 1.5s;
+
+}
+
+@keyframes testimonialFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+
+/* Pagination */
+
+.testimonial-pagination .swiper-pagination-bullet {
+
+    transition: .35s;
+
+}
+
+.testimonial-pagination .swiper-pagination-bullet-active {
+
+    transform: scale(1.4);
+
+    background: #d8a128;
+
+}
+
+/* Slider Hover */
+
+.testimonialSlider:hover {
+
+    cursor: grab;
+
+}

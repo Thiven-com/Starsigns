@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('website/css/orders.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/contact.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/myaccount.css') }}">
-        <link rel="stylesheet" href="{{ asset('website/css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/login.css') }}">
 
 
     <!-- <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}"> -->
@@ -101,9 +101,8 @@
         MAIN HEADER
 ===================================-->
 
-    <header class="main-header">
-
-        <div class="container">
+    <header class="main-header" data-aos="fade-down" data-aos-duration="900">
+        <div class="container" data-aos="fade-left" data-aos-delay="100">
 
             <div class="header-wrapper">
 
@@ -148,7 +147,7 @@
                         <div class="account-info">
 
                             <a href="{{ route('login') }}" class="login-link">
-                                Login 
+                                Login
                             </a>
 
                             <a href="{{ route('myaccount') }}" class="account-link">
@@ -191,9 +190,8 @@
         NAVIGATION BAR
 ===================================-->
 
-    <nav class="navbar">
-
-        <div class="container">
+    <nav class="navbar" >
+        <div class="container" data-aos="fade-right" data-aos-delay="50">
 
             <div class="nav-wrapper">
 
@@ -278,8 +276,7 @@
         FOOTER NEWSLETTER
 ===================================-->
 
-    <section class="footer-newsletter">
-
+    <section class="footer-newsletter" >
         <div class="container">
 
             <div class="newsletter-wrapper">
@@ -326,7 +323,7 @@
             MAIN FOOTER
 ===================================-->
 
-    <section class="main-footer">
+    <section class="main-footer" >
 
         <div class="container">
 
@@ -334,7 +331,7 @@
 
                 <!-- Footer About -->
 
-                <div class="footer-about">
+                <div class="footer-about" data-aos="fade-right" data-aos-delay="100">
 
                     <img src="{{ asset('website') }}/images/logistar1.png" alt="Logo" class="footer-logo">
 
@@ -360,7 +357,7 @@
 
                 <!-- Information -->
 
-                <div class="footer-links">
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
 
                     <h3>Information</h3>
 
@@ -382,7 +379,7 @@
 
                 <!-- Customer Service -->
 
-                <div class="footer-links">
+                <div class="footer-links" data-aos="fade-down" data-aos-delay="300">
 
                     <h3>Customer Service</h3>
 
@@ -404,8 +401,7 @@
 
                 <!-- Account -->
 
-                <div class="footer-links">
-
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="400">
                     <h3>My Account</h3>
 
                     <ul>
@@ -426,7 +422,7 @@
 
                 <!-- Categories -->
 
-                <div class="footer-links">
+                <div class="footer-links" data-aos="fade-up">
 
                     <h3>Popular Categories</h3>
 
@@ -458,7 +454,7 @@
         FOOTER BOTTOM
 ===================================-->
 
-    <section class="footer-bottom">
+    <section class="footer-bottom" >
 
         <div class="container">
 
@@ -475,20 +471,20 @@
                 </div>
 
                 <!-- Payment Methods -->
-<!-- 
-                <div class="payment-methods">
+                
+                <div class="payment-methods"  >
 
-                    <img src="{{ asset('website/images/visa.png') }}" alt="Visa">
+                   <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
 
-                    <img src="{{ asset('website/images/mastercard.png') }}" alt="Mastercard">
+                    <a href="#"> <img src="{{ asset('website') }}/images/mastercard.png" alt="Mastercard"></a>
 
-                    <img src="{{ asset('website/images/upi.png') }}" alt="UPI">
+                    <a href="#"> <img src="{{ asset('website') }}/images/upi.png" alt="UPI"></a>
 
-                    <img src="{{ asset('website/images/paytm.png') }}" alt="Paytm">
+                   <a href="##">  <img src="{{ asset('website') }}/images/paytm.png" alt="Paytm"></a>
 
-                    <img src="{{ asset('website/images/phonepe.png') }}" alt="PhonePe">
+                   <a href="#">  <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
 
-                </div> -->
+                </div>
 
                 <!-- Back To Top -->
 
@@ -505,6 +501,23 @@
     </section>
 
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+
+            duration: 1000,
+
+            easing: "ease-in-out-cubic",
+
+            once: true,
+
+            offset: 80
+
+        });
+    </script>
+
+
 
 
     <script>
@@ -516,6 +529,41 @@
             navMenu.classList.toggle("active");
         });
 
+    </script>
+
+
+
+    <script>
+
+
+        window.addEventListener("scroll", function () {
+
+            const header = document.querySelector(".main-header");
+
+            if (window.scrollY > 80) {
+
+                header.classList.add("sticky");
+
+            } else {
+
+                header.classList.remove("sticky");
+
+            }
+
+        });
+    </script>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 900,
+            easing: "ease-in-out-cubic",
+            once: true,
+            offset: 60
+        });
     </script>
 
 </body>

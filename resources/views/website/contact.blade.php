@@ -2,18 +2,19 @@
 @section('content')
 
     <!--==========================
-                            PAGE BANNER (shared layout component - reused as-is)
-                        ===========================-->
-
-    <section class="contact-banner-section">
+                                    PAGE BANNER (shared layout component - reused as-is)
+                                ===========================-->
+    <section class="contact-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 
             <div class="contact-banner-content">
 
-                <h1>Contact Us</h1>
+                <h1 data-aos="fade-up" data-aos-delay="200">
+                    Contact Us
+                </h1>
 
-                <div class="contact-breadcrumb">
+                <div class="contact-breadcrumb" data-aos="fade-up" data-aos-delay="400">
 
                     <a href="/">Home</a>
 
@@ -21,7 +22,9 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="contact-active">Contact Us</span>
+                    <span class="contact-active">
+                        Contact Us
+                    </span>
 
                 </div>
 
@@ -32,9 +35,21 @@
     </section>
 
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: "ease-in-out-cubic",
+            once: true,
+            offset: 80
+        });
+    </script>
+
+
     <!--==========================================
-                            CONTACT PAGE CONTENT
-                        ===========================================-->
+                                    CONTACT PAGE CONTENT
+                                ===========================================-->
 
     <section class="contact-page-section">
 
@@ -50,8 +65,8 @@
             </div>
 
             <!--=========================
-                                    HERO ROW
-                                ==========================-->
+                                            HERO ROW
+                                        ==========================-->
 
             <div class="contact-page-hero">
 
@@ -68,7 +83,7 @@
 
                 </div>
 
-                <div class="contact-page-hero-img">
+                <div class="contact-page-hero-img" data-aos="zoom-out">
 
                     <img src="{{ asset('website') }}/images/blogbann.png" alt="Contact Astrovani">
 
@@ -77,8 +92,8 @@
             </div>
 
             <!--=========================
-                                    MAIN GRID
-                                ==========================-->
+                                            MAIN GRID
+                                        ==========================-->
 
             <div class="contact-page-grid">
 
@@ -276,8 +291,8 @@
             </div>
 
             <!--=========================
-                                    FEATURES STRIP
-                                ==========================-->
+                                            FEATURES STRIP
+                                        ==========================-->
 
             <div class="contact-page-features">
 

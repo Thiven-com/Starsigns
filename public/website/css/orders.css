@@ -1608,3 +1608,350 @@ RESPONSIVE
 
     }
 }
+
+
+
+
+/*==========================================
+PREMIUM ORDERS PAGE ANIMATIONS
+==========================================*/
+
+/* Cards */
+
+.orders-page-card{
+
+    position:relative;
+    overflow:hidden;
+    transition:.45s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.orders-page-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+
+}
+
+/* Shine Effect */
+
+.orders-page-card::before{
+
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+    transform:skewX(-25deg);
+    transition:.8s;
+    z-index:2;
+
+}
+
+.orders-page-card:hover::before{
+
+    left:130%;
+
+}
+
+/* Gold Border */
+
+.orders-page-card::after{
+
+    content:"";
+    position:absolute;
+    inset:0;
+    border:2px solid transparent;
+    border-radius:16px;
+    transition:.35s;
+    pointer-events:none;
+
+}
+
+.orders-page-card:hover::after{
+
+    border-color:#d8a128;
+
+}
+
+/* Product Image */
+
+.orders-page-card-thumb{
+
+    overflow:hidden;
+
+}
+
+.orders-page-card-thumb img{
+
+    transition:.6s;
+
+}
+
+.orders-page-card:hover .orders-page-card-thumb img{
+
+    transform:scale(1.12);
+
+}
+
+/* Sidebar */
+
+.orders-page-sidebar{
+
+    transition:.45s;
+
+}
+
+.orders-page-sidebar:hover{
+
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+/* Navigation */
+
+.orders-page-nav-item{
+
+    transition:.35s;
+
+}
+
+.orders-page-nav-item:hover{
+
+    transform:translateX(8px);
+
+}
+
+/* Buttons */
+
+.orders-page-view-btn{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.orders-page-view-btn::before{
+
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:50%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.7s;
+
+}
+
+.orders-page-view-btn:hover::before{
+
+    left:130%;
+
+}
+
+.orders-page-view-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Action Links */
+
+.orders-page-action-link{
+
+    transition:.35s;
+
+}
+
+.orders-page-action-link:hover{
+
+    transform:translateX(6px);
+
+}
+
+/* Search Box */
+
+.orders-page-search-box{
+
+    transition:.35s;
+
+}
+
+.orders-page-search-box:hover{
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.orders-page-search-box:focus-within{
+
+    transform:translateY(-2px);
+
+}
+
+/* Filter */
+
+.orders-page-filter-btn{
+
+    transition:.35s;
+
+}
+
+.orders-page-filter-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Pagination */
+
+.orders-page-page-btn{
+
+    transition:.35s;
+
+}
+
+.orders-page-page-btn:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+}
+
+/* Toast */
+
+.orders-page-toast.show{
+
+    animation:toastPop .45s ease;
+
+}
+
+@keyframes toastPop{
+
+    0%{
+
+        opacity:0;
+        transform:translateX(-50%) translateY(25px);
+
+    }
+
+    100%{
+
+        opacity:1;
+        transform:translateX(-50%) translateY(0);
+
+    }
+
+}
+
+/* Modal */
+
+.orders-page-modal{
+
+    animation:modalZoom .35s ease;
+
+}
+
+@keyframes modalZoom{
+
+    from{
+
+        opacity:0;
+        transform:scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+
+/* Floating Sidebar */
+
+@keyframes floating{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+}
+
+.orders-page-sidebar{
+
+    animation:floating 6s ease-in-out infinite;
+
+}
+
+/* Status Badge */
+
+.orders-page-status-badge{
+
+    transition:.35s;
+
+}
+
+.orders-page-card:hover .orders-page-status-badge{
+
+    transform:scale(1.08);
+
+}
+
+/* Stagger Animation */
+
+.orders-page-card{
+
+    opacity:0;
+    animation:cardUp .7s forwards;
+
+}
+
+.orders-page-card:nth-child(1){animation-delay:.1s;}
+.orders-page-card:nth-child(2){animation-delay:.2s;}
+.orders-page-card:nth-child(3){animation-delay:.3s;}
+.orders-page-card:nth-child(4){animation-delay:.4s;}
+.orders-page-card:nth-child(5){animation-delay:.5s;}
+.orders-page-card:nth-child(6){animation-delay:.6s;}
+
+@keyframes cardUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}

@@ -1,7 +1,7 @@
 @extends('layouts.website')
 @section('content')
 
-    <section class="about-banner-section">
+    <section class="about-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 

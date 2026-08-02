@@ -4,7 +4,7 @@
     <!--==========================
                         PAGE BANNER
                     ===========================-->
-    <section class="product-details-banner-section">
+    <section class="product-details-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 
