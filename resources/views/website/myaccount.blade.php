@@ -125,7 +125,7 @@
 
                         </div>
 
-                        <div class="account-page-header-img">
+                        <div class="account-page-header-img"  data-aos="zoom-in">
                             <img src="{{ asset('website') }}/images/shopbann.png" alt="Spiritual items">
                         </div>
 

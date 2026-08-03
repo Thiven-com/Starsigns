@@ -1198,3 +1198,342 @@ RESPONSIVE
 
     }
 }
+
+
+
+
+
+/*==========================================
+PREMIUM WISHLIST ANIMATIONS
+==========================================*/
+
+/* Wishlist Cards */
+
+.wishlist-page-card,
+.wishlist-page-rcard {
+
+    position: relative;
+    overflow: hidden;
+    transition: .45s cubic-bezier(.22, .61, .36, 1);
+
+}
+
+.wishlist-page-card:hover,
+.wishlist-page-rcard:hover {
+
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+
+}
+
+/* Shine Effect */
+
+.wishlist-page-card::before,
+.wishlist-page-rcard::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .55),
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: .8s;
+
+    z-index: 2;
+
+}
+
+.wishlist-page-card:hover::before,
+.wishlist-page-rcard:hover::before {
+
+    left: 130%;
+
+}
+
+/* Gold Border */
+
+.wishlist-page-card::after,
+.wishlist-page-rcard::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 16px;
+
+    transition: .35s;
+
+    pointer-events: none;
+
+}
+
+.wishlist-page-card:hover::after,
+.wishlist-page-rcard:hover::after {
+
+    border-color: #d8a128;
+
+}
+
+/* Image Zoom */
+
+.wishlist-page-card-img img,
+.wishlist-page-rimg img {
+
+    transition: .7s;
+
+}
+
+.wishlist-page-card:hover .wishlist-page-card-img img,
+.wishlist-page-rcard:hover .wishlist-page-rimg img {
+
+    transform: scale(1.12);
+
+}
+
+/* Heart Animation */
+
+.wishlist-page-heart-btn,
+.wishlist-page-rheart-btn {
+
+    transition: .35s;
+
+}
+
+.wishlist-page-heart-btn:hover,
+.wishlist-page-rheart-btn:hover {
+
+    animation: heartBeat .6s;
+
+}
+
+@keyframes heartBeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.25);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* Buttons */
+
+.wishlist-page-add-btn,
+.wishlist-page-remove-btn {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.wishlist-page-add-btn::before,
+.wishlist-page-remove-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .4),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    transition: .8s;
+
+}
+
+.wishlist-page-add-btn:hover::before,
+.wishlist-page-remove-btn:hover::before {
+
+    left: 130%;
+
+}
+
+.wishlist-page-add-btn:hover,
+.wishlist-page-remove-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+/* Header Buttons */
+
+.wishlist-page-move-all-btn,
+.wishlist-page-clear-btn {
+
+    transition: .35s;
+
+}
+
+.wishlist-page-move-all-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.wishlist-page-clear-btn:hover {
+
+    transform: translateX(5px);
+
+}
+
+/* Empty State */
+
+.wishlist-page-empty i {
+
+    animation: floatHeart 3s ease-in-out infinite;
+
+}
+
+@keyframes floatHeart {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+}
+
+/* Related Add Button */
+
+.wishlist-page-radd-btn {
+
+    transition: .35s;
+
+}
+
+.wishlist-page-radd-btn:hover {
+
+    transform: rotate(360deg) scale(1.1);
+
+}
+
+/* Floating Related Cards */
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-5px);
+
+    }
+
+}
+
+.wishlist-page-rcard {
+
+    animation: floatCard 5s ease-in-out infinite;
+
+}
+
+/* Card Entrance */
+
+.wishlist-page-card {
+
+    opacity: 0;
+
+    animation: wishlistFade .7s forwards;
+
+}
+
+.wishlist-page-card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.wishlist-page-card:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.wishlist-page-card:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.wishlist-page-card:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.wishlist-page-card:nth-child(5) {
+    animation-delay: .5s;
+}
+
+.wishlist-page-card:nth-child(6) {
+    animation-delay: .6s;
+}
+
+.wishlist-page-card:nth-child(7) {
+    animation-delay: .7s;
+}
+
+.wishlist-page-card:nth-child(8) {
+    animation-delay: .8s;
+}
+
+@keyframes wishlistFade {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}

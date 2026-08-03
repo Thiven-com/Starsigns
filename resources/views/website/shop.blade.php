@@ -224,7 +224,7 @@
 
                                 </div>
 
-                                <button class="filter-btn">
+                                <button class="filter-btn" type="submit">
 
                                     FILTER
 

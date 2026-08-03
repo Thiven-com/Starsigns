@@ -1068,21 +1068,21 @@
             <div class="promo-grid">
 
                 <!-- Card 1 -->
-                <a href="#" class="promo-card" data-aos="zoom-in" data-aos-delay="100">
+                <a href="{{ route('shop') }}" class="promo-card" data-aos="zoom-in" data-aos-delay="100">
 
                     <img src="{{ asset('website/images/card1.png') }}" alt="Rudraksha Collection">
 
                 </a>
 
                 <!-- Card 2 -->
-                <a href="#" class="promo-card" data-aos="zoom-in" data-aos-delay="250">
+                <a href="{{ route('shop') }}" class="promo-card" data-aos="zoom-in" data-aos-delay="250">
 
                     <img src="{{ asset('website/images/card2.png') }}" alt="Gemstone Collection">
 
                 </a>
 
                 <!-- Card 3 -->
-                <a href="#" class="promo-card" data-aos="zoom-in" data-aos-delay="400">
+                <a href="{{ route('shop') }}" class="promo-card" data-aos="zoom-in" data-aos-delay="400">
 
                     <img src="{{ asset('website/images/card1.png') }}" alt="Yantra Collection">
 
@@ -1357,7 +1357,7 @@
 
                     </div>
 
-                    <a href="#" class="blog-view-all" data-aos="fade-left" data-aos-duration="1000">
+                    <a href="{{ route('blog') }}" class="blog-view-all" data-aos="fade-left" data-aos-duration="1000">
                         View All
                     </a>
 
@@ -1382,7 +1382,7 @@
                                 Transform Your Life
                             </h3>
 
-                            <a href="#">
+                            <a href="{{ route('blog-details') }}">
                                 Read More
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -1408,7 +1408,7 @@
                                 in Daily Life
                             </h3>
 
-                            <a href="#">
+                            <a href="{{ route('blog-details') }}">
                                 Read More
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -1434,7 +1434,7 @@
                                 and Their Uses
                             </h3>
 
-                            <a href="#">
+                            <a href="{{ route('blog-details') }}">
                                 Read More
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
@@ -1460,7 +1460,7 @@
                                 Sacred Geometry
                             </h3>
 
-                            <a href="#">
+                            <a href="{{ route('blog-details') }}">
                                 Read More
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>

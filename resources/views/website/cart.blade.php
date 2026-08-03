@@ -2,18 +2,19 @@
 @section('content')
 
     <!--==========================
-                PAGE BANNER (shared layout component - reused as-is)
-            ===========================-->
-
-    <section class="cart-banner-section">
+                        PAGE BANNER (shared layout component - reused as-is)
+                    ===========================-->
+    <section class="cart-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 
             <div class="cart-banner-content">
 
-                <h1>Cart</h1>
+                <h1 data-aos="fade-up" data-aos-delay="200">
+                    Cart
+                </h1>
 
-                <div class="cart-breadcrumb">
+                <div class="cart-breadcrumb" data-aos="fade-up" data-aos-delay="400">
 
                     <a href="/">Home</a>
 
@@ -21,7 +22,9 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="cart-active">Cart</span>
+                    <span class="cart-active">
+                        Cart
+                    </span>
 
                 </div>
 
@@ -30,9 +33,23 @@
         </div>
 
     </section>
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: "ease-in-out-cubic",
+            once: true,
+            offset: 80
+        });
+    </script>
     <!--==========================================
-                CART PAGE CONTENT
-            ===========================================-->
+                        CART PAGE CONTENT
+                    ===========================================-->
 
     <section class="cart-page-section">
 
@@ -61,8 +78,8 @@
             <div class="cart-page-layout">
 
                 <!--=========================
-                            CART TABLE
-                        ==========================-->
+                                    CART TABLE
+                                ==========================-->
 
                 <div class="cart-page-table-wrap">
 
@@ -216,8 +233,8 @@
                 </div>
 
                 <!--=========================
-                            ORDER SUMMARY
-                        ==========================-->
+                                    ORDER SUMMARY
+                                ==========================-->
 
                 <aside class="cart-page-summary">
 
@@ -315,8 +332,8 @@
             </div>
 
             <!--=========================
-                        RELATED PRODUCTS CAROUSEL
-                    ==========================-->
+                                RELATED PRODUCTS CAROUSEL
+                            ==========================-->
 
             <div class="cart-page-related-title-wrap">
 

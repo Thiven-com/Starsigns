@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('website/css/contact.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/myaccount.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/login.css') }}">
+        <link rel="stylesheet" href="{{ asset('website/css/blog-details.css') }}">
+
 
 
     <!-- <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}"> -->
@@ -611,7 +613,6 @@
                     <li><a href="{{ route('orders') }}">My Orders</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -816,7 +817,7 @@
                 <div class="copyright">
 
                     <p>
-                        © 2025 StarSigns. All Rights Reserved.
+                        © 2025 StarSigns. All Rights Reserved. Developed by <a href="https://www.thiven.com/" target="_blank" style="text-decoration: none;color:white;">ThiVen</a>
                     </p>
 
                 </div>
@@ -825,6 +826,7 @@
 
                 <div class="payment-methods">
 
+                    <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
                     <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
 
                     <a href="#"> <img src="{{ asset('website') }}/images/mastercard.png" alt="Mastercard"></a>
@@ -835,7 +837,7 @@
 
                     <a href="#"> <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
 
-                </div>
+                </div> -->
 
                 <!-- Back To Top -->
 

@@ -2,18 +2,19 @@
 @section('content')
 
     <!--==========================
-                PAGE BANNER (shared layout component - reused as-is)
-            ===========================-->
-
-    <section class="wishlist-banner-section">
+                    PAGE BANNER (shared layout component - reused as-is)
+                ===========================-->
+    <section class="wishlist-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
 
             <div class="wishlist-banner-content">
 
-                <h1>Wishlist</h1>
+                <h1 data-aos="fade-up" data-aos-delay="200">
+                    Wishlist
+                </h1>
 
-                <div class="wishlist-breadcrumb">
+                <div class="wishlist-breadcrumb" data-aos="fade-up" data-aos-delay="400">
 
                     <a href="/">Home</a>
 
@@ -21,7 +22,9 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </span>
 
-                    <span class="wishlist-active">Wishlist</span>
+                    <span class="wishlist-active">
+                        Wishlist
+                    </span>
 
                 </div>
 
@@ -32,9 +35,22 @@
     </section>
 
 
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1000,
+    easing:"ease-in-out-cubic",
+    once:true,
+    offset:80
+});
+</script>
+
+
     <!--==========================================
-                WISHLIST PAGE CONTENT
-            ===========================================-->
+                    WISHLIST PAGE CONTENT
+                ===========================================-->
 
     <section class="wishlist-page-section">
 
@@ -50,8 +66,8 @@
             </div>
 
             <!--=========================
-                        HEADER ROW
-                    ==========================-->
+                            HEADER ROW
+                        ==========================-->
 
             <div class="wishlist-page-header">
 
@@ -84,8 +100,8 @@
             </div>
 
             <!--=========================
-                        WISHLIST GRID
-                    ==========================-->
+                            WISHLIST GRID
+                        ==========================-->
 
             <div class="wishlist-page-grid" id="wishlistPageGrid">
 
@@ -171,8 +187,8 @@
             </div>
 
             <!--=========================
-                        RELATED PRODUCTS CAROUSEL
-                    ==========================-->
+                            RELATED PRODUCTS CAROUSEL
+                        ==========================-->
 
             <div class="wishlist-page-related-title-wrap">
 
