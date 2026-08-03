@@ -57,7 +57,7 @@
 
 </head>
 
-<body>
+<body style="margin: 0px;">
     <style>
         /* Hide mobile logo on desktop */
         .mobile-nav-logo {
