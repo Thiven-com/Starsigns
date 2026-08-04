@@ -89,6 +89,24 @@ class PageController extends Controller
     {
         return view('website.blog-details');
     }
+
+
+         public function faq()
+    {
+        return view('website.faq');
+    }
+
+          public function shippolicy()
+    {
+        return view('website.shippolicy');
+    }
+
+
+
+          public function refundpolicy()
+    {
+        return view('website.refundpolicy');
+    }
     //    public function consultation()
     // {
     //     return view('website.consultation');

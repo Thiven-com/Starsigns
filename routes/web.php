@@ -23,6 +23,10 @@ Route::get('register', [PageController::class, 'register'])->name('register');
 Route::get('blog-details', [PageController::class, 'blog_details'])->name('blog-details');
 
 
+Route::get('faq', [PageController::class, 'faq'])->name('faq');
+Route::get('shippolicy', [PageController::class, 'shippolicy'])->name('shippolicy');
+Route::get('refundpolicy', [PageController::class, 'refundpolicy'])->name('refundpolicy');
+
 
 
 

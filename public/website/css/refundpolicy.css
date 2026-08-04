@@ -1,0 +1,992 @@
+/*==========================================
+RETURN & REFUND POLICY PAGE
+(all classes prefixed "return-refund-policy-" so
+nothing here collides with shop.css, wishlist.css,
+cart.css, checkout.css, contact.css, account.css,
+featured-products.css, login.css, blog-details.css,
+faq.css or shipping-policy.css)
+==========================================*/
+
+/*==========================================
+BANNER
+==========================================*/
+
+.return-refund-policy-banner {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: url("../images/shopbann.png") no-repeat center center;
+
+    padding: 60px 24px 60px;
+
+    text-align: center;
+
+}
+
+.return-refund-policy-banner-pattern {
+
+    position: absolute;
+
+    top: -40px;
+
+    right: -40px;
+
+    width: 320px;
+
+    height: 320px;
+
+    pointer-events: none;
+
+    animation: return-refund-policy-rotate 90s linear infinite;
+
+}
+
+.return-refund-policy-banner-deco {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 0;
+
+    width: 250px;
+
+    height: 210px;
+
+    z-index: 1;
+
+}
+
+.return-refund-policy-flame {
+
+    transform-origin: 30px 116px;
+
+    animation: return-refund-policy-flicker 1.8s ease-in-out infinite;
+
+}
+
+.return-refund-policy-banner-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 660px;
+
+    margin: 0 auto;
+
+    padding-top: 10px;
+
+    animation: return-refund-policy-drop-in .7s ease both;
+
+}
+
+.return-refund-policy-eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 16px;
+
+}
+
+.return-refund-policy-eyebrow-text {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #c8973a;
+
+    font-size: 14px;
+
+}
+
+.return-refund-policy-eyebrow-line {
+
+    width: 46px;
+
+    height: 1px;
+
+    background: linear-gradient(90deg, transparent, #c8973a, transparent);
+
+}
+
+.return-refund-policy-title {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 44px;
+
+    color: #f3f1f7;
+
+    margin: 0 0 16px;
+
+    line-height: 1.2;
+
+}
+
+.return-refund-policy-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+.return-refund-policy-divider-line {
+
+    width: 60px;
+
+    height: 1px;
+
+    background: linear-gradient(90deg, transparent, #e0ac4a, transparent);
+
+}
+
+.return-refund-policy-divider-diamond {
+
+    color: #c8973a;
+
+    font-size: 12px;
+
+    animation: return-refund-policy-twinkle 2.4s ease-in-out infinite;
+
+}
+
+.return-refund-policy-subtitle {
+
+    font-size: 15.5px;
+
+    line-height: 1.75;
+
+    color: #f7f6fa;
+
+    margin: 0;
+
+}
+
+/*==========================================
+FEATURE STRIP
+==========================================*/
+
+.return-refund-policy-features {
+
+    background: #f7f5fa;
+
+    border: 1px solid #ece6f2;
+
+    border-radius: 16px;
+
+    padding: 34px 24px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-top: -6px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.return-refund-policy-feature {
+
+    text-align: center;
+
+    padding: 0 12px;
+
+    transition: transform .25s ease;
+
+}
+
+.return-refund-policy-feature:hover {
+
+    transform: translateY(-4px);
+
+}
+
+.return-refund-policy-feature-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    border-radius: 50%;
+
+    background: #ece4f7;
+
+    color: #241542;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    margin: 0 auto 16px;
+
+    cursor: pointer;
+
+    transition: transform .3s ease, background .3s ease, color .3s ease, box-shadow .3s ease;
+
+}
+
+.return-refund-policy-feature:hover .return-refund-policy-feature-icon {
+
+    background: #241542;
+
+    color: #fff;
+
+    box-shadow: 0 10px 24px rgba(36, 21, 66, .18);
+
+}
+
+.return-refund-policy-feature h4 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 16px;
+
+    color: #241542;
+
+    margin: 0 0 8px;
+
+}
+
+.return-refund-policy-feature p {
+
+    font-size: 13.5px;
+
+    line-height: 1.6;
+
+    color: #756f81;
+
+    margin: 0;
+
+}
+
+/*==========================================
+POLICY CARD
+==========================================*/
+
+.return-refund-policy-card {
+
+    margin-top: 28px;
+
+    background: #fff;
+
+    border: 1px solid #ece6f2;
+
+    border-radius: 18px;
+
+    box-shadow: 0 24px 50px rgba(36, 21, 66, .06);
+
+    padding: 10px 34px 30px;
+
+    margin-left:20px;
+    margin-right:20px;
+
+}
+
+.return-refund-policy-item {
+
+    display: grid;
+
+    grid-template-columns: 64px 240px 1px 1fr;
+
+    align-items: start;
+
+    gap: 24px;
+
+    padding: 26px 0;
+
+    border-bottom: 1px solid #f1edf5;
+
+    transition: background .25s ease;
+
+}
+
+.return-refund-policy-item-last {
+
+    border-bottom: none;
+
+}
+
+.return-refund-policy-item:hover {
+
+    background: #faf8fc;
+
+}
+
+.return-refund-policy-item-icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 50%;
+
+    background: #f2edf9;
+
+    color: #241542;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+
+}
+
+.return-refund-policy-item:hover .return-refund-policy-item-icon {
+
+    background: #241542;
+
+    color: #fff;
+
+    transform: translateY(-3px);
+
+}
+
+.return-refund-policy-item-heading {
+
+    padding-top: 15px;
+
+}
+
+.return-refund-policy-item-heading h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 17px;
+
+    color: #241542;
+
+    margin: 0;
+
+    line-height: 1.4;
+
+}
+
+.return-refund-policy-item-divider {
+
+    width: 1px;
+
+    align-self: stretch;
+
+    background: #ece6f2;
+
+}
+
+.return-refund-policy-item-list {
+
+    margin: 0;
+
+    padding: 15px 0 0;
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.return-refund-policy-item-list li {
+
+    position: relative;
+
+    padding-left: 18px;
+
+    font-size: 14.5px;
+
+    line-height: 1.75;
+
+    color: #5b5566;
+
+}
+
+.return-refund-policy-item-list li::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 8px;
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #c8973a;
+
+}
+
+/* icon click-pulse feedback, toggled via JS */
+
+.return-refund-policy-icon-pop {
+
+    animation: return-refund-policy-icon-pop .45s ease;
+
+}
+
+/*==========================================
+IMPORTANT NOTE
+==========================================*/
+
+.return-refund-policy-notice {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin-top: 20px;
+
+    background: linear-gradient(90deg, #fdf6e8 0%, #fbeed4 100%);
+
+    border: 1px solid #f2ddab;
+
+    border-radius: 14px;
+
+    padding: 26px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+}
+
+.return-refund-policy-notice-pattern {
+
+    position: absolute;
+
+    right: -30px;
+
+    bottom: -30px;
+
+    width: 170px;
+
+    height: 170px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(200, 151, 58, .2);
+
+    animation: return-refund-policy-rotate 50s linear infinite;
+
+}
+
+.return-refund-policy-notice-pattern::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 22px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(200, 151, 58, .16);
+
+}
+
+.return-refund-policy-notice-icon {
+
+    flex: none;
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 50%;
+
+    border: 1.5px solid #e0ac4a;
+
+    background: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #c8973a;
+
+    font-size: 20px;
+
+    position: relative;
+
+    z-index: 1;
+
+    animation: return-refund-policy-pulse-ring 2.6s ease-in-out infinite;
+
+}
+
+.return-refund-policy-notice-text {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+.return-refund-policy-notice-text h4 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 17px;
+
+    color: #241542;
+
+    margin: 0 0 8px;
+
+}
+
+.return-refund-policy-notice-text p {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #6a5f3f;
+
+    margin: 0;
+
+}
+
+/*==========================================
+NEED HELP — SUPPORT CTA
+==========================================*/
+
+.return-refund-policy-support {
+
+    margin: 30px 0 30px;
+
+    background: #f7f5fa;
+
+    border: 1px solid #ece6f2;
+
+    border-radius: 14px;
+
+    padding: 28px 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+}
+
+.return-refund-policy-support-icon {
+
+    flex: none;
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: #ece4f7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #241542;
+
+    font-size: 21px;
+
+    animation: return-refund-policy-pulse-ring-navy 2.6s ease-in-out infinite;
+
+}
+
+.return-refund-policy-support-text {
+
+    flex: 1;
+
+}
+
+.return-refund-policy-support-text h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 19px;
+
+    color: #241542;
+
+    margin: 0 0 6px;
+
+}
+
+.return-refund-policy-support-text p {
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #756f81;
+
+    margin: 0;
+
+}
+
+.return-refund-policy-support-btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    flex: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #241542;
+
+    color: #fff;
+
+    font-size: 14.5px;
+
+    font-weight: 600;
+
+    padding: 13px 24px;
+
+    border-radius: 8px;
+
+    white-space: nowrap;
+
+    text-decoration: none;
+
+    transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+
+}
+
+.return-refund-policy-support-btn-arrow {
+
+    transition: transform .25s ease;
+
+}
+
+.return-refund-policy-support-btn:hover {
+
+    background: #362066;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(36, 21, 66, .3);
+
+}
+
+.return-refund-policy-support-btn:hover .return-refund-policy-support-btn-arrow {
+
+    transform: translateX(4px);
+
+}
+
+.return-refund-policy-support-btn:active {
+
+    transform: translateY(0) scale(.97);
+
+}
+
+/* click ripple, generated via JS on click */
+
+.return-refund-policy-ripple {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .35);
+
+    transform: scale(0);
+
+    animation: return-refund-policy-ripple-anim .65s ease-out;
+
+    pointer-events: none;
+
+}
+
+/*==========================================
+THANK YOU FOOTER LINE
+==========================================*/
+
+.return-refund-policy-thanks {
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #756f81;
+
+    padding: 10px 0 60px;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+.return-refund-policy-sparkle {
+
+    color: #c8973a;
+
+    font-size: 12px;
+
+    animation: return-refund-policy-twinkle 2.2s ease-in-out infinite;
+
+}
+
+.return-refund-policy-sparkle:last-child {
+
+    animation-delay: .6s;
+
+}
+
+/*==========================================
+SCROLL-REVEAL (JS toggles .return-refund-policy-fade
+then .return-refund-policy-visible)
+==========================================*/
+
+.return-refund-policy-fade {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition: opacity .55s ease, transform .55s ease;
+
+}
+
+.return-refund-policy-fade.return-refund-policy-visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+    border-radius: 20px;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .return-refund-policy-fade {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+    }
+
+    .return-refund-policy-banner-pattern,
+    .return-refund-policy-flame,
+    .return-refund-policy-divider-diamond,
+    .return-refund-policy-notice-pattern,
+    .return-refund-policy-notice-icon,
+    .return-refund-policy-support-icon,
+    .return-refund-policy-sparkle {
+
+        animation: none;
+
+    }
+
+}
+
+/*==========================================
+KEYFRAMES
+==========================================*/
+
+@keyframes return-refund-policy-rotate {
+
+    from { transform: rotate(0deg); }
+
+    to { transform: rotate(360deg); }
+
+}
+
+@keyframes return-refund-policy-flicker {
+
+    0%, 100% { transform: scale(1) rotate(0deg); }
+
+    25% { transform: scale(1.05) rotate(-2deg); }
+
+    50% { transform: scale(.96) rotate(1deg); }
+
+    75% { transform: scale(1.03) rotate(2deg); }
+
+}
+
+@keyframes return-refund-policy-drop-in {
+
+    from { opacity: 0; transform: translateY(-18px); }
+
+    to { opacity: 1; transform: translateY(0); }
+
+}
+
+@keyframes return-refund-policy-twinkle {
+
+    0%, 100% { opacity: 1; transform: scale(1); }
+
+    50% { opacity: .4; transform: scale(.7); }
+
+}
+
+@keyframes return-refund-policy-pulse-ring {
+
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200, 151, 58, .25); }
+
+    50% { box-shadow: 0 0 0 8px rgba(200, 151, 58, 0); }
+
+}
+
+@keyframes return-refund-policy-pulse-ring-navy {
+
+    0%, 100% { box-shadow: 0 0 0 0 rgba(36, 21, 66, .16); }
+
+    50% { box-shadow: 0 0 0 8px rgba(36, 21, 66, 0); }
+
+}
+
+@keyframes return-refund-policy-icon-pop {
+
+    0% { transform: scale(1); }
+
+    40% { transform: scale(1.2); }
+
+    100% { transform: scale(1); }
+
+}
+
+@keyframes return-refund-policy-ripple-anim {
+
+    to {
+
+        transform: scale(2.6);
+
+        opacity: 0;
+
+    }
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media (max-width: 992px) {
+
+    .return-refund-policy-features {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        row-gap: 30px;
+
+    }
+
+    .return-refund-policy-item {
+
+        grid-template-columns: 56px 1fr;
+
+        grid-template-areas:
+            "icon heading"
+            "icon list";
+
+        row-gap: 8px;
+
+    }
+
+    .return-refund-policy-item-icon { grid-area: icon; }
+    .return-refund-policy-item-heading { grid-area: heading; padding-top: 12px; }
+    .return-refund-policy-item-list { grid-area: list; padding-top: 0; }
+    .return-refund-policy-item-divider { display: none; }
+
+    .return-refund-policy-card { padding: 10px 24px 24px; }
+
+}
+
+@media (max-width: 768px) {
+
+    .return-refund-policy-title { font-size: 30px; }
+
+    .return-refund-policy-banner-deco { display: none; }
+
+    .return-refund-policy-banner { padding: 50px 20px 50px; }
+
+    .return-refund-policy-notice { flex-direction: column; align-items: flex-start; }
+
+    .return-refund-policy-support { flex-wrap: wrap; text-align: left; }
+
+    .return-refund-policy-support-btn { width: auto; justify-content: center; }
+
+}
+
+@media (max-width: 480px) {
+
+    .return-refund-policy-features { grid-template-columns: 1fr; }
+
+    .return-refund-policy-banner-pattern { display: none; }
+
+}

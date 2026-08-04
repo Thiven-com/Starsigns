@@ -29,7 +29,10 @@
     <link rel="stylesheet" href="{{ asset('website/css/contact.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/myaccount.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/login.css') }}">
-        <link rel="stylesheet" href="{{ asset('website/css/blog-details.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/blog-details.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/faq.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/shippolicy.css') }}">
+    <link rel="stylesheet" href="{{ asset('website/css/refundpolicy.css') }}">
 
 
 
@@ -392,7 +395,7 @@
 
                         <li><a href="{{ route('orders') }}">Track Order</a></li>
 
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
 
                     </ul>
 
@@ -406,9 +409,9 @@
 
                     <ul>
 
-                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="{{ route('shippolicy') }}">Shipping Policy</a></li>
 
-                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="{{ route('refundpolicy') }}">Return & Refund</a></li>
 
                         <li><a href="#">Terms & Conditions</a></li>
 
@@ -486,7 +489,8 @@
                 <div class="copyright">
 
                     <p>
-                        © 2025 StarSigns. All Rights Reserved. Developed by <a href="https://www.thiven.com/" target="_blank" style="text-decoration: none;color:white;">ThiVen</a>
+                        © 2025 StarSigns. All Rights Reserved. Developed by <a href="https://www.thiven.com/"
+                            target="_blank" style="text-decoration: none;color:white;">ThiVen</a>
                     </p>
 
                 </div>
@@ -595,7 +599,7 @@
 <style>
 
 
-    
+
 </style>
 
 </html>

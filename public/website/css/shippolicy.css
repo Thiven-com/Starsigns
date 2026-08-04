@@ -1,0 +1,891 @@
+/*==========================================
+SHIPPING POLICY PAGE
+(all classes prefixed "shipping-policy-" so nothing
+here collides with shop.css, wishlist.css, cart.css,
+checkout.css, contact.css, account.css,
+featured-products.css, login.css, blog-details.css
+or faq.css)
+==========================================*/
+
+/*==========================================
+BANNER
+==========================================*/
+
+.shipping-policy-banner {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: url("../images/shopbann.png") center/cover no-repeat;
+
+    padding: 60px 24px 110px;
+
+    text-align: center;
+
+}
+
+.shipping-policy-banner-pattern {
+
+    position: absolute;
+
+    pointer-events: none;
+
+}
+
+.shipping-policy-banner-pattern-right {
+
+    top: -40px;
+
+    right: -40px;
+
+    width: 320px;
+
+    height: 320px;
+
+    animation: shipping-policy-rotate 90s linear infinite;
+
+}
+
+.shipping-policy-banner-deco {
+
+    position: absolute;
+
+    bottom: 0;
+
+    z-index: 1;
+
+}
+
+.shipping-policy-banner-deco-left {
+
+    left: 20px;
+
+    bottom: 10px;
+
+    width: 250px;
+
+    height: 210px;
+
+}
+
+.shipping-policy-flame {
+
+    transform-origin: 30px 116px;
+
+    animation: shipping-policy-flicker 1.8s ease-in-out infinite;
+
+}
+
+.shipping-policy-banner-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 640px;
+
+    margin: 0 auto;
+
+    padding-top: 20px;
+
+    animation: shipping-policy-drop-in .7s ease both;
+
+}
+
+.shipping-policy-eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+
+}
+
+.shipping-policy-eyebrow-icon {
+
+    color: #c8973a;
+
+    font-size: 12px;
+
+    animation: shipping-policy-twinkle 2.4s ease-in-out infinite;
+
+}
+
+.shipping-policy-eyebrow-text {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #c8973a;
+
+    font-size: 14px;
+
+}
+
+.shipping-policy-title {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 46px;
+
+    color: #e5e3ea;
+
+    margin: 0 0 16px;
+
+    line-height: 1.2;
+
+}
+
+.shipping-policy-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+.shipping-policy-divider-line {
+
+    width: 60px;
+
+    height: 1px;
+
+    background: linear-gradient(90deg, transparent, #e0ac4a, transparent);
+
+}
+
+.shipping-policy-divider-diamond {
+
+    color: #c8973a;
+
+    font-size: 12px;
+
+    animation: shipping-policy-twinkle 2.4s ease-in-out infinite .3s;
+
+}
+
+.shipping-policy-subtitle {
+
+    font-size: 15.5px;
+
+    line-height: 1.7;
+
+    color: #dddbe2;
+
+    margin: 0;
+
+}
+
+/*==========================================
+POLICY CARD
+==========================================*/
+
+.shipping-policy-card {
+    margin-right: 10px;
+    margin-left:10px;
+
+    position: relative;
+
+    margin-top: -70px;
+
+    z-index: 3;
+
+    background: #fff;
+
+    border: 1px solid #ece6f2;
+
+    border-radius: 18px;
+
+    box-shadow: 0 24px 50px rgba(36, 21, 66, .08);
+
+    padding: 10px 34px 30px;
+
+}
+
+.shipping-policy-item {
+
+    display: grid;
+
+    grid-template-columns: 64px 220px 1px 1fr;
+
+    align-items: center;
+
+    gap: 24px;
+
+    padding: 26px 0;
+
+    border-bottom: 1px solid #f1edf5;
+
+    transition: background .25s ease;
+
+}
+
+.shipping-policy-item-last {
+
+    border-bottom: none;
+
+}
+
+.shipping-policy-item:hover {
+
+    background: #faf8fc;
+
+}
+
+.shipping-policy-item-icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 50%;
+
+    background: #f2edf9;
+
+    color: #241542;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+
+}
+
+.shipping-policy-item:hover .shipping-policy-item-icon {
+
+    background: #241542;
+
+    color: #fff;
+
+    transform: translateY(-3px);
+
+}
+
+.shipping-policy-item-heading h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 17px;
+
+    color: #241542;
+
+    margin: 0;
+
+}
+
+.shipping-policy-item-divider {
+
+    width: 1px;
+
+    align-self: stretch;
+
+    background: #ece6f2;
+
+}
+
+.shipping-policy-item-text p {
+
+    font-size: 14.5px;
+
+    line-height: 1.75;
+
+    color: #756f81;
+
+    margin: 0;
+
+}
+
+/* icon click-pulse feedback, toggled via JS */
+
+.shipping-policy-icon-pop {
+
+    animation: shipping-policy-icon-pop .45s ease;
+
+}
+
+/*==========================================
+IMPORTANT NOTES
+==========================================*/
+
+.shipping-policy-notes {
+
+    margin-top: 20px;
+
+    background: #f7f5fa;
+
+    border-radius: 14px;
+
+    padding: 28px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 26px;
+
+}
+
+.shipping-policy-notes-icon {
+
+    flex: none;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: #ece4f7;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    color: #241542;
+
+    font-size: 34px;
+
+}
+
+.shipping-policy-notes-icon-badge {
+
+    position: absolute;
+
+    bottom: 14px;
+
+    right: 16px;
+
+    font-size: 16px;
+
+    color: #241542;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    padding: 4px;
+
+}
+
+.shipping-policy-notes-text h4 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 18px;
+
+    color: #241542;
+
+    margin: 0 0 14px;
+
+}
+
+.shipping-policy-notes-text ul {
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.shipping-policy-notes-text li {
+
+    position: relative;
+
+    padding-left: 18px;
+
+    font-size: 14.5px;
+
+    line-height: 1.7;
+
+    color: #5b5566;
+
+}
+
+.shipping-policy-notes-text li::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 8px;
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #241542;
+
+}
+
+/*==========================================
+NEED HELP — SUPPORT CTA
+==========================================*/
+
+.shipping-policy-support {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin: 40px 0 30px;
+
+    border: 1px solid #f2ddab;
+
+    border-radius: 14px;
+
+    background: linear-gradient(90deg, #fdf6e8 0%, #fbeed4 100%);
+
+    padding: 30px 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+}
+
+.shipping-policy-support-pattern {
+
+    position: absolute;
+
+    right: -60px;
+
+    bottom: -60px;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(200, 151, 58, .18);
+
+    animation: shipping-policy-rotate 40s linear infinite;
+
+}
+
+.shipping-policy-support-pattern::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 26px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(200, 151, 58, .15);
+
+}
+
+.shipping-policy-support-icon {
+
+    flex: none;
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    border: 1.5px solid #e0ac4a;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff;
+
+    position: relative;
+
+    z-index: 1;
+
+    color: #c8973a;
+
+    font-size: 22px;
+
+    animation: shipping-policy-pulse-ring 2.6s ease-in-out infinite;
+
+}
+
+.shipping-policy-support-text {
+
+    flex: 1;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+.shipping-policy-support-text h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size: 20px;
+
+    color: #241542;
+
+    margin: 0 0 6px;
+
+}
+
+.shipping-policy-support-text p {
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #756f81;
+
+    margin: 0;
+
+}
+
+.shipping-policy-support-btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    z-index: 1;
+
+    flex: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #c8973a;
+
+    color: #fff;
+
+    font-size: 14.5px;
+
+    font-weight: 600;
+
+    padding: 13px 24px;
+
+    border-radius: 8px;
+
+    white-space: nowrap;
+
+    text-decoration: none;
+
+    transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+
+}
+
+.shipping-policy-support-btn-arrow {
+
+    transition: transform .25s ease;
+
+}
+
+.shipping-policy-support-btn:hover {
+
+    background: #e0ac4a;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 22px rgba(200, 151, 58, .35);
+
+}
+
+.shipping-policy-support-btn:hover .shipping-policy-support-btn-arrow {
+
+    transform: translateX(4px);
+
+}
+
+.shipping-policy-support-btn:active {
+
+    transform: translateY(0) scale(.97);
+
+}
+
+/* click ripple, generated via JS on click */
+
+.shipping-policy-ripple {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .55);
+
+    transform: scale(0);
+
+    animation: shipping-policy-ripple-anim .65s ease-out;
+
+    pointer-events: none;
+
+}
+
+/*==========================================
+THANK YOU FOOTER LINE
+==========================================*/
+
+.shipping-policy-thanks {
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #756f81;
+
+    padding: 26px 0 60px;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+.shipping-policy-sparkle {
+
+    color: #c8973a;
+
+    font-size: 12px;
+
+    animation: shipping-policy-twinkle 2.2s ease-in-out infinite;
+
+}
+
+.shipping-policy-sparkle:last-child {
+
+    animation-delay: .6s;
+
+}
+
+/*==========================================
+SCROLL-REVEAL (JS toggles .shipping-policy-fade
+then .shipping-policy-visible)
+==========================================*/
+
+.shipping-policy-fade {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition: opacity .55s ease, transform .55s ease;
+
+}
+
+.shipping-policy-fade.shipping-policy-visible {
+    border-radius:20px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .shipping-policy-fade {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+    }
+
+    .shipping-policy-banner-pattern-right,
+    .shipping-policy-flame,
+    .shipping-policy-eyebrow-icon,
+    .shipping-policy-divider-diamond,
+    .shipping-policy-support-pattern,
+    .shipping-policy-support-icon,
+    .shipping-policy-sparkle {
+
+        animation: none;
+
+    }
+
+}
+
+/*==========================================
+KEYFRAMES
+==========================================*/
+
+@keyframes shipping-policy-rotate {
+
+    from { transform: rotate(0deg); }
+
+    to { transform: rotate(360deg); }
+
+}
+
+@keyframes shipping-policy-flicker {
+
+    0%, 100% { transform: scale(1) rotate(0deg); }
+
+    25% { transform: scale(1.05) rotate(-2deg); }
+
+    50% { transform: scale(.96) rotate(1deg); }
+
+    75% { transform: scale(1.03) rotate(2deg); }
+
+}
+
+@keyframes shipping-policy-drop-in {
+
+    from { opacity: 0; transform: translateY(-18px); }
+
+    to { opacity: 1; transform: translateY(0); }
+
+}
+
+@keyframes shipping-policy-twinkle {
+
+    0%, 100% { opacity: 1; transform: scale(1); }
+
+    50% { opacity: .4; transform: scale(.7); }
+
+}
+
+@keyframes shipping-policy-pulse-ring {
+
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200, 151, 58, .25); }
+
+    50% { box-shadow: 0 0 0 8px rgba(200, 151, 58, 0); }
+
+}
+
+@keyframes shipping-policy-icon-pop {
+
+    0% { transform: scale(1); }
+
+    40% { transform: scale(1.2); }
+
+    100% { transform: scale(1); }
+
+}
+
+@keyframes shipping-policy-ripple-anim {
+
+    to {
+
+        transform: scale(2.6);
+
+        opacity: 0;
+
+    }
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media (max-width: 992px) {
+
+    .shipping-policy-item {
+
+        grid-template-columns: 56px 1fr;
+
+        grid-template-areas:
+            "icon heading"
+            "icon text";
+
+        row-gap: 6px;
+
+    }
+
+    .shipping-policy-item-icon { grid-area: icon; }
+    .shipping-policy-item-heading { grid-area: heading; }
+    .shipping-policy-item-text { grid-area: text; }
+    .shipping-policy-item-divider { display: none; }
+
+    .shipping-policy-card { padding: 10px 24px 24px; }
+
+}
+
+@media (max-width: 768px) {
+
+    .shipping-policy-title { font-size: 32px; }
+
+    .shipping-policy-banner-deco-left { display: none; }
+
+    .shipping-policy-banner { padding: 50px 20px 90px; }
+
+    .shipping-policy-card { margin-top: -50px; }
+
+    .shipping-policy-notes { flex-direction: column; align-items: flex-start; }
+
+    .shipping-policy-support { flex-wrap: wrap; text-align: left; }
+
+    .shipping-policy-support-btn { width: auto; justify-content: center; }
+
+}
+
+@media (max-width: 480px) {
+
+    .shipping-policy-banner-pattern-right { display: none; }
+
+    .shipping-policy-notes-icon { width: 76px; height: 76px; font-size: 26px; }
+
+}
