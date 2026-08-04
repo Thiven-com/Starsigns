@@ -945,14 +945,6 @@
         <span>Cart</span>
     </a>
 
-<<<<<<< HEAD
-<style>
-
-
-
-</style>
-=======
 </div>
->>>>>>> 805d2cd1096a76ae697a75e008566a6f161df5c8
 
 </html>

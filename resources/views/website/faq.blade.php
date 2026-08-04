@@ -45,7 +45,7 @@
         <!--=========================
                 SEARCH BAR
             ==========================-->
-
+<!-- 
         <section class="faq-page-search">
 
             <div class="faq-page-search-bar">
@@ -64,7 +64,7 @@
                 No questions matched your search. Try a different keyword.
             </p>
 
-        </section>
+        </section> -->
 
         <!--=========================
                 FAQ ACCORDION LIST
