@@ -915,7 +915,7 @@ ORDER SUMMARY
 
 .cart-page-coupon-row {
 
-    display: flex;
+    /* display: flex; */
 
     gap: 10px;
 
@@ -968,6 +968,7 @@ ORDER SUMMARY
     cursor: pointer;
 
     transition: .3s;
+    margin-top: 10px;
 
 }
 

@@ -408,7 +408,7 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 65px;
+                height: 55px;
 
                 background: #0a0825;
                 border-top: 1px solid rgba(255, 255, 255, .08);
@@ -441,9 +441,7 @@
                 transition: .3s ease;
             }
 
-            .mobile-bottom-bar .bottom-item i {
-                font-size: 20px;
-            }
+            
 
             .mobile-bottom-bar .bottom-item:hover,
             .mobile-bottom-bar .bottom-item.active {
@@ -453,6 +451,181 @@
             /* Prevent content from hiding behind bottom bar */
             body {
                 padding-bottom: 75px;
+            }
+        }
+    </style>
+
+    <style>
+        /* =========================================
+MOBILE SEARCH MODAL
+========================================= */
+
+        .mobile-search-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: none;
+        }
+
+        .mobile-search-modal.active {
+            display: block;
+        }
+
+        .mobile-search-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+        }
+
+        .mobile-search-box {
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 24px);
+            max-width: 420px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .18);
+            animation: mobileSearchPop .25s ease;
+        }
+
+        @keyframes mobileSearchPop {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -46%) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .mobile-search-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .mobile-search-header h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #241b3f;
+        }
+
+        .mobile-search-header button {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: #f5f5f5;
+            color: #333;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .mobile-search-header button:hover {
+            background: #d8a128;
+            color: #fff;
+        }
+
+        .mobile-search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .mobile-search-input-wrap {
+            position: relative;
+        }
+
+        .mobile-search-input-wrap i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 14px;
+        }
+
+        .mobile-search-input-wrap input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 0 16px 0 42px;
+            font-size: 14px;
+            outline: none;
+            transition: .3s;
+        }
+
+        .mobile-search-input-wrap input:focus {
+            border-color: #d8a128;
+            box-shadow: 0 0 0 3px rgba(216, 161, 40, .12);
+        }
+
+        .mobile-search-submit {
+            width: 100%;
+            height: 46px;
+            border: none;
+            border-radius: 12px;
+            background: #d8a128;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .mobile-search-submit:hover {
+            background: #be8c13;
+        }
+
+        .mobile-search-suggestions {
+            margin-top: 18px;
+        }
+
+        .mobile-search-suggestions p {
+            margin: 0 0 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .mobile-search-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .mobile-search-tags a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #faf8f5;
+            border: 1px solid #eee;
+            color: #333;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .mobile-search-tags a:hover {
+            background: #d8a128;
+            border-color: #d8a128;
+            color: #fff;
+        }
+
+        @media (min-width: 992px) {
+            .mobile-search-modal {
+                display: none !important;
             }
         }
     </style>
@@ -855,11 +1028,11 @@
 
                         <li><a href="{{ route('refundpolicy') }}">Return & Refund</a></li>
 
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="{{ route('terms') }}">Terms & Conditions</a></li>
 
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
 
-                        <li><a href="#">Help Center</a></li>
+                        {{-- <li><a href="#">Help Center</a></li> --}}
 
                     </ul>
 
@@ -942,7 +1115,7 @@
                 <div class="payment-methods">
 
                     <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
-                    <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
+                    {{-- <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a> --}}
 
                     <a href="#"> <img src="{{ asset('website') }}/images/mastercard.png" alt="Mastercard"></a>
 
@@ -1058,4 +1231,71 @@
 
 </div>
 
+<!-- =========================================
+MOBILE PRODUCT SEARCH MODAL
+========================================= -->
+<div class="mobile-search-modal" id="mobileSearchModal">
+
+    <div class="mobile-search-overlay" id="closeSearchOverlay"></div>
+
+    <div class="mobile-search-box">
+
+        <div class="mobile-search-header">
+            <h3>Search Products</h3>
+            <button type="button" id="closeSearchBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <form action="{{ route('shop') }}" method="GET" class="mobile-search-form">
+
+            <div class="mobile-search-input-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text" name="search" placeholder="Search products..." autocomplete="off" autofocus>
+            </div>
+
+            <button type="submit" class="mobile-search-submit">
+                Search
+            </button>
+        </form>
+
+        <div class="mobile-search-suggestions">
+            <p>Popular searches</p>
+
+            <div class="mobile-search-tags">
+                <a href="{{ route('shop', ['search' => 'Rudraksha']) }}">Rudraksha</a>
+                <a href="{{ route('shop', ['search' => 'Bracelet']) }}">Bracelet</a>
+                <a href="{{ route('shop', ['search' => 'Gemstone']) }}">Gemstone</a>
+                <a href="{{ route('shop', ['search' => 'Crystal']) }}">Crystal</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+    const mobileSearchModal = document.getElementById('mobileSearchModal');
+    const closeSearchOverlay = document.getElementById('closeSearchOverlay');
+    const closeSearchBtn = document.getElementById('closeSearchBtn');
+
+    function openSearchModal() {
+        mobileSearchModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSearchModal() {
+        mobileSearchModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (mobileSearchBtn) {
+        mobileSearchBtn.addEventListener('click', openSearchModal);
+    }
+
+    closeSearchOverlay.addEventListener('click', closeSearchModal);
+    closeSearchBtn.addEventListener('click', closeSearchModal);
+</script>
 </html>

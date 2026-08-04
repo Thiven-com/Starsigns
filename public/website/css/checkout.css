@@ -466,7 +466,7 @@ BILLING FORM
 .checkout-page-field input,
 .checkout-page-field select {
 
-    width: 100%;
+    width: 90%;
 
     height: 48px;
 
@@ -1596,4 +1596,288 @@ PREMIUM CHECKOUT ANIMATIONS
 
     animation: checkoutFloat 5s ease-in-out infinite 2s;
 
+}
+
+
+/* =========================================
+CHECKOUT PAGE - MOBILE FIX
+Add this at the END of your CSS
+========================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .checkout-page-section {
+        padding: 35px 16px 50px;
+    }
+
+    .checkout-page-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .checkout-page-side {
+        position: relative;
+        top: 0;
+        order: 2;
+    }
+
+    .checkout-page-form-wrap {
+        order: 1;
+        padding: 26px 22px;
+    }
+
+    .checkout-page-grid-2,
+    .checkout-page-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .checkout-page-perks {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .checkout-page-steps {
+        margin-bottom: 36px;
+    }
+
+    .checkout-page-step {
+        min-width: auto;
+    }
+
+    .checkout-page-step-label {
+        display: none;
+    }
+
+    .checkout-page-step-line {
+        max-width: 44px;
+        margin-bottom: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .checkout-page-section {
+        padding: 24px 14px 40px;
+    }
+
+    /* In-page breadcrumb */
+    .checkout-page-crumb {
+        font-size: 12px;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Step indicator */
+    .checkout-page-steps {
+        padding: 0 4px;
+        margin-bottom: 28px;
+    }
+
+    .checkout-page-step-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .checkout-page-step-line {
+        max-width: 28px;
+        height: 2px;
+    }
+
+    /* Cards */
+    .checkout-page-form-wrap,
+    .checkout-page-summary,
+    .checkout-page-payment {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .checkout-page-form-title {
+        margin-bottom: 22px;
+    }
+
+    .checkout-page-form-title h3 {
+        font-size: 20px;
+    }
+
+    /* Form fields */
+    .checkout-page-field {
+        margin-bottom: 18px;
+    }
+
+    .checkout-page-field label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .checkout-page-field input,
+    .checkout-page-field select {
+        height: 44px;
+        padding: 0 14px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    /* Checkbox */
+    .checkout-page-checkbox {
+        align-items: flex-start;
+        height: auto;
+        line-height: 1.5;
+    }
+
+    /* Perks */
+    .checkout-page-perks {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .checkout-page-perk {
+        padding: 0;
+    }
+
+    /* Summary */
+    .checkout-page-summary h3,
+    .checkout-page-payment h3 {
+        font-size: 17px;
+        margin-bottom: 18px;
+    }
+
+    .checkout-page-items {
+        gap: 12px;
+    }
+
+    .checkout-page-item {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .checkout-page-item-thumb {
+        width: 48px;
+        height: 48px;
+    }
+
+    .checkout-page-item-info h4 {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .checkout-page-item-info span {
+        font-size: 11px;
+    }
+
+    .checkout-page-item-price {
+        font-size: 13px;
+    }
+
+    .checkout-page-summary-row {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+
+    .checkout-page-summary-total {
+        font-size: 15px;
+        padding-top: 14px;
+        margin-bottom: 18px;
+    }
+
+    .checkout-page-summary-total strong {
+        font-size: 18px;
+    }
+
+    /* Coupon */
+    .checkout-page-coupon-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkout-page-coupon-row input,
+    .checkout-page-coupon-row button {
+        width: 100%;
+        height: 42px;
+        border-radius: 8px;
+    }
+
+    /* Payment methods */
+    .checkout-page-pay-option {
+        padding: 14px 12px;
+        gap: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .checkout-page-pay-label {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .checkout-page-pay-icons {
+        font-size: 15px;
+        gap: 6px;
+    }
+
+    /* Place order button */
+    .checkout-page-place-btn {
+        height: 48px;
+        font-size: 14px;
+        border-radius: 10px;
+        margin-top: 14px;
+    }
+
+    .checkout-page-secure-note {
+        font-size: 11px;
+        margin-top: 12px;
+        line-height: 1.5;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+    .checkout-page-section {
+        padding: 20px 12px 34px;
+    }
+
+    .checkout-page-form-wrap,
+    .checkout-page-summary,
+    .checkout-page-payment {
+        padding: 18px 14px;
+    }
+
+    .checkout-page-form-title h3 {
+        font-size: 18px;
+    }
+
+    .checkout-page-step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .checkout-page-step-line {
+        max-width: 20px;
+    }
+
+    .checkout-page-item-thumb {
+        width: 44px;
+        height: 44px;
+    }
+
+    .checkout-page-summary-total strong {
+        font-size: 17px;
+    }
+
+    .checkout-page-pay-option {
+        align-items: flex-start;
+    }
+
+    .checkout-page-pay-icons {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
 }

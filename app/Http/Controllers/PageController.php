@@ -20,87 +20,92 @@ class PageController extends Controller
     {
         return view('website.about');
     }
-       public function blog()
+    public function blog()
     {
         return view('website.blog');
     }
+    public function terms()
+    {
+        return view('website.terms');
+    }
+    public function privacy_policy()
+    {
+        return view('website.privacy-policy');
+    }
 
-
-
-     
-       public function product()
+    public function product()
     {
         return view('website.product');
     }
 
-       public function cart()
+    public function cart()
     {
         return view('website.cart');
     }
 
-        public function checkout()
+    public function checkout()
     {
         return view('website.checkout');
     }
 
-    
-        public function wishlist()
+
+    public function wishlist()
     {
         return view('website.wishlist');
     }
 
 
-         public function orders()
+    public function orders()
     {
         return view('website.orders');
     }
 
-       public function contact()
+    public function contact()
     {
         return view('website.contact');
     }
 
 
 
-      public function myaccount()
+    public function myaccount()
     {
         return view('website.myaccount');
     }
 
 
-       public function login()
+    public function login()
     {
         return view('website.login');
     }
 
 
 
-       public function register()
+    public function register()
     {
         return view('website.register');
     }
 
 
-    
-       public function blog_details()
+
+    public function blog_details()
     {
         return view('website.blog-details');
     }
 
 
-         public function faq()
+    public function faq()
     {
         return view('website.faq');
     }
 
-          public function shippolicy()
+    public function shippolicy()
     {
         return view('website.shippolicy');
     }
 
 
 
-          public function refundpolicy()
+    public function refundpolicy()
     {
         return view('website.refundpolicy');
     }
@@ -110,7 +115,7 @@ class PageController extends Controller
     // }
 
 
-   
+
     //     public function offers()
     // {
     //     return view('website.offers');

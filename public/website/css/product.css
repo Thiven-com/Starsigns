@@ -1701,3 +1701,346 @@ PREMIUM PAGE LOAD
     }
 
 }
+
+/* =========================================
+PRODUCT DETAILS - MOBILE FIX
+Add this at the END of your CSS
+========================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .pdp-section {
+        padding: 35px 16px;
+    }
+
+    .pdp-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Main image first */
+    .pdp-gallery {
+        order: 1;
+        min-height: 360px;
+    }
+
+    /* Product info second */
+    .pdp-info {
+        order: 2;
+    }
+
+    /* Thumbnails third */
+    .pdp-thumbs {
+        order: 3;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 10px;
+        padding-bottom: 5px;
+        scrollbar-width: none;
+    }
+
+    .pdp-thumbs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pdp-thumb,
+    .pdp-thumb-more {
+        min-width: 72px;
+        width: 72px;
+        height: 72px;
+    }
+
+    .pdp-tab-panel.active {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .pdp-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pdp-related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .pdp-section {
+        padding: 24px 14px;
+    }
+
+    /* Breadcrumb */
+    .pdp-crumb {
+        font-size: 12px;
+        margin-bottom: 18px;
+        line-height: 1.5;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Gallery */
+    .pdp-gallery {
+        min-height: 300px;
+        border-radius: 14px;
+        padding: 15px;
+    }
+
+    .pdp-gallery img {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .pdp-badge-sale {
+        top: 12px;
+        left: 12px;
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .pdp-expand-btn {
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    /* Info */
+    .pdp-info-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .pdp-info h1 {
+        font-size: 24px;
+        line-height: 1.35;
+    }
+
+    .pdp-wishlist-btn {
+        padding: 0;
+        font-size: 13px;
+    }
+
+    .pdp-rating {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .pdp-stars i {
+        font-size: 13px;
+    }
+
+    .pdp-review-count {
+        font-size: 13px;
+    }
+
+    .pdp-price {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .pdp-price-now {
+        font-size: 24px;
+    }
+
+    .pdp-price-old {
+        font-size: 15px;
+    }
+
+    .pdp-price-off {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .pdp-desc {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    /* Features */
+    .pdp-features {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .pdp-feature {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    /* Quantity */
+    .pdp-qty-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    /* Buttons */
+    .pdp-cta-row {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .pdp-btn {
+        width: 100%;
+        min-height: 48px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    /* Perks */
+    .pdp-perks {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .pdp-perk {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    /* Tabs */
+    .pdp-tabs {
+        margin-top: 35px;
+        border-radius: 14px;
+    }
+
+    .pdp-tabs-nav {
+        gap: 18px;
+        padding: 0 16px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .pdp-tabs-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pdp-tab-btn {
+        padding: 16px 0;
+        font-size: 14px;
+        flex: none;
+    }
+
+    .pdp-tab-panel {
+        padding: 22px 16px 26px;
+    }
+
+    .pdp-tab-col p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .pdp-check-list li {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .pdp-spec-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pdp-spec {
+        padding: 14px;
+    }
+
+    /* Related products */
+    .pdp-related-title {
+        margin: 40px 0 20px;
+        font-size: 22px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .pdp-related-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .pdp-rimg {
+        min-height: 140px;
+    }
+
+    .pdp-rbody {
+        padding: 12px;
+    }
+
+    .pdp-rname {
+        font-size: 13px;
+        line-height: 1.4;
+        min-height: 36px;
+    }
+
+    .pdp-rprice .now {
+        font-size: 13px;
+    }
+
+    .pdp-rprice .old {
+        font-size: 11px;
+    }
+
+    .pdp-rprice .off {
+        display: block;
+        width: fit-content;
+        margin: 6px 0 0;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+    .pdp-section {
+        padding: 20px 12px;
+    }
+
+    .pdp-gallery {
+        min-height: 260px;
+    }
+
+    .pdp-gallery img {
+        max-width: 220px;
+    }
+
+    .pdp-info h1 {
+        font-size: 22px;
+    }
+
+    .pdp-price-now {
+        font-size: 22px;
+    }
+
+    .pdp-related-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .pdp-rimg {
+        min-height: 120px;
+    }
+
+    .pdp-rbody {
+        padding: 10px;
+    }
+
+    .pdp-rname {
+        font-size: 12px;
+    }
+
+    .pdp-rrating {
+        font-size: 11px;
+    }
+}
