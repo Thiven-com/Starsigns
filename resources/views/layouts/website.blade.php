@@ -841,7 +841,8 @@
 
                     <a href="#"> <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
 
-                </div> -->
+                </div> 
+        
 
                 <!-- Back To Top -->
 
