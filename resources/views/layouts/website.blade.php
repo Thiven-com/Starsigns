@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>StarSigns</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,8 +60,402 @@
 
 </head>
 
-<body>
+<body style="margin: 0px;">
+    <style>
+        /* Hide mobile logo on desktop */
+        .mobile-nav-logo {
+            display: none;
+        }
 
+        /* ========================= DESKTOP (992px and above) ========================= */
+        @media (min-width: 992px) {
+            .navbar .container {
+                max-width: 1400px;
+                margin: auto;
+                padding: 0 20px;
+            }
+
+            .nav-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+                height: 60px;
+            }
+
+            .nav-toggle {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                gap: 28px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: auto;
+                background: transparent;
+                position: static;
+            }
+
+            .nav-menu li {
+                width: auto;
+            }
+
+            .nav-menu li a {
+                display: inline-block;
+                padding: 0;
+                border: none;
+                white-space: nowrap;
+            }
+        }
+
+        /* ========================= TABLET (768px - 991px) ========================= */
+        @media (min-width:768px) and (max-width:991px) {
+
+            /* Header */
+            .main-header {
+                padding: 18px 0;
+            }
+
+            .header-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .header-logo {
+                width: 180px;
+            }
+
+            .header-search {
+                order: 3;
+                width: 100%;
+            }
+
+            .search-box {
+                height: 52px;
+            }
+
+            .search-box select {
+                width: 160px;
+                font-size: 14px;
+            }
+
+            .header-icons {
+                gap: 16px;
+            }
+
+            /* Navbar */
+            .mobile-nav-logo {
+                display: block;
+                flex: 1;
+            }
+
+            .mobile-nav-logo img {
+                width: 150px;
+                height: auto;
+                display: block;
+            }
+
+            .nav-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                width: 100%;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                border: none;
+                border-radius: 8px;
+                background: #f4b42d;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+                flex-shrink: 0;
+            }
+
+            .nav-menu {
+                display: none !important;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #0a0825;
+                border-radius: 10px;
+                overflow: hidden;
+                z-index: 999;
+                margin-top: 10px;
+                padding: 0;
+                list-style: none;
+                flex-direction: column !important;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+            }
+
+            .nav-menu.active {
+                display: flex !important;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu li::after,
+            .nav-menu li::before {
+                display: none !important;
+            }
+
+            .nav-menu li a {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255, 255, 255, .08);
+                font-size: 15px;
+                font-weight: 500;
+                white-space: nowrap;
+            }
+
+            .nav-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            .nav-menu li a:hover,
+            .nav-menu li a.active {
+                background: rgba(244, 180, 45, .08);
+                color: #f4b42d;
+            }
+        }
+
+        /* ========================= MOBILE (up to 767px) ========================= */
+        @media (max-width:767px) {
+
+            /* Hide desktop header */
+            .main-header {
+                display: none;
+            }
+
+            .navbar {
+                background: #0a0825;
+                border-top: 1px solid rgba(255, 255, 255, .08);
+                position: sticky;
+                top: 0;
+                z-index: 9999;
+            }
+
+            .navbar .container {
+                padding: 0 15px;
+            }
+
+            /* Mobile top row */
+            .mobile-nav-logo {
+                display: block;
+                flex: 1;
+            }
+
+            .mobile-nav-logo img {
+                width: 135px;
+                height: auto;
+                display: block;
+            }
+
+            .nav-wrapper {
+                position: relative;
+                display: flex !important;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row !important;
+                width: 100%;
+                height: auto;
+                padding: 12px 0;
+                gap: 10px;
+            }
+
+            .nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border: none;
+                border-radius: 8px;
+                background: #f4b42d;
+                color: #fff;
+                font-size: 18px;
+                cursor: pointer;
+                flex-shrink: 0;
+                margin: 0;
+            }
+
+            /* Mobile dropdown */
+            .nav-menu {
+                display: none !important;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #0a0825;
+                border-radius: 10px;
+                overflow: hidden;
+                z-index: 9999;
+                margin-top: 10px;
+                padding: 0;
+                list-style: none;
+                flex-direction: column !important;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+            }
+
+            .nav-menu.active {
+                display: flex !important;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu li::after,
+            .nav-menu li::before {
+                display: none !important;
+            }
+
+            .nav-menu li a {
+                display: block;
+                width: 100%;
+                padding: 5px 8px;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255, 255, 255, .08);
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+            .nav-menu li:last-child a {
+                border-bottom: none;
+            }
+
+            .nav-menu li a:hover,
+            .nav-menu li a.active {
+                background: rgba(244, 180, 45, .08);
+                color: #f4b42d;
+            }
+
+            /* Footer */
+            .newsletter-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .newsletter-form {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                height: 52px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom-wrapper {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .payment-methods {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+    <style>
+        /* =========================================
+   MOBILE BOTTOM BAR
+========================================= */
+
+        .mobile-bottom-bar {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+
+            .mobile-bottom-bar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 65px;
+
+                background: #0a0825;
+                border-top: 1px solid rgba(255, 255, 255, .08);
+
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                z-index: 99999;
+
+                box-shadow: 0 -5px 20px rgba(0, 0, 0, .15);
+            }
+
+            .mobile-bottom-bar .bottom-item {
+                flex: 1;
+                height: 100%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+
+                color: #fff;
+                text-decoration: none;
+
+                font-size: 12px;
+                font-weight: 500;
+
+                transition: .3s ease;
+            }
+
+            .mobile-bottom-bar .bottom-item i {
+                font-size: 20px;
+            }
+
+            .mobile-bottom-bar .bottom-item:hover,
+            .mobile-bottom-bar .bottom-item.active {
+                color: #f4b42d;
+            }
+
+            /* Prevent content from hiding behind bottom bar */
+            body {
+                padding-bottom: 75px;
+            }
+        }
+    </style>
     <!--=========================
         TOP BAR
 ==========================-->
@@ -200,93 +594,30 @@
 
             <div class="nav-wrapper">
 
-                <!-- Categories -->
-
-                <!-- <div class="categories-btn">
-
-                    <a href="#">
-                        <i class="fa-solid fa-bars"></i>
-
-                        <span>All Categories</span>
-
-                        <i class="fa-solid fa-angle-down"></i>
+                <!-- Mobile Logo -->
+                <div class="mobile-nav-logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('website/images/logistar1.png') }}" alt="Logo">
                     </a>
+                </div>
 
-                    <div class="category-dropdown">
-
-                        <a href="#">Rudraksha</a>
-                        <a href="#">Bracelets</a>
-                        <a href="#">Gemstones</a>
-                        <a href="#">Yantras</a>
-                        <a href="#">Puja Items</a>
-                        <a href="#">Astrology</a>
-
-                    </div>
-
-                </div> -->
-
-                <!-- Menu -->
-
+                <!-- Menu Toggle -->
                 <button class="nav-toggle" id="navToggle">
                     <i class="fa-solid fa-bars"></i>
                 </button>
 
                 <ul class="nav-menu" id="navMenu">
-
-                    <li>
-                        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('shop') }}"
-                            class="{{ request()->routeIs('shop') || request()->routeIs('product') ? 'active' : '' }}">
-                            Shop
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">
-                            About Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('blog') }}" class="{{ request()->routeIs('blog') ? 'active' : '' }}">
-                            Blogs
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('product') }}" class="{{ request()->routeIs('product') ? 'active' : '' }}">
-                            Product Details
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('checkout') }}" class="{{ request()->routeIs('checkout') ? 'active' : '' }}">
-                            Checkout
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('orders') }}" class="{{ request()->routeIs('orders') ? 'active' : '' }}">
-                            My Orders
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                            Contact
-                        </a>
-                    </li>
-
+                    <li><a href="{{ route('home') }}" class="active">Home</a></li>
+                    <li><a href="{{ route('shop') }}">Shop</a></li>
+                    <li><a href="{{ route('about') }}">About Us</a></li>
+                    <li><a href="{{ route('blog') }}">Blogs</a></li>
+                    <li><a href="{{ route('product') }}">Product Details</a></li>
+                    <li><a href="{{ route('checkout') }}">Checkout</a></li>
+                    <li><a href="{{ route('orders') }}">My Orders</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
-
         </div>
-
     </nav>
 
 
@@ -497,8 +828,9 @@
 
                 <!-- Payment Methods -->
 
-                <!-- <div class="payment-methods">
+                <div class="payment-methods">
 
+                    <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
                     <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
 
                     <a href="#"> <img src="{{ asset('website') }}/images/mastercard.png" alt="Mastercard"></a>
@@ -592,14 +924,34 @@
     </script>
 
 </body>
+<!-- =========================
+     MOBILE BOTTOM NAVBAR
+========================= -->
+<div class="mobile-bottom-bar">
 
+    <a href="{{ route('home') }}" class="bottom-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+    </a>
 
+    <a href="javascript:void(0)" class="bottom-item" id="mobileSearchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search</span>
+    </a>
 
+    <a href="{{ route('cart') }}" class="bottom-item">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Cart</span>
+    </a>
 
+<<<<<<< HEAD
 <style>
 
 
 
 </style>
+=======
+</div>
+>>>>>>> 805d2cd1096a76ae697a75e008566a6f161df5c8
 
 </html>
