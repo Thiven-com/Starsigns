@@ -20,9 +20,6 @@ class PageController extends Controller
     {
         return view('website.about');
     }
-
-
-     
        public function blog()
     {
         return view('website.blog');
