@@ -1108,13 +1108,13 @@
                                                                                                                                                                         WHY CHOOSE SECTION
                                                                                                                                                                         ==========================-->
 
-        <section class="ss-why-section" data-aos="fade-up">
+        <section class="ss-why-section" data-aos="fade-up" style="margin: 10px; padding: 10px;">
 
             <div class="container">
 
                 <div class="ss-why-box">
 
-                    <div class="ss-title" data-aos="fade-down" data-aos-duration="1000">
+                    <div class="ss-title" data-aos="fade-down" data-aos-duration="1000" style="padding: 10px; margin-bottom: 20px;">
 
                         <span></span>
 
@@ -1203,6 +1203,11 @@
             </div>
 
         </section>
+        <style>
+            .ss-item{
+                padding: 10px;
+            }
+        </style>
 
 
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
