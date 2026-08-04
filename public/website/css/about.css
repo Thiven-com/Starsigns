@@ -191,7 +191,7 @@ RESPONSIVE
 
 
 .about-section {
-    padding: 100px 0;
+    padding: 20px 0;
     overflow: hidden;
     background: #fff;
 }
@@ -456,8 +456,8 @@ WHY CHOOSE US
 ==========================================*/
 
 .why-choose-section {
-    margin: 30px;
-    padding: 50px;
+    margin: 20px;
+    padding: 10px;
 
     background: #faf8f5;
     border-radius: 25px;
@@ -553,7 +553,7 @@ WHY CHOOSE US
 
     border-radius: 18px;
 
-    padding: 45px 25px;
+    padding: 10px 10px;
 
     text-align: center;
 
@@ -612,6 +612,7 @@ WHY CHOOSE US
     line-height: 1.4;
 
     margin-bottom: 15px;
+    margin-top: 10px;
 
     color: #222;
 
@@ -657,8 +658,8 @@ WHY CHOOSE US
 
 
 .banner-section {
-    padding: 50px;
-    margin: 40px;
+    padding: 10px;
+    margin: 10px;
 }
 
 .banner-card {
@@ -707,8 +708,8 @@ FEATURE STRIP
 
 .feature-strip {
 
-    padding: 35px;
-    margin: 30px;
+    padding: 10px;
+    margin: 10px;
 
 
     background: #ffffff;

@@ -1,8 +1,8 @@
 @extends('layouts.website')
 @section('content')
     <!--==========================
-                                                                                                        PAGE BANNER
-                                                                                                        ===========================-->
+                                                                                                                    PAGE BANNER
+                                                                                                                    ===========================-->
 
     <section class="page-banner" data-aos="zoom-out" data-aos-duration="1000">
 
@@ -32,8 +32,8 @@
 
 
     <!--==========================================
-                                                                                                    SHOP CONTENT
-                                                                                                    ===========================================-->
+                                                                                                                SHOP CONTENT
+                                                                                                                ===========================================-->
 
     <section class="shop-section" data-aos="fade-up" data-aos-delay="200">
 
@@ -42,8 +42,8 @@
             <div class="shop-wrapper">
 
                 <!--=========================
-                                                                                                                        LEFT SIDEBAR
-                                                                                                                ==========================-->
+                                                                                                                                    LEFT SIDEBAR
+                                                                                                                            ==========================-->
 
                 <aside class="shop-sidebar" data-aos="fade-right">
 
@@ -52,8 +52,8 @@
 
 
                         <!--==========================================
-                                                                                                CATEGORIES WIDGET
-                                                                                                ===========================================-->
+                                                                                                            CATEGORIES WIDGET
+                                                                                                            ===========================================-->
 
                         <div class="shop-widget" data-aos="fade-left">
 
@@ -187,8 +187,8 @@
                     <div class="shop-widget price-widget">
 
                         <!--==========================================
-                                            PRICE FILTER
-                          ===========================================-->
+                                                        PRICE FILTER
+                                      ===========================================-->
 
                         <div class="shop-widget">
 
@@ -241,8 +241,8 @@
                     <div class="shop-widget sort-widget">
 
                         <!--==========================================
-                                       SORT BY
-                                  ===========================================-->
+                                                   SORT BY
+                                              ===========================================-->
 
                         <div class="shop-widget">
 
@@ -318,10 +318,14 @@
                 </aside>
 
                 <!--=========================
-                                        RIGHT CONTENT
-                                 ==========================-->
+                                                    RIGHT CONTENT
+                                             ==========================-->
 
                 <div class="shop-content">
+                    <button class="mobile-filter-btn" id="openFilterModal">
+                        <i class="fa-solid fa-sliders"></i>
+                        Filters
+                    </button><br>
 
                     <!-- Toolbar -->
 
@@ -338,7 +342,7 @@
 
                         </div>
 
-                        <div class="shop-toolbar-right">
+                        {{-- <div class="shop-toolbar-right">
 
                             <select class="shop-sort">
 
@@ -356,27 +360,15 @@
 
                             </select>
 
-                            <!-- <button class="grid-btn active">
-
-                                        <i class="fa-solid fa-grip"></i>
-
-                                    </button>
-
-                                    <button class="list-btn">
-
-                                        <i class="fa-solid fa-list"></i>
-
-                                    </button> -->
-
-                        </div>
+                        </div> --}}
 
                     </div>
 
                     <!-- Product Grid -->
 
                     <!--==========================================
-                                                                PRODUCT GRID
-                                                            ===========================================-->
+                                                                            PRODUCT GRID
+                                                                        ===========================================-->
                     <!-- Product cards will be added in Part 7 -->
 
                     <div class="products-grid" data-aos="fade-down">
@@ -398,15 +390,15 @@
 
                                     <!-- <div class="product-overlay">
 
-                                                        <a href="#" class="quick-view">
+                                                                                <a href="#" class="quick-view">
 
-                                                            <i class="fa-regular fa-eye"></i>
+                                                                                    <i class="fa-regular fa-eye"></i>
 
-                                                            Quick View
+                                                                                    Quick View
 
-                                                        </a>
+                                                                                </a>
 
-                                                    </div> -->
+                                                                            </div> -->
                                     <a href="{{ route('product') }}">
                                         <img src="{{ asset('website') }}/images/product-2.png" alt="Product">
                                     </a>
@@ -524,6 +516,155 @@
 
     </section>
 
+    <!-- =========================================
+        MOBILE FILTER MODAL
+        ========================================= -->
+    <div class="filter-modal" id="filterModal">
+        <div class="filter-modal-overlay" id="closeFilterModal"></div>
+
+        <div class="filter-modal-content">
+
+            <div class="filter-modal-header">
+                <h3>Filters</h3>
+                <button type="button" id="closeFilterBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="filter-modal-body">
+
+                <!-- Categories -->
+                <div class="shop-widget">
+                    <div class="widget-title">
+                        <h3>Categories</h3>
+                    </div>
+
+                    <ul class="category-list">
+                        <li><a href="#">
+                                <div class="left"><i class="fa-regular fa-circle"></i><span>Rudraksha Mala</span></div><span
+                                    class="count">(24)</span>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="left"><i class="fa-regular fa-circle"></i><span>Gemstone Bracelet</span></div>
+                                <span class="count">(32)</span>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="left"><i class="fa-regular fa-gem"></i><span>Gemstones</span></div><span
+                                    class="count">(18)</span>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="left"><i class="fa-regular fa-star"></i><span>Yantra</span></div><span
+                                    class="count">(12)</span>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="left"><i class="fa-regular fa-circle"></i><span>Crystals</span></div><span
+                                    class="count">(21)</span>
+                            </a></li>
+                        <li><a href="#">
+                                <div class="left"><i class="fa-solid fa-spa"></i><span>Spiritual Accessories</span></div>
+                                <span class="count">(15)</span>
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Price Range -->
+                <div class="shop-widget">
+                    <div class="widget-title">
+                        <h3>Price Range</h3>
+                    </div>
+
+                    <div class="price-range">
+                        <input type="range" class="price-slider" min="199" max="4999" value="2499">
+
+                        <div class="price-label">
+                            <span>₹199</span>
+                            <span>₹4999</span>
+                        </div>
+
+                        <div class="price-inputs">
+                            <input type="text" value="₹ 199">
+                            <span>–</span>
+                            <input type="text" value="₹ 4999">
+                        </div>
+
+                        <button class="filter-btn" type="button">FILTER</button>
+                    </div>
+                </div>
+
+                <!-- Sort By -->
+                <div class="shop-widget">
+                    <div class="widget-title">
+                        <h3>Sort By</h3>
+                    </div>
+
+                    <div class="sort-options">
+                        <label class="sort-item">
+                            <input type="radio" name="mobile-sort" checked>
+                            <span class="radio"></span>
+                            <span class="text">Newest First</span>
+                        </label>
+
+                        <label class="sort-item">
+                            <input type="radio" name="mobile-sort">
+                            <span class="radio"></span>
+                            <span class="text">Price: Low to High</span>
+                        </label>
+
+                        <label class="sort-item">
+                            <input type="radio" name="mobile-sort">
+                            <span class="radio"></span>
+                            <span class="text">Price: High to Low</span>
+                        </label>
+
+                        <label class="sort-item">
+                            <input type="radio" name="mobile-sort">
+                            <span class="radio"></span>
+                            <span class="text">Best Selling</span>
+                        </label>
+
+                        <label class="sort-item">
+                            <input type="radio" name="mobile-sort">
+                            <span class="radio"></span>
+                            <span class="text">Top Rated</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="filter-modal-footer">
+                <button type="button" class="filter-btn" id="applyFilters">
+                    Apply Filters
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const filterModal = document.getElementById('filterModal');
+        const openFilterModal = document.getElementById('openFilterModal');
+        const closeFilterModal = document.getElementById('closeFilterModal');
+        const closeFilterBtn = document.getElementById('closeFilterBtn');
+        const applyFilters = document.getElementById('applyFilters');
+
+        if (openFilterModal) {
+            openFilterModal.addEventListener('click', () => {
+                filterModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        function closeModal() {
+            filterModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeFilterModal.addEventListener('click', closeModal);
+        closeFilterBtn.addEventListener('click', closeModal);
+        applyFilters.addEventListener('click', closeModal);
+    </script>
+
 
 
 
@@ -607,4 +748,5 @@
 
         });
     </script>
+
 @endsection

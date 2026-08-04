@@ -36,10 +36,10 @@
             <div class="about-image" data-aos="fade-right">
                 <img src="{{ asset('website') }}/images/aboutimg.png" alt="About Us">
 
-                <div class="experience-card">
+                {{-- <div class="experience-card">
                     <h2>7+</h2>
                     <p>Years of Trust</p>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Right Content -->
@@ -124,7 +124,7 @@
 
                 <span class="sub-title">WHY CHOOSE US</span>
 
-                <h2>What Makes Us Different</h2>
+                <h2 style="margin: 10px;">What Makes Us Different</h2>
 
             </div>
 

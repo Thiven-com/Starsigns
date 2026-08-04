@@ -337,8 +337,8 @@
             </div>
 
             <!-- Arrows -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            {{-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> --}}
 
             <!-- Pagination -->
             <div class="swiper-pagination"></div>

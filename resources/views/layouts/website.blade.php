@@ -630,48 +630,159 @@
     <!--==================================
         FOOTER NEWSLETTER
 ===================================-->
-
     <section class="footer-newsletter">
         <div class="container">
 
             <div class="newsletter-wrapper">
 
                 <!-- Left -->
-
                 <div class="newsletter-content">
 
                     <div class="newsletter-icon">
-                        <i class="fa-regular fa-envelope" style="color: #fff;"></i>
+                        <i class="fa-regular fa-envelope"></i>
                     </div>
 
                     <div class="newsletter-text">
-
                         <h2>Subscribe to our Newsletter</h2>
-
                         <p>Get updates on offers, new arrivals & more.</p>
-
                     </div>
 
                 </div>
 
                 <!-- Right -->
-
                 <form class="newsletter-form">
-
                     <input type="email" placeholder="Enter your email address" required>
-
-                    <button type="submit">
-                        Subscribe
-                    </button>
-
+                    <button type="submit">Subscribe</button>
                 </form>
 
             </div>
 
         </div>
-
     </section>
 
+    <style>
+        .footer-newsletter {
+            padding: 15px 0;
+        }
+
+        .newsletter-wrapper {
+            background: #0f081f;
+            border-radius: 18px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .newsletter-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .newsletter-text h2 {
+            color: #fff;
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .newsletter-text p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 12px;
+            padding: 6px;
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            height: 70%;
+            background: transparent;
+        }
+
+        .newsletter-form button {
+            background: #f4b42d;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        /* ===== MOBILE FIX ===== */
+        @media (max-width: 768px) {
+
+            .newsletter-wrapper {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 15px;
+            }
+
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+
+            .newsletter-text h2 {
+                font-size: 13px;
+            }
+
+            .newsletter-form {
+                width: 100%;
+                min-width: 100%;
+                flex-direction: column;
+                background: transparent;
+                padding: 0;
+                gap: 12px;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+                background: #fff;
+                border-radius: 10px;
+                padding: 14px;
+                box-sizing: border-box;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+                padding: 14px;
+                border-radius: 10px;
+            }
+        }
+    </style>
 
 
     <!--==================================
@@ -841,8 +952,8 @@
 
                     <a href="#"> <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
 
-                </div> 
-        
+                </div>
+
 
                 <!-- Back To Top -->
 
