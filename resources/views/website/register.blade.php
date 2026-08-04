@@ -130,7 +130,7 @@
                     <label class="login-page-remember">
                         <input type="checkbox" id="registerTerms" name="terms">
                         <span class="login-page-checkbox"></span>
-                        I agree to the <a href="/terms-and-conditions">Terms & Conditions</a>
+                        I agree to the <a href="{{ route('terms') }}">Terms & Conditions</a>
                     </label>
 
                 </div>
@@ -146,7 +146,7 @@
                     <span></span>
                 </div>
 
-                <div class="login-page-social-row">
+                {{-- <div class="login-page-social-row">
 
                     <a href="/auth/google/redirect" class="login-page-social-btn">
                         <i class="fa-brands fa-google"></i> Google
@@ -160,7 +160,7 @@
                         <i class="fa-brands fa-apple"></i> Apple
                     </a>
 
-                </div>
+                </div> --}}
 
                 <p class="login-page-signup-note">
                     Already have an account? <a href="/login">Login</a>

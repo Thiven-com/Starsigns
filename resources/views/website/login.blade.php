@@ -57,25 +57,25 @@
 
                         <div class="login-page-field">
 
-                            <label for="loginEmail">Email Address <span class="login-page-req">*</span></label>
+                            <label for="loginNumber">Mobile Number <span class="login-page-req">*</span></label>
 
                             <div class="login-page-input-wrap">
-                                <i class="fa-solid fa-envelope"></i>
-                                <input type="email" id="loginEmail" name="email" placeholder="Enter your email address"
+                                <i class="fa-solid fa-phone"></i>
+                                <input type="number" id="loginNumber" name="email" placeholder="Enter your mobile number"
                                     autocomplete="username">
                             </div>
 
-                            <span class="login-page-error-msg" id="loginEmailError"></span>
+                            <span class="login-page-error-msg" id="loginNumberError"></span>
 
                         </div>
 
                         <div class="login-page-field">
 
-                            <label for="loginPassword">Password <span class="login-page-req">*</span></label>
+                            <label for="loginPassword">Otp <span class="login-page-req">*</span></label>
 
                             <div class="login-page-input-wrap">
                                 <i class="fa-solid fa-lock"></i>
-                                <input type="password" id="loginPassword" name="password" placeholder="Enter your password"
+                                <input type="password" id="loginPassword" name="password" placeholder="Enter your otp"
                                     autocomplete="current-password">
                                 <button type="button" class="login-page-toggle-pass" id="loginPageTogglePass" tabindex="-1">
                                     <i class="fa-solid fa-eye"></i>
@@ -94,7 +94,7 @@
                                 Remember me
                             </label>
 
-                            <a href="/forgot-password" class="login-page-forgot-link">Forgot Password?</a>
+                            {{-- <a href="/forgot-password" class="login-page-forgot-link">Forgot Password?</a> --}}
 
                         </div>
 
@@ -109,7 +109,7 @@
                             <span></span>
                         </div>
 
-                        <div class="login-page-social-row">
+                        {{-- <div class="login-page-social-row">
 
                             <a href="/auth/google/redirect" class="login-page-social-btn">
                                 <i class="fa-brands fa-google"></i> Google
@@ -123,7 +123,7 @@
                                 <i class="fa-brands fa-apple"></i> Apple
                             </a>
 
-                        </div>
+                        </div> --}}
 
                         <p class="login-page-signup-note">
                             Don't have an account? <a href="/register">Sign Up</a>
@@ -207,8 +207,8 @@
 
             const fields = {
                 email: {
-                    input: document.getElementById("loginEmail"),
-                    error: document.getElementById("loginEmailError")
+                    input: document.getElementById("loginNumber"),
+                    error: document.getElementById("loginNumberError")
                 },
                 password: {
                     input: document.getElementById("loginPassword"),
