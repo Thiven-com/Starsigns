@@ -103,11 +103,11 @@
                             <span class="login-page-submit-btn-text">Login</span>
                         </button>
 
-                        <div class="login-page-divider-row">
+                        {{-- <div class="login-page-divider-row">
                             <span></span>
                             <p>or continue with</p>
                             <span></span>
-                        </div>
+                        </div> --}}
 
                         {{-- <div class="login-page-social-row">
 
@@ -125,9 +125,9 @@
 
                         </div> --}}
 
-                        <p class="login-page-signup-note">
+                        {{-- <p class="login-page-signup-note">
                             Don't have an account? <a href="/register">Sign Up</a>
-                        </p>
+                        </p> --}}
 
                     </form>
 
