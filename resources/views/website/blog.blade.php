@@ -30,182 +30,75 @@
 
 
     <!--==========================================
-                                                                                            BLOG CONTENT
-                                                                                            ===========================================-->
+                                                                                                BLOG CONTENT
+                                                                                                ===========================================-->
     <section class="blogs-section">
 
         <div class="container">
 
-
-
-            <!-- Blog Cards -->
-            <!--==========================================
-                                                                         BLOG GRID
-                                                                   ===========================================-->
-            <!-- @php
-                    $images = [
-                        '7rudramala.png',
-                        'bracelet.png',
-                        'bracevio.png',
-                        'gemstone.png',
-                        'karungali.png',
-                        'laxmiyantra.png'
-                    ];
-                @endphp
-                <div class="blogs-grid">
-
-                    @for($i = 1; $i <= 6; $i++)
-
-
-
-                                <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
-                                    <div class="blogs-image">
-
-                                        <a href="{{ route('blog-details') }}">
-                                            <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
-                                        </a>
-
-
-                                    </div>
-
-                                    <div class="blogs-card-content">
-
-                                        <span class="blogs-category">
-
-                                            {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
-
-                                        </span>
-
-                                        <h3 class="blogs-title">
-
-                                            <a href="{{ route('blog-details') }}">
-
-                                                {{ [
-                            'How Astrology Can Help You Find Clarity In Life',
-                            '5 Powerful Tarot Spread For Daily Guidance',
-                            'Morning Rituals For a Positive And Peaceful Day',
-                            'Crystal Healing 101: Benefits And How To Use Them',
-                            'Understanding Your Zodiac Sign Better',
-                            'The Power of Meditation and Mindfulness'
-                        ][($i - 1) % 6] }}
-
-                                            </a>
-
-                                        </h3>
-
-                                        <p class="blogs-description">
-
-                                            Discover practical spiritual insights, ancient wisdom and modern guidance to help
-                                            improve your everyday life.
-
-                                        </p>
-
-                                        <div class="blogs-meta">
-
-                                            <span class="blogs-date">
-
-                                                <i class="fa-regular fa-calendar"></i>
-
-                                                May {{ 10 - $i }}, 2024
-
-                                            </span>
-
-                                            <span class="blogs-author">
-
-                                                <i class="fa-regular fa-user"></i>
-
-                                                By Admin
-
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-                                </article>
-
-
-                    @endfor
-
-                </div> -->
-
-
-            @php
-                $images = [
-                    '7rudramala.png',
-                    'bracelet.png',
-                    'bracevio.png',
-                    'gemstone.png',
-                    'karungali.png',
-                    'laxmiyantra.png'
-                ];
-            @endphp
-
             <div class="blogs-grid">
 
-                @for($i = 1; $i <= 6; $i++)
+                @forelse($blogs as $key => $blog)
 
-                            <a href="{{ route('blog-details') }}" class="blogs-card-link">
+                    <a href="{{ route('blog-details', $blog->slug) }}" class="blogs-card-link">
 
-                                <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
+                        <article class="blogs-card" data-aos="fade-up" data-aos-delay="{{ ($key + 1) * 100 }}">
 
-                                    <div class="blogs-image">
+                            <div class="blogs-image">
 
-                                        <img src="{{ asset('website/images/' . $images[$i - 1]) }}" alt="Blog">
+                                <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}">
 
-                                    </div>
+                            </div>
 
-                                    <div class="blogs-card-content">
+                            <div class="blogs-card-content">
 
-                                        <span class="blogs-category">
-                                            {{ ['ASTROLOGY', 'TAROT', 'SPIRITUALITY', 'CRYSTALS', 'ASTROLOGY', 'SPIRITUALITY'][($i - 1) % 6] }}
-                                        </span>
+                                <span class="blogs-category">
+                                    {{ strtoupper($blog->category->name ?? 'BLOG') }}
+                                </span>
 
-                                        <h3 class="blogs-title">
-                                            {{ [
-                        'How Astrology Can Help You Find Clarity In Life',
-                        '5 Powerful Tarot Spread For Daily Guidance',
-                        'Morning Rituals For a Positive And Peaceful Day',
-                        'Crystal Healing 101: Benefits And How To Use Them',
-                        'Understanding Your Zodiac Sign Better',
-                        'The Power of Meditation and Mindfulness'
-                    ][($i - 1) % 6] }}
-                                        </h3>
+                                <h3 class="blogs-title">
+                                    {{ $blog->title }}
+                                </h3>
 
-                                        <p class="blogs-description">
-                                            Discover practical spiritual insights, ancient wisdom and modern guidance to help
-                                            improve your everyday life.
-                                        </p>
+                                <p class="blogs-description">
+                                    {{ Str::limit(strip_tags($blog->short_description ?? $blog->description), 120) }}
+                                </p>
 
-                                        <div class="blogs-meta">
+                                <div class="blogs-meta">
 
-                                            <span class="blogs-date">
-                                                <i class="fa-regular fa-calendar"></i>
-                                                May {{ 10 - $i }}, 2024
-                                            </span>
+                                    <span class="blogs-date">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        {{ $blog->created_at->format('M d, Y') }}
+                                    </span>
 
-                                            <span class="blogs-author">
-                                                <i class="fa-regular fa-user"></i>
-                                                By Admin
-                                            </span>
+                                    <span class="blogs-author">
+                                        <i class="fa-regular fa-user"></i>
+                                        By Admin
+                                    </span>
 
-                                        </div>
+                                </div>
 
-                                    </div>
+                            </div>
 
-                                </article>
+                        </article>
 
-                            </a>
+                    </a>
 
-                @endfor
+                @empty
+
+                    <div class="col-12 text-center">
+                        <p>No blogs available.</p>
+                    </div>
+
+                @endforelse
 
             </div>
 
             <!-- Pagination -->
 
             <!--==========================================
-                                                                               PAGINATION
-                                                                           ===========================================-->
+                                                                                   PAGINATION
+                                                                               ===========================================-->
 
             <div class="blogs-pagination">
 

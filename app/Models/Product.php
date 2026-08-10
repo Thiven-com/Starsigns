@@ -13,8 +13,6 @@ class Product extends Model
         'description',
         'category_id',
         'brand_id',
-        'benefits',
-        'ingredients',
         'status',
         'type_id',
         'type',
@@ -39,10 +37,7 @@ class Product extends Model
         return $this->hasOne(ProductVariant::class)->oldest();
     }
 
-    public function subcategories()
-    {
-        return $this->belongsToMany(Category::class, 'category_products', 'product_id', 'category_id');
-    }
+
     public function media()
     {
         return $this->hasMany(ProductMedia::class)->orderBy('sort_order');

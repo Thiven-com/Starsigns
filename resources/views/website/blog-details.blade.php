@@ -2,8 +2,8 @@
 @section('content')
 
     <!--==========================================
-            BLOG DETAILS PAGE CONTENT
-        ===========================================-->
+                BLOG DETAILS PAGE CONTENT
+            ===========================================-->
 
     <section class="blog-details-section">
 
@@ -14,154 +14,87 @@
 
                 <a href="/">Home</a>
                 <span class="blog-details-crumb-sep">/</span>
-                <a href="/blogs">Blogs</a>
+
+                <a href="{{ route('blog') }}">Blogs</a>
                 <span class="blog-details-crumb-sep">/</span>
-                <span class="blog-details-crumb-active">Blog Details</span>
+
+                <span class="blog-details-crumb-active">
+                    {{ $blog->title }}
+                </span>
 
             </div>
 
             <div class="blog-details-layout">
 
                 <!--=========================
-                        MAIN ARTICLE
-                    ==========================-->
+                            MAIN ARTICLE
+                        ==========================-->
 
                 <article class="blog-details-article">
 
-                    <span class="blog-details-category">Spirituality</span>
+    <span class="blog-details-category">
+        {{ $blog->category->name ?? 'BLOG' }}
+    </span>
 
-                    <h1 class="blog-details-title">Benefits of Wearing Rudraksha: A Complete Guide</h1>
+    <h1 class="blog-details-title">
+        {{ $blog->title }}
+    </h1>
 
-                    <div class="blog-details-meta">
+    <div class="blog-details-meta">
 
-                        <span><i class="fa-regular fa-user"></i> By Admin</span>
-                        <span><i class="fa-regular fa-calendar"></i> May 15, 2025</span>
-                        <span><i class="fa-regular fa-eye"></i> 1.2K Views</span>
-                        <span><i class="fa-regular fa-comment"></i> 08 Comments</span>
+        <span>
+            <i class="fa-regular fa-user"></i>
+            By Admin
+        </span>
 
-                    </div>
+        <span>
+            <i class="fa-regular fa-calendar"></i>
+            {{ $blog->created_at->format('F d, Y') }}
+        </span>
 
-                    <div class="blog-details-featured-img">
+        <span>
+            <i class="fa-regular fa-eye"></i>
+            {{ number_format($blog->views ?? 0) }} Views
+        </span>
 
-                        <img src="{{ asset('website') }}/images/blogbann.png" alt="Benefits of Wearing Rudraksha">
+    </div>
 
-                    </div>
+    <div class="blog-details-featured-img">
 
-                    <div class="blog-details-content">
+        <img src="{{ asset($blog->banner ?? $blog->image) }}"
+             alt="{{ $blog->title }}">
 
-                        <p>Rudraksha beads have been revered for centuries in Hindu tradition for their spiritual and medicinal properties. These sacred beads, originating from the tears of Lord Shiva, are more than just ornaments — they are powerful tools for spiritual growth and well-being.</p>
+    </div>
 
-                        <h2>What is Rudraksha?</h2>
+    <div class="blog-details-content">
 
-                        <p>Rudraksha is a seed obtained from the Rudraksha tree (Elaeocarpus ganitrus). The word "Rudraksha" is derived from two words: "Rudra" (another name for Lord Shiva) and "Aksha" (meaning eyes or tears).</p>
+        @if($blog->short_description)
+            <p>
+                {{ $blog->short_description }}
+            </p>
+        @endif
 
-                        <h2>Benefits of Wearing Rudraksha</h2>
+        {!! $blog->description !!}
 
-                        <ul class="blog-details-list">
+    </div>
 
-                            <li><i class="fa-solid fa-gear"></i> <strong>Reduces Stress &amp; Anxiety:</strong> Rudraksha beads help in calming the mind and reducing stress.</li>
-                            <li><i class="fa-solid fa-gear"></i> <strong>Enhances Focus &amp; Concentration:</strong> Ideal for students and professionals.</li>
-                            <li><i class="fa-solid fa-gear"></i> <strong>Improves Health:</strong> Helps in regulating blood pressure and improving heart health.</li>
-                            <li><i class="fa-solid fa-gear"></i> <strong>Spiritual Growth:</strong> Aids in meditation and connects the wearer with divine energy.</li>
-                            <li><i class="fa-solid fa-gear"></i> <strong>Protection:</strong> Shields from negative energies and evil forces.</li>
+    @if($blog->tags)
 
-                        </ul>
+        <div class="blog-details-tags mt-4">
 
-                        <h2>How to Wear Rudraksha?</h2>
+            <strong>Tags:</strong>
 
-                        <p>Rudraksha should be worn after proper purification and chanting of mantras. It is best to consult an expert to choose the right Mukhi (face) as per your needs.</p>
+            @foreach(explode(',', $blog->tags) as $tag)
+                <span class="badge bg-light text-dark me-2">
+                    {{ trim($tag) }}
+                </span>
+            @endforeach
 
-                        <blockquote class="blog-details-quote">
+        </div>
 
-                            <span class="blog-details-quote-icon">
-                                <i class="fa-solid fa-quote-left"></i>
-                            </span>
+    @endif
 
-                            <p>"Rudraksha is not just a bead, it's a divine blessing that brings peace, prosperity, and protection."</p>
-
-                        </blockquote>
-
-                    </div>
-
-                    <!--=========================
-                            SHARE ROW
-                        ==========================-->
-
-                    <!-- <div class="blog-details-share-row">
-
-                        <span class="blog-details-share-label">Share this article:</span>
-
-                        <div class="blog-details-share-icons">
-
-                            <button type="button" class="blog-details-share-btn blog-details-share-facebook" data-platform="facebook" title="Share on Facebook">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </button>
-
-                            <button type="button" class="blog-details-share-btn blog-details-share-twitter" data-platform="twitter" title="Share on Twitter">
-                                <i class="fa-brands fa-x-twitter"></i>
-                            </button>
-
-                            <button type="button" class="blog-details-share-btn blog-details-share-whatsapp" data-platform="whatsapp" title="Share on WhatsApp">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </button>
-
-                            <button type="button" class="blog-details-share-btn blog-details-share-pinterest" data-platform="pinterest" title="Share on Pinterest">
-                                <i class="fa-brands fa-pinterest-p"></i>
-                            </button>
-
-                            <button type="button" class="blog-details-share-btn blog-details-share-email" data-platform="email" title="Share via Email">
-                                <i class="fa-regular fa-envelope"></i>
-                            </button>
-
-                            <button type="button" class="blog-details-share-btn blog-details-share-copy" data-platform="copy" title="Copy link">
-                                <i class="fa-solid fa-link"></i>
-                            </button>
-
-                        </div>
-
-                    </div> -->
-
-                    <!-- Copy-link toast -->
-                    <!-- <div class="blog-details-toast" id="blogDetailsToast">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Link copied to clipboard!</span>
-                    </div> -->
-
-                    <!--=========================
-                            PREV / NEXT NAV
-                        ==========================-->
-
-                    <!-- <div class="blog-details-nav-row">
-
-                        <a href="/blog/how-gemstones-can-change-your-life" class="blog-details-nav-card blog-details-nav-prev">
-
-                            <div class="blog-details-nav-img">
-                                <img src="{{ asset('website') }}/images/blog-gemstones.jpg" alt="How Gemstones Can Change Your Life">
-                            </div>
-
-                            <div class="blog-details-nav-text">
-                                <span><i class="fa-solid fa-chevron-left"></i> Previous Post</span>
-                                <h4>How Gemstones Can Change Your Life?</h4>
-                            </div>
-
-                        </a>
-
-                        <a href="/blog/top-5-gemstones-for-wealth-and-prosperity" class="blog-details-nav-card blog-details-nav-next">
-
-                            <div class="blog-details-nav-text">
-                                <span>Next Post <i class="fa-solid fa-chevron-right"></i></span>
-                                <h4>Top 5 Gemstones for Wealth and Prosperity</h4>
-                            </div>
-
-                            <div class="blog-details-nav-img">
-                                <img src="{{ asset('website') }}/images/blog-prosperity.jpg" alt="Top 5 Gemstones for Wealth and Prosperity">
-                            </div>
-
-                        </a>
-
-                    </div> -->
-
-                </article>
+</article>
 
             </div>
 

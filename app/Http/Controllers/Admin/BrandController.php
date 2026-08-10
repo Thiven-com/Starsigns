@@ -105,28 +105,26 @@ class BrandController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $brand = Brand::find($id);
-
-        if (!$brand) {
-            Alert::toast("Brand Details Not Found", 'warning');
-            return redirect()->back();
-        }
+        $brand = new Brand();
         $brand->name = $request->name;
-        $manager = new ImageManager(new Driver());
+        $brand->slug = $this->slugGenerate($request->name, 0);
+
         if ($request->hasFile('image')) {
-            $product_image = request()->file('image');
-            $productName = $brand->slug . "." . 'webp';
-            $image = $manager->read($product_image);
-            $image->resize(237, 255);
-            $image->toWebp(70)->save(public_path('brands/') . $productName);
-            $imagePath = 'brands/' . $productName;
-            $brand->image = $imagePath;
+
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+
+            $file->move(public_path('brands'), $fileName);
+
+            $brand->image = 'brands/' . $fileName;
         }
+
         $brand->status = $request->has('status') ? 'show' : 'hide';
         $brand->save();
 
-        Alert::toast('Brand Updated Succesfully', 'success');
-        return redirect(route('admin.brands.index'));
+        Alert::toast('Brand created Successfully', 'success');
+
+        return redirect()->route('admin.brands.index');
     }
 
     /**

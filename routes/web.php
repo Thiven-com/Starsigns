@@ -11,7 +11,8 @@ Route::get('blog', [PageController::class, 'blog'])->name('blog');
 // Route::get('offers', [PageController::class, 'offers'])->name('offers');
 // Route::get('consultation', [PageController::class, 'consultation'])->name('consultation');
 
-Route::get('product', [PageController::class, 'product'])->name('product');
+Route::get('/product/{slug}', [PageController::class, 'productDetail'])->name('product-detail');
+Route::get('/blog/{slug}', [PageController::class, 'blogDetails'])->name('blog-details');
 Route::get('cart', [PageController::class, 'cart'])->name('cart');
 Route::get('checkout', [PageController::class, 'checkout'])->name('checkout');
 Route::get('wishlist', [PageController::class, 'wishlist'])->name('wishlist');

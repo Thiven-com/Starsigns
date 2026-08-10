@@ -2,19 +2,60 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function home()
     {
-        return view('website.home');
+        $banners = Banner::where('status', 'show')
+            ->latest()
+            ->get();
+        $categories = Category::where('status', 'show')
+            ->where('parent_id', 0)
+            ->latest()
+            ->get();
+        $featuredProducts = Product::with(['variant'])
+            ->where('status', 'show')
+            ->where('is_feature', 'yes')
+            ->latest()
+            ->take(12)
+            ->get();
+        $blogs = Blog::where('status', 'show')
+            ->latest()
+            ->take(4)
+            ->get();
+        $testimonials = Testimonial::latest()
+            ->take(8)
+            ->get();
+
+        return view('website.home', compact('banners', 'categories', 'featuredProducts', 'blogs', 'testimonials'));
     }
 
-    public function shop()
+    public function shop(Request $request)
     {
-        return view('website.shop');
+        $query = Product::with(['category', 'variant'])->where('status', 'show');
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->category);
+        }
+        if ($request->sort == 'low_high') {
+            $query->join('product_variants', 'products.id', '=', 'product_variants.product_id')->orderBy('product_variants.price', 'asc')->select('products.*');
+        } elseif ($request->sort == 'high_low') {
+            $query->join('product_variants', 'products.id', '=', 'product_variants.product_id')->orderBy('product_variants.price', 'desc')->select('products.*');
+        } else {
+            $query->latest();
+        }
+
+        $products = $query->paginate(12)->withQueryString();
+        $categories = Category::where('status', 'show')->where('parent_id', 0)->withCount('products')->get();
+        return view('website.shop', compact('products', 'categories'));
     }
+
 
     public function about()
     {
@@ -22,7 +63,20 @@ class PageController extends Controller
     }
     public function blog()
     {
-        return view('website.blog');
+        $blogs = Blog::with('category')
+            ->where('status', 'show')
+            ->latest()
+            ->paginate(6);
+        return view('website.blog', compact('blogs'));
+    }
+    public function blogDetails($slug)
+    {
+        $blog = Blog::with('category')
+            ->where('slug', $slug)
+            ->where('status', 'show')
+            ->firstOrFail();
+
+        return view('website.blog-details', compact('blog'));
     }
     public function terms()
     {
@@ -33,9 +87,32 @@ class PageController extends Controller
         return view('website.privacy-policy');
     }
 
-    public function product()
+    // public function product()
+    // {
+    //     return view('website.product');
+    // }
+    public function productDetail($slug)
     {
-        return view('website.product');
+        $product = Product::with([
+            'category',
+            'variants.media',
+            'media'
+        ])->where('slug', $slug)->where('status', 'show')->firstOrFail();
+
+        $variant = $product->variant;
+
+        $relatedProducts = Product::with(['category', 'variants'])
+            ->where('status', 'show')
+            ->where('is_feature', 'yes')
+            ->latest()
+            ->take(6)
+            ->get();
+
+        return view('website.product-detail', compact(
+            'product',
+            'variant',
+            'relatedProducts'
+        ));
     }
 
     public function cart()
@@ -87,10 +164,10 @@ class PageController extends Controller
 
 
 
-    public function blog_details()
-    {
-        return view('website.blog-details');
-    }
+    // public function blog_details()
+    // {
+    //     return view('website.blog-details');
+    // }
 
 
     public function faq()

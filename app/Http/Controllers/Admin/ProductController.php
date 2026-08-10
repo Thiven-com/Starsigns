@@ -114,9 +114,6 @@ class ProductController extends Controller
         $product->hsn_code = $request->hsn_code;
         $product->is_feature = $request->has('is_feature') ? 'yes' : 'no';
         $product->save();
-        if ($request->has('subcategories')) {
-            $product->subcategories()->sync($request->subcategories);
-        }
 
         $variantAttributes = $request->variant_attributes;
         $attributeValues = [];
@@ -227,7 +224,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::with(['brand', 'category', 'subcategories', 'variants'])->findOrFail($id);
+        $product = Product::with(['brand', 'category', 'variants'])->findOrFail($id);
         return view('admin.products.show', compact('product'));
     }
 
@@ -240,10 +237,9 @@ class ProductController extends Controller
         $categories = Category::where(['status' => 'show', 'parent_id' => 0])->get();
         $brands = Brand::all();
         $variantAttributes = Attribute::with('attributeValues')->get();
-        $selectedSubcategories = $product->subcategories->pluck('id')->toArray();
         $types = Type::where('status', 'show')->get();
 
-        return view('admin.products.edit', compact('product', 'categories', 'brands', 'variantAttributes', 'selectedSubcategories', 'types'));
+        return view('admin.products.edit', compact('product', 'categories', 'brands', 'variantAttributes', 'types'));
     }
 
     /**
@@ -338,10 +334,10 @@ class ProductController extends Controller
                         $image->scale(width: 1200, height: 1600);
 
                         $image->save(
-                            public_path('media/variants/' . $variantImgName),
+                            public_path('variants/' . $variantImgName),
                             quality: 100
                         );
-                        $variantModel->image = 'media/variants/' . $variantImgName;
+                        $variantModel->image = 'variants/' . $variantImgName;
                     }
                     $variantModel->actual_price = $exVariant['actual_price'];
                     $variantModel->price = $exVariant['sale_price'];
@@ -410,10 +406,10 @@ class ProductController extends Controller
                 $image->scale(width: 1200, height: 1600);
 
                 $image->save(
-                    public_path('media/variants/' . $variantImgName),
+                    public_path('variants/' . $variantImgName),
                     quality: 100
                 );
-                $imagePath = 'media/variants/' . $variantImgName;
+                $imagePath = 'variants/' . $variantImgName;
             }
             $videoPath = null;
 
@@ -488,12 +484,6 @@ class ProductController extends Controller
                     'attribute_value_id' => $entry['value_id'],
                 ]);
             }
-        }
-
-        if ($request->has('subcategories')) {
-            $product->subcategories()->sync($request->subcategories);
-        } else {
-            $product->subcategories()->sync([]);
         }
 
 

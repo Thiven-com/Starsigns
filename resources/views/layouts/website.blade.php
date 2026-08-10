@@ -784,7 +784,7 @@ MOBILE SEARCH MODAL
                     <li><a href="{{ route('shop') }}">Shop</a></li>
                     <li><a href="{{ route('about') }}">About Us</a></li>
                     <li><a href="{{ route('blog') }}">Blogs</a></li>
-                    <li><a href="{{ route('product') }}">Product Details</a></li>
+                    {{-- <li><a href="{{ route('product-detail', $product->slug) }}">Product Details</a></li> --}}
                     <li><a href="{{ route('checkout') }}">Checkout</a></li>
                     <li><a href="{{ route('orders') }}">My Orders</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>

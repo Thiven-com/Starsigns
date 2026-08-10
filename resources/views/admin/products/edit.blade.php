@@ -695,59 +695,6 @@
         });
 
 
-        $(document).ready(function () {
-            let selectedSubs = @json($selectedSubcategories);
-            let initialCategoryId = $('#categorySelect').val();
-            let initialCategoryTitle = $('#categorySelect').find(':selected').data('title');
-
-            if (initialCategoryId) {
-                $('#primaryCategory').val(initialCategoryTitle);
-                loadSubcategories(initialCategoryId, selectedSubs);
-            }
-
-            $('#categorySelect').on('change', function () {
-                let categoryId = $(this).val();
-                let categoryTitle = $(this).find(':selected').data('title');
-                $('#primaryCategory').val(categoryTitle || '');
-                loadSubcategories(categoryId, []);
-            });
-
-            function loadSubcategories(categoryId, checkedList) {
-                if (!categoryId) {
-                    $('#subcategorySection').hide();
-                    return;
-                }
-                $.ajax({
-                    url: '/admin/get-subcategories/' + categoryId,
-                    type: 'GET',
-                    success: function (data) {
-                        let html = '';
-                        if (data.length > 0) {
-                            data.forEach(function (subcat) {
-                                let checked = checkedList.includes(subcat.id) ? 'checked' : '';
-                                html += `<div>
-                                            <input type="checkbox" name="subcategories[]" value="${subcat.id}" ${checked}>
-                                            ${subcat.title}
-                                        </div>`;
-                            });
-                        } else {
-                            html = '<p>No subcategories found.</p>';
-                        }
-                        $('#subcategoryList').html(html);
-                        $('#subcategorySection').show();
-                    }
-                });
-            }
-
-            $('#subcategorySearch').on('keyup', function () {
-                let value = $(this).val().toLowerCase();
-                $("#subcategoryList div").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                });
-            });
-        });
-
-
         $(document).on('click', '.remove-variant-media', function () {
             let mediaId = $(this).data('id');
             let card = $(this).closest('div');

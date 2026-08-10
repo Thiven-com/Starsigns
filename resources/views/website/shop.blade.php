@@ -1,8 +1,8 @@
 @extends('layouts.website')
 @section('content')
     <!--==========================
-                                                                                                                    PAGE BANNER
-                                                                                                                    ===========================-->
+                                                                                                                                        PAGE BANNER
+                                                                                                                                        ===========================-->
 
     <section class="page-banner" data-aos="zoom-out" data-aos-duration="1000">
 
@@ -32,8 +32,8 @@
 
 
     <!--==========================================
-                                                                                                                SHOP CONTENT
-                                                                                                                ===========================================-->
+                                                                                                                                    SHOP CONTENT
+                                                                                                                                    ===========================================-->
 
     <section class="shop-section" data-aos="fade-up" data-aos-delay="200">
 
@@ -42,8 +42,8 @@
             <div class="shop-wrapper">
 
                 <!--=========================
-                                                                                                                                    LEFT SIDEBAR
-                                                                                                                            ==========================-->
+                                                                                                                                                        LEFT SIDEBAR
+                                                                                                                                                ==========================-->
 
                 <aside class="shop-sidebar" data-aos="fade-right">
 
@@ -52,8 +52,8 @@
 
 
                         <!--==========================================
-                                                                                                            CATEGORIES WIDGET
-                                                                                                            ===========================================-->
+                                                                                                                                CATEGORIES WIDGET
+                                                                                                                                ===========================================-->
 
                         <div class="shop-widget" data-aos="fade-left">
 
@@ -69,113 +69,15 @@
 
                             <ul class="category-list">
 
-                                <li>
+                                @foreach($categories as $category)
+                                    <li> <a href="{{ route('shop', ['category' => $category->id]) }}">
+                                            <div class="left"> <i class="fa-regular fa-circle"></i>
+                                                <span>{{ $category->title }}</span>
+                                            </div> <span class="count">({{ $category->products_count }})</span>
+                                        </a>
+                                    </li>
+                                @endforeach
 
-                                    <a href="#">
-
-                                        <div class="left">
-
-                                            <i class="fa-regular fa-circle"></i>
-
-                                            <span>Rudraksha Mala</span>
-
-                                        </div>
-
-                                        <span class="count">(24)</span>
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <div class="left">
-
-                                            <i class="fa-regular fa-circle"></i>
-
-                                            <span>Gemstone Bracelet</span>
-
-                                        </div>
-
-                                        <span class="count">(32)</span>
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <div class="left">
-
-                                            <i class="fa-regular fa-gem"></i>
-
-                                            <span>Gemstones</span>
-
-                                        </div>
-
-                                        <span class="count">(18)</span>
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <div class="left">
-
-                                            <i class="fa-regular fa-star"></i>
-
-                                            <span>Yantra</span>
-
-                                        </div>
-
-                                        <span class="count">(12)</span>
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <div class="left">
-
-                                            <i class="fa-regular fa-circle"></i>
-
-                                            <span>Crystals</span>
-
-                                        </div>
-
-                                        <span class="count">(21)</span>
-
-                                    </a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#">
-
-                                        <div class="left">
-
-                                            <i class="fa-solid fa-spa"></i>
-
-                                            <span>Spiritual Accessories</span>
-
-                                        </div>
-
-                                        <span class="count">(15)</span>
-
-                                    </a>
-
-                                </li>
 
                             </ul>
 
@@ -187,8 +89,8 @@
                     <div class="shop-widget price-widget">
 
                         <!--==========================================
-                                                        PRICE FILTER
-                                      ===========================================-->
+                                                                            PRICE FILTER
+                                                          ===========================================-->
 
                         <div class="shop-widget">
 
@@ -241,8 +143,8 @@
                     <div class="shop-widget sort-widget">
 
                         <!--==========================================
-                                                   SORT BY
-                                              ===========================================-->
+                                                                       SORT BY
+                                                                  ===========================================-->
 
                         <div class="shop-widget">
 
@@ -318,8 +220,8 @@
                 </aside>
 
                 <!--=========================
-                                                    RIGHT CONTENT
-                                             ==========================-->
+                                                                        RIGHT CONTENT
+                                                                 ==========================-->
 
                 <div class="shop-content">
                     <button class="mobile-filter-btn" id="openFilterModal">
@@ -335,8 +237,8 @@
 
 
 
-                            Showing <strong>1–12</strong> of
-                            <strong>120</strong> results
+                            Showing <strong>{{ $products->firstItem() }}–{{ $products->lastItem() }}</strong> of
+                            <strong>{{ $products->total() }}</strong> results
 
 
 
@@ -367,146 +269,69 @@
                     <!-- Product Grid -->
 
                     <!--==========================================
-                                                                            PRODUCT GRID
-                                                                        ===========================================-->
+                                                                                                PRODUCT GRID
+                                                                                            ===========================================-->
                     <!-- Product cards will be added in Part 7 -->
 
                     <div class="products-grid" data-aos="fade-down">
-
-                        @for($i = 1; $i <= 16; $i++)
-
+                        @forelse($products as $product)
+                            @php $variant = $product->variant;
+                                $price = $variant->price ?? 0;
+                                $oldPrice = $variant->actual_price ?? $price;
+                             @endphp
                             <div class="product-card" data-aos="fade-up">
-
                                 <div class="product-image">
-
-                                    <span class="product-badge">
-                                        Sale
-                                    </span>
-
+                                    @if($oldPrice > $price)
+                                        <span class="product-badge">Sale</span>
+                                    @endif
                                     <button class="wishlist-btn">
                                         <i class="fa-regular fa-heart"></i>
-
                                     </button>
-
-                                    <!-- <div class="product-overlay">
-
-                                                                                <a href="#" class="quick-view">
-
-                                                                                    <i class="fa-regular fa-eye"></i>
-
-                                                                                    Quick View
-
-                                                                                </a>
-
-                                                                            </div> -->
-                                    <a href="{{ route('product') }}">
-                                        <img src="{{ asset('website') }}/images/product-2.png" alt="Product">
-                                    </a>
-
-
-
+                                    <a href="{{ route('product-detail', $product->slug) }}">
+                                        <img src="{{ asset($product->image) }}" alt="{{ $product->title }}"> </a>
                                 </div>
-
                                 <div class="product-content">
-
                                     <span class="product-category">
-
-                                        Rudraksha
-
+                                        {{ $product->category->title ?? 'Category' }}
                                     </span>
-
                                     <h4>
-
-                                        <a href="{{ route('product') }}">
-
-                                            5 Mukhi Rudraksha Mala
-
-                                        </a>
-
+                                        <a href="#"> {{ $product->title }} </a>
                                     </h4>
-
-                                    <div class="product-rating">
-
-                                        <i class="fa-solid fa-star"></i>
+                                    <div class="product-rating"> <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star-half-stroke"></i>
-
-                                        <span>(48)</span>
-
+                                        <span>(4.5)</span>
                                     </div>
-
                                     <div class="product-price">
-
-                                        <span class="new-price">
-
-                                            ₹999
-
-                                        </span>
-
-                                        <span class="old-price">
-
-                                            ₹1499
-
-                                        </span>
-
+                                        <span class="new-price"> ₹{{ number_format($price, 2) }} </span>
+                                        @if($oldPrice > $price)
+                                            <span class="old-price"> ₹{{ number_format($oldPrice, 2) }}</span>
+                                        @endif
                                     </div>
-
-                                    <button class="cart-btn">
-
+                                    <button class="cart-btn addToCartBtn" data-id="{{ $variant->id ?? '' }}">
                                         <i class="fa-solid fa-bag-shopping"></i>
-
                                         Add to Cart
-
                                     </button>
-
                                 </div>
-
                             </div>
-
-                        @endfor
-
+                        @empty <div class="col-12 text-center">
+                                <p>No products found.</p>
+                            </div>
+                        @endforelse
                     </div>
 
 
 
                     <!-- Pagination -->
 
-                    <div class="shop-pagination">
+                    {{-- <div class="shop-pagination">
 
                         <!-- Pagination Part 9 -->
-                        <nav class="pagination">
+                        {{ $products->links() }}
 
-                            <a href="#" class="page-btn prev">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </a>
-
-                            <a href="#" class="page-btn active">
-                                1
-                            </a>
-
-                            <a href="#" class="page-btn">
-                                2
-                            </a>
-
-                            <a href="#" class="page-btn">
-                                3
-                            </a>
-
-                            <span class="dots">...</span>
-
-                            <a href="#" class="page-btn">
-                                10
-                            </a>
-
-                            <a href="#" class="page-btn next">
-                                <i class="fa-solid fa-angle-right"></i>
-                            </a>
-
-                        </nav>
-
-                    </div>
+                    </div> --}}
 
                 </div>
 
@@ -517,8 +342,8 @@
     </section>
 
     <!-- =========================================
-        MOBILE FILTER MODAL
-        ========================================= -->
+                            MOBILE FILTER MODAL
+                            ========================================= -->
     <div class="filter-modal" id="filterModal">
         <div class="filter-modal-overlay" id="closeFilterModal"></div>
 
