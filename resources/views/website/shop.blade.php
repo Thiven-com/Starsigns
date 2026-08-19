@@ -1,8 +1,8 @@
 @extends('layouts.website')
 @section('content')
     <!--==========================
-                                                                                                                                        PAGE BANNER
-                                                                                                                                        ===========================-->
+                                                                                                                                                        PAGE BANNER
+                                                                                                                                                        ===========================-->
 
     <section class="page-banner" data-aos="zoom-out" data-aos-duration="1000">
 
@@ -32,8 +32,8 @@
 
 
     <!--==========================================
-                                                                                                                                    SHOP CONTENT
-                                                                                                                                    ===========================================-->
+                                                                                                                                                    SHOP CONTENT
+                                                                                                                                                    ===========================================-->
 
     <section class="shop-section" data-aos="fade-up" data-aos-delay="200">
 
@@ -42,8 +42,8 @@
             <div class="shop-wrapper">
 
                 <!--=========================
-                                                                                                                                                        LEFT SIDEBAR
-                                                                                                                                                ==========================-->
+                                                                                                                                                                        LEFT SIDEBAR
+                                                                                                                                                                ==========================-->
 
                 <aside class="shop-sidebar" data-aos="fade-right">
 
@@ -52,8 +52,8 @@
 
 
                         <!--==========================================
-                                                                                                                                CATEGORIES WIDGET
-                                                                                                                                ===========================================-->
+                                                                                                                                                CATEGORIES WIDGET
+                                                                                                                                                ===========================================-->
 
                         <div class="shop-widget" data-aos="fade-left">
 
@@ -89,8 +89,8 @@
                     <div class="shop-widget price-widget">
 
                         <!--==========================================
-                                                                            PRICE FILTER
-                                                          ===========================================-->
+                                                                                            PRICE FILTER
+                                                                          ===========================================-->
 
                         <div class="shop-widget">
 
@@ -143,8 +143,8 @@
                     <div class="shop-widget sort-widget">
 
                         <!--==========================================
-                                                                       SORT BY
-                                                                  ===========================================-->
+                                                                                       SORT BY
+                                                                                  ===========================================-->
 
                         <div class="shop-widget">
 
@@ -220,8 +220,8 @@
                 </aside>
 
                 <!--=========================
-                                                                        RIGHT CONTENT
-                                                                 ==========================-->
+                                                                                        RIGHT CONTENT
+                                                                                 ==========================-->
 
                 <div class="shop-content">
                     <button class="mobile-filter-btn" id="openFilterModal">
@@ -269,8 +269,8 @@
                     <!-- Product Grid -->
 
                     <!--==========================================
-                                                                                                PRODUCT GRID
-                                                                                            ===========================================-->
+                                                                                                                PRODUCT GRID
+                                                                                                            ===========================================-->
                     <!-- Product cards will be added in Part 7 -->
 
                     <div class="products-grid" data-aos="fade-down">
@@ -284,7 +284,8 @@
                                     @if($oldPrice > $price)
                                         <span class="product-badge">Sale</span>
                                     @endif
-                                    <button class="wishlist-btn">
+                                    <button type="button" class="featured-products-wish-btn" title="Add to wishlist"
+                                        data-variant-id="{{ $product->variants->first()->id }}">
                                         <i class="fa-regular fa-heart"></i>
                                     </button>
                                     <a href="{{ route('product-detail', $product->slug) }}">
@@ -310,9 +311,12 @@
                                             <span class="old-price"> ₹{{ number_format($oldPrice, 2) }}</span>
                                         @endif
                                     </div>
-                                    <button class="cart-btn addToCartBtn" data-id="{{ $variant->id ?? '' }}">
+                                    <button type="button" class="cart-btn addToCartBtn" data-id="{{ $variant->id ?? '' }}"
+                                        data-name="{{ $product->title }}" data-price="{{ $price }}">
+
                                         <i class="fa-solid fa-bag-shopping"></i>
                                         Add to Cart
+
                                     </button>
                                 </div>
                             </div>
@@ -342,8 +346,8 @@
     </section>
 
     <!-- =========================================
-                            MOBILE FILTER MODAL
-                            ========================================= -->
+                                            MOBILE FILTER MODAL
+                                            ========================================= -->
     <div class="filter-modal" id="filterModal">
         <div class="filter-modal-overlay" id="closeFilterModal"></div>
 
@@ -568,6 +572,206 @@
                     .forEach(b => b.classList.remove("active"));
 
                 this.classList.add("active");
+
+            });
+
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.querySelectorAll(".featured-products-wish-btn").forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    const variantId = this.dataset.variantId;
+
+                    console.log("Variant ID:", variantId);
+
+                    fetch("{{ route('customer.wishlist.add') }}", {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json",
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                        },
+
+                        body: JSON.stringify({
+                            product_variant_id: variantId
+                        })
+                    })
+
+                        .then(async response => {
+
+                            const text = await response.text();
+
+                            console.log("HTTP STATUS:", response.status);
+                            console.log("SERVER RESPONSE:", text);
+
+                            let data;
+
+                            try {
+                                data = JSON.parse(text);
+                            } catch (e) {
+                                throw new Error(text);
+                            }
+
+                            return data;
+                        })
+
+                        .then(data => {
+
+                            console.log("DATA:", data);
+
+                            if (data.status) {
+
+                                alert(data.message);
+
+                            } else {
+
+                                alert(data.message);
+
+                            }
+
+                        })
+
+                        .catch(error => {
+
+                            console.error("WISHLIST ERROR:", error);
+
+                            alert(error.message);
+
+                        });
+
+                });
+
+            });
+
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelectorAll('.addToCartBtn').forEach(function (button) {
+
+                button.addEventListener('click', function () {
+
+                    const variantId = this.dataset.id;
+                    const buttonElement = this;
+                    const originalHTML = buttonElement.innerHTML;
+
+                    console.log('Variant ID:', variantId);
+
+                    if (!variantId) {
+                        alert('Product variant not found.');
+                        return;
+                    }
+
+                    buttonElement.disabled = true;
+
+                    buttonElement.innerHTML = `
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Adding...
+                    `;
+
+                    fetch("{{ route('customer.cart.add') }}", {
+
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                        },
+
+                        body: JSON.stringify({
+                            product_variant_id: variantId,
+                            quantity: 1
+                        })
+
+                    })
+
+                        .then(async function (response) {
+
+                            const text = await response.text();
+
+                            console.log('HTTP STATUS:', response.status);
+                            console.log('SERVER RESPONSE:', text);
+
+                            let data;
+
+                            try {
+                                data = JSON.parse(text);
+                            } catch (error) {
+
+                                console.error('Invalid JSON:', text);
+
+                                throw new Error(
+                                    'Server returned an invalid response.'
+                                );
+                            }
+
+                            return data;
+                        })
+
+                        .then(function (data) {
+
+                            console.log('Cart Response:', data);
+
+                            if (data.status) {
+
+                                alert(data.message);
+
+                                // Update cart count
+                                const cartCount =
+                                    document.querySelector('.cart-count');
+
+                                if (cartCount && data.count !== undefined) {
+                                    cartCount.innerText = data.count;
+                                }
+
+                                buttonElement.innerHTML = `
+                                <i class="fa-solid fa-check"></i>
+                                Added to Cart
+                            `;
+
+                            } else {
+
+                                alert(
+                                    data.message ||
+                                    'Unable to add product to cart.'
+                                );
+
+                                buttonElement.innerHTML = originalHTML;
+                            }
+
+                        })
+
+                        .catch(function (error) {
+
+                            console.error('Cart Error:', error);
+
+                            alert(
+                                error.message ||
+                                'Something went wrong while adding to cart.'
+                            );
+
+                            buttonElement.innerHTML = originalHTML;
+
+                        })
+
+                        .finally(function () {
+
+                            buttonElement.disabled = false;
+
+                        });
+
+                });
 
             });
 

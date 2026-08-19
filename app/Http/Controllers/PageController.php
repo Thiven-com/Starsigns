@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Testimonial;
+use App\Models\WishlistItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -115,9 +118,56 @@ class PageController extends Controller
         ));
     }
 
-    public function cart()
+    public function cart(Request $request)
     {
-        return view('website.cart');
+        $query = CartItem::with([
+            'variant.product'
+        ]);
+
+        if (Auth::check()) {
+            $query->where('user_id', Auth::id());
+        } else {
+            $query->where('session_id', $request->session()->getId());
+        }
+
+        $cartItems = $query->get();
+
+        $subtotal = 0;
+        $originalTotal = 0;
+        $totalQuantity = 0;
+
+        foreach ($cartItems as $item) {
+
+            $price = (float) $item->unit_price;
+
+            $oldPrice = (float) (
+                $item->variant->actual_price
+                ?? $item->variant->seller_price
+                ?? $price
+            );
+
+            $quantity = (int) $item->quantity;
+
+            $subtotal += $price * $quantity;
+            $originalTotal += $oldPrice * $quantity;
+            $totalQuantity += $quantity;
+        }
+
+        $discount = $originalTotal - $subtotal;
+
+        $shipping = $subtotal >= 999 ? 0 : 0;
+
+        $total = $subtotal + $shipping;
+
+        return view('website.cart', compact(
+            'cartItems',
+            'subtotal',
+            'originalTotal',
+            'discount',
+            'shipping',
+            'total',
+            'totalQuantity'
+        ));
     }
 
     public function checkout()
@@ -128,7 +178,22 @@ class PageController extends Controller
 
     public function wishlist()
     {
-        return view('website.wishlist');
+        $customer = Auth::guard('customer')->user();
+
+        if (!$customer) {
+            return redirect()
+                ->route('login')
+                ->with('error', 'Please login first.');
+        }
+
+        $wishlistItems = WishlistItem::with([
+            'variant.product'
+        ])
+            ->where('user_id', $customer->id)
+            ->latest()
+            ->get();
+
+        return view('website.wishlist', compact('wishlistItems'));
     }
 
 

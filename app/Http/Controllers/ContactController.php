@@ -7,50 +7,38 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    //
     public function index()
     {
-
-        $contacts = Contact::all(); // Fetch data from database
+        $contacts = Contact::latest()->get();
 
         return view('admin.contacts.all', compact('contacts'));
     }
 
-    public function destroy($id)
-    {
-        // Find contact or fail if not exists
-        $contact = Contact::findOrFail($id);
-
-        // Delete record
-        $contact->delete();
-
-        // Redirect back with success message
-        return redirect()->back()->with('success', 'Contact deleted successfully!');
-    }
-
     public function store(Request $request)
     {
-        // ✅ Validation
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'subject' => 'required',
-            'message' => 'nullable'
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
         ]);
 
-        // ✅ Store Data
-        Contact::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'subject' => $request->subject,
-            'message' => $request->message,
-        ]);
+        Contact::create($validated);
 
-        // ✅ Redirect with success message
-        return back()->with('success', 'Message sent successfully!');
+        return redirect()
+            ->route('contact')
+            ->with('success', 'Your message has been sent successfully!');
     }
 
+    public function destroy($id)
+    {
+        $contact = Contact::findOrFail($id);
 
+        $contact->delete();
+
+        return redirect()
+            ->back()
+            ->with('success', 'Contact deleted successfully!');
+    }
 }

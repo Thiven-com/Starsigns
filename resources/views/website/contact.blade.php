@@ -2,8 +2,8 @@
 @section('content')
 
     <!--==========================
-                                    PAGE BANNER (shared layout component - reused as-is)
-                                ===========================-->
+                                                        PAGE BANNER (shared layout component - reused as-is)
+                                                    ===========================-->
     <section class="contact-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
@@ -48,8 +48,8 @@
 
 
     <!--==========================================
-                                    CONTACT PAGE CONTENT
-                                ===========================================-->
+                                                        CONTACT PAGE CONTENT
+                                                    ===========================================-->
 
     <section class="contact-page-section">
 
@@ -65,8 +65,8 @@
             </div>
 
             <!--=========================
-                                            HERO ROW
-                                        ==========================-->
+                                                                HERO ROW
+                                                            ==========================-->
 
             <div class="contact-page-hero">
 
@@ -92,8 +92,8 @@
             </div>
 
             <!--=========================
-                                            MAIN GRID
-                                        ==========================-->
+                                                                MAIN GRID
+                                                            ==========================-->
 
             <div class="contact-page-grid">
 
@@ -102,8 +102,19 @@
 
                     <h2 class="contact-page-form-title">Send Us a Message</h2>
                     <span class="contact-page-form-divider"></span>
+                    @if(session('success'))
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: @json(session('success')),
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
+                    @endif
+                    <form id="contactPageForm" novalidate action="{{ route('contact.store') }}" method="POST">
 
-                    <form id="contactPageForm" novalidate>
+                        @csrf
 
                         <div class="contact-page-form-row">
 
@@ -140,7 +151,7 @@
 
                             <div class="contact-page-field">
 
-                                <label for="contactPhone">Phone Number</label>
+                                <label for="phone">Phone Number</label>
 
                                 <div class="contact-page-input-wrap">
                                     <i class="fa-solid fa-phone"></i>
@@ -291,8 +302,8 @@
             </div>
 
             <!--=========================
-                                            FEATURES STRIP
-                                        ==========================-->
+                                                                FEATURES STRIP
+                                                            ==========================-->
 
             <div class="contact-page-features">
 
@@ -359,7 +370,6 @@
 
             const form = document.getElementById("contactPageForm");
             const submitBtn = document.getElementById("contactSubmitBtn");
-            const successMsg = document.getElementById("contactSuccessMsg");
 
             const fields = {
                 name: {
@@ -367,21 +377,25 @@
                     error: document.getElementById("contactNameError"),
                     required: true
                 },
+
                 email: {
                     input: document.getElementById("contactEmail"),
                     error: document.getElementById("contactEmailError"),
                     required: true
                 },
+
                 phone: {
                     input: document.getElementById("contactPhone"),
                     error: document.getElementById("contactPhoneError"),
                     required: false
                 },
+
                 subject: {
                     input: document.getElementById("contactSubject"),
                     error: document.getElementById("contactSubjectError"),
                     required: true
                 },
+
                 message: {
                     input: document.getElementById("contactMessage"),
                     error: document.getElementById("contactMessageError"),
@@ -389,23 +403,28 @@
                 }
             };
 
+
             function isEmailValid(value) {
                 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
             }
 
+
             function isPhoneValid(value) {
                 return /^[0-9+\-\s()]{7,15}$/.test(value);
             }
+
 
             function setError(field, message) {
                 field.input.classList.add("contact-page-invalid");
                 field.error.textContent = message;
             }
 
+
             function clearError(field) {
                 field.input.classList.remove("contact-page-invalid");
                 field.error.textContent = "";
             }
+
 
             function validateField(key) {
 
@@ -419,12 +438,20 @@
                     return false;
                 }
 
-                if (key === "email" && value !== "" && !isEmailValid(value)) {
+                if (
+                    key === "email" &&
+                    value !== "" &&
+                    !isEmailValid(value)
+                ) {
                     setError(field, "Please enter a valid email address.");
                     return false;
                 }
 
-                if (key === "phone" && value !== "" && !isPhoneValid(value)) {
+                if (
+                    key === "phone" &&
+                    value !== "" &&
+                    !isPhoneValid(value)
+                ) {
                     setError(field, "Please enter a valid phone number.");
                     return false;
                 }
@@ -432,71 +459,96 @@
                 return true;
             }
 
-            // Live validation as the user types / selects
+
+            // Live validation
             Object.keys(fields).forEach(key => {
+
                 const el = fields[key].input;
-                const evt = (el.tagName === "SELECT") ? "change" : "input";
-                el.addEventListener(evt, () => validateField(key));
-                el.addEventListener("blur", () => validateField(key));
+
+                const evt = el.tagName === "SELECT"
+                    ? "change"
+                    : "input";
+
+                el.addEventListener(evt, () => {
+                    validateField(key);
+                });
+
+                el.addEventListener("blur", () => {
+                    validateField(key);
+                });
+
             });
 
+
+            // FORM SUBMIT
             form.addEventListener("submit", function (e) {
-
-                e.preventDefault();
-
-                successMsg.classList.remove("show");
 
                 let isFormValid = true;
 
                 Object.keys(fields).forEach(key => {
+
                     const valid = validateField(key);
-                    if (!valid) isFormValid = false;
+
+                    if (!valid) {
+                        isFormValid = false;
+                    }
+
                 });
 
+
+                // Stop Laravel submission if validation fails
                 if (!isFormValid) {
 
-                    const firstInvalid = form.querySelector(".contact-page-invalid");
+                    e.preventDefault();
+
+                    const firstInvalid =
+                        form.querySelector(".contact-page-invalid");
+
                     if (firstInvalid) {
+
                         firstInvalid.focus();
-                        firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                        firstInvalid.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
+
                     }
 
                     return;
                 }
 
-                // Simulate submission (swap this block for your real AJAX/fetch call)
-                const originalContent = submitBtn.innerHTML;
+
+                // IMPORTANT:
+                // Do NOT use e.preventDefault() here.
+                // Laravel will receive the POST request.
 
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending...</span>';
 
-                setTimeout(() => {
-
-                    submitBtn.innerHTML = originalContent;
-                    submitBtn.disabled = false;
-
-                    successMsg.classList.add("show");
-
-                    form.reset();
-
-                    Object.keys(fields).forEach(key => clearError(fields[key]));
-
-                    setTimeout(() => {
-                        successMsg.classList.remove("show");
-                    }, 4000);
-
-                }, 1200);
+                submitBtn.innerHTML =
+                    '<i class="fa-solid fa-spinner fa-spin"></i>' +
+                    '<span>Sending...</span>';
 
             });
 
-            /* -----------------------------------
-               "Our Location" button -> opens map in Google Maps
-            ----------------------------------- */
-            document.getElementById("contactLocationBtn").addEventListener("click", function () {
-                window.open("https://www.google.com/maps/search/?api=1&query=Mumbai,Maharashtra,India", "_blank");
-            });
+
+            // Google Maps button
+            const locationBtn =
+                document.getElementById("contactLocationBtn");
+
+            if (locationBtn) {
+
+                locationBtn.addEventListener("click", function () {
+
+                    window.open(
+                        "https://www.google.com/maps/search/?api=1&query=Mumbai,Maharashtra,India",
+                        "_blank"
+                    );
+
+                });
+
+            }
 
         })();
     </script>
-
 @endsection

@@ -54,6 +54,8 @@ Route::group(['middleware' => 'admin'], function () {
         ->name('contacts.delete');
     Route::post('/contact-store', [ContactController::class, 'store'])
         ->name('contact.store');
+    Route::delete('admin/contacts/{id}', [ContactController::class, 'destroy'])
+        ->name('admin.contacts.destroy');
     Route::resource('testimonial', TestimonialController::class)->names('admin.testimonial');
     Route::delete('/admin/testimonial/{id}', [TestimonialController::class, 'destroy'])
         ->name('admin.services.reviews.destroy');
