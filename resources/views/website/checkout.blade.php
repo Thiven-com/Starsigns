@@ -1,584 +1,2684 @@
 @extends('layouts.website')
+
 @section('content')
 
-    <!--==========================
-                        PAGE BANNER (shared layout component - reused as-is)
-                    ===========================-->
+<style>
+/* =========================================================
+   GLOBAL CHECKOUT FIX
+========================================================= */
 
-    <section class="checkout-banner-section" data-aos="zoom-out" data-aos-duration="1000">
+.checkout-page,
+.checkout-page *,
+.checkout-page *::before,
+.checkout-page *::after {
+    box-sizing: border-box;
+}
 
-        <div class="container">
+.checkout-page {
+    width: 100%;
+    background: #fff;
+    padding: 40px 0 80px;
+    overflow-x: hidden;
+}
 
-            <div class="checkout-banner-content">
+.checkout-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-                <h1 data-aos="fade-up" data-aos-delay="200">
-                    Checkout
-                </h1>
 
-                <div class="checkout-breadcrumb" data-aos="fade-up" data-aos-delay="400">
+/* =========================================================
+   BREADCRUMB
+========================================================= */
 
-                    <a href="/">Home</a>
+.checkout-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 
-                    <span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </span>
+    margin-bottom: 30px;
 
-                    <a href="/cart">Cart</a>
+    color: #777;
+    font-size: 14px;
+}
 
-                    <span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </span>
+.checkout-breadcrumb a {
+    color: #222;
+    text-decoration: none;
+}
 
-                    <span class="checkout-active">Checkout</span>
+.checkout-breadcrumb a:hover {
+    color: #c89b3c;
+}
 
-                </div>
+.checkout-breadcrumb .active {
+    color: #888;
+}
 
-            </div>
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(340px, .8fr);
+    gap: 30px;
+    align-items: start;
+    width: 100%;
+}
+
+.checkout-left,
+.checkout-right {
+    width: 100%;
+    min-width: 0;
+}
+
+.checkout-right {
+    position: sticky;
+    top: 20px;
+}
+
+
+/* =========================================================
+   COMMON SECTIONS
+========================================================= */
+
+.checkout-section,
+.checkout-summary {
+    width: 100%;
+    max-width: 100%;
+
+    margin-bottom: 20px;
+    padding: 24px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+
+    background: #fff;
+
+    overflow: hidden;
+}
+
+.checkout-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.checkout-section-title h3,
+.checkout-summary-title {
+    margin: 0;
+
+    color: #222;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ADDRESS LIST
+========================================================= */
+
+.saved-address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 100%;
+}
+
+.checkout-address-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 16px;
+
+    border: 1px solid #ddd;
+    border-radius: 9px;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.checkout-address-card:hover {
+    border-color: #c89b3c;
+    background: #fffdf7;
+}
+
+.checkout-address-card.selected {
+    border-color: #c89b3c;
+    background: #fffaf0;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+}
+
+.checkout-address-card input[type="radio"] {
+    width: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+
+    height: 18px !important;
+
+    margin: 2px 0 0 !important;
+    padding: 0 !important;
+
+    flex: 0 0 18px;
+
+    accent-color: #c89b3c;
+}
+
+.checkout-address-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.checkout-address-name {
+    margin-bottom: 6px;
+
+    color: #222;
+    font-size: 15px;
+}
+
+.checkout-address-details {
+    color: #666;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   NO ADDRESS
+========================================================= */
+
+.no-address {
+    width: 100%;
+
+    padding: 25px;
+
+    border: 1px dashed #ccc;
+    border-radius: 9px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+.no-address i {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #c89b3c;
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   ADD ADDRESS BUTTON
+========================================================= */
+
+.checkout-add-address-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 40px;
+
+    padding: 9px 15px;
+
+    border: 1px solid #222;
+    border-radius: 7px;
+
+    background: #fff;
+    color: #222;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.checkout-add-address-btn:hover {
+    background: #222;
+    color: #fff;
+}
+
+
+/* =========================================================
+   NEW ADDRESS BOX
+========================================================= */
+
+.checkout-new-address {
+    display: none;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 20px;
+    padding: 20px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    background: #fafafa;
+
+    overflow: hidden;
+}
+
+.checkout-new-address.open {
+    display: block;
+    animation: addressOpen .25s ease;
+}
+
+@keyframes addressOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.new-address-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.new-address-header h4 {
+    margin: 0;
+
+    color: #222;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.close-new-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eee;
+    color: #555;
+
+    cursor: pointer;
+}
+
+.close-new-address:hover {
+    background: #222;
+    color: #fff;
+}
+
+
+/* =========================================================
+   FORM GRIDS
+========================================================= */
+
+.checkout-grid-2 {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 16px;
+
+    width: 100%;
+}
+
+.checkout-grid-3 {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 16px;
+
+    width: 100%;
+}
+
+.checkout-grid-2 > *,
+.checkout-grid-3 > * {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+========================================================= */
+
+.checkout-field {
+    width: 100%;
+    min-width: 0;
+
+    margin-bottom: 16px;
+}
+
+.checkout-field label {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 7px;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.checkout-field label span {
+    color: #dc3545;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.checkout-field input,
+.checkout-field textarea,
+.checkout-field select {
+    display: block;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 12px 14px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #fff;
+    color: #222;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    box-shadow: none;
+
+    transition: border-color .2s ease,
+                box-shadow .2s ease;
+}
+
+.checkout-field input {
+    min-height: 46px;
+}
+
+.checkout-field textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.checkout-field select {
+    min-height: 46px;
+
+    appearance: auto;
+}
+
+.checkout-field input:focus,
+.checkout-field textarea:focus,
+.checkout-field select:focus {
+    border-color: #c89b3c;
+
+    box-shadow:
+        0 0 0 3px rgba(200,155,60,.08);
+}
+
+.checkout-field.has-error input,
+.checkout-field.has-error textarea,
+.checkout-field.has-error select {
+    border-color: #dc3545;
+}
+
+
+/* =========================================================
+   ADDRESS MESSAGE
+========================================================= */
+
+.checkout-error,
+.checkout-success {
+    width: 100%;
+
+    margin-bottom: 15px;
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.checkout-error {
+    background: #fff1f1;
+    color: #c62828;
+}
+
+.checkout-success {
+    background: #eefaf2;
+    color: #198754;
+}
+
+
+/* =========================================================
+   SAVE ADDRESS BUTTON
+========================================================= */
+
+.checkout-save-address-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 48px;
+
+    margin-top: 5px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #222;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.checkout-save-address-btn:hover {
+    background: #c89b3c;
+}
+
+.checkout-save-address-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ORDER SUMMARY
+========================================================= */
+
+.checkout-summary-title {
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid #eee;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.checkout-products {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.checkout-product {
+    display: grid;
+
+    grid-template-columns:
+        65px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.checkout-product-image {
+    position: relative;
+
+    width: 65px;
+    height: 65px;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #f5f5f5;
+}
+
+.checkout-product-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.checkout-product-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #aaa;
+    font-size: 20px;
+}
+
+.checkout-product-quantity {
+    position: absolute;
+
+    top: 3px;
+    right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 5px;
+
+    border-radius: 20px;
+
+    background: #222;
+    color: #fff;
+
+    font-size: 10px;
+}
+
+.checkout-product-info {
+    min-width: 0;
+}
+
+.checkout-product-info h4 {
+    display: -webkit-box;
+
+    margin: 0 0 4px;
+
+    overflow: hidden;
+
+    color: #222;
+
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.checkout-product-variant,
+.checkout-product-unit {
+    display: block;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+.checkout-product-unit {
+    margin-top: 3px;
+}
+
+.checkout-product-total {
+    white-space: nowrap;
+
+    color: #222;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   TOTALS
+========================================================= */
+
+.checkout-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 15px;
+
+    padding: 8px 0;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+.checkout-total-row strong {
+    white-space: nowrap;
+    color: #222;
+}
+
+.checkout-discount {
+    color: #198754 !important;
+}
+
+.checkout-shipping-free {
+    color: #198754 !important;
+}
+
+.checkout-grand-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 15px;
+
+    margin-top: 10px;
+    padding-top: 16px;
+
+    border-top: 1px solid #ddd;
+
+    color: #222;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.checkout-grand-total strong {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PAYMENT
+========================================================= */
+
+.checkout-payment {
+    width: 100%;
+
+    margin-top: 22px;
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+}
+
+.checkout-payment h4 {
+    margin: 0 0 14px;
+
+    color: #222;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.checkout-payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+
+    margin-bottom: 9px;
+    padding: 13px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.checkout-payment-option:hover,
+.checkout-payment-option.selected {
+    border-color: #c89b3c;
+    background: #fffaf0;
+}
+
+.checkout-payment-option input {
+    width: 17px !important;
+    min-width: 17px !important;
+    max-width: 17px !important;
+
+    height: 17px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    accent-color: #c89b3c;
+}
+
+.checkout-payment-option span {
+    color: #333;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+.checkout-place-order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 52px;
+
+    margin-top: 15px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #222;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.checkout-place-order:hover {
+    background: #c89b3c;
+}
+
+.checkout-place-order:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.checkout-secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    margin-top: 11px;
+
+    color: #777;
+
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .checkout-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(320px, 380px);
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   BELOW 991
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-right {
+        position: static;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .checkout-page {
+        padding: 25px 0 70px;
+    }
+
+    .checkout-container {
+        padding: 0 12px;
+    }
+
+    .checkout-breadcrumb {
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+
+    .checkout-section,
+    .checkout-summary {
+        padding: 15px;
+        border-radius: 9px;
+    }
+
+    .checkout-section-title {
+        align-items: flex-start;
+    }
+
+    .checkout-section-title h3,
+    .checkout-summary-title {
+        font-size: 18px;
+    }
+
+    .checkout-add-address-btn {
+        min-height: 38px;
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .checkout-grid-2,
+    .checkout-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .checkout-grid-2 > *,
+    .checkout-grid-3 > * {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .checkout-address-card {
+        padding: 13px;
+    }
+
+    .checkout-address-details {
+        font-size: 12px;
+    }
+
+    .checkout-product {
+        grid-template-columns:
+            55px
+            minmax(0, 1fr)
+            auto;
+
+        gap: 9px;
+    }
+
+    .checkout-product-image {
+        width: 55px;
+        height: 55px;
+    }
+
+    .checkout-product-info h4 {
+        font-size: 12px;
+    }
+
+    .checkout-product-total {
+        font-size: 12px;
+    }
+
+    .checkout-total-row {
+        font-size: 12px;
+    }
+
+    .checkout-grand-total {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .checkout-container {
+        padding: 0 10px;
+    }
+
+    .checkout-section,
+    .checkout-summary {
+        padding: 12px;
+    }
+
+    .checkout-section-title {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .checkout-add-address-btn {
+        width: 100%;
+    }
+
+    .checkout-new-address {
+        padding: 14px;
+    }
+
+    .new-address-header h4 {
+        font-size: 17px;
+    }
+
+    .checkout-product {
+        grid-template-columns:
+            50px
+            minmax(0, 1fr);
+
+        gap: 9px;
+    }
+
+    .checkout-product-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .checkout-product-total {
+        grid-column: 2;
+
+        margin-top: -5px;
+
+        text-align: left;
+    }
+
+}
+</style>
+
+
+<!-- =========================================================
+     CHECKOUT
+========================================================= -->
+
+<section class="checkout-page">
+
+    <div class="checkout-container">
+
+        <!-- Breadcrumb -->
+        <div class="checkout-breadcrumb">
+
+            <a href="{{ route('home') }}">
+                Home
+            </a>
+
+            <span>/</span>
+
+            <a href="{{ route('cart') }}">
+                Cart
+            </a>
+
+            <span>/</span>
+
+            <span class="active">
+                Checkout
+            </span>
 
         </div>
 
-    </section>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <script>
-        AOS.init({
-            duration: 1000,
-            easing: "ease-in-out-cubic",
-            once: true,
-            offset: 80
-        });
-    </script>
+        <!-- Session Error -->
+        @if(session('error'))
 
-    <!--==========================================
-                        CHECKOUT PAGE CONTENT
-                    ===========================================-->
+            <div class="checkout-error">
+                {{ session('error') }}
+            </div>
 
-    <section class="checkout-page-section">
+        @endif
 
-        <div class="container">
 
-            <!-- In-page breadcrumb -->
-            <div class="checkout-page-crumb">
+        <!-- Session Success -->
+        @if(session('success'))
 
-                <a href="/">Home</a>
-                <span class="checkout-page-crumb-sep">/</span>
-                <a href="/cart">Cart</a>
-                <span class="checkout-page-crumb-sep">/</span>
-                <span class="checkout-page-crumb-active">Checkout</span>
+            <div class="checkout-success">
+                {{ session('success') }}
+            </div>
+
+        @endif
+
+
+        <!-- Validation Errors -->
+        @if($errors->any())
+
+            <div class="checkout-error">
+
+                <strong>
+                    Please check the following:
+                </strong>
+
+                <ul style="margin:8px 0 0 18px;">
+
+                    @foreach($errors->all() as $error)
+
+                        <li>
+                            {{ $error }}
+                        </li>
+
+                    @endforeach
+
+                </ul>
 
             </div>
 
-            <!--=========================
-                                STEP INDICATOR
-                            ==========================-->
+        @endif
 
-            <div class="checkout-page-steps" id="checkoutPageSteps">
 
-                <div class="checkout-page-step active" data-step="1">
-                    <span class="checkout-page-step-circle">1</span>
-                    <span class="checkout-page-step-label">Billing Details</span>
-                </div>
+        <!-- =====================================================
+             CHECKOUT FORM
+        ====================================================== -->
 
-                <div class="checkout-page-step-line"></div>
+        <form
+            action="{{ route('customer.order.store') }}"
+            method="POST"
+            id="checkoutForm"
+        >
 
-                <div class="checkout-page-step" data-step="2">
-                    <span class="checkout-page-step-circle">2</span>
-                    <span class="checkout-page-step-label">Shipping</span>
-                </div>
+            @csrf
 
-                <div class="checkout-page-step-line"></div>
+            <div class="checkout-layout">
 
-                <div class="checkout-page-step" data-step="3">
-                    <span class="checkout-page-step-circle">3</span>
-                    <span class="checkout-page-step-label">Payment</span>
-                </div>
 
-                <div class="checkout-page-step-line"></div>
+                <!-- =================================================
+                     LEFT
+                ================================================== -->
 
-                <div class="checkout-page-step" data-step="4">
-                    <span class="checkout-page-step-circle">4</span>
-                    <span class="checkout-page-step-label">Review & Place Order</span>
-                </div>
+                <div class="checkout-left">
 
-            </div>
 
-            <div class="checkout-page-layout">
+                    <!-- =================================================
+                         DELIVERY ADDRESS
+                    ================================================== -->
 
-                <!--=========================
-                                    LEFT: BILLING FORM
-                                ==========================-->
+                    <div class="checkout-section">
 
-                <div class="checkout-page-form-wrap">
+                        <div class="checkout-section-title">
 
-                    <div class="checkout-page-form-title">
-                        <h3>Billing Details</h3>
-                        <span class="checkout-page-form-divider"></span>
-                    </div>
+                            <h3>
+                                Delivery Address
+                            </h3>
 
-                    <form id="checkoutPageForm" novalidate>
+                            <button
+                                type="button"
+                                id="addNewAddressBtn"
+                                class="checkout-add-address-btn"
+                            >
 
-                        <div class="checkout-page-grid-2">
+                                <i class="fa-solid fa-plus"></i>
 
-                            <div class="checkout-page-field">
-                                <label>Full Name <span class="req">*</span></label>
-                                <input type="text" name="full_name" placeholder="Enter your full name" required>
-                                <span class="checkout-page-error">Please enter your full name</span>
-                            </div>
+                                Add New Address
 
-                            <div class="checkout-page-field">
-                                <label>Email Address <span class="req">*</span></label>
-                                <input type="email" name="email" placeholder="Enter your email" required>
-                                <span class="checkout-page-error">Please enter a valid email</span>
-                            </div>
+                            </button>
 
                         </div>
 
-                        <div class="checkout-page-grid-2">
 
-                            <div class="checkout-page-field">
-                                <label>Phone Number <span class="req">*</span></label>
-                                <input type="tel" name="phone" placeholder="Enter your phone number" required
-                                    pattern="[0-9]{10}">
-                                <span class="checkout-page-error">Please enter a valid 10-digit phone number</span>
-                            </div>
+                        <!-- Saved Addresses -->
 
-                            <div class="checkout-page-field">
-                                <label>Alternate Number (Optional)</label>
-                                <input type="tel" name="alt_phone" placeholder="Enter alternate number">
-                            </div>
+                        <div
+                            class="saved-address-list"
+                            id="savedAddressList"
+                        >
 
-                        </div>
+                            @forelse($addresses as $address)
 
-                        <div class="checkout-page-field">
-                            <label>Address <span class="req">*</span></label>
-                            <input type="text" name="address" placeholder="House no., Building, Street, Area" required>
-                            <span class="checkout-page-error">Please enter your address</span>
-                        </div>
+                                <label
+                                    class="checkout-address-card {{ $loop->first ? 'selected' : '' }}"
+                                >
 
-                        <div class="checkout-page-field">
-                            <label>Apartment, Suite, Unit etc. (Optional)</label>
-                            <input type="text" name="apartment" placeholder="Enter apartment, suite, unit etc.">
-                        </div>
+                                    <input
+                                        type="radio"
+                                        name="address_id"
+                                        value="{{ $address->id }}"
+                                        {{ $loop->first ? 'checked' : '' }}
+                                        required
+                                    >
 
-                        <div class="checkout-page-grid-3">
+                                    <div class="checkout-address-content">
 
-                            <div class="checkout-page-field">
-                                <label>Country <span class="req">*</span></label>
-                                <select name="country" required>
-                                    <option value="">Select Country</option>
-                                    <option value="India" selected>India</option>
-                                    <option value="USA">USA</option>
-                                    <option value="UK">UK</option>
-                                    <option value="UAE">UAE</option>
-                                </select>
-                            </div>
+                                        <div class="checkout-address-name">
 
-                            <div class="checkout-page-field">
-                                <label>State <span class="req">*</span></label>
-                                <select name="state" required>
-                                    <option value="">Select State</option>
-                                    <option value="Maharashtra" selected>Maharashtra</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Delhi">Delhi</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                </select>
-                            </div>
+                                            <strong>
+                                                {{ $address->name }}
+                                            </strong>
 
-                            <div class="checkout-page-field">
-                                <label>City <span class="req">*</span></label>
-                                <select name="city" required>
-                                    <option value="">Select City</option>
-                                    <option value="Pune" selected>Pune</option>
-                                    <option value="Mumbai">Mumbai</option>
-                                    <option value="Nagpur">Nagpur</option>
-                                    <option value="Nashik">Nashik</option>
-                                </select>
-                            </div>
+                                        </div>
 
-                        </div>
+                                        <div class="checkout-address-details">
 
-                        <div class="checkout-page-grid-2">
+                                            {{ $address->address }}
 
-                            <div class="checkout-page-field">
-                                <label>Pincode <span class="req">*</span></label>
-                                <input type="text" name="pincode" placeholder="Enter pincode" required pattern="[0-9]{6}">
-                                <span class="checkout-page-error">Please enter a valid 6-digit pincode</span>
-                            </div>
+                                            @if(!empty($address->address_2))
 
-                            <div class="checkout-page-field checkout-page-checkbox-field">
-                                <label class="checkout-page-checkbox">
-                                    <input type="checkbox" id="checkoutPageShipDiff">
-                                    <span class="checkout-page-checkbox-box">
-                                        <i class="fa-solid fa-check"></i>
-                                    </span>
-                                    Ship to a different address?
+                                                <br>
+
+                                                {{ $address->address_2 }}
+
+                                            @endif
+
+                                            <br>
+
+                                            {{ $address->city }},
+                                            {{ $address->state }}
+                                            -
+                                            {{ $address->pincode }}
+
+                                            <br>
+
+                                            Mobile:
+                                            {{ $address->mobile }}
+
+                                        </div>
+
+                                    </div>
+
                                 </label>
-                            </div>
 
-                        </div>
+                            @empty
 
-                        <!-- Alternate shipping address (hidden until checkbox is checked) -->
-                        <div class="checkout-page-ship-address" id="checkoutPageShipAddress">
+                                <div
+                                    class="no-address"
+                                    id="noAddressMessage"
+                                >
 
-                            <div class="checkout-page-field">
-                                <label>Shipping Address <span class="req">*</span></label>
-                                <input type="text" name="ship_address" placeholder="House no., Building, Street, Area">
-                            </div>
+                                    <i class="fa-solid fa-location-dot"></i>
 
-                            <div class="checkout-page-grid-3">
+                                    <p style="margin:0;">
+                                        No saved address found.
+                                    </p>
 
-                                <div class="checkout-page-field">
-                                    <label>Country</label>
-                                    <select name="ship_country">
-                                        <option value="India" selected>India</option>
-                                        <option value="USA">USA</option>
-                                        <option value="UK">UK</option>
-                                    </select>
                                 </div>
 
-                                <div class="checkout-page-field">
-                                    <label>State</label>
-                                    <input type="text" name="ship_state" placeholder="Enter state">
+                            @endforelse
+
+                        </div>
+
+
+                        <!-- =================================================
+                             NEW ADDRESS
+                        ================================================== -->
+
+                        <div
+                            id="newAddressSection"
+                            class="checkout-new-address"
+                        >
+
+                            <div class="new-address-header">
+
+                                <h4>
+                                    Add New Address
+                                </h4>
+
+                                <button
+                                    type="button"
+                                    id="closeNewAddressBtn"
+                                    class="close-new-address"
+                                >
+
+                                    <i class="fa-solid fa-xmark"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <div id="addressMessage"></div>
+
+
+                            <!-- Name / Mobile -->
+
+                            <div class="checkout-grid-2">
+
+                                <div class="checkout-field">
+
+                                    <label>
+                                        Name
+                                        <span>*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newAddressName"
+                                        value="{{ $customer->name ?? '' }}"
+                                        placeholder="Enter name"
+                                    >
+
                                 </div>
 
-                                <div class="checkout-page-field">
-                                    <label>City</label>
-                                    <input type="text" name="ship_city" placeholder="Enter city">
+
+                                <div class="checkout-field">
+
+                                    <label>
+                                        Mobile
+                                        <span>*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newAddressMobile"
+                                        value="{{ $customer->mobile ?? $customer->mobile_number ?? '' }}"
+                                        maxlength="10"
+                                        inputmode="numeric"
+                                        placeholder="Enter mobile number"
+                                    >
+
                                 </div>
 
                             </div>
 
+
+                            <!-- Address -->
+
+                            <div class="checkout-field">
+
+                                <label>
+                                    Address
+                                    <span>*</span>
+                                </label>
+
+                                <textarea
+                                    id="newAddressAddress"
+                                    rows="4"
+                                    placeholder="House no., Building, Street, Area"
+                                ></textarea>
+
+                            </div>
+
+
+                            <!-- Address 2 -->
+
+                            <div class="checkout-field">
+
+                                <label>
+                                    Address 2
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="newAddressAddress2"
+                                    placeholder="Apartment, Suite, Area"
+                                >
+
+                            </div>
+
+
+                            <!-- City / State / Pincode -->
+
+                            <div class="checkout-grid-3">
+
+                                <div class="checkout-field">
+
+                                    <label>
+                                        City
+                                        <span>*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newAddressCity"
+                                        placeholder="City"
+                                    >
+
+                                </div>
+
+
+                                <div class="checkout-field">
+
+                                    <label>
+                                        State
+                                        <span>*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newAddressState"
+                                        placeholder="State"
+                                    >
+
+                                </div>
+
+
+                                <div class="checkout-field">
+
+                                    <label>
+                                        Pincode
+                                        <span>*</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="newAddressPincode"
+                                        maxlength="6"
+                                        inputmode="numeric"
+                                        placeholder="Pincode"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Country -->
+
+                            <div class="checkout-field">
+
+                                <label>
+                                    Country
+                                    <span>*</span>
+                                </label>
+
+                                <select id="newAddressCountry">
+
+                                    <option value="India">
+                                        India
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Save -->
+
+                            <button
+                                type="button"
+                                id="saveAddressBtn"
+                                class="checkout-save-address-btn"
+                            >
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Save Address
+
+                            </button>
+
                         </div>
 
-                    </form>
+                    </div>
 
-                    <!-- Trust perks -->
-                    <div class="checkout-page-perks">
 
-                        <div class="checkout-page-perk">
-                            <span><i class="fa-solid fa-truck-fast"></i></span>
-                            <div>
-                                <div class="t">Free Shipping</div>
-                                <div class="s">On orders above ₹999</div>
-                            </div>
+                    <!-- =================================================
+                         CONTACT INFORMATION
+                    ================================================== -->
+
+                    <div class="checkout-section">
+
+                        <div class="checkout-section-title">
+
+                            <h3>
+                                Contact Information
+                            </h3>
+
                         </div>
 
-                        <div class="checkout-page-perk">
-                            <span><i class="fa-solid fa-lock"></i></span>
-                            <div>
-                                <div class="t">Secure Payment</div>
-                                <div class="s">100% secure & trusted</div>
+
+                        <div class="checkout-grid-2">
+
+                            <div class="checkout-field">
+
+                                <label>
+                                    Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="customer_name"
+                                    value="{{ old('customer_name', $customer->name ?? '') }}"
+                                    placeholder="Your name"
+                                >
+
                             </div>
+
+
+                            <div class="checkout-field">
+
+                                <label>
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="customer_email"
+                                    value="{{ old('customer_email', $customer->email ?? '') }}"
+                                    placeholder="Your email"
+                                >
+
+                            </div>
+
                         </div>
 
-                        <div class="checkout-page-perk">
-                            <span><i class="fa-solid fa-rotate"></i></span>
-                            <div>
-                                <div class="t">Easy Returns</div>
-                                <div class="s">7 days return policy</div>
-                            </div>
-                        </div>
 
-                        <div class="checkout-page-perk">
-                            <span><i class="fa-solid fa-headset"></i></span>
-                            <div>
-                                <div class="t">24/7 Support</div>
-                                <div class="s">We are here to help</div>
-                            </div>
+                        <div class="checkout-field">
+
+                            <label>
+                                Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                name="customer_phone"
+                                value="{{ old('customer_phone', $customer->mobile ?? $customer->mobile_number ?? '') }}"
+                                maxlength="10"
+                                inputmode="numeric"
+                                placeholder="Your phone number"
+                            >
+
                         </div>
 
                     </div>
 
                 </div>
 
-                <!--=========================
-                                    RIGHT: ORDER SUMMARY + PAYMENT
-                                ==========================-->
 
-                <aside class="checkout-page-side">
+                <!-- =================================================
+                     RIGHT
+                ================================================== -->
 
-                    <!-- Order summary -->
-                    <div class="checkout-page-summary">
+                <div class="checkout-right">
 
-                        <h3>
+                    <div class="checkout-summary">
+
+
+                        <h3 class="checkout-summary-title">
                             Order Summary
-                            <span class="checkout-page-summary-divider"></span>
                         </h3>
 
-                        @php
-                            $checkoutItems = [
-                                ['name' => 'Crystal Healing Bracelet', 'qty' => 1, 'price' => 899, 'img' => 'product-1.png'],
-                                ['name' => '7 Mukhi Rudraksha Bracelet', 'qty' => 1, 'price' => 1199, 'img' => 'product-2.png'],
-                                ['name' => 'Rose Quartz Bracelet', 'qty' => 1, 'price' => 699, 'img' => 'product-1.png'],
-                            ];
-                            $checkoutSubtotal = collect($checkoutItems)->sum(fn($i) => $i['price'] * $i['qty']);
-                            $checkoutDiscount = 798;
-                            $checkoutTotal = $checkoutSubtotal;
-                        @endphp
 
-                        <div class="checkout-page-items">
+                        <!-- Products -->
 
-                            @foreach($checkoutItems as $item)
-                                <div class="checkout-page-item">
+                        <div class="checkout-products">
 
-                                    <div class="checkout-page-item-thumb">
-                                        <img src="{{ asset('website') }}/images/{{ $item['img'] }}" alt="{{ $item['name'] }}">
+                            @forelse($cartItems as $item)
+
+                                @php
+
+                                    $variant = $item->variant;
+
+                                    $product = $variant?->product;
+
+                                    $productName =
+                                        $product?->title
+                                        ?? $product?->name
+                                        ?? 'Product';
+
+                                    $quantity =
+                                        (int) $item->quantity;
+
+                                    $price =
+                                        (float) $item->unit_price;
+
+                                    $lineTotal =
+                                        $price * $quantity;
+
+                                    $image =
+                                        $variant?->image
+                                        ?? $product?->image
+                                        ?? null;
+
+                                @endphp
+
+
+                                <div class="checkout-product">
+
+
+                                    <!-- Product Image -->
+
+                                    <div class="checkout-product-image">
+
+                                        @if($image)
+
+                                            <img
+                                                src="{{ asset($image) }}"
+                                                alt="{{ $productName }}"
+                                            >
+
+                                        @else
+
+                                            <div class="checkout-product-placeholder">
+
+                                                <i class="fa-regular fa-image"></i>
+
+                                            </div>
+
+                                        @endif
+
+
+                                        <span class="checkout-product-quantity">
+                                            {{ $quantity }}
+                                        </span>
+
                                     </div>
 
-                                    <div class="checkout-page-item-info">
-                                        <h4>{{ $item['name'] }}</h4>
-                                        <span>Qty: {{ $item['qty'] }}</span>
+
+                                    <!-- Product Info -->
+
+                                    <div class="checkout-product-info">
+
+                                        <h4>
+                                            {{ $productName }}
+                                        </h4>
+
+
+                                        @if($variant && !empty($variant->name))
+
+                                            <span class="checkout-product-variant">
+                                                {{ $variant->name }}
+                                            </span>
+
+                                        @endif
+
+
+                                        <span class="checkout-product-unit">
+
+                                            ₹{{ number_format($price, 2) }}
+
+                                            ×
+
+                                            {{ $quantity }}
+
+                                        </span>
+
                                     </div>
 
-                                    <div class="checkout-page-item-price">
-                                        ₹{{ number_format($item['price']) }}
+
+                                    <!-- Product Total -->
+
+                                    <div class="checkout-product-total">
+
+                                        ₹{{ number_format($lineTotal, 2) }}
+
                                     </div>
 
                                 </div>
-                            @endforeach
+
+                            @empty
+
+                                <div
+                                    style="
+                                        padding:20px;
+                                        text-align:center;
+                                        color:#777;
+                                    "
+                                >
+
+                                    Your cart is empty.
+
+                                </div>
+
+                            @endforelse
 
                         </div>
 
-                        <div class="checkout-page-summary-row">
-                            <span>Subtotal ({{ count($checkoutItems) }} Items)</span>
-                            <span>₹{{ number_format($checkoutSubtotal) }}</span>
-                        </div>
 
-                        <div class="checkout-page-summary-row">
-                            <span>Discount</span>
-                            <span class="checkout-page-discount">-₹{{ number_format($checkoutDiscount) }}</span>
-                        </div>
+                        <!-- Subtotal -->
 
-                        <div class="checkout-page-summary-row">
-                            <span>Shipping</span>
-                            <span class="checkout-page-free">FREE</span>
-                        </div>
+                        <div class="checkout-total-row">
 
-                        <div class="checkout-page-summary-total">
-                            <span>Total</span>
-                            <strong id="checkoutPageTotal">₹{{ number_format($checkoutTotal) }}</strong>
-                        </div>
-
-                        <div class="checkout-page-coupon-label">
-                            <i class="fa-solid fa-tag"></i>
-                            Have a coupon code?
-                        </div>
-
-                        <div class="checkout-page-coupon-row">
-
-                            <input type="text" id="checkoutPageCouponInput" placeholder="Enter coupon code">
-
-                            <button type="button" id="checkoutPageApplyBtn">Apply</button>
-
-                        </div>
-
-                        <div class="checkout-page-coupon-msg" id="checkoutPageCouponMsg"></div>
-
-                    </div>
-
-                    <!-- Payment methods -->
-                    <div class="checkout-page-payment">
-
-                        <h3>
-                            Payment Methods
-                            <span class="checkout-page-summary-divider"></span>
-                        </h3>
-
-                        <label class="checkout-page-pay-option">
-
-                            <input type="radio" name="payment_method" value="upi" checked>
-
-                            <span class="checkout-page-radio"></span>
-
-                            <span class="checkout-page-pay-label">UPI / Net Banking / Cards</span>
-
-                            <span class="checkout-page-pay-icons">
-                                <i class="fa-solid fa-wallet"></i>
-                                <i class="fa-brands fa-cc-visa"></i>
-                                <i class="fa-brands fa-cc-mastercard"></i>
+                            <span>
+                                Subtotal
+                                ({{ $totalQuantity }} items)
                             </span>
 
-                        </label>
+                            <strong>
+                                ₹{{ number_format($subtotal, 2) }}
+                            </strong>
 
-                        <label class="checkout-page-pay-option">
+                        </div>
 
-                            <input type="radio" name="payment_method" value="cod">
 
-                            <span class="checkout-page-radio"></span>
+                        <!-- Original Price -->
 
-                            <span class="checkout-page-pay-label">Cash on Delivery (COD)</span>
+                        @if($originalTotal > $subtotal)
 
-                            <span class="checkout-page-pay-icons">
-                                <i class="fa-solid fa-money-bill-wave"></i>
+                            <div class="checkout-total-row">
+
+                                <span>
+                                    Original Price
+                                </span>
+
+                                <strong>
+                                    ₹{{ number_format($originalTotal, 2) }}
+                                </strong>
+
+                            </div>
+
+                        @endif
+
+
+                        <!-- Discount -->
+
+                        <div class="checkout-total-row">
+
+                            <span>
+                                Discount
                             </span>
 
-                        </label>
+                            <strong class="checkout-discount">
 
-                        <label class="checkout-page-pay-option">
+                                -₹{{ number_format($discount, 2) }}
 
-                            <input type="radio" name="payment_method" value="wallet">
+                            </strong>
 
-                            <span class="checkout-page-radio"></span>
+                        </div>
 
-                            <span class="checkout-page-pay-label">Wallets (PhonePe / Paytm / Amazon Pay)</span>
 
-                            <span class="checkout-page-pay-icons">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
+                        <!-- Shipping -->
+
+                        <div class="checkout-total-row">
+
+                            <span>
+                                Shipping
                             </span>
 
-                        </label>
+                            <strong class="checkout-shipping-free">
 
-                        <button type="button" class="checkout-page-place-btn" id="checkoutPagePlaceBtn">
+                                @if($shipping > 0)
+
+                                    ₹{{ number_format($shipping, 2) }}
+
+                                @else
+
+                                    FREE
+
+                                @endif
+
+                            </strong>
+
+                        </div>
+
+
+                        <!-- Total -->
+
+                        <div class="checkout-grand-total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong>
+                                ₹{{ number_format($total, 2) }}
+                            </strong>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             PAYMENT
+                        ================================================== -->
+
+                        <div class="checkout-payment">
+
+                            <h4>
+                                Payment Method
+                            </h4>
+
+
+                            <label
+                                class="checkout-payment-option selected"
+                            >
+
+                                <input
+                                    type="radio"
+                                    name="payment_method"
+                                    value="online_payment"
+                                    checked
+                                >
+
+                                <span>
+                                    Online Payment
+                                </span>
+
+                            </label>
+
+
+                            {{-- <label
+                                class="checkout-payment-option"
+                            >
+
+                                <input
+                                    type="radio"
+                                    name="payment_method"
+                                    value="cod"
+                                >
+
+                                <span>
+                                    Cash on Delivery
+                                </span>
+
+                            </label> --}}
+
+                        </div>
+
+
+                        <!-- Place Order -->
+
+                        <button
+                            type="submit"
+                            id="checkoutPlaceOrder"
+                            class="checkout-place-order"
+                        >
+
                             <i class="fa-solid fa-lock"></i>
-                            Place Order Securely
+
+                            Place Order
+
                         </button>
 
-                        <div class="checkout-page-secure-note">
+
+                        <div class="checkout-secure">
+
                             <i class="fa-solid fa-shield-halved"></i>
+
                             100% Secure & Safe Payments
+
                         </div>
 
                     </div>
 
-                </aside>
+                </div>
 
             </div>
 
-        </div>
+        </form>
 
-    </section>
+    </div>
 
-    <script>
-        (function () {
+</section>
 
-            /* -----------------------------------
-               Ship to a different address toggle
-            ----------------------------------- */
-            const shipCheckbox = document.getElementById("checkoutPageShipDiff");
-            const shipAddress = document.getElementById("checkoutPageShipAddress");
 
-            shipCheckbox.addEventListener("change", function () {
-                shipAddress.classList.toggle("open", this.checked);
-            });
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-            /* -----------------------------------
-               Payment method selection styling
-            ----------------------------------- */
-            document.querySelectorAll(".checkout-page-pay-option").forEach(option => {
-                option.addEventListener("click", function () {
-                    document.querySelectorAll(".checkout-page-pay-option").forEach(o => o.classList.remove("selected"));
-                    this.querySelector("input[type=radio]").checked = true;
-                    this.classList.add("selected");
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
+    const addNewAddressBtn =
+        document.getElementById('addNewAddressBtn');
+
+    const newAddressSection =
+        document.getElementById('newAddressSection');
+
+    const closeNewAddressBtn =
+        document.getElementById('closeNewAddressBtn');
+
+    const saveAddressBtn =
+        document.getElementById('saveAddressBtn');
+
+    const addressMessage =
+        document.getElementById('addressMessage');
+
+    const savedAddressList =
+        document.getElementById('savedAddressList');
+
+    const checkoutForm =
+        document.getElementById('checkoutForm');
+
+    const placeOrderButton =
+        document.getElementById('checkoutPlaceOrder');
+
+
+    /* =========================================================
+       OPEN NEW ADDRESS
+    ========================================================= */
+
+    if (addNewAddressBtn) {
+
+        addNewAddressBtn.addEventListener('click', function () {
+
+            newAddressSection.classList.add('open');
+
+            setTimeout(function () {
+
+                newAddressSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
                 });
-            });
-            // mark default selected on load
-            document.querySelector(".checkout-page-pay-option input:checked").closest(".checkout-page-pay-option").classList.add("selected");
 
-            /* -----------------------------------
-               Coupon apply (checkout summary)
-            ----------------------------------- */
-            document.getElementById("checkoutPageApplyBtn").addEventListener("click", function () {
+            }, 100);
 
-                const input = document.getElementById("checkoutPageCouponInput");
-                const msg = document.getElementById("checkoutPageCouponMsg");
-                const code = input.value.trim().toUpperCase();
+        });
 
-                if (!code) {
-                    msg.textContent = "Please enter a coupon code.";
-                    msg.className = "checkout-page-coupon-msg error";
+    }
+
+
+    /* =========================================================
+       CLOSE NEW ADDRESS
+    ========================================================= */
+
+    if (closeNewAddressBtn) {
+
+        closeNewAddressBtn.addEventListener('click', function () {
+
+            newAddressSection.classList.remove('open');
+
+            addressMessage.innerHTML = '';
+
+            clearAddressErrors();
+
+        });
+
+    }
+
+
+    /* =========================================================
+       SAVE ADDRESS
+    ========================================================= */
+
+    if (saveAddressBtn) {
+
+        saveAddressBtn.addEventListener('click', async function () {
+
+            clearAddressErrors();
+
+            addressMessage.innerHTML = '';
+
+
+            const name =
+                document.getElementById('newAddressName')
+                .value
+                .trim();
+
+
+            const mobile =
+                document.getElementById('newAddressMobile')
+                .value
+                .trim();
+
+
+            const address =
+                document.getElementById('newAddressAddress')
+                .value
+                .trim();
+
+
+            const address2 =
+                document.getElementById('newAddressAddress2')
+                .value
+                .trim();
+
+
+            const city =
+                document.getElementById('newAddressCity')
+                .value
+                .trim();
+
+
+            const state =
+                document.getElementById('newAddressState')
+                .value
+                .trim();
+
+
+            const pincode =
+                document.getElementById('newAddressPincode')
+                .value
+                .trim();
+
+
+            const country =
+                document.getElementById('newAddressCountry')
+                .value;
+
+
+            let valid = true;
+
+
+            /* =====================================================
+               VALIDATION
+            ===================================================== */
+
+            if (!name) {
+
+                setFieldError('newAddressName');
+
+                valid = false;
+
+            }
+
+
+            if (!/^[0-9]{10}$/.test(mobile)) {
+
+                setFieldError('newAddressMobile');
+
+                valid = false;
+
+            }
+
+
+            if (!address) {
+
+                setFieldError('newAddressAddress');
+
+                valid = false;
+
+            }
+
+
+            if (!city) {
+
+                setFieldError('newAddressCity');
+
+                valid = false;
+
+            }
+
+
+            if (!state) {
+
+                setFieldError('newAddressState');
+
+                valid = false;
+
+            }
+
+
+            if (!/^[0-9]{6}$/.test(pincode)) {
+
+                setFieldError('newAddressPincode');
+
+                valid = false;
+
+            }
+
+
+            if (!valid) {
+
+                showAddressError(
+                    'Please complete all required address fields.'
+                );
+
+                return;
+
+            }
+
+
+            /* =====================================================
+               LOADING
+            ===================================================== */
+
+            saveAddressBtn.disabled = true;
+
+            saveAddressBtn.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Saving...
+            `;
+
+
+            try {
+
+                const csrfToken =
+                    document.querySelector(
+                        'meta[name="csrf-token"]'
+                    )?.getAttribute('content');
+
+
+                if (!csrfToken) {
+
+                    throw new Error(
+                        'CSRF token not found.'
+                    );
+
+                }
+
+
+                const response = await fetch(
+                    "{{ route('customer.address.store') }}",
+                    {
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type':
+                                'application/json',
+
+                            'Accept':
+                                'application/json',
+
+                            'X-Requested-With':
+                                'XMLHttpRequest',
+
+                            'X-CSRF-TOKEN':
+                                csrfToken
+                        },
+
+                        body: JSON.stringify({
+
+                            name: name,
+
+                            mobile: mobile,
+
+                            address: address,
+
+                            address_2: address2,
+
+                            city: city,
+
+                            state: state,
+
+                            pincode: pincode,
+
+                            country: country
+
+                        })
+                    }
+                );
+
+
+                const data =
+                    await response.json();
+
+
+                /* =================================================
+                   ERROR
+                ================================================= */
+
+                if (!response.ok) {
+
+                    if (data.errors) {
+
+                        const firstError =
+                            Object.values(
+                                data.errors
+                            )[0]?.[0];
+
+
+                        showAddressError(
+                            firstError ||
+                            'Please check the address details.'
+                        );
+
+                    } else {
+
+                        showAddressError(
+                            data.message ||
+                            'Unable to save address.'
+                        );
+
+                    }
+
                     return;
+
                 }
 
-                if (code === "ASTRO10") {
-                    msg.textContent = "Coupon applied successfully!";
-                    msg.className = "checkout-page-coupon-msg success";
-                } else {
-                    msg.textContent = "Invalid or expired coupon code.";
-                    msg.className = "checkout-page-coupon-msg error";
+
+                /* =================================================
+                   GET SAVED ADDRESS
+                ================================================= */
+
+                const savedAddress =
+                    data.address;
+
+
+                if (!savedAddress) {
+
+                    showAddressError(
+                        'Address saved, but address details were not returned.'
+                    );
+
+                    return;
+
                 }
-            });
 
-            /* -----------------------------------
-               Step indicator (visual navigation)
-            ----------------------------------- */
-            document.querySelectorAll(".checkout-page-step").forEach(step => {
-                step.addEventListener("click", function () {
 
-                    const clickedNum = parseInt(this.dataset.step, 10);
+                /* =================================================
+                   REMOVE EMPTY MESSAGE
+                ================================================= */
 
-                    document.querySelectorAll(".checkout-page-step").forEach(s => {
-                        const n = parseInt(s.dataset.step, 10);
-                        s.classList.remove("active", "done");
-                        if (n < clickedNum) s.classList.add("done");
-                        if (n === clickedNum) s.classList.add("active");
+                const noAddressMessage =
+                    document.getElementById(
+                        'noAddressMessage'
+                    );
+
+
+                if (noAddressMessage) {
+                    noAddressMessage.remove();
+                }
+
+
+                /* =================================================
+                   UNSELECT OLD ADDRESSES
+                ================================================= */
+
+                document
+                    .querySelectorAll(
+                        '.checkout-address-card'
+                    )
+                    .forEach(function (card) {
+
+                        card.classList.remove(
+                            'selected'
+                        );
+
+                        const radio =
+                            card.querySelector(
+                                'input[type="radio"]'
+                            );
+
+                        if (radio) {
+                            radio.checked = false;
+                        }
+
                     });
-                });
-            });
 
-            /* -----------------------------------
-               Billing form validation + submit
-            ----------------------------------- */
-            const form = document.getElementById("checkoutPageForm");
 
-            function validateField(field) {
+                /* =================================================
+                   CREATE ADDRESS CARD
+                ================================================= */
 
-                const wrapper = field.closest(".checkout-page-field");
-                let valid = true;
+                const addressCard =
+                    document.createElement('label');
 
-                if (field.hasAttribute("required") && !field.value.trim()) {
-                    valid = false;
-                }
 
-                if (field.type === "email" && field.value.trim()) {
-                    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!re.test(field.value.trim())) valid = false;
-                }
+                addressCard.className =
+                    'checkout-address-card selected';
 
-                if (field.pattern && field.value.trim()) {
-                    const re = new RegExp("^" + field.pattern + "$");
-                    if (!re.test(field.value.trim())) valid = false;
-                }
 
-                wrapper.classList.toggle("has-error", !valid);
-                return valid;
+                addressCard.innerHTML = `
+
+                    <input
+                        type="radio"
+                        name="address_id"
+                        value="${escapeHtml(savedAddress.id)}"
+                        checked
+                        required
+                    >
+
+                    <div class="checkout-address-content">
+
+                        <div class="checkout-address-name">
+
+                            <strong>
+                                ${escapeHtml(savedAddress.name)}
+                            </strong>
+
+                        </div>
+
+                        <div class="checkout-address-details">
+
+                            ${escapeHtml(savedAddress.address)}
+
+                            ${
+                                savedAddress.address_2
+                                ? '<br>' +
+                                  escapeHtml(
+                                      savedAddress.address_2
+                                  )
+                                : ''
+                            }
+
+                            <br>
+
+                            ${escapeHtml(savedAddress.city)},
+                            ${escapeHtml(savedAddress.state)}
+                            -
+                            ${escapeHtml(savedAddress.pincode)}
+
+                            <br>
+
+                            Mobile:
+                            ${escapeHtml(savedAddress.mobile)}
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                /* =================================================
+                   ADD ADDRESS TO LIST
+                ================================================= */
+
+                savedAddressList.prepend(
+                    addressCard
+                );
+
+
+                /* =================================================
+                   CLOSE FORM
+                ================================================= */
+
+                newAddressSection.classList.remove(
+                    'open'
+                );
+
+
+                /* =================================================
+                   CLEAR FORM
+                ================================================= */
+
+                clearAddressForm();
+
+
+                /* =================================================
+                   SUCCESS
+                ================================================= */
+
+                showAddressSuccess(
+                    'Address added successfully.'
+                );
+
+
+                /* =================================================
+                   SCROLL
+                ================================================= */
+
+                setTimeout(function () {
+
+                    addressCard.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+
+                }, 150);
+
+
+            } catch (error) {
+
+                console.error(
+                    'Address save error:',
+                    error
+                );
+
+
+                showAddressError(
+                    'Something went wrong. Please try again.'
+                );
+
+
+            } finally {
+
+                saveAddressBtn.disabled = false;
+
+                saveAddressBtn.innerHTML = `
+                    <i class="fa-solid fa-check"></i>
+                    Save Address
+                `;
+
             }
 
-            form.querySelectorAll("input, select").forEach(field => {
-                field.addEventListener("blur", () => validateField(field));
-            });
+        });
 
-            function validateForm() {
-                let allValid = true;
-                form.querySelectorAll("input[required], select[required]").forEach(field => {
-                    if (!validateField(field)) allValid = false;
+    }
+
+
+    /* =========================================================
+       ADDRESS SELECTION
+    ========================================================= */
+
+    document.addEventListener('change', function (event) {
+
+        if (
+            event.target.matches(
+                'input[name="address_id"]'
+            )
+        ) {
+
+            document
+                .querySelectorAll(
+                    '.checkout-address-card'
+                )
+                .forEach(function (card) {
+
+                    card.classList.remove(
+                        'selected'
+                    );
+
                 });
-                return allValid;
+
+
+            const selectedCard =
+                event.target.closest(
+                    '.checkout-address-card'
+                );
+
+
+            if (selectedCard) {
+
+                selectedCard.classList.add(
+                    'selected'
+                );
+
             }
 
-            /* -----------------------------------
-               Place order
-            ----------------------------------- */
-            document.getElementById("checkoutPagePlaceBtn").addEventListener("click", function () {
+        }
 
-                if (!validateForm()) {
-                    document.querySelector(".checkout-page-field.has-error")
-                        ?.scrollIntoView({ behavior: "smooth", block: "center" });
-                    return;
+    });
+
+
+    /* =========================================================
+       PAYMENT SELECTION
+    ========================================================= */
+
+    document.addEventListener('change', function (event) {
+
+        if (
+            event.target.matches(
+                'input[name="payment_method"]'
+            )
+        ) {
+
+            document
+                .querySelectorAll(
+                    '.checkout-payment-option'
+                )
+                .forEach(function (option) {
+
+                    option.classList.remove(
+                        'selected'
+                    );
+
+                });
+
+
+            const selectedOption =
+                event.target.closest(
+                    '.checkout-payment-option'
+                );
+
+
+            if (selectedOption) {
+
+                selectedOption.classList.add(
+                    'selected'
+                );
+
+            }
+
+        }
+
+    });
+
+
+    /* =========================================================
+       CHECKOUT SUBMIT
+    ========================================================= */
+
+    if (checkoutForm) {
+
+        checkoutForm.addEventListener(
+            'submit',
+            function (event) {
+
+                const selectedAddress =
+                    document.querySelector(
+                        'input[name="address_id"]:checked'
+                    );
+
+
+                if (!selectedAddress) {
+
+                    event.preventDefault();
+
+                    alert(
+                        'Please select a delivery address.'
+                    );
+
+                    const addressSection =
+                        document.querySelector(
+                            '.checkout-section'
+                        );
+
+
+                    if (addressSection) {
+
+                        addressSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+
+                    }
+
+                    return false;
+
                 }
 
-                const btn = this;
-                const original = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Placing Order...';
 
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Order Placed!';
-                    // Redirect to an order-confirmation route once wired to a controller
-                    // window.location.href = "/order-confirmation";
-                }, 1400);
+                /* Prevent double submit */
+
+                if (placeOrderButton) {
+
+                    placeOrderButton.disabled = true;
+
+                    placeOrderButton.innerHTML = `
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Processing...
+                    `;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       CLEAR ADDRESS FORM
+    ========================================================= */
+
+    function clearAddressForm() {
+
+        document.getElementById(
+            'newAddressName'
+        ).value = '';
+
+        document.getElementById(
+            'newAddressMobile'
+        ).value = '';
+
+        document.getElementById(
+            'newAddressAddress'
+        ).value = '';
+
+        document.getElementById(
+            'newAddressAddress2'
+        ).value = '';
+
+        document.getElementById(
+            'newAddressCity'
+        ).value = '';
+
+        document.getElementById(
+            'newAddressState'
+        ).value = '';
+
+        document.getElementById(
+            'newAddressPincode'
+        ).value = '';
+
+        clearAddressErrors();
+
+    }
+
+
+    /* =========================================================
+       CLEAR ERRORS
+    ========================================================= */
+
+    function clearAddressErrors() {
+
+        document
+            .querySelectorAll(
+                '.checkout-new-address .checkout-field'
+            )
+            .forEach(function (field) {
+
+                field.classList.remove(
+                    'has-error'
+                );
+
             });
 
-        })();
-    </script>
+    }
+
+
+    /* =========================================================
+       FIELD ERROR
+    ========================================================= */
+
+    function setFieldError(id) {
+
+        const element =
+            document.getElementById(id);
+
+
+        if (!element) {
+            return;
+        }
+
+
+        const field =
+            element.closest(
+                '.checkout-field'
+            );
+
+
+        if (field) {
+
+            field.classList.add(
+                'has-error'
+            );
+
+        }
+
+    }
+
+
+    /* =========================================================
+       ERROR MESSAGE
+    ========================================================= */
+
+    function showAddressError(message) {
+
+        addressMessage.innerHTML = `
+
+            <div class="checkout-error">
+
+                ${escapeHtml(message)}
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =========================================================
+       SUCCESS MESSAGE
+    ========================================================= */
+
+    function showAddressSuccess(message) {
+
+        addressMessage.innerHTML = `
+
+            <div class="checkout-success">
+
+                ${escapeHtml(message)}
+
+            </div>
+
+        `;
+
+
+        setTimeout(function () {
+
+            addressMessage.innerHTML = '';
+
+        }, 3000);
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML
+    ========================================================= */
+
+    function escapeHtml(value) {
+
+        const div =
+            document.createElement('div');
+
+        div.textContent =
+            value ?? '';
+
+        return div.innerHTML;
+
+    }
+
+});
+</script>
 
 @endsection

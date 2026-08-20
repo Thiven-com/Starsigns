@@ -28,7 +28,7 @@ class CartController extends Controller
             ->get();
 
         return view('website.cart', compact('cartItems'));
-    }   
+    }
     public function add(Request $request)
     {
         // Customer must be logged in
@@ -115,33 +115,33 @@ class CartController extends Controller
      * Update cart quantity
      */
     public function update(Request $request)
-{
-    if (!Auth::guard('customer')->check()) {
+    {
+        if (!Auth::guard('customer')->check()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Please login first.'
+            ], 401);
+        }
+
+        $request->validate([
+            'id' => 'required|exists:cart_items,id',
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        $customerId = Auth::guard('customer')->id();
+
+        $cartItem = CartItem::where('id', $request->id)
+            ->where('user_id', $customerId)
+            ->firstOrFail();
+
+        $cartItem->quantity = $request->quantity;
+        $cartItem->save();
+
         return response()->json([
-            'success' => false,
-            'message' => 'Please login first.'
-        ], 401);
+            'success' => true,
+            'message' => 'Cart updated successfully.'
+        ]);
     }
-
-    $request->validate([
-        'id' => 'required|exists:cart_items,id',
-        'quantity' => 'required|integer|min:1'
-    ]);
-
-    $customerId = Auth::guard('customer')->id();
-
-    $cartItem = CartItem::where('id', $request->id)
-        ->where('user_id', $customerId)
-        ->firstOrFail();
-
-    $cartItem->quantity = $request->quantity;
-    $cartItem->save();
-
-    return response()->json([
-        'success' => true,
-        'message' => 'Cart updated successfully.'
-    ]);
-}
 
 
     /**
@@ -150,19 +150,31 @@ class CartController extends Controller
     public function remove($id)
     {
         if (!Auth::guard('customer')->check()) {
-            return redirect()->route('login');
+            return response()->json([
+                'success' => false,
+                'message' => 'Please login first.'
+            ], 401);
         }
 
         $customerId = Auth::guard('customer')->id();
 
-        CartItem::where('id', $id)
+        $cartItem = CartItem::where('id', $id)
             ->where('user_id', $customerId)
-            ->delete();
+            ->first();
 
-        return back()->with(
-            'success',
-            'Product removed from cart.'
-        );
+        if (!$cartItem) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cart item not found.'
+            ], 404);
+        }
+
+        $cartItem->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Product removed from cart.'
+        ]);
     }
 
 

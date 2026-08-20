@@ -17,12 +17,11 @@ Route::get('blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/product/{slug}', [PageController::class, 'productDetail'])->name('product-detail');
 Route::get('/blog/{slug}', [PageController::class, 'blogDetails'])->name('blog-details');
 // Route::get('cart', [PageController::class, 'cart'])->name('cart');
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::get('checkout', [PageController::class, 'checkout'])->name('checkout');
+
 // Route::get('wishlist', [PageController::class, 'wishlist'])->name('wishlist');
-Route::get('orders', [PageController::class, 'orders'])->name('orders');
+// Route::get('orders', [PageController::class, 'orders'])->name('orders');
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
-Route::get('myaccount', [PageController::class, 'myaccount'])->name('myaccount');
+
 // Route::get('login', [PageController::class, 'login'])->name('login');
 Route::get('register', [PageController::class, 'register'])->name('register');
 Route::get('blog-details', [PageController::class, 'blog_details'])->name('blog-details');
@@ -36,9 +35,12 @@ Route::get('privacy-policy', [PageController::class, 'privacy_policy'])->name('p
 
 Route::post('/wishlist/add', [WishlistController::class, 'add'])->name('customer.wishlist.add');
 
-Route::post('/cart/add', [CartController::class, 'add'])->name('customer.cart.add');
-Route::post('/cart/update', [CartController::class, 'update'])->name('customer.cart.update');
-Route::delete('/wishlist/remove/{id}', [WishlistController::class, 'remove'])->name('customer.wishlist.remove');
+
+
+Route::middleware(['customer'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('checkout', [PageController::class, 'checkout'])->name('checkout');
+});
 
 Route::get('login', [AccountController::class, 'login'])->name('login');
 Route::get('logout', [AccountController::class, 'logout'])->name('logout');

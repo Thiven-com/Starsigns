@@ -170,9 +170,80 @@ class PageController extends Controller
         ));
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
-        return view('website.checkout');
+        $customer = Auth::guard('customer')->user();
+
+        $query = CartItem::with([
+            'variant.product'
+        ]);
+
+        $query->where(
+            'user_id',
+            $customer->id
+        );
+
+        $cartItems = $query->get();
+
+        if ($cartItems->isEmpty()) {
+            return redirect()
+                ->route('cart')
+                ->with('error', 'Your cart is empty.');
+        }
+
+        $subtotal = 0;
+        $originalTotal = 0;
+        $totalQuantity = 0;
+
+        foreach ($cartItems as $item) {
+
+            $price = (float) $item->unit_price;
+
+            $oldPrice = (float) (
+                $item->variant->actual_price
+                ?? $item->variant->seller_price
+                ?? $price
+            );
+
+            $quantity = (int) $item->quantity;
+
+            $subtotal += $price * $quantity;
+
+            $originalTotal += $oldPrice * $quantity;
+
+            $totalQuantity += $quantity;
+        }
+
+        $discount = max(
+            0,
+            $originalTotal - $subtotal
+        );
+
+        $shipping = $subtotal >= 999 ? 0 : 0;
+
+        $total = $subtotal + $shipping;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Customer Saved Addresses
+        |--------------------------------------------------------------------------
+        */
+
+        $addresses = $customer->addresses()
+            ->latest()
+            ->get();
+
+        return view('website.checkout', compact(
+            'customer',
+            'cartItems',
+            'addresses',
+            'subtotal',
+            'originalTotal',
+            'discount',
+            'shipping',
+            'total',
+            'totalQuantity'
+        ));
     }
 
 

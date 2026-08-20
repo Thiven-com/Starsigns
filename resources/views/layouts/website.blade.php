@@ -55,7 +55,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 </head>
@@ -441,7 +441,7 @@
                 transition: .3s ease;
             }
 
-            
+
 
             .mobile-bottom-bar .bottom-item:hover,
             .mobile-bottom-bar .bottom-item.active {
@@ -718,19 +718,32 @@ MOBILE SEARCH MODAL
 
                         <div class="account-info">
 
-                            <a href="{{ route('login') }}" class="login-link">
-                                Login
-                            </a>
+                            @auth('customer')
 
-                            <a href="{{ route('myaccount') }}" class="account-link">
-                                My Account
-                                <i class="fa-solid fa-angle-down"></i>
-                            </a>
+                                <a href="{{ route('myaccount') }}" class="account-link">
+                                    My Account
+                                </a>
+
+                                <form action="{{ route('logout') }}" style="display:inline;">
+                                    @csrf
+
+                                    <button type="submit"
+                                        style="background:none;border:none;padding:0;cursor:pointer;color:white">
+                                        Logout
+                                    </button>
+                                </form>
+
+                            @else
+
+                                <a href="{{ route('login') }}" class="login-link">
+                                    Login
+                                </a>
+
+                            @endauth
 
                         </div>
 
                     </div>
-
                     <a href="{{ route('wishlist') }}" class="wishlist">
                         <i class="fa-regular fa-heart"></i>
                     </a>
@@ -741,11 +754,11 @@ MOBILE SEARCH MODAL
 
                             <i class="fa-solid fa-cart-shopping"></i>
 
-                            <span>0</span>
+                            {{-- <span>0</span> --}}
 
                         </div>
 
-                        <strong>₹0.00</strong>
+                        {{-- <strong>₹0.00</strong> --}}
 
                     </a>
 
@@ -784,9 +797,6 @@ MOBILE SEARCH MODAL
                     <li><a href="{{ route('shop') }}">Shop</a></li>
                     <li><a href="{{ route('about') }}">About Us</a></li>
                     <li><a href="{{ route('blog') }}">Blogs</a></li>
-                    {{-- <li><a href="{{ route('product-detail', $product->slug) }}">Product Details</a></li> --}}
-                    <li><a href="{{ route('checkout') }}">Checkout</a></li>
-                    <li><a href="{{ route('orders') }}">My Orders</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
             </div>
@@ -957,22 +967,23 @@ MOBILE SEARCH MODAL
         }
     </style>
 
-
     <!--==================================
-            MAIN FOOTER
+        MAIN FOOTER
 ===================================-->
-
     <section class="main-footer">
 
         <div class="container">
 
             <div class="footer-grid">
 
-                <!-- Footer About -->
+                {{-- =========================================
+                ABOUT
+                ========================================== --}}
+                <div class="footer-about">
 
-                <div class="footer-about" data-aos="fade-right" data-aos-delay="100">
-
-                    <img src="{{ asset('website') }}/images/logistar1.png" alt="Logo" class="footer-logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('website/images/logistar1.png') }}" alt="StarSigns" class="footer-logo">
+                    </a>
 
                     <p>
                         Premium spiritual products to attract wealth,
@@ -982,100 +993,246 @@ MOBILE SEARCH MODAL
 
                     <div class="social-icons">
 
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
 
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
 
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
 
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
 
                     </div>
 
                 </div>
 
-                <!-- Information -->
 
-                <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
+                {{-- =========================================
+                INFORMATION
+                ========================================== --}}
+                <div class="footer-links">
 
                     <h3>Information</h3>
 
                     <ul>
 
-                        <li><a href="{{ route('about') }}">About Us</a></li>
+                        <li>
+                            <a href="{{ route('home') }}">
+                                Home
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                        <li>
+                            <a href="{{ route('about') }}">
+                                About Us
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('blog') }}">Blog</a></li>
+                        <li>
+                            <a href="{{ route('shop') }}">
+                                Shop
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('orders') }}">Track Order</a></li>
+                        <li>
+                            <a href="{{ route('blog') }}">
+                                Blog
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('faq') }}">FAQ</a></li>
+                        <li>
+                            <a href="{{ route('contact') }}">
+                                Contact Us
+                            </a>
+                        </li>
+
+
+                        {{-- @if(Route::has('faq'))
+
+                            <li>
+                                <a href="{{ route('faq') }}">
+                                    FAQ
+                                </a>
+                            </li>
+
+                        @endif --}}
 
                     </ul>
 
                 </div>
 
-                <!-- Customer Service -->
 
-                <div class="footer-links" data-aos="fade-down" data-aos-delay="300">
+                {{-- =========================================
+                CUSTOMER SERVICE
+                ========================================== --}}
+                <div class="footer-links">
 
                     <h3>Customer Service</h3>
 
                     <ul>
 
-                        <li><a href="{{ route('shippolicy') }}">Shipping Policy</a></li>
+                        <li>
+                            <a href="{{ route('shippolicy') }}">
+                                Shipping Policy
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('refundpolicy') }}">Return & Refund</a></li>
+                        <li>
+                            <a href="{{ route('refundpolicy') }}">
+                                Return & Refund
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('terms') }}">Terms & Conditions</a></li>
+                        <li>
+                            <a href="{{ route('terms') }}">
+                                Terms & Conditions
+                            </a>
+                        </li>
 
-                        <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+                        <li>
+                            <a href="{{ route('privacy-policy') }}">
+                                Privacy Policy
+                            </a>
+                        </li>
 
-                        {{-- <li><a href="#">Help Center</a></li> --}}
+                        <li>
+                            <a href="{{ route('contact') }}">
+                                Help Center
+                            </a>
+                        </li>
 
                     </ul>
 
                 </div>
 
-                <!-- Account -->
 
-                <div class="footer-links" data-aos="fade-up" data-aos-delay="400">
+                {{-- =========================================
+                MY ACCOUNT - DYNAMIC
+                ========================================== --}}
+                <div class="footer-links">
+
                     <h3>My Account</h3>
 
                     <ul>
 
-                        <li><a href="{{ route('orders') }}">My Orders</a></li>
+                        @auth('customer')
 
-                        <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                            {{-- Logged in --}}
 
-                        <li><a href="{{ route('contact') }}">My Address</a></li>
+                            <li>
+                                <a href="{{ route('myaccount') }}">
+                                    <i class="fa-regular fa-user"></i>
+                                    My Profile
+                                </a>
+                            </li>
 
-                        <li><a href="{{ route('myaccount') }}">My Profile</a></li>
+                            <li>
+                                <a href="{{ route('customer.orders') }}">
+                                    <i class="fa-solid fa-box"></i>
+                                    My Orders
+                                </a>
+                            </li>
 
-                        <!-- <li><a href="#">Consultations</a></li> -->
+                            <li>
+                                <a href="{{ route('wishlist') }}">
+                                    <i class="fa-regular fa-heart"></i>
+                                    Wishlist
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('customer.addresses') }}">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    My Addresses
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('cart') }}">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    My Cart
+                                </a>
+                            </li>
+
+                        @else
+
+                            {{-- Guest --}}
+
+                            <li>
+                                <a href="{{ route('login') }}">
+                                    <i class="fa-regular fa-user"></i>
+                                    Login
+                                </a>
+                            </li>
+
+                           
+
+                            <li>
+                                <a href="{{ route('cart') }}">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Cart
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('wishlist') }}">
+                                    <i class="fa-regular fa-heart"></i>
+                                    Wishlist
+                                </a>
+                            </li>
+
+                        @endauth
 
                     </ul>
 
                 </div>
 
-                <!-- Categories -->
 
-                <div class="footer-links" data-aos="fade-up">
+                {{-- =========================================
+                POPULAR CATEGORIES
+                ========================================== --}}
+                <div class="footer-links">
 
                     <h3>Popular Categories</h3>
 
                     <ul>
 
-                        <li><a href="#">Rudraksha</a></li>
+                        <li>
+                            <a href="{{ route('shop', ['search' => 'Rudraksha']) }}">
+                                Rudraksha
+                            </a>
+                        </li>
 
-                        <li><a href="#">Gemstones</a></li>
+                        <li>
+                            <a href="{{ route('shop', ['search' => 'Gemstone']) }}">
+                                Gemstones
+                            </a>
+                        </li>
 
-                        <li><a href="#">Bracelets</a></li>
+                        <li>
+                            <a href="{{ route('shop', ['search' => 'Bracelet']) }}">
+                                Bracelets
+                            </a>
+                        </li>
 
-                        <li><a href="#">Yantras</a></li>
+                        <li>
+                            <a href="{{ route('shop', ['search' => 'Yantra']) }}">
+                                Yantras
+                            </a>
+                        </li>
 
-                        <li><a href="#">Pyramids</a></li>
+                        <li>
+                            <a href="{{ route('shop', ['search' => 'Pyramid']) }}">
+                                Pyramids
+                            </a>
+                        </li>
 
                     </ul>
 
@@ -1088,52 +1245,62 @@ MOBILE SEARCH MODAL
     </section>
 
 
-
     <!--==================================
         FOOTER BOTTOM
 ===================================-->
-
     <section class="footer-bottom">
 
         <div class="container">
 
             <div class="footer-bottom-wrapper">
 
-                <!-- Copyright -->
-
+                {{-- Copyright --}}
                 <div class="copyright">
 
                     <p>
-                        © 2025 StarSigns. All Rights Reserved. Developed by <a href="https://www.thiven.com/"
-                            target="_blank" style="text-decoration: none;color:white;">ThiVen</a>
+                        © {{ date('Y') }} StarSigns.
+                        All Rights Reserved.
+
+                        Developed by
+
+                        <a href="https://www.thiven.com/" target="_blank" rel="noopener"
+                            style="text-decoration:none;color:white;">
+                            ThiVen
+                        </a>
                     </p>
 
                 </div>
 
-                <!-- Payment Methods -->
 
+                {{-- Payment Methods --}}
                 <div class="payment-methods">
 
-                    <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a>
-                    {{-- <a href="#"> <img src="{{ asset('website') }}/images/visa.png" alt="Visa"></a> --}}
+                    <a href="#">
+                        <img src="{{ asset('website/images/visa.png') }}" alt="Visa">
+                    </a>
 
-                    <a href="#"> <img src="{{ asset('website') }}/images/mastercard.png" alt="Mastercard"></a>
+                    <a href="#">
+                        <img src="{{ asset('website/images/mastercard.png') }}" alt="Mastercard">
+                    </a>
 
-                    <a href="#"> <img src="{{ asset('website') }}/images/upi.png" alt="UPI"></a>
+                    <a href="#">
+                        <img src="{{ asset('website/images/upi.png') }}" alt="UPI">
+                    </a>
 
-                    <a href="##"> <img src="{{ asset('website') }}/images/paytm.png" alt="Paytm"></a>
+                    <a href="#">
+                        <img src="{{ asset('website/images/paytm.png') }}" alt="Paytm">
+                    </a>
 
-                    <a href="#"> <img src="{{ asset('website') }}/images/phonepay.png" alt="PhonePe"></a>
+                    <a href="#">
+                        <img src="{{ asset('website/images/phonepay.png') }}" alt="PhonePe">
+                    </a>
 
                 </div>
 
 
-                <!-- Back To Top -->
-
-                <a href="#" class="scroll-top">
-
+                {{-- Back To Top --}}
+                <a href="#" class="scroll-top" aria-label="Back to top">
                     <i class="fa-solid fa-arrow-up"></i>
-
                 </a>
 
             </div>
@@ -1141,6 +1308,83 @@ MOBILE SEARCH MODAL
         </div>
 
     </section>
+
+
+    <style>
+        /* =========================================
+       FOOTER ACCOUNT LINKS
+    ========================================= */
+
+        .footer-links ul li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links ul li a i {
+            width: 17px;
+            font-size: 13px;
+            color: #f4b42d;
+        }
+
+        .footer-logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            width: 100%;
+
+            padding: 0;
+
+            border: 0;
+            outline: none;
+
+            background: transparent;
+
+            color: #fff;
+
+            font-family: inherit;
+            font-size: inherit;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition: .25s ease;
+        }
+
+        .footer-logout-btn i {
+            width: 17px;
+            font-size: 13px;
+            color: #f4b42d;
+        }
+
+        .footer-logout-btn:hover {
+            color: #f4b42d;
+        }
+
+        .footer-logout-btn:hover i {
+            color: #f4b42d;
+        }
+
+
+        /* =========================================
+       MOBILE
+    ========================================= */
+
+        @media (max-width: 767px) {
+
+            .footer-links ul li a,
+            .footer-logout-btn {
+                font-size: 14px;
+            }
+
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+
+        }
+    </style>
 
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -1214,19 +1458,35 @@ MOBILE SEARCH MODAL
 ========================= -->
 <div class="mobile-bottom-bar">
 
+    {{-- Home --}}
     <a href="{{ route('home') }}" class="bottom-item">
         <i class="fa-solid fa-house"></i>
         <span>Home</span>
     </a>
 
+    {{-- Search --}}
     <a href="javascript:void(0)" class="bottom-item" id="mobileSearchBtn">
         <i class="fa-solid fa-magnifying-glass"></i>
         <span>Search</span>
     </a>
 
+    {{-- Cart --}}
     <a href="{{ route('cart') }}" class="bottom-item">
         <i class="fa-solid fa-cart-shopping"></i>
         <span>Cart</span>
+    </a>
+
+    {{-- Account / Login --}}
+    <a href="{{ auth('customer')->check()
+    ? route('myaccount')
+    : route('login') }}" class="bottom-item">
+
+        <i class="fa-regular fa-user"></i>
+
+        <span>
+            {{ auth('customer')->check() ? 'Account' : 'Login' }}
+        </span>
+
     </a>
 
 </div>
@@ -1298,4 +1558,5 @@ MOBILE PRODUCT SEARCH MODAL
     closeSearchOverlay.addEventListener('click', closeSearchModal);
     closeSearchBtn.addEventListener('click', closeSearchModal);
 </script>
+
 </html>
