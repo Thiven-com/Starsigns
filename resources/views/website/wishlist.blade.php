@@ -2,8 +2,8 @@
 @section('content')
 
     <!--==========================
-                        PAGE BANNER (shared layout component - reused as-is)
-                    ===========================-->
+                            PAGE BANNER (shared layout component - reused as-is)
+                        ===========================-->
     <section class="wishlist-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
@@ -49,8 +49,8 @@
 
 
     <!--==========================================
-                        WISHLIST PAGE CONTENT
-                    ===========================================-->
+                            WISHLIST PAGE CONTENT
+                        ===========================================-->
 
     <section class="wishlist-page-section">
 
@@ -66,8 +66,8 @@
             </div>
 
             <!--=========================
-                                HEADER ROW
-                            ==========================-->
+                                    HEADER ROW
+                                ==========================-->
 
             <div class="wishlist-page-header">
 
@@ -99,8 +99,8 @@
             </div>
 
             <!--=========================
-                                WISHLIST GRID
-                            ==========================-->
+                                    WISHLIST GRID
+                                ==========================-->
 
             <div class="wishlist-page-grid" id="wishlistPageGrid">
 
@@ -275,4 +275,332 @@
         </div>
 
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /*
+            |--------------------------------------------------------------------------
+            | REMOVE FROM WISHLIST
+            |--------------------------------------------------------------------------
+            */
+
+            document.addEventListener('click', async function (event) {
+
+                const removeButton = event.target.closest(
+                    '.wishlist-page-heart-btn, .wishlist-page-remove-btn'
+                );
+
+                if (!removeButton) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const wishlistId = removeButton.dataset.id;
+
+                if (!wishlistId) {
+                    alert('Wishlist item not found.');
+                    return;
+                }
+
+                const card = removeButton.closest('.wishlist-page-card');
+
+                if (!confirm('Remove this item from your wishlist?')) {
+                    return;
+                }
+
+                const originalHTML = removeButton.innerHTML;
+
+                removeButton.disabled = true;
+
+                removeButton.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            `;
+
+                try {
+
+                    const response = await fetch(
+                        "{{ url('/customer/wishlist/remove') }}/" + wishlistId,
+                        {
+                            method: 'DELETE',
+
+                            headers: {
+                                'Accept': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                            }
+                        }
+                    );
+
+                    const text = await response.text();
+
+                    console.log('Wishlist Remove Response:', text);
+
+                    let data;
+
+                    try {
+                        data = JSON.parse(text);
+                    } catch (e) {
+                        throw new Error(
+                            'Server returned an invalid response.'
+                        );
+                    }
+
+                    if (!response.ok || !data.status) {
+                        throw new Error(
+                            data.message || 'Unable to remove wishlist item.'
+                        );
+                    }
+
+                    if (card) {
+
+                        card.style.transition = 'all 0.3s ease';
+
+                        card.style.opacity = '0';
+
+                        card.style.transform = 'scale(0.9)';
+
+                        setTimeout(function () {
+
+                            card.remove();
+
+                            checkWishlistEmpty();
+
+                        }, 300);
+                    }
+
+                    updateWishlistCount(data.count);
+
+                } catch (error) {
+
+                    console.error('Wishlist Remove Error:', error);
+
+                    alert(
+                        error.message ||
+                        'Something went wrong while removing the item.'
+                    );
+
+                    removeButton.innerHTML = originalHTML;
+
+                    removeButton.disabled = false;
+                }
+
+            });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | ADD TO CART
+            |--------------------------------------------------------------------------
+            */
+
+            document.addEventListener('click', async function (event) {
+
+                const button = event.target.closest('.addToCartBtn');
+
+                if (!button) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const variantId = button.dataset.id;
+
+                if (!variantId) {
+                    alert('Product variant not found.');
+                    return;
+                }
+
+                const originalHTML = button.innerHTML;
+
+                button.disabled = true;
+
+                button.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Adding...
+            `;
+
+                try {
+
+                    const response = await fetch(
+                        "{{ route('customer.cart.add') }}",
+                        {
+                            method: 'POST',
+
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                            },
+
+                            body: JSON.stringify({
+                                product_variant_id: variantId,
+                                quantity: 1
+                            })
+                        }
+                    );
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | If user is not logged in
+                    |--------------------------------------------------------------------------
+                    */
+
+                    if (
+                        response.status === 401 ||
+                        response.status === 419
+                    ) {
+
+                        window.location.href = "{{ route('login') }}";
+
+                        return;
+                    }
+
+                    const text = await response.text();
+
+                    console.log('Cart Response:', text);
+
+                    let data;
+
+                    try {
+
+                        data = JSON.parse(text);
+
+                    } catch (e) {
+
+                        console.error('Invalid JSON:', text);
+
+                        throw new Error(
+                            'Server returned an invalid response.'
+                        );
+                    }
+
+                    if (!response.ok || !data.status) {
+
+                        throw new Error(
+                            data.message ||
+                            'Unable to add product to cart.'
+                        );
+                    }
+
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | SUCCESS
+                    |--------------------------------------------------------------------------
+                    */
+
+                    button.innerHTML = `
+                    <i class="fa-solid fa-check"></i>
+                    Added to Cart
+                `;
+
+                    updateCartCount(data.count);
+
+                    setTimeout(function () {
+
+                        button.innerHTML = originalHTML;
+
+                        button.disabled = false;
+
+                    }, 1500);
+
+                } catch (error) {
+
+                    console.error('Cart Error:', error);
+
+                    alert(
+                        error.message ||
+                        'Something went wrong while adding to cart.'
+                    );
+
+                    button.innerHTML = originalHTML;
+
+                    button.disabled = false;
+                }
+
+            });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | UPDATE CART COUNT
+            |--------------------------------------------------------------------------
+            */
+
+            function updateCartCount(count) {
+
+                if (count === undefined) {
+                    return;
+                }
+
+                document.querySelectorAll(
+                    '.cart-count'
+                ).forEach(function (element) {
+
+                    element.textContent = count;
+
+                });
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | UPDATE WISHLIST COUNT
+            |--------------------------------------------------------------------------
+            */
+
+            function updateWishlistCount(count) {
+
+                if (count === undefined) {
+                    return;
+                }
+
+                document.querySelectorAll(
+                    '.wishlist-count'
+                ).forEach(function (element) {
+
+                    element.textContent = count;
+
+                });
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | SHOW EMPTY STATE
+            |--------------------------------------------------------------------------
+            */
+
+            function checkWishlistEmpty() {
+
+                const grid = document.getElementById(
+                    'wishlistPageGrid'
+                );
+
+                const emptyBox = document.getElementById(
+                    'wishlistPageEmpty'
+                );
+
+                if (!grid || !emptyBox) {
+                    return;
+                }
+
+                const cards = grid.querySelectorAll(
+                    '.wishlist-page-card'
+                );
+
+                if (cards.length === 0) {
+
+                    emptyBox.style.display = 'block';
+
+                }
+
+            }
+
+        });
+    </script>
 @endsection

@@ -89,11 +89,35 @@ class WishlistController extends Controller
 
     public function remove($id)
     {
-        WishlistItem::where('user_id', Auth::guard('customer')->id())
+        if (!Auth::guard('customer')->check()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Please login first.'
+            ], 401);
+        }
+
+        $customerId = Auth::guard('customer')->id();
+
+        $wishlistItem = WishlistItem::where('user_id', $customerId)
             ->where('id', $id)
-            ->delete();
-        Alert::toast('Removed from wishlist', 'success');
-        return back()->with('success', 'Removed from wishlist');
+            ->first();
+
+        if (!$wishlistItem) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Wishlist item not found.'
+            ], 404);
+        }
+
+        $wishlistItem->delete();
+
+        $count = WishlistItem::where('user_id', $customerId)->count();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Removed from wishlist successfully.',
+            'count' => $count
+        ]);
     }
 
 }
