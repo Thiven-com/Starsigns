@@ -35,7 +35,12 @@ Route::get('privacy-policy', [PageController::class, 'privacy_policy'])->name('p
 
 Route::post('/wishlist/add', [WishlistController::class, 'add'])->name('customer.wishlist.add');
 
-
+Route::post(
+    '/newsletter/subscribe',
+    [PageController::class, 'subscriptionStore']
+)->name('subscription.store');
+Route::post('/contact-store', [PageController::class, 'contactStore'])
+    ->name('contactStore');
 
 Route::middleware(['customer'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');

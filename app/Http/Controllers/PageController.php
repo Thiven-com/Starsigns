@@ -6,7 +6,9 @@ use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\CartItem;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Subscription;
 use App\Models\Testimonial;
 use App\Models\WishlistItem;
 use Illuminate\Http\Request;
@@ -42,21 +44,112 @@ class PageController extends Controller
 
     public function shop(Request $request)
     {
-        $query = Product::with(['category', 'variant'])->where('status', 'show');
+        $query = Product::query()
+            ->with([
+                'category',
+                'variant'
+            ])
+            ->where('status', 'show');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | CATEGORY FILTER
+        |--------------------------------------------------------------------------
+        */
+
         if ($request->filled('category')) {
-            $query->where('category_id', $request->category);
+
+            $query->where(
+                'category_id',
+                $request->category
+            );
         }
-        if ($request->sort == 'low_high') {
-            $query->join('product_variants', 'products.id', '=', 'product_variants.product_id')->orderBy('product_variants.price', 'asc')->select('products.*');
-        } elseif ($request->sort == 'high_low') {
-            $query->join('product_variants', 'products.id', '=', 'product_variants.product_id')->orderBy('product_variants.price', 'desc')->select('products.*');
+        if ($request->filled('search')) {
+
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+
+                $q->where('title', 'like', '%' . $search . '%')
+
+                    ->orWhere('description', 'like', '%' . $search . '%')
+
+                    ->orWhereHas('category', function ($categoryQuery) use ($search) {
+
+                        $categoryQuery->where(
+                            'title',
+                            'like',
+                            '%' . $search . '%'
+                        );
+
+                    });
+
+            });
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | SORT FILTER
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->sort === 'low_high') {
+
+            $query->orderBy(
+                \App\Models\ProductVariant::select('price')
+                    ->whereColumn(
+                        'product_variants.product_id',
+                        'products.id'
+                    )
+                    ->orderBy('price', 'asc')
+                    ->limit(1),
+                'asc'
+            );
+
+        } elseif ($request->sort === 'high_low') {
+
+            $query->orderBy(
+                \App\Models\ProductVariant::select('price')
+                    ->whereColumn(
+                        'product_variants.product_id',
+                        'products.id'
+                    )
+                    ->orderBy('price', 'desc')
+                    ->limit(1),
+                'desc'
+            );
+
         } else {
+
             $query->latest();
         }
 
-        $products = $query->paginate(12)->withQueryString();
-        $categories = Category::where('status', 'show')->where('parent_id', 0)->withCount('products')->get();
-        return view('website.shop', compact('products', 'categories'));
+
+        $products = $query
+            ->paginate(12)
+            ->withQueryString();
+
+
+        $categories = Category::where('status', 'show')
+            ->where('parent_id', 0)
+            ->withCount([
+                'products' => function ($query) {
+                    $query->where('status', 'show');
+                }
+            ])
+            ->get();
+
+
+        return view(
+            'website.shop',
+            compact(
+                'products',
+                'categories'
+            )
+        );
     }
 
 
@@ -333,4 +426,66 @@ class PageController extends Controller
     // {
     //     return view('website.offers');
     // }
+
+    public function subscriptionStore(Request $request)
+    {
+        $validator = \Illuminate\Support\Facades\Validator::make(
+            $request->all(),
+            [
+                'email' => 'required|email|max:255',
+            ]
+        );
+
+        if ($validator->fails()) {
+
+            return response()->json([
+                'status' => false,
+                'message' => $validator->errors()->first('email'),
+            ], 422);
+        }
+
+        $email = strtolower(trim($request->email));
+
+        $exists = Subscription::where('email', $email)->exists();
+
+        if ($exists) {
+
+            return response()->json([
+                'status' => false,
+                'message' => 'This email is already subscribed.'
+            ], 422);
+        }
+
+        Subscription::create([
+            'email' => $email,
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Thank you for subscribing to our newsletter!'
+        ], 200);
+    }
+
+    public function contactStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'nullable|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+
+        return redirect()
+            ->route('contact')
+            ->with('success', 'Thank you! Your message has been sent successfully.');
+    }
 }

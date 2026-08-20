@@ -1586,7 +1586,7 @@
 
                     <!-- Coupon -->
 
-                    <div class="cart-page-coupon-label">
+                    {{-- <div class="cart-page-coupon-label">
 
                         <i class="fa-solid fa-ticket"></i>
 
@@ -1606,7 +1606,7 @@
 
                         </button>
 
-                    </div>
+                    </div> --}}
 
 
                     <div class="cart-page-coupon-msg" id="cartPageCouponMsg"></div>
@@ -1623,13 +1623,13 @@
                     </button>
 
 
-                    <button type="button" class="cart-page-secure-btn">
+                    {{-- <button type="button" class="cart-page-secure-btn">
 
                         <i class="fa-solid fa-shield-halved"></i>
 
                         Secure Checkout
 
-                    </button>
+                    </button> --}}
 
 
                     <!-- Perks -->

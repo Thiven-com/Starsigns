@@ -55,7 +55,7 @@
                 </h2>
 
                 <p>
-                    AstroStore was born out of a simple belief—that authentic
+                    StarSigns was born out of a simple belief that authentic
                     spiritual products have the power to bring positivity,
                     balance, and transformation into everyday life.
                 </p>
@@ -68,7 +68,6 @@
 
                 <div class="features">
 
-                    <!-- Feature 1 -->
                     <div class="feature" data-aos="flip-up" data-aos-delay="100">
                         <div class="icon">
                             <i class="fa-solid fa-shield-heart"></i>
@@ -76,11 +75,10 @@
 
                         <div class="feature-content">
                             <h4>100% Authentic</h4>
-                            <p>Certified genuine spiritual products.</p>
+                            <p>Certified genuine products you can trust.</p>
                         </div>
                     </div>
 
-                    <!-- Feature 2 -->
                     <div class="feature" data-aos="flip-up" data-aos-delay="200">
                         <div class="icon">
                             <i class="fa-solid fa-hands-praying"></i>
@@ -88,11 +86,10 @@
 
                         <div class="feature-content">
                             <h4>Ethically Sourced</h4>
-                            <p>Sourced responsibly with care and devotion.</p>
+                            <p>Responsibly sourced with care and devotion.</p>
                         </div>
                     </div>
 
-                    <!-- Feature 3 -->
                     <div class="feature" data-aos="flip-up" data-aos-delay="300">
                         <div class="icon">
                             <i class="fa-regular fa-gem"></i>
@@ -100,7 +97,7 @@
 
                         <div class="feature-content">
                             <h4>Premium Quality</h4>
-                            <p>Finest quality spiritual products.</p>
+                            <p>Finest quality products selected with care.</p>
                         </div>
                     </div>
 
@@ -113,8 +110,8 @@
 
 
     <!--==========================================
-                                    WHY CHOOSE US
-                                    ===========================================-->
+                                                    WHY CHOOSE US
+                                                    ===========================================-->
 
     <section class="why-choose-section">
 
@@ -132,62 +129,53 @@
 
                 <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon">
-
-                        <i class="fa-solid fa-award"></i>
-
+                        <i class="fa-solid fa-hands-praying"></i>
                     </div>
 
-                    <h4>Authenticity Guaranteed</h4>
+                    <h4>Spiritually Curated</h4>
 
                     <p>
-                        Every product is lab tested and certified.
+                        Thoughtfully selected products for your spiritual journey.
                     </p>
-
                 </div>
+
 
                 <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon">
-
-                        <i class="fa-regular fa-thumbs-up"></i>
-
+                        <i class="fa-solid fa-certificate"></i>
                     </div>
 
-                    <h4>Trusted by Thousands</h4>
+                    <h4>Quality Checked</h4>
 
                     <p>
-                        Loved and trusted by customers worldwide.
+                        Carefully inspected products chosen with attention and care.
                     </p>
-
                 </div>
+
 
                 <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="icon">
-
-                        <i class="fa-solid fa-truck-fast"></i>
-
+                        <i class="fa-solid fa-star"></i>
                     </div>
 
-                    <h4>Fast & Secure Delivery</h4>
+                    <h4>Trusted Experience</h4>
 
                     <p>
-                        Quick delivery with secure packaging.
+                        A reliable destination for meaningful spiritual essentials.
                     </p>
-
                 </div>
+
 
                 <div class="why-card" data-aos="zoom-in" data-aos-delay="400">
                     <div class="icon">
-
-                        <i class="fa-solid fa-headset"></i>
-
+                        <i class="fa-solid fa-gift"></i>
                     </div>
 
-                    <h4>Dedicated Support</h4>
+                    <h4>Thoughtful Selection</h4>
 
                     <p>
-                        We're here to help you on your spiritual journey.
+                        Discover products chosen to bring positivity and meaning.
                     </p>
-
                 </div>
 
             </div>
@@ -211,8 +199,8 @@
 
 
     <!--==========================
-                            FEATURE STRIP
-                            ===========================-->
+                                            FEATURE STRIP
+                                            ===========================-->
 
     <section class="feature-strip">
 

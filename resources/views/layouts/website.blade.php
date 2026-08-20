@@ -681,7 +681,7 @@ MOBILE SEARCH MODAL
                 <!-- Logo -->
                 <div class="header-logo">
 
-                    <a href="#">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('website') }}/images/logistar1.png" alt="Logo">
                     </a>
 
@@ -689,23 +689,44 @@ MOBILE SEARCH MODAL
 
                 <!-- Search -->
                 <div class="header-search">
+                    @php
+                        $scategories = App\Models\Category::get();
+                    @endphp
 
-                    <div class="search-box">
+                    <form action="{{ route('shop') }}" method="GET">
 
-                        <select>
-                            <option>All Categories</option>
-                            <option>Rudraksha</option>
-                            <option>Bracelets</option>
-                            <option>Gemstones</option>
-                        </select>
+                        <div class="search-box">
 
-                        <input type="text" placeholder="Search for products, categories...">
+                            <select name="category">
 
-                        <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
+                                <option value="">
+                                    All Categories
+                                </option>
 
-                    </div>
+                                @foreach($scategories ?? [] as $category)
+
+                                    <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+
+                                        {{ $category->title }}
+
+                                    </option>
+
+                                @endforeach
+
+                            </select>
+
+
+                            <input type="text" name="search" value="{{ request('search') }}"
+                                placeholder="Search for products, categories...">
+
+
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+
+                        </div>
+
+                    </form>
 
                 </div>
 
@@ -788,18 +809,47 @@ MOBILE SEARCH MODAL
                 </div>
 
                 <!-- Menu Toggle -->
-                <button class="nav-toggle" id="navToggle">
+                <button class="nav-toggle" id="navToggle" type="button">
                     <i class="fa-solid fa-bars"></i>
                 </button>
 
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="{{ route('home') }}" class="active">Home</a></li>
-                    <li><a href="{{ route('shop') }}">Shop</a></li>
-                    <li><a href="{{ route('about') }}">About Us</a></li>
-                    <li><a href="{{ route('blog') }}">Blogs</a></li>
-                    <li><a href="{{ route('contact') }}">Contact</a></li>
+
+                    <li>
+                        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('shop') }}" class="{{ request()->routeIs('shop') ? 'active' : '' }}">
+                            Shop
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('blog') }}"
+                            class="{{ request()->routeIs('blog', 'blog.*') ? 'active' : '' }}">
+                            Blogs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                            Contact
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
+
         </div>
     </nav>
 
@@ -832,11 +882,32 @@ MOBILE SEARCH MODAL
 
                 </div>
 
+
                 <!-- Right -->
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+                <div class="newsletter-right">
+
+                    <form class="newsletter-form" id="newsletterForm" action="{{ route('subscription.store') }}"
+                        method="POST">
+                        @csrf
+
+                        <input type="email" name="email" id="newsletterEmail" placeholder="Enter your email address"
+                            required>
+
+                        <button type="submit" id="subscribeBtn">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+
+                    <!-- Success / Error Message -->
+                    <div id="newsletterMessage" style="
+                        display: none;
+                        margin-top: 10px;
+                        font-size: 14px;
+                        font-weight: 500;"></div>
+
+                </div>
 
             </div>
 
@@ -1056,11 +1127,11 @@ MOBILE SEARCH MODAL
 
                         {{-- @if(Route::has('faq'))
 
-                            <li>
-                                <a href="{{ route('faq') }}">
-                                    FAQ
-                                </a>
-                            </li>
+                        <li>
+                            <a href="{{ route('faq') }}">
+                                FAQ
+                            </a>
+                        </li>
 
                         @endif --}}
 
@@ -1172,7 +1243,7 @@ MOBILE SEARCH MODAL
                                 </a>
                             </li>
 
-                           
+
 
                             <li>
                                 <a href="{{ route('cart') }}">
@@ -1193,7 +1264,9 @@ MOBILE SEARCH MODAL
                     </ul>
 
                 </div>
-
+                @php
+                    $cats = App\Models\Category::inRandomOrder()->take(5)->get();
+                 @endphp
 
                 {{-- =========================================
                 POPULAR CATEGORIES
@@ -1203,37 +1276,13 @@ MOBILE SEARCH MODAL
                     <h3>Popular Categories</h3>
 
                     <ul>
-
-                        <li>
-                            <a href="{{ route('shop', ['search' => 'Rudraksha']) }}">
-                                Rudraksha
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('shop', ['search' => 'Gemstone']) }}">
-                                Gemstones
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('shop', ['search' => 'Bracelet']) }}">
-                                Bracelets
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('shop', ['search' => 'Yantra']) }}">
-                                Yantras
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('shop', ['search' => 'Pyramid']) }}">
-                                Pyramids
-                            </a>
-                        </li>
-
+                        @foreach ($cats as $cat)
+                            <li>
+                                <a href="{{ route('shop', ['category' => $cat->id]) }}">
+                                    {{$cat->title}}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
 
                 </div>
@@ -1557,6 +1606,127 @@ MOBILE PRODUCT SEARCH MODAL
 
     closeSearchOverlay.addEventListener('click', closeSearchModal);
     closeSearchBtn.addEventListener('click', closeSearchModal);
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterEmail = document.getElementById('newsletterEmail');
+        const subscribeBtn = document.getElementById('subscribeBtn');
+        const newsletterMessage = document.getElementById('newsletterMessage');
+
+        if (!newsletterForm) return;
+
+        newsletterForm.addEventListener('submit', function (e) {
+
+            e.preventDefault();
+
+            const originalText = subscribeBtn.innerHTML;
+
+            subscribeBtn.disabled = true;
+            subscribeBtn.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Subscribing...
+        `;
+
+            newsletterMessage.style.display = 'none';
+
+            fetch(newsletterForm.action, {
+                method: 'POST',
+
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector(
+                        'input[name="_token"]'
+                    ).value,
+
+                    'Accept': 'application/json',
+
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+
+                body: new FormData(newsletterForm)
+            })
+
+                .then(async function (response) {
+
+                    const contentType =
+                        response.headers.get('content-type');
+
+                    const text = await response.text();
+
+                    console.log('Status:', response.status);
+                    console.log('Response:', text);
+
+                    let data;
+
+                    try {
+                        data = JSON.parse(text);
+                    } catch (error) {
+
+                        console.error('Server returned HTML instead of JSON:', text);
+
+                        throw {
+                            message: 'Server returned an invalid response. Please check the Laravel route or controller.'
+                        };
+                    }
+
+                    if (!response.ok) {
+                        throw data;
+                    }
+
+                    return data;
+                })
+
+                .then(function (data) {
+
+                    newsletterMessage.style.display = 'block';
+                    newsletterMessage.style.color = '#198754';
+
+                    newsletterMessage.innerHTML = `
+                <i class="fa-solid fa-circle-check"></i>
+                ${data.message}
+            `;
+
+                    newsletterEmail.value = '';
+
+                })
+
+                .catch(function (error) {
+
+                    console.error('Newsletter Error:', error);
+
+                    newsletterMessage.style.display = 'block';
+                    newsletterMessage.style.color = '#dc3545';
+
+                    let message =
+                        error.message ||
+                        'Something went wrong. Please try again.';
+
+                    if (
+                        error.errors &&
+                        error.errors.email
+                    ) {
+                        message = error.errors.email[0];
+                    }
+
+                    newsletterMessage.innerHTML = `
+                <i class="fa-solid fa-circle-exclamation"></i>
+                ${message}
+            `;
+
+                })
+
+                .finally(function () {
+
+                    subscribeBtn.disabled = false;
+                    subscribeBtn.innerHTML = originalText;
+
+                });
+
+        });
+
+    });
 </script>
 
 </html>

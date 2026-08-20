@@ -2,8 +2,8 @@
 @section('content')
 
     <!--==========================
-                                                                PAGE BANNER
-                                                            ===========================-->
+                                                                                    PAGE BANNER
+                                                                                ===========================-->
     <section class="product-details-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
@@ -40,8 +40,8 @@
 
 
     <!--==========================================
-                                                                PRODUCT DETAILS CONTENT
-                                                            ===========================================-->
+                                                                                    PRODUCT DETAILS CONTENT
+                                                                                ===========================================-->
 
     <section class="pdp-section">
 
@@ -62,8 +62,8 @@
             </div>
 
             <!--=========================
-                                                                        GALLERY + INFO
-                                                                    ==========================-->
+                                                                                            GALLERY + INFO
+                                                                                        ==========================-->
 
             <div class="pdp-main">
 
@@ -123,17 +123,17 @@
                             <span>Premium Quality</span>
                         </div>
                     </div>
-                    <div class="pdp-qty-row"> <span class="pdp-qty-label">Quantity:</span>
+                    {{-- <div class="pdp-qty-row"> <span class="pdp-qty-label">Quantity:</span>
                         <div class="pdp-qty-box"> <button type="button" id="pdpQtyDec"> <i class="fa-solid fa-minus"></i>
                             </button> <input type="text" id="pdpQtyVal" value="1" readonly> <button type="button"
                                 id="pdpQtyInc"> <i class="fa-solid fa-plus"></i> </button> </div>
-                    </div>
+                    </div> --}}
                     <div class="pdp-cta-row"> <button type="button" class="pdp-btn pdp-btn-cart addToCartBtn"
                             data-id="{{ $variant->id ?? '' }}" data-name="{{ $product->title }}"
                             data-price="{{ $variant->price ?? 0 }}"> <i class="fa-solid fa-bag-shopping"></i> Add to Cart
-                        </button> <button type="button" class="pdp-btn pdp-btn-buy buyNowBtn"
-                            data-id="{{ $variant->id ?? '' }}"> <i class="fa-solid fa-bolt"></i> Buy Now </button> </div>
-                    <div class="pdp-perks">
+                        </button>
+                    </div>
+                    {{-- <div class="pdp-perks">
                         <div class="pdp-perk"> <span class="pdp-perk-ic"><i class="fa-solid fa-truck-fast"></i></span>
                             <div>
                                 <div class="pdp-perk-title">Free Shipping</div>
@@ -151,26 +151,17 @@
                                 <div class="pdp-perk-title">Easy Returns</div>
                                 <div class="pdp-perk-sub">7 days return policy</div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
             </div>
-
-            <!--=========================
-                                                                        TABS
-                                                                    ==========================-->
 
             <div class="pdp-tabs" data-aos="fade-up">
 
                 <div class="pdp-tabs-nav">
 
                     <button type="button" class="pdp-tab-btn active" data-tab="pdpDescription">Description</button>
-                    <button type="button" class="pdp-tab-btn" data-tab="pdpBenefits">Benefits</button>
-                    <button type="button" class="pdp-tab-btn" data-tab="pdpHowTo">How to Use</button>
-                    <button type="button" class="pdp-tab-btn" data-tab="pdpShipping">Shipping & Returns</button>
-                    <button type="button" class="pdp-tab-btn" data-tab="pdpReviews">Reviews (64)</button>
-
                 </div>
 
                 <div class="pdp-tab-panel active" id="pdpDescription">
@@ -202,54 +193,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="pdp-tab-panel" id="pdpBenefits">
-                    <div class="pdp-tab-col">
-                        <p>
-                            Amethyst is believed to calm the mind, ease anxiety, and support restful
-                            sleep. It's often worn to encourage clarity, patience, and emotional
-                            balance during meditation or daily life.
-                        </p>
-                    </div>
-                    <div></div>
-                </div>
-
-                <div class="pdp-tab-panel" id="pdpHowTo">
-                    <div class="pdp-tab-col">
-                        <p>
-                            Wear on either wrist, cleanse under moonlight or gentle running water
-                            monthly, and avoid contact with perfumes or harsh chemicals to keep the
-                            beads vibrant.
-                        </p>
-                    </div>
-                    <div></div>
-                </div>
-
-                <div class="pdp-tab-panel" id="pdpShipping">
-                    <div class="pdp-tab-col">
-                        <p>
-                            Orders ship within 24–48 hours. Free shipping on orders above ₹999.
-                            Easy 7-day return policy if you're not fully satisfied.
-                        </p>
-                    </div>
-                    <div></div>
-                </div>
-
-                <div class="pdp-tab-panel" id="pdpReviews">
-                    <div class="pdp-tab-col">
-                        <p>
-                            4.5 out of 5 based on 64 verified customer reviews. Most buyers highlight
-                            the bracelet's calming effect and comfortable, adjustable fit.
-                        </p>
-                    </div>
-                    <div></div>
-                </div>
-
             </div>
 
             <!--=========================
-                                                                        RELATED PRODUCTS
-                                                                    ==========================-->
+                                                                                            RELATED PRODUCTS
+                                                                                        ==========================-->
 
             <h2 class="pdp-related-title">
                 <i class="fa-solid fa-sparkles"></i>
@@ -289,7 +237,7 @@
 
                                     {{-- <a href="{{ route('product-detail', $item->slug) }}"> --}}
                                         <span>{{ $item->title }}</span>
-                                    {{-- </a> --}}
+                                        {{-- </a> --}}
 
                                 </p>
 
@@ -354,42 +302,843 @@
     </script>
 
     <script>
-        // Thumbnail gallery swap
-        document.querySelectorAll(".pdp-thumb").forEach(thumb => {
-            thumb.addEventListener("click", function () {
-                document.querySelectorAll(".pdp-thumb").forEach(t => t.classList.remove("active"));
-                this.classList.add("active");
-                document.getElementById("pdpMainImage").src = this.dataset.image;
-            });
-        });
+        document.addEventListener('DOMContentLoaded', function () {
 
-        // Quantity stepper
-        (function () {
-            let qty = 1;
-            const qtyInput = document.getElementById("pdpQtyVal");
+            const loginUrl = "{{ route('login') }}";
+            const cartUrl = "{{ route('customer.cart.add') }}";
+            const wishlistUrl = "{{ route('customer.wishlist.add') }}";
+            const csrfToken = "{{ csrf_token() }}";
 
-            document.getElementById("pdpQtyInc").addEventListener("click", function () {
-                qty++;
-                qtyInput.value = qty;
-            });
 
-            document.getElementById("pdpQtyDec").addEventListener("click", function () {
-                if (qty > 1) {
-                    qty--;
-                    qtyInput.value = qty;
+            /*
+            |--------------------------------------------------------------------------
+            | GET SELECTED VARIANT
+            |--------------------------------------------------------------------------
+            */
+
+            function getSelectedVariantId() {
+
+                const selectedInput = document.querySelector(
+                    'input[name="variant_id"]:checked'
+                );
+
+                if (selectedInput) {
+                    return selectedInput.value;
                 }
-            });
-        })();
 
-        // Tabs
-        document.querySelectorAll(".pdp-tab-btn").forEach(btn => {
-            btn.addEventListener("click", function () {
-                document.querySelectorAll(".pdp-tab-btn").forEach(b => b.classList.remove("active"));
-                document.querySelectorAll(".pdp-tab-panel").forEach(p => p.classList.remove("active"));
 
-                this.classList.add("active");
-                document.getElementById(this.dataset.tab).classList.add("active");
+                const activeVariant = document.querySelector(
+                    '.variant-option.active, .pdp-variant.active'
+                );
+
+                if (activeVariant) {
+                    return activeVariant.dataset.variantId ||
+                        activeVariant.dataset.id;
+                }
+
+
+                const productVariant = document.querySelector(
+                    '[data-selected-variant]'
+                );
+
+                if (productVariant) {
+                    return productVariant.dataset.selectedVariant;
+                }
+
+
+                const cartButton = document.querySelector(
+                    '.pdp-add-cart, .addToCartBtn'
+                );
+
+                if (cartButton) {
+                    return cartButton.dataset.variantId ||
+                        cartButton.dataset.id;
+                }
+
+                return null;
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | GET QUANTITY
+            |--------------------------------------------------------------------------
+            */
+
+            function getQuantity() {
+
+                const quantityInput = document.getElementById('pdpQtyVal');
+
+                if (!quantityInput) {
+                    return 1;
+                }
+
+                let quantity = parseInt(quantityInput.value);
+
+                if (isNaN(quantity) || quantity < 1) {
+                    quantity = 1;
+                }
+
+                return quantity;
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | UPDATE CART COUNT
+            |--------------------------------------------------------------------------
+            */
+
+            function updateCartCount(count) {
+
+                if (count === undefined || count === null) {
+                    return;
+                }
+
+                document.querySelectorAll(
+                    '#headerCartCount, .cart-count, [data-cart-count]'
+                ).forEach(function (element) {
+
+                    element.textContent = count;
+
+                });
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | UPDATE WISHLIST COUNT
+            |--------------------------------------------------------------------------
+            */
+
+            function updateWishlistCount(count) {
+
+                if (count === undefined || count === null) {
+                    return;
+                }
+
+                document.querySelectorAll(
+                    '#headerWishlistCount, .wishlist-count, [data-wishlist-count]'
+                ).forEach(function (element) {
+
+                    element.textContent = count;
+
+                });
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | AJAX REQUEST
+            |--------------------------------------------------------------------------
+            */
+
+            async function sendRequest(url, payload) {
+
+                const response = await fetch(url, {
+
+                    method: 'POST',
+
+                    credentials: 'same-origin',
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+
+                    body: JSON.stringify(payload)
+
+                });
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | LOGIN REQUIRED
+                |--------------------------------------------------------------------------
+                */
+
+                if (
+                    response.status === 401 ||
+                    response.status === 403 ||
+                    response.status === 419 ||
+                    response.redirected ||
+                    response.url.includes('/login')
+                ) {
+
+                    window.location.href = loginUrl;
+
+                    return null;
+
+                }
+
+
+                const text = await response.text();
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | HTML RESPONSE
+                |--------------------------------------------------------------------------
+                */
+
+                if (
+                    text.trim().startsWith('<!DOCTYPE') ||
+                    text.trim().startsWith('<html')
+                ) {
+
+                    window.location.href = loginUrl;
+
+                    return null;
+
+                }
+
+
+                try {
+
+                    return JSON.parse(text);
+
+                } catch (error) {
+
+                    console.error(
+                        'Invalid server response:',
+                        text
+                    );
+
+                    throw new Error(
+                        'Server returned an invalid response.'
+                    );
+
+                }
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | THUMBNAIL GALLERY
+            |--------------------------------------------------------------------------
+            */
+
+            document.querySelectorAll('.pdp-thumb').forEach(function (thumb) {
+
+                thumb.addEventListener('click', function () {
+
+                    document.querySelectorAll('.pdp-thumb').forEach(function (item) {
+
+                        item.classList.remove('active');
+
+                    });
+
+
+                    this.classList.add('active');
+
+
+                    const mainImage =
+                        document.getElementById('pdpMainImage');
+
+
+                    if (mainImage && this.dataset.image) {
+
+                        mainImage.src = this.dataset.image;
+
+                    }
+
+                });
+
             });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | QUANTITY INCREASE
+            |--------------------------------------------------------------------------
+            */
+
+            const quantityInput =
+                document.getElementById('pdpQtyVal');
+
+            const increaseButton =
+                document.getElementById('pdpQtyInc');
+
+            const decreaseButton =
+                document.getElementById('pdpQtyDec');
+
+
+            if (increaseButton && quantityInput) {
+
+                increaseButton.addEventListener(
+                    'click',
+                    function () {
+
+                        let quantity =
+                            parseInt(quantityInput.value) || 1;
+
+                        quantity++;
+
+                        quantityInput.value = quantity;
+
+                    }
+                );
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | QUANTITY DECREASE
+            |--------------------------------------------------------------------------
+            */
+
+            if (decreaseButton && quantityInput) {
+
+                decreaseButton.addEventListener(
+                    'click',
+                    function () {
+
+                        let quantity =
+                            parseInt(quantityInput.value) || 1;
+
+                        if (quantity > 1) {
+
+                            quantity--;
+
+                            quantityInput.value = quantity;
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | QUANTITY MANUAL VALIDATION
+            |--------------------------------------------------------------------------
+            */
+
+            if (quantityInput) {
+
+                quantityInput.addEventListener(
+                    'change',
+                    function () {
+
+                        if (
+                            !this.value ||
+                            parseInt(this.value) < 1
+                        ) {
+
+                            this.value = 1;
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | PRODUCT VARIANT SELECTION
+            |--------------------------------------------------------------------------
+            */
+
+            document.querySelectorAll(
+                '.variant-option, .pdp-variant'
+            ).forEach(function (option) {
+
+                option.addEventListener(
+                    'click',
+                    function () {
+
+                        const variantId =
+                            this.dataset.variantId ||
+                            this.dataset.id;
+
+
+                        if (!variantId) {
+                            return;
+                        }
+
+
+                        document.querySelectorAll(
+                            '.variant-option, .pdp-variant'
+                        ).forEach(function (item) {
+
+                            item.classList.remove('active');
+
+                        });
+
+
+                        this.classList.add('active');
+
+
+                        /*
+                        | Update all cart buttons
+                        */
+
+                        document.querySelectorAll(
+                            '.addToCartBtn, .pdp-add-cart'
+                        ).forEach(function (button) {
+
+                            button.dataset.variantId =
+                                variantId;
+
+                        });
+
+
+                        /*
+                        | Update wishlist buttons
+                        */
+
+                        document.querySelectorAll(
+                            '.addToWishlistBtn, .wishlist-btn'
+                        ).forEach(function (button) {
+
+                            button.dataset.variantId =
+                                variantId;
+
+                        });
+
+
+                        /*
+                        | Update hidden variant input
+                        */
+
+                        const variantInput =
+                            document.querySelector(
+                                'input[name="variant_id"]'
+                            );
+
+
+                        if (variantInput) {
+
+                            variantInput.value = variantId;
+
+                        }
+
+
+                        /*
+                        | Update price
+                        */
+
+                        if (this.dataset.price) {
+
+                            document.querySelectorAll(
+                                '.pdp-price-current'
+                            ).forEach(function (priceElement) {
+
+                                priceElement.textContent =
+                                    '₹' + Number(
+                                        this.dataset.price
+                                    ).toLocaleString('en-IN');
+
+                            }, this);
+
+                        }
+
+
+                        /*
+                        | Update old price
+                        */
+
+                        if (this.dataset.actualPrice) {
+
+                            document.querySelectorAll(
+                                '.pdp-price-old'
+                            ).forEach(function (priceElement) {
+
+                                priceElement.textContent =
+                                    '₹' + Number(
+                                        this.dataset.actualPrice
+                                    ).toLocaleString('en-IN');
+
+                            }, this);
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | ADD TO CART
+            |--------------------------------------------------------------------------
+            */
+
+            document.querySelectorAll(
+                '.addToCartBtn, .pdp-add-cart'
+            ).forEach(function (button) {
+
+                button.addEventListener(
+                    'click',
+                    async function (event) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+
+                        const buttonElement = this;
+
+
+                        const variantId =
+                            getSelectedVariantId();
+
+
+                        const quantity =
+                            getQuantity();
+
+
+                        if (!variantId) {
+
+                            alert(
+                                'Please select a product variant.'
+                            );
+
+                            return;
+
+                        }
+
+
+                        const originalHTML =
+                            buttonElement.innerHTML;
+
+
+                        buttonElement.disabled = true;
+
+
+                        buttonElement.innerHTML = `
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Adding...
+                    `;
+
+
+                        try {
+
+                            const data =
+                                await sendRequest(
+                                    cartUrl,
+                                    {
+                                        product_variant_id:
+                                            variantId,
+
+                                        quantity:
+                                            quantity
+                                    }
+                                );
+
+
+                            if (!data) {
+                                return;
+                            }
+
+
+                            if (data.status) {
+
+                                updateCartCount(
+                                    data.count
+                                );
+
+
+                                buttonElement.innerHTML = `
+                                <i class="fa-solid fa-check"></i>
+                                Added to Cart
+                            `;
+
+
+                                alert(
+                                    data.message ||
+                                    'Product added to cart successfully.'
+                                );
+
+
+                                setTimeout(function () {
+
+                                    buttonElement.innerHTML =
+                                        originalHTML;
+
+                                }, 1500);
+
+
+                            } else {
+
+                                if (
+                                    data.redirect ||
+                                    data.login ||
+                                    data.message === 'Unauthenticated.' ||
+                                    data.message === 'Please login first.'
+                                ) {
+
+                                    window.location.href =
+                                        loginUrl;
+
+                                    return;
+
+                                }
+
+
+                                alert(
+                                    data.message ||
+                                    'Unable to add product to cart.'
+                                );
+
+
+                                buttonElement.innerHTML =
+                                    originalHTML;
+
+                            }
+
+                        } catch (error) {
+
+                            console.error(
+                                'Cart Error:',
+                                error
+                            );
+
+
+                            alert(
+                                error.message ||
+                                'Something went wrong while adding to cart.'
+                            );
+
+
+                            buttonElement.innerHTML =
+                                originalHTML;
+
+                        } finally {
+
+                            buttonElement.disabled = false;
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | ADD TO WISHLIST
+            |--------------------------------------------------------------------------
+            */
+
+            document.querySelectorAll(
+                '.addToWishlistBtn, .wishlist-btn, .pdp-wishlist'
+            ).forEach(function (button) {
+
+                button.addEventListener(
+                    'click',
+                    async function (event) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+
+                        const buttonElement = this;
+
+
+                        const variantId =
+                            getSelectedVariantId();
+
+
+                        if (!variantId) {
+
+                            alert(
+                                'Please select a product variant.'
+                            );
+
+                            return;
+
+                        }
+
+
+                        const originalHTML =
+                            buttonElement.innerHTML;
+
+
+                        buttonElement.disabled = true;
+
+
+                        try {
+
+                            const data =
+                                await sendRequest(
+                                    wishlistUrl,
+                                    {
+                                        product_variant_id:
+                                            variantId
+                                    }
+                                );
+
+
+                            if (!data) {
+                                return;
+                            }
+
+
+                            if (data.status) {
+
+                                const icon =
+                                    buttonElement.querySelector('i');
+
+
+                                buttonElement.classList.add(
+                                    'active'
+                                );
+
+
+                                if (icon) {
+
+                                    icon.classList.remove(
+                                        'fa-regular'
+                                    );
+
+                                    icon.classList.add(
+                                        'fa-solid'
+                                    );
+
+                                }
+
+
+                                updateWishlistCount(
+                                    data.count
+                                );
+
+
+                                alert(
+                                    data.message ||
+                                    'Product added to wishlist.'
+                                );
+
+
+                            } else {
+
+                                if (
+                                    data.redirect ||
+                                    data.login ||
+                                    data.message === 'Unauthenticated.' ||
+                                    data.message === 'Please login first.'
+                                ) {
+
+                                    window.location.href =
+                                        loginUrl;
+
+                                    return;
+
+                                }
+
+
+                                alert(
+                                    data.message ||
+                                    'Unable to add product to wishlist.'
+                                );
+
+
+                                buttonElement.innerHTML =
+                                    originalHTML;
+
+                            }
+
+                        } catch (error) {
+
+                            console.error(
+                                'Wishlist Error:',
+                                error
+                            );
+
+
+                            alert(
+                                error.message ||
+                                'Something went wrong while adding to wishlist.'
+                            );
+
+
+                            buttonElement.innerHTML =
+                                originalHTML;
+
+                        } finally {
+
+                            buttonElement.disabled = false;
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | PRODUCT TABS
+            |--------------------------------------------------------------------------
+            */
+
+            document.querySelectorAll(
+                '.pdp-tab-btn'
+            ).forEach(function (button) {
+
+                button.addEventListener(
+                    'click',
+                    function () {
+
+                        const tabId =
+                            this.dataset.tab;
+
+
+                        if (!tabId) {
+                            return;
+                        }
+
+
+                        document.querySelectorAll(
+                            '.pdp-tab-btn'
+                        ).forEach(function (item) {
+
+                            item.classList.remove('active');
+
+                        });
+
+
+                        document.querySelectorAll(
+                            '.pdp-tab-panel'
+                        ).forEach(function (item) {
+
+                            item.classList.remove('active');
+
+                        });
+
+
+                        this.classList.add('active');
+
+
+                        const target =
+                            document.getElementById(tabId);
+
+
+                        if (target) {
+
+                            target.classList.add('active');
+
+                        }
+
+                    }
+                );
+
+            });
+
         });
     </script>
 

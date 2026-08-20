@@ -1,9 +1,125 @@
 @extends('layouts.website')
 @section('content')
+    <style>
+        .contact-alert {
+            position: fixed;
+            top: 100px;
+            right: 25px;
+            z-index: 99999;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            width: min(420px, calc(100% - 30px));
+            padding: 16px 18px;
+
+            border-radius: 12px;
+            color: #fff;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+            animation: contactSlideIn .4s ease;
+        }
+
+        .contact-alert-success {
+            background: #198754;
+        }
+
+        .contact-alert-error {
+            background: #dc3545;
+        }
+
+        .contact-alert-icon {
+            font-size: 24px;
+        }
+
+        .contact-alert strong,
+        .contact-alert span {
+            display: block;
+        }
+
+        .contact-alert strong {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .contact-alert span {
+            font-size: 14px;
+        }
+
+        .contact-alert-close {
+            margin-left: auto;
+
+            border: 0;
+            background: transparent;
+
+            color: #fff;
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+        @keyframes contactSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .contact-alert {
+                top: 80px;
+                right: 15px;
+                width: calc(100% - 30px);
+            }
+
+        }
+    </style>
+    @if(session('success'))
+        <div class="contact-alert contact-alert-success" id="contactSuccessMessage">
+            <div class="contact-alert-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div>
+                <strong>Success!</strong>
+                <span>{{ session('success') }}</span>
+            </div>
+
+            <button type="button" class="contact-alert-close"
+                onclick="document.getElementById('contactSuccessMessage').remove()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="contact-alert contact-alert-error" id="contactErrorMessage">
+            <div class="contact-alert-icon">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+
+            <div>
+                <strong>Error!</strong>
+                <span>{{ session('error') }}</span>
+            </div>
+
+            <button type="button" class="contact-alert-close" onclick="document.getElementById('contactErrorMessage').remove()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    @endif
 
     <!--==========================
-                                                        PAGE BANNER (shared layout component - reused as-is)
-                                                    ===========================-->
+                                                                        PAGE BANNER (shared layout component - reused as-is)
+                                                                    ===========================-->
     <section class="contact-banner-section" data-aos="zoom-out" data-aos-duration="1000">
 
         <div class="container">
@@ -48,8 +164,8 @@
 
 
     <!--==========================================
-                                                        CONTACT PAGE CONTENT
-                                                    ===========================================-->
+                                                                        CONTACT PAGE CONTENT
+                                                                    ===========================================-->
 
     <section class="contact-page-section">
 
@@ -65,8 +181,8 @@
             </div>
 
             <!--=========================
-                                                                HERO ROW
-                                                            ==========================-->
+                                                                                HERO ROW
+                                                                            ==========================-->
 
             <div class="contact-page-hero">
 
@@ -92,8 +208,8 @@
             </div>
 
             <!--=========================
-                                                                MAIN GRID
-                                                            ==========================-->
+                                                                                MAIN GRID
+                                                                            ==========================-->
 
             <div class="contact-page-grid">
 
@@ -112,7 +228,7 @@
                             });
                         </script>
                     @endif
-                    <form id="contactPageForm" novalidate action="{{ route('contact.store') }}" method="POST">
+                    <form id="contactPageForm" novalidate action="{{ route('contactStore') }}" method="POST">
 
                         @csrf
 
@@ -233,8 +349,8 @@
 
                             <div class="contact-page-info-text">
                                 <h4>Phone</h4>
-                                <p><a href="tel:+919876543210">+91 98765 43210</a></p>
-                                <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+                                <p><a href="tel:8904495819">+91 89044 95819</a></p>
+                                {{-- <span>Mon - Sat: 9:00 AM - 7:00 PM</span> --}}
                             </div>
 
                         </div>
@@ -247,8 +363,8 @@
 
                             <div class="contact-page-info-text">
                                 <h4>Email</h4>
-                                <p><a href="mailto:support@astrovani.com">support@starsigns.com</a></p>
-                                <span>We reply within 24 hours</span>
+                                <p><a href="mailto:Starsignsglobal@gmail.com">Starsignsglobal@gmail.com</a></p>
+                                {{-- <span>We reply within 24 hours</span> --}}
                             </div>
 
                         </div>
@@ -262,9 +378,7 @@
                             <div class="contact-page-info-text">
                                 <h4>Address</h4>
                                 <p>
-                                    Starsigns,<br>
-                                    Bengaluru, Karnataka,<br>
-                                    India
+                                    LAKSHMI COMPLEX, ODABAI SULLIA DK, Pin -574239
                                 </p>
                             </div>
                         </div>
@@ -290,77 +404,16 @@
                             <i class="fa-solid fa-location-dot"></i> Our Location
                         </button>
 
-                        <iframe id="contactPageMap"
-                            src="https://www.google.com/maps?q=Marathahalli,Bengaluru,Karnataka,India&output=embed"
-                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62306.88155293873!2d75.32871215171718!3d12.570373489005403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4f25fa71fbef1%3A0xb36c625679d164cf!2sSullia%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1787230559651!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
                     </div>
 
                 </div>
 
             </div>
-
-            <!--=========================
-                                                                FEATURES STRIP
-                                                            ==========================-->
-
-            <div class="contact-page-features">
-
-                <div class="contact-page-feature-item">
-
-                    <div class="contact-page-feature-icon">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-
-                    <div class="contact-page-feature-text">
-                        <h4>24/7 Support</h4>
-                        <p>We are here to help you anytime, anywhere.</p>
-                    </div>
-
-                </div>
-
-                <div class="contact-page-feature-item">
-
-                    <div class="contact-page-feature-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-
-                    <div class="contact-page-feature-text">
-                        <h4>Secure &amp; Safe</h4>
-                        <p>Your privacy and data are 100% protected.</p>
-                    </div>
-
-                </div>
-
-                <div class="contact-page-feature-item">
-
-                    <div class="contact-page-feature-icon">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
-
-                    <div class="contact-page-feature-text">
-                        <h4>Trusted Experts</h4>
-                        <p>Connect with verified astrologers &amp; experts.</p>
-                    </div>
-
-                </div>
-
-                <div class="contact-page-feature-item">
-
-                    <div class="contact-page-feature-icon">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-
-                    <div class="contact-page-feature-text">
-                        <h4>Customer Satisfaction</h4>
-                        <p>Your happiness and trust are our top priority.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
 
     </section>
