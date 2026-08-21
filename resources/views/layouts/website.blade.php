@@ -242,7 +242,7 @@
         }
 
         /* ========================= MOBILE (up to 767px) ========================= */
-        @media (max-width:767px) {
+        @media (max-width:991px) {
 
             /* Hide desktop header */
             .main-header {
@@ -401,7 +401,7 @@
             display: none;
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
 
             .mobile-bottom-bar {
                 position: fixed;
