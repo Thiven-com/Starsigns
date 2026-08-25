@@ -4,7 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarSigns</title>
+    <meta name="description"
+        content="StarSigns - Explore astrology, horoscopes, zodiac signs, and personalized cosmic insights.">
+
+    <title>StarSigns | Astrology & Horoscope</title>
+    <meta name="keywords"
+        content="StarSigns, zodiac, astrology, horoscope, zodiac signs, daily horoscope, weekly horoscope, monthly horoscope, birth chart, kundli, astrology predictions, zodiac compatibility, love horoscope, career horoscope, astrology readings, planetary positions, sun signs, moon signs, cosmic guidance">
+    <meta name="author" content="StarSigns">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="application-name" content="StarSigns">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +44,7 @@
     <link rel="stylesheet" href="{{ asset('website/css/shippolicy.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/refundpolicy.css') }}">
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('website')}}/images/starfev.png">
 
 
     <!-- <link rel="stylesheet" href="{{ asset('website/css/consultation.css') }}"> -->
@@ -449,9 +460,9 @@
             }
 
             /* Prevent content from hiding behind bottom bar */
-            body {
-                padding-bottom: 75px;
-            }
+            /* body {
+                padding-bottom: 50px;
+            } */
         }
     </style>
 
@@ -946,7 +957,7 @@ MOBILE SEARCH MODAL
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: #fff;
+            color: #f4b42d;
             flex-shrink: 0;
         }
 
@@ -984,7 +995,7 @@ MOBILE SEARCH MODAL
 
         .newsletter-form button {
             background: #f4b42d;
-            color: #fff;
+            color: #ffffff;
             border: none;
             padding: 10px 15px;
             border-radius: 10px;
@@ -1364,7 +1375,7 @@ MOBILE SEARCH MODAL
        FOOTER ACCOUNT LINKS
     ========================================= */
 
-        .footer-links ul li a {
+        /* .footer-links ul li a {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1374,9 +1385,9 @@ MOBILE SEARCH MODAL
             width: 17px;
             font-size: 13px;
             color: #f4b42d;
-        }
+        } */
 
-        .footer-logout-btn {
+        /* .footer-logout-btn {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1414,14 +1425,14 @@ MOBILE SEARCH MODAL
 
         .footer-logout-btn:hover i {
             color: #f4b42d;
-        }
+        } */
 
 
         /* =========================================
        MOBILE
     ========================================= */
 
-        @media (max-width: 767px) {
+        /* @media (max-width: 767px) {
 
             .footer-links ul li a,
             .footer-logout-btn {
@@ -1432,7 +1443,7 @@ MOBILE SEARCH MODAL
                 margin-bottom: 10px;
             }
 
-        }
+        } */
     </style>
 
 
@@ -1728,5 +1739,8 @@ MOBILE PRODUCT SEARCH MODAL
 
     });
 </script>
+
+
+
 
 </html>

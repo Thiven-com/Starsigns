@@ -17,10 +17,10 @@
                 <div class="card-body">
                     <div class="table-top">
                         <div class="search-set">
-                            <div class="search-input">
+                            <!-- <div class="search-input">
                                 <a href="" class="btn btn-searchset"><i data-feather="search"
                                         class="feather-search"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                         {{-- <div class="search-path">
                             <a class="btn btn-filter" id="filter_search">

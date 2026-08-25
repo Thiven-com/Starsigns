@@ -125,7 +125,7 @@
     background: #0c0b26;
     padding: 22px 0;
     border-bottom: 1px solid rgba(255, 255, 255, .08);
-    
+
 
 }
 
@@ -134,7 +134,7 @@
     max-width: 1400px;
     margin: auto;
     padding: 0 20px;
-    
+
 
 }
 
@@ -2109,4 +2109,12 @@ PREMIUM FOOTER ANIMATIONS
 
     transform: translateY(-5px);
 
+}
+
+@media (max-width: 991px) {
+
+    /* Prevent content from hiding behind bottom bar */
+    body {
+        padding-bottom: 40px;
+    }
 }

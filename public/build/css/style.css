@@ -9365,9 +9365,9 @@ thead tr {
   height: 40px;
 }
 
-.card .table-top {
+/* .card .table-top {
   padding: 24px 24px 0;
-}
+} */
 
 .card .tabs-set .nav-tabs {
   padding: 24px 24px 0;
@@ -14653,7 +14653,7 @@ table.dataTable {
   justify-content: space-between;
   -webkit-justify-content: space-between;
   -ms-flex-pack: space-between;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
 @media (max-width: 574.98px) {

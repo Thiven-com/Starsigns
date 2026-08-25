@@ -93,7 +93,7 @@
             <div class="dashboard-header">
                 <h1>Welcome Back 👋</h1>
                 <p class="mb-0">
-                    Healing Guides website activities from your dashboard.
+                    StarSigns website activities from your dashboard.
                 </p>
             </div>
             {{-- <div class="col-xxl-4 col-md-6 d-flex">
@@ -201,10 +201,13 @@
 
         <div class="copyright-footer text-center">
             <p class="mb-1">
-                © 2026 Master Cricket Academy. All Rights Reserved.
+                © 2026 StarSigns. All Rights Reserved.
             </p>
             <small class="text-muted">
-                Designed & Developed By ThiVen
+                Designed & Developed By <a href="https://www.thiven.com/" target="_blank" rel="noopener"
+                            style="text-decoration:none;color:black;">
+                            ThiVen
+                        </a>
             </small>
         </div>
     </div>

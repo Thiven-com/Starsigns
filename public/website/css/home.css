@@ -2394,7 +2394,7 @@ CARD
 
 .blog-card {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid #ececec;
     box-shadow: 0 8px 22px rgba(0, 0, 0, .06);
@@ -3909,11 +3909,11 @@ RESPONSIVE
 
 @media(max-width:992px) {
 
-    .promo-grid {
+    /* .promo-grid {
 
         grid-template-columns: repeat(2, 1fr);
 
-    }
+    } */
 
 }
 

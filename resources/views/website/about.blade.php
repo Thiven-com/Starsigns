@@ -189,7 +189,7 @@
         <div class="container">
 
             <div class="banner-card" data-aos="zoom-in-up">
-                <img src="{{ asset('website') }}/images/aboutdown.png" alt="Banner">
+                <a href="{{ route('shop') }}"><img src="{{ asset('website') }}/images/aboutdown.png" alt="Banner"></a>
 
             </div>
 

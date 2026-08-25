@@ -32,15 +32,15 @@
                                                 </li>
                                         </ul>
                                 </li>
-                                <li class="submenu-open">
+                                <!-- <li class="submenu-open">
                                         <h6 class="submenu-hdr">Sales</h6>
                                         <ul>
-                                                {{-- <li class="{{ Request::is('admin/orders') ? 'active' : '' }}"><a
-                                                                href="{{route('admin.orders.index')}}"><i
+                                                <li class="{{ Request::is('admin/orders') ? 'active' : '' }}"><a
+                                                                href="#"><i
                                                                         class="ti ti-box fs-16 me-2"></i><span>Orders</span></a>
-                                                </li> --}}
+                                                </li> 
                                         </ul>
-                                </li>
+                                </li> -->
                                 <li class="submenu-open">
                                         <h6 class="submenu-hdr">Main</h6>
                                         <ul>

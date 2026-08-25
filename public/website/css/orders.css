@@ -1116,7 +1116,7 @@ ORDER CARDS
 
 .orders-page-view-btn {
 
-    width: 100%;
+    /* width: 100%; */
 
     padding: 9px 20px;
 
@@ -1135,6 +1135,7 @@ ORDER CARDS
     cursor: pointer;
 
     transition: .3s;
+    text-decoration: none   ;
 
 }
 
@@ -1167,6 +1168,8 @@ ORDER CARDS
     cursor: pointer;
 
     transition: .3s;
+
+    text-decoration: none;
 
 }
 
