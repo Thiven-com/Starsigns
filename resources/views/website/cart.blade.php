@@ -977,7 +977,8 @@
 
             .cart-page-row .col-action {
                 top: 12px;
-                right: 12px;
+                /* right: 12px; */
+                justify-content: end;
             }
 
             .cart-page-action-btn {

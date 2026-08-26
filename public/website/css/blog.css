@@ -221,7 +221,7 @@ IMAGE
     object-fit: contain;
     transition: .8s;
     background: #fff;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .blogs-card:hover .blogs-image img {
@@ -396,44 +396,462 @@ ANIMATIONS
 
 }
 
-/*==========================================
-RESPONSIVE
-==========================================*/
+/* =========================================================
+   STAR SIGNS BLOGS - RESPONSIVE ONLY
+   Desktop      : 1200px+
+   Laptop       : 992px - 1199px
+   Tablet       : 768px - 991px
+   Mobile       : 481px - 767px
+   Small Mobile : 320px - 480px
+   ========================================================= */
 
-@media(max-width:1200px) {
 
-    .blogs-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* =========================================================
+   LAPTOP
+   992px - 1199px
+   ========================================================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .blogs-banner-section {
+        height: 270px;
     }
 
-}
+    .blogs-banner-content h1 {
+        font-size: 54px;
+    }
 
-@media(max-width:768px) {
+    .blogs-breadcrumb {
+        gap: 10px;
+    }
+
+    .blogs-breadcrumb a,
+    .blogs-breadcrumb .active {
+        font-size: 15px;
+    }
 
     .blogs-section {
-        padding: 10px 0;
+        padding: 70px 30px;
     }
 
     .blogs-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
     }
 
     .blogs-image {
         height: 220px;
     }
 
+    .blogs-card-content {
+        padding: 18px;
+    }
+
+    .blogs-title {
+        font-size: 19px;
+    }
+
+    .blogs-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .blogs-meta span {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   768px - 991px
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .blogs-banner-section {
+        height: 240px;
+    }
+
+    .blogs-banner-content h1 {
+        font-size: 48px;
+    }
+
+    .blogs-breadcrumb {
+        margin-top: 10px;
+        gap: 9px;
+    }
+
+    .blogs-breadcrumb a,
+    .blogs-breadcrumb .active {
+        font-size: 14px;
+    }
+
+    .blogs-section {
+        padding: 55px 20px;
+    }
+
+    .blogs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .blogs-card {
+        border-radius: 16px;
+    }
+
+    .blogs-image {
+        height: 200px;
+    }
+
+    .blogs-image img {
+        padding: 15px;
+    }
+
+    .blogs-card-content {
+        padding: 17px;
+    }
+
+    .blogs-category {
+        padding: 7px 14px;
+        font-size: 11px;
+    }
+
     .blogs-title {
         font-size: 18px;
+        line-height: 1.4;
+        margin: 15px 0 12px;
+    }
+
+    .blogs-description {
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .blogs-meta {
+        gap: 10px;
+    }
+
+    .blogs-meta span {
+        font-size: 12px;
+    }
+
+    .blogs-pagination ul {
+        gap: 6px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   481px - 767px
+   ========================================================= */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .blogs-banner-section {
+        height: 190px;
+    }
+
+    .blogs-banner-content h1 {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .blogs-breadcrumb {
+        margin-top: 8px;
+        gap: 7px;
+        flex-wrap: wrap;
+    }
+
+    .blogs-breadcrumb a,
+    .blogs-breadcrumb .active {
+        font-size: 13px;
+    }
+
+    .blogs-breadcrumb i {
+        font-size: 9px;
+    }
+
+    .blogs-section {
+        padding: 40px 15px;
+    }
+
+    .blogs-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .blogs-card {
+        border-radius: 15px;
+    }
+
+    .blogs-image {
+        height: 230px;
+    }
+
+    .blogs-image img {
+        padding: 15px;
+    }
+
+    .blogs-card-content {
+        padding: 17px;
+    }
+
+    .blogs-category {
+        padding: 7px 15px;
+        font-size: 11px;
+    }
+
+    .blogs-title {
+        font-size: 18px;
+        line-height: 1.4;
+        margin: 14px 0 10px;
+    }
+
+    .blogs-description {
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .blogs-meta {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .blogs-meta span {
+        font-size: 12px;
+    }
+
+    .blogs-pagination {
+        margin-top: 25px;
+    }
+
+    .blogs-pagination ul {
+        gap: 6px;
+    }
+
+    .blogs-pagination a,
+    .blogs-pagination span {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   320px - 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .blogs-banner-section {
+        height: 155px;
+        background-position: center;
+    }
+
+    .blogs-banner-content h1 {
+        font-size: 29px;
+        line-height: 1.2;
+    }
+
+    .blogs-breadcrumb {
+        margin-top: 7px;
+        gap: 5px;
+    }
+
+    .blogs-breadcrumb a,
+    .blogs-breadcrumb .active {
+        font-size: 11px;
+    }
+
+    .blogs-breadcrumb i {
+        font-size: 8px;
+    }
+
+    .blogs-section {
+        padding: 30px 10px;
+    }
+
+    .blogs-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .blogs-card {
+        border-radius: 12px;
+    }
+
+    .blogs-image {
+        height: 180px;
+    }
+
+    .blogs-image img {
+        padding: 10px;
+    }
+
+    .blogs-card-content {
+        padding: 14px;
+    }
+
+    .blogs-category {
+        padding: 6px 12px;
+        font-size: 9px;
+        letter-spacing: .7px;
+    }
+
+    .blogs-title {
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 12px 0 8px;
+    }
+
+    .blogs-description {
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 15px;
     }
 
     .blogs-meta {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 7px;
+        padding-top: 12px;
     }
 
+    .blogs-meta span {
+        font-size: 11px;
+    }
+
+    .blogs-meta i {
+        margin-right: 4px;
+    }
+
+    .blogs-pagination {
+        margin-top: 20px;
+    }
+
+    .blogs-pagination ul {
+        gap: 5px;
+    }
+
+    .blogs-pagination a,
+    .blogs-pagination span {
+        width: 27px;
+        height: 27px;
+        font-size: 11px;
+    }
 }
 
+
+/* =========================================================
+   VERY SMALL MOBILE
+   Below 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .blogs-banner-section {
+        height: 140px;
+    }
+
+    .blogs-banner-content h1 {
+        font-size: 25px;
+    }
+
+    .blogs-breadcrumb {
+        gap: 4px;
+    }
+
+    .blogs-breadcrumb a,
+    .blogs-breadcrumb .active {
+        font-size: 10px;
+    }
+
+    .blogs-section {
+        padding: 25px 8px;
+    }
+
+    .blogs-grid {
+        gap: 14px;
+    }
+
+    .blogs-image {
+        height: 160px;
+    }
+
+    .blogs-image img {
+        padding: 8px;
+    }
+
+    .blogs-card-content {
+        padding: 12px;
+    }
+
+    .blogs-category {
+        padding: 5px 10px;
+        font-size: 8px;
+    }
+
+    .blogs-title {
+        font-size: 14px;
+    }
+
+    .blogs-description {
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    .blogs-meta span {
+        font-size: 10px;
+    }
+
+    .blogs-pagination a,
+    .blogs-pagination span {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE PERFORMANCE
+   Disable heavy hover/floating effects on touch devices
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .blogs-card:hover {
+        transform: none;
+    }
+
+    .blogs-card:hover .blogs-image img {
+        transform: none;
+    }
+
+    .blogs-card:hover .blogs-title {
+        transform: none;
+    }
+
+    .blogs-card:hover .blogs-category {
+        transform: none;
+    }
+
+    .blogs-card:hover::before {
+        left: -130%;
+    }
+
+    .blogs-card:hover .blogs-image::after {
+        opacity: 0;
+    }
+}
 
 /*==========================================
 PREMIUM ANIMATIONS

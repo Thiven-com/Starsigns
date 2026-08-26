@@ -487,7 +487,19 @@
            RESPONSIVE
         ========================================================== */
 
+        @media (max-width: 1240px) {
+            .od-container {
+                padding: 0 15px;
+                width: 90%;
+            }
+
+        }
+
         @media (max-width: 991px) {
+            .od-container {
+                padding: 0 15px;
+                width: 90%;
+            }
 
             .od-main-grid {
                 grid-template-columns: 1fr;
@@ -508,6 +520,7 @@
 
             .od-container {
                 padding: 0 15px;
+                width: 90%;
             }
 
             .od-header {

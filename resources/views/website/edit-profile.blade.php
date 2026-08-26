@@ -341,7 +341,7 @@
 
             .edit-profile-cancel,
             .edit-profile-save {
-                width: 100%;
+                width: 90%;
             }
 
         }

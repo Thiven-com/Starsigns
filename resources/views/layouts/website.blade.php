@@ -493,7 +493,7 @@ MOBILE SEARCH MODAL
             left: 50%;
             top: 25%;
             transform: translate(-50%, -50%);
-            width: calc(100% - 24px);
+            width: calc(90% - 20px);
             max-width: 420px;
             background: #fff;
             border-radius: 18px;
@@ -564,7 +564,7 @@ MOBILE SEARCH MODAL
         }
 
         .mobile-search-input-wrap input {
-            width: 100%;
+            width: 82%;
             height: 48px;
             border: 1px solid #ddd;
             border-radius: 12px;

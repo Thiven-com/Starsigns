@@ -841,7 +841,7 @@ SPLIT: ORDERS + ACCOUNT INFO
 
 .account-page-info-row {
 
-    display: flex;
+    display: ruby;
 
     align-items: center;
 
