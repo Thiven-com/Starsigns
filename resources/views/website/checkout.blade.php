@@ -4,8 +4,8 @@
 
     <style>
         /* =========================================================
-       GLOBAL CHECKOUT FIX
-    ========================================================= */
+           GLOBAL CHECKOUT FIX
+        ========================================================= */
 
         .checkout-page,
         .checkout-page *,
@@ -30,8 +30,8 @@
 
 
         /* =========================================================
-       BREADCRUMB
-    ========================================================= */
+           BREADCRUMB
+        ========================================================= */
 
         .checkout-breadcrumb {
             display: flex;
@@ -60,8 +60,8 @@
 
 
         /* =========================================================
-       MAIN LAYOUT
-    ========================================================= */
+           MAIN LAYOUT
+        ========================================================= */
 
         .checkout-layout {
             display: grid;
@@ -84,8 +84,8 @@
 
 
         /* =========================================================
-       COMMON SECTIONS
-    ========================================================= */
+           COMMON SECTIONS
+        ========================================================= */
 
         .checkout-section,
         .checkout-summary {
@@ -125,8 +125,8 @@
 
 
         /* =========================================================
-       ADDRESS LIST
-    ========================================================= */
+           ADDRESS LIST
+        ========================================================= */
 
         .saved-address-list {
             display: flex;
@@ -205,8 +205,8 @@
 
 
         /* =========================================================
-       NO ADDRESS
-    ========================================================= */
+           NO ADDRESS
+        ========================================================= */
 
         .no-address {
             width: 100%;
@@ -232,8 +232,8 @@
 
 
         /* =========================================================
-       ADD ADDRESS BUTTON
-    ========================================================= */
+           ADD ADDRESS BUTTON
+        ========================================================= */
 
         .checkout-add-address-btn {
             display: inline-flex;
@@ -267,8 +267,8 @@
 
 
         /* =========================================================
-       NEW ADDRESS BOX
-    ========================================================= */
+           NEW ADDRESS BOX
+        ========================================================= */
 
         .checkout-new-address {
             display: none;
@@ -350,8 +350,8 @@
 
 
         /* =========================================================
-       FORM GRIDS
-    ========================================================= */
+           FORM GRIDS
+        ========================================================= */
 
         .checkout-grid-2 {
             display: grid;
@@ -383,8 +383,8 @@
 
 
         /* =========================================================
-       FORM FIELDS
-    ========================================================= */
+           FORM FIELDS
+        ========================================================= */
 
         .checkout-field {
             width: 100%;
@@ -412,8 +412,8 @@
 
 
         /* =========================================================
-       INPUTS
-    ========================================================= */
+           INPUTS
+        ========================================================= */
 
         .checkout-field input,
         .checkout-field textarea,
@@ -479,8 +479,8 @@
 
 
         /* =========================================================
-       ADDRESS MESSAGE
-    ========================================================= */
+           ADDRESS MESSAGE
+        ========================================================= */
 
         .checkout-error,
         .checkout-success {
@@ -507,8 +507,8 @@
 
 
         /* =========================================================
-       SAVE ADDRESS BUTTON
-    ========================================================= */
+           SAVE ADDRESS BUTTON
+        ========================================================= */
 
         .checkout-save-address-btn {
             display: flex;
@@ -549,8 +549,8 @@
 
 
         /* =========================================================
-       ORDER SUMMARY
-    ========================================================= */
+           ORDER SUMMARY
+        ========================================================= */
 
         .checkout-summary-title {
             padding-bottom: 16px;
@@ -562,8 +562,8 @@
 
 
         /* =========================================================
-       PRODUCTS
-    ========================================================= */
+           PRODUCTS
+        ========================================================= */
 
         .checkout-products {
             display: flex;
@@ -693,8 +693,8 @@
 
 
         /* =========================================================
-       TOTALS
-    ========================================================= */
+           TOTALS
+        ========================================================= */
 
         .checkout-total-row {
             display: flex;
@@ -751,8 +751,8 @@
 
 
         /* =========================================================
-       PAYMENT
-    ========================================================= */
+           PAYMENT
+        ========================================================= */
 
         .checkout-payment {
             width: 100%;
@@ -816,8 +816,8 @@
 
 
         /* =========================================================
-       PLACE ORDER
-    ========================================================= */
+           PLACE ORDER
+        ========================================================= */
 
         .checkout-place-order {
             display: flex;
@@ -872,8 +872,8 @@
 
 
         /* =========================================================
-       TABLET
-    ========================================================= */
+           TABLET
+        ========================================================= */
 
         @media (max-width: 1100px) {
 
@@ -888,8 +888,8 @@
 
 
         /* =========================================================
-       BELOW 991
-    ========================================================= */
+           BELOW 991
+        ========================================================= */
 
         @media (max-width: 991px) {
 
@@ -905,8 +905,8 @@
 
 
         /* =========================================================
-       MOBILE
-    ========================================================= */
+           MOBILE
+        ========================================================= */
 
         @media (max-width: 767px) {
 
@@ -996,8 +996,8 @@
 
 
         /* =========================================================
-       SMALL MOBILE
-    ========================================================= */
+           SMALL MOBILE
+        ========================================================= */
 
         @media (max-width: 420px) {
 
@@ -1052,8 +1052,8 @@
 
 
     <!-- =========================================================
-         CHECKOUT
-    ========================================================= -->
+             CHECKOUT
+        ========================================================= -->
 
     <section class="checkout-page">
 
@@ -1128,8 +1128,8 @@
 
 
             <!-- =====================================================
-                 CHECKOUT FORM
-            ====================================================== -->
+                     CHECKOUT FORM
+                ====================================================== -->
 
             <form action="{{ route('customer.order.store') }}" method="POST" id="checkoutForm">
 
@@ -1139,15 +1139,15 @@
 
 
                     <!-- =================================================
-                         LEFT
-                    ================================================== -->
+                             LEFT
+                        ================================================== -->
 
                     <div class="checkout-left">
 
 
                         <!-- =================================================
-                             DELIVERY ADDRESS
-                        ================================================== -->
+                                 DELIVERY ADDRESS
+                            ================================================== -->
 
                         <div class="checkout-section">
 
@@ -1236,8 +1236,8 @@
 
 
                             <!-- =================================================
-                                 NEW ADDRESS
-                            ================================================== -->
+                                     NEW ADDRESS
+                                ================================================== -->
 
                             <div id="newAddressSection" class="checkout-new-address">
 
@@ -1399,8 +1399,8 @@
 
 
                         <!-- =================================================
-                             CONTACT INFORMATION
-                        ================================================== -->
+                                 CONTACT INFORMATION
+                            ================================================== -->
 
                         <div class="checkout-section">
 
@@ -1460,8 +1460,8 @@
 
 
                     <!-- =================================================
-                         RIGHT
-                    ================================================== -->
+                             RIGHT
+                        ================================================== -->
 
                     <div class="checkout-right">
 
@@ -1580,10 +1580,10 @@
                                 @empty
 
                                     <div style="
-                                                padding:20px;
-                                                text-align:center;
-                                                color:#777;
-                                            ">
+                                                        padding:20px;
+                                                        text-align:center;
+                                                        color:#777;
+                                                    ">
 
                                         Your cart is empty.
 
@@ -1687,8 +1687,8 @@
 
 
                             <!-- =================================================
-                                 PAYMENT
-                            ================================================== -->
+                                     PAYMENT
+                                ================================================== -->
 
                             <div class="checkout-payment">
 
@@ -1967,9 +1967,9 @@
                     saveAddressBtn.disabled = true;
 
                     saveAddressBtn.innerHTML = `
-                    <i class="fa-solid fa-spinner fa-spin"></i>
-                    Saving...
-                `;
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Saving...
+                    `;
 
 
                     try {
@@ -1995,58 +1995,41 @@
                                 method: 'POST',
 
                                 headers: {
-                                    'Content-Type':
-                                        'application/json',
-
-                                    'Accept':
-                                        'application/json',
-
-                                    'X-Requested-With':
-                                        'XMLHttpRequest',
-
-                                    'X-CSRF-TOKEN':
-                                        csrfToken
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'X-Requested-With': 'XMLHttpRequest',
+                                    'X-CSRF-TOKEN': csrfToken
                                 },
 
                                 body: JSON.stringify({
-
                                     name: name,
-
                                     mobile: mobile,
-
                                     address: address,
-
                                     address_2: address2,
-
                                     city: city,
-
                                     state: state,
-
                                     pincode: pincode,
-
                                     country: country
-
                                 })
                             }
                         );
 
+                        const responseText = await response.text();
 
-                        const contentType = response.headers.get('content-type') || '';
+                        console.log('Status:', response.status);
+                        console.log('Response:', responseText);
 
-                        let data = {};
+                        let data;
 
-                        if (contentType.includes('application/json')) {
-                            data = await response.json();
-                        } else {
-                            const text = await response.text();
-
-                            console.error('Non-JSON response:', text);
-
+                        try {
+                            data = JSON.parse(responseText);
+                        } catch (e) {
                             throw new Error(
-                                'Server returned an invalid response.'
+                                'Server response is not JSON. HTTP Status: ' +
+                                response.status +
+                                '. Check browser console.'
                             );
                         }
-
 
                         /* =================================================
                            ERROR
@@ -2155,29 +2138,29 @@
 
                         addressCard.innerHTML = `
 
-                        <input
-                            type="radio"
-                            name="address_id"
-                            value="${escapeHtml(savedAddress.id)}"
-                            checked
-                            required
-                        >
+                            <input
+                                type="radio"
+                                name="address_id"
+                                value="${escapeHtml(savedAddress.id)}"
+                                checked
+                                required
+                            >
 
-                        <div class="checkout-address-content">
+                            <div class="checkout-address-content">
 
-                            <div class="checkout-address-name">
+                                <div class="checkout-address-name">
 
-                                <strong>
-                                    ${escapeHtml(savedAddress.name)}
-                                </strong>
+                                    <strong>
+                                        ${escapeHtml(savedAddress.name)}
+                                    </strong>
 
-                            </div>
+                                </div>
 
-                            <div class="checkout-address-details">
+                                <div class="checkout-address-details">
 
-                                ${escapeHtml(savedAddress.address)}
+                                    ${escapeHtml(savedAddress.address)}
 
-                                ${savedAddress.address_2
+                                    ${savedAddress.address_2
                                 ? '<br>' +
                                 escapeHtml(
                                     savedAddress.address_2
@@ -2185,23 +2168,23 @@
                                 : ''
                             }
 
-                                <br>
+                                    <br>
 
-                                ${escapeHtml(savedAddress.city)},
-                                ${escapeHtml(savedAddress.state)}
-                                -
-                                ${escapeHtml(savedAddress.pincode)}
+                                    ${escapeHtml(savedAddress.city)},
+                                    ${escapeHtml(savedAddress.state)}
+                                    -
+                                    ${escapeHtml(savedAddress.pincode)}
 
-                                <br>
+                                    <br>
 
-                                Mobile:
-                                ${escapeHtml(savedAddress.mobile)}
+                                    Mobile:
+                                    ${escapeHtml(savedAddress.mobile)}
+
+                                </div>
 
                             </div>
 
-                        </div>
-
-                    `;
+                        `;
 
 
                         /* =================================================
@@ -2269,9 +2252,9 @@
                         saveAddressBtn.disabled = false;
 
                         saveAddressBtn.innerHTML = `
-                        <i class="fa-solid fa-check"></i>
-                        Save Address
-                    `;
+                            <i class="fa-solid fa-check"></i>
+                            Save Address
+                        `;
 
                     }
 
@@ -2419,9 +2402,9 @@
                             placeOrderButton.disabled = true;
 
                             placeOrderButton.innerHTML = `
-                            <i class="fa-solid fa-spinner fa-spin"></i>
-                            Processing...
-                        `;
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                                Processing...
+                            `;
 
                         }
 
@@ -2531,13 +2514,13 @@
 
                 addressMessage.innerHTML = `
 
-                <div class="checkout-error">
+                    <div class="checkout-error">
 
-                    ${escapeHtml(message)}
+                        ${escapeHtml(message)}
 
-                </div>
+                    </div>
 
-            `;
+                `;
 
             }
 
@@ -2550,13 +2533,13 @@
 
                 addressMessage.innerHTML = `
 
-                <div class="checkout-success">
+                    <div class="checkout-success">
 
-                    ${escapeHtml(message)}
+                        ${escapeHtml(message)}
 
-                </div>
+                    </div>
 
-            `;
+                `;
 
 
                 setTimeout(function () {

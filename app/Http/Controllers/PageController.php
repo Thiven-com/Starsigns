@@ -267,16 +267,17 @@ class PageController extends Controller
     {
         $customer = Auth::guard('customer')->user();
 
-        $query = CartItem::with([
+        if (!$customer) {
+            return redirect()
+                ->route('customer.login')
+                ->with('error', 'Please login to continue.');
+        }
+
+        $cartItems = CartItem::with([
             'variant.product'
-        ]);
-
-        $query->where(
-            'user_id',
-            $customer->id
-        );
-
-        $cartItems = $query->get();
+        ])
+            ->where('user_id', $customer->id)
+            ->get();
 
         if ($cartItems->isEmpty()) {
             return redirect()
@@ -312,15 +313,10 @@ class PageController extends Controller
             $originalTotal - $subtotal
         );
 
-        $shipping = $subtotal >= 999 ? 0 : 0;
+        // Free shipping
+        $shipping = 0;
 
         $total = $subtotal + $shipping;
-
-        /*
-        |--------------------------------------------------------------------------
-        | Customer Saved Addresses
-        |--------------------------------------------------------------------------
-        */
 
         $addresses = $customer->addresses()
             ->latest()
@@ -426,6 +422,45 @@ class PageController extends Controller
     // {
     //     return view('website.offers');
     // }
+    public function storeAddress(Request $request)
+    {
+        $customer = Auth::guard('customer')->user();
+
+        if (!$customer) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Please login first.'
+            ], 401);
+        }
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'mobile' => 'required|digits:10',
+            'address' => 'required|string',
+            'address_2' => 'nullable|string|max:255',
+            'city' => 'required|string|max:100',
+            'state' => 'required|string|max:100',
+            'pincode' => 'required|digits:6',
+            'country' => 'required|string|max:100',
+        ]);
+
+        $address = $customer->addresses()->create([
+            'name' => $validated['name'],
+            'mobile' => $validated['mobile'],
+            'address' => $validated['address'],
+            'address_2' => $validated['address_2'] ?? null,
+            'city' => $validated['city'],
+            'state' => $validated['state'],
+            'pincode' => $validated['pincode'],
+            'country' => $validated['country'],
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Address added successfully.',
+            'address' => $address,
+        ], 200);
+    }
 
     public function subscriptionStore(Request $request)
     {

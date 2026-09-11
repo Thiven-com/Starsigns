@@ -31,8 +31,8 @@ class AddressController extends Controller
             'customer_id',
             $userId
         )
-        ->latest()
-        ->get();
+            ->latest()
+            ->get();
 
         return view(
             'website.addresses',
@@ -49,73 +49,42 @@ class AddressController extends Controller
      */
     public function storeAddress(Request $request)
     {
-        if (!Auth::guard('customer')->check()) {
-            return redirect()
-                ->route('login')
-                ->with('error', 'Please login first.');
+        $customer = Auth::guard('customer')->user();
+
+        if (!$customer) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Please login first.'
+            ], 401);
         }
 
-        $userId = Auth::guard('customer')->id();
-
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
-
-            'gst' => 'nullable|string|max:100',
-
-            'mobile' => 'required|string|max:20',
-
-            'alternate_mobile' => 'nullable|string|max:20',
-
-            'email' => 'nullable|email|max:255',
-
-            'pincode' => 'required|string|max:10',
-
-            'city' => 'required|string|max:255',
-
-            'landmark' => 'nullable|string|max:255',
-
-            'state' => 'required|string|max:255',
-
-            'address' => 'required|string|max:500',
-
-            'address_2' => 'nullable|string|max:500',
+            'mobile' => 'required|digits:10',
+            'address' => 'required|string',
+            'address_2' => 'nullable|string|max:255',
+            'city' => 'required|string|max:100',
+            'state' => 'required|string|max:100',
+            'pincode' => 'required|digits:6',
+            'country' => 'required|string|max:100',
         ]);
 
-
-        Address::create([
-            'name' => $request->name,
-
-            'gst' => $request->gst,
-
-            'mobile' => $request->mobile,
-
-            'alternate_mobile' =>
-                $request->alternate_mobile,
-
-            'email' => $request->email,
-
-            'pincode' => $request->pincode,
-
-            'city' => $request->city,
-
-            'landmark' => $request->landmark,
-
-            'state' => $request->state,
-
-            'address' => $request->address,
-
-            'address_2' => $request->address_2,
-
-            'customer_id' => $userId,
+        $address = $customer->addresses()->create([
+            'name' => $validated['name'],
+            'mobile' => $validated['mobile'],
+            'address' => $validated['address'],
+            'address_2' => $validated['address_2'] ?? null,
+            'city' => $validated['city'],
+            'state' => $validated['state'],
+            'pincode' => $validated['pincode'],
+            'country' => $validated['country'],
         ]);
 
-
-        return redirect()
-            ->route('customer.addresses')
-            ->with(
-                'success',
-                'Address added successfully.'
-            );
+        return response()->json([
+            'success' => true,
+            'message' => 'Address added successfully.',
+            'address' => $address,
+        ], 200);
     }
 
 
@@ -229,11 +198,11 @@ class AddressController extends Controller
             'id',
             $id
         )
-        ->where(
-            'customer_id',
-            $userId
-        )
-        ->firstOrFail();
+            ->where(
+                'customer_id',
+                $userId
+            )
+            ->firstOrFail();
 
 
         $address->delete();
