@@ -111,7 +111,6 @@ class OrderController extends Controller
             'items.variant.attributeValues.attribute',
             'items.variant.product',
             'payments',
-            'shipments',
         ]);
         $states = State::get();
         return view('admin.orders.show', compact('order', 'states'));

@@ -62,18 +62,17 @@
                             <a href="{{ route('admin.orders.index') }}" class="btn btn-light btn-sm w-100">
                                 Clear
                             </a>
-
-                            <button id="createParcelBtn" onclick="disableBtn()" type="button"
+                            {{-- <button id="createParcelBtn" onclick="disableBtn()" type="button"
                                 class="btn btn-primary btn-sm w-100">
                                 Create Parcel
-                            </button>
+                            </button> --}}
                         </div>
-                        <div class="col-md-3 mt-3" style="float: inline-end;">
+                        {{-- <div class="col-md-3 mt-3" style="float: inline-end;">
                             <button id="refreshAWB" onclick="disableBtn1()" type="button"
                                 class="btn btn-warning btn-sm w-100">
                                 Refresh AWB Status
                             </button>
-                        </div>
+                        </div> --}}
 
                     </form>
                 </div>
@@ -98,7 +97,7 @@
                                     {{-- <th>Paid</th>
                                     <th>Due</th> --}}
                                     <th>Payment Status</th>
-                                    <th>Shipment</th>
+                                    {{-- <th>Shipment</th> --}}
                                     <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
@@ -175,7 +174,7 @@
                                                 ucfirst($order->payment_status ?? 'N/A') }}</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @php
                                                 $awb = $order->awb ?? null;
                                                 $carrier = $order->carrier ?? null;
@@ -197,7 +196,7 @@
                                             @else
                                                 <span class="text-muted">-</span>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             <a href="{{ route('admin.orders.show', $order->id) }}" class="dropdown-item"><i
                                                     data-feather="eye" class="me-1"></i> View Sale</a>
