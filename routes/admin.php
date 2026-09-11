@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 // use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\RegistrationController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\ServicesingleController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\DonationEnquiryController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SubscriptionController;
@@ -90,6 +92,40 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('bulkProductUpdate', [ProductController::class, 'bulkProductUpdate'])->name('admin.bulkProductUpdate');
 
     Route::post('delete-variant-video', [ProductController::class, 'deleteVideo']);
+
+    Route::get('/orders/{id}/print', "OrderController@print")->name('admin.orders.print');
+    Route::get('/orders/{order}/download', 'OrderController@downloadInvoice')->name('admin.orders.download');
+
+    Route::resource('orders', OrderController::class)->names('admin.orders');
+    Route::resource('customers', CustomerController::class)->names('admin.customers');
+
+
+    Route::post('/admin/orders/status', [OrderController::class, 'updateStatus'])
+        ->name('admin.orders.updateStatus');
+    Route::post('/admin/orders/update-order', [OrderController::class, 'updateOrder'])
+        ->name('admin.orders.updateOrder');
+    Route::post('/admin/orders/update-address', [OrderController::class, 'updateAddress'])
+        ->name('admin.orders.updateAddress');
+
+    Route::get('ordersExport', [OrderController::class, 'export'])
+        ->name('admin.orders.export');
+
+    Route::get('/admin/reports/orders/today', [OrderController::class, 'todayOrdersExport'])
+        ->name('admin.reports.orders.today');
+    Route::get('/admin/reports/transactions/today', [OrderController::class, 'todayTransactionsExport'])
+        ->name('admin.reports.transactions.today');
+
+    Route::post('/orders/create-bulk-parcel', [OrderController::class, 'createBulkParcel'])
+        ->name('admin.orders.createBulkParcel');
+
+    Route::any('/refresh-orders/awb-status', [OrderController::class, 'refreshAwbStatus'])
+        ->name('admin.orders.refresh-awb-status');
+
+    Route::post('/orders/import-awb-csv', [OrderController::class, 'importAwbCsv'])
+        ->name('admin.orders.importAwbCsv');
+
+    Route::get('/update-orders/upload-awb', [OrderController::class, 'uploadAwbPage'])
+        ->name('admin.orders.uploadAwbPage');
 
 });
 
